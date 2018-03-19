@@ -2,5 +2,6 @@
 {% block body_text %}
 {% autoescape false %}
 bonjour {{ user.username }}
+    {{ confirmationUrl }}
     {% endautoescape %}
 {% endblock %}
