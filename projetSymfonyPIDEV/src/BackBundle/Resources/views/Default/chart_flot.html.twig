@@ -1,0 +1,123 @@
+{% extends 'BackBundle:Default:index.html.twig' %}
+{% block content %}
+<div class="container-fluid">
+    <!-- Start Page Content -->
+
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="card">
+                <div class="card-title">
+                    <h4>Real Chart</h4>
+                </div>
+                <div class="flot-container">
+                    <div id="cpu-load" class="cpu-load"></div>
+                </div>
+            </div>
+            <!-- /# card -->
+        </div>
+        <!-- /# column -->
+
+        <div class="col-lg-6">
+            <div class="card">
+                <div class="card-title">
+                    <h4>Line Chart</h4>
+                </div>
+                <div class="flot-container">
+                    <div id="flot-line" class="flot-line"></div>
+                </div>
+            </div>
+            <!-- /# card -->
+        </div>
+        <!-- /# column -->
+    </div>
+    <!-- /# row -->
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="card">
+                <div class="card-title">
+                    <h4>Pie Chart</h4>
+                </div>
+                <div class="flot-container">
+                    <div id="flot-pie" class="flot-pie-container"></div>
+                </div>
+            </div>
+            <!-- /# card -->
+        </div>
+        <!-- /# column -->
+
+        <div class="col-lg-6">
+            <div class="card">
+                <div class="card-title">
+                    <h4>Line Chart</h4>
+                </div>
+                <div class="flot-container">
+                    <div id="chart1"></div>
+                </div>
+            </div>
+            <!-- /# card -->
+        </div>
+        <!-- /# column -->
+    </div>
+    <!-- /# row -->
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="card">
+                <div class="card-title">
+                    <h4>Bar Chart</h4>
+                </div>
+                <div class="flot-container">
+                    <div id="flotBar"></div>
+                </div>
+            </div>
+            <!-- /# card -->
+        </div>
+        <!-- /# column -->
+
+        <div class="col-lg-6">
+            <div class="card">
+                <div class="card-title">
+                    <h4>Curve Line</h4>
+                </div>
+                <div class="flot-container">
+                    <div id="flotCurve"></div>
+                </div>
+            </div>
+            <!-- /# card -->
+        </div>
+        <!-- /# column -->
+    </div>
+    <!-- /# row -->
+    <!-- End PAge Content -->
+</div>
+<!-- End Container fluid  -->
+<!-- footer -->
+
+<!-- End Wrapper -->
+<!-- All Jquery -->
+<script src="{{ asset('back/js/lib/jquery/jquery.min.js') }}"></script>
+<!-- Bootstrap tether Core JavaScript -->
+<script src="{{ asset('back/js/lib/bootstrap/js/popper.min.js') }}"></script>
+<script src="{{ asset('back/js/lib/bootstrap/js/bootstrap.min.js') }}"></script>
+<!-- slimscrollbar scrollbar JavaScript -->
+<script src="{{ asset('back/js/jquery.slimscroll.js') }}"></script>
+<!--Menu sidebar -->
+<script src="{{ asset('back/js/sidebarmenu.js') }}"></script>
+<!--stickey kit -->
+<script src="{{ asset('back/js/lib/sticky-kit-master/dist/sticky-kit.min.js') }}"></script>
+
+
+<!--  flot-chart js -->
+<script src="{{ asset('back/js/lib/flot-chart/excanvas.min.js') }}"></script>
+<script src="{{ asset('back/js/lib/flot-chart/jquery.flot.js') }}"></script>
+<script src="{{ asset('back/js/lib/flot-chart/jquery.flot.pie.js') }}"></script>
+<script src="{{ asset('back/js/lib/flot-chart/jquery.flot.time.js') }}"></script>
+<script src="{{ asset('back/js/lib/flot-chart/jquery.flot.stack.js') }}"></script>
+<script src="{{ asset('back/js/lib/flot-chart/jquery.flot.resize.js') }}"></script>
+<script src="{{ asset('back/js/lib/flot-chart/jquery.flot.crosshair.js') }}"></script>
+<script src="{{ asset('back/js/lib/flot-chart/curvedLines.js') }}"></script>
+<script src="{{ asset('back/js/lib/flot-chart/flot-tooltip/jquery.flot.tooltip.min.js') }}"></script>
+<script src="{{ asset('back/js/lib/flot-chart/flot-chart-init.js') }}"></script>
+<!--Custom JavaScript -->
+<script src="{{ asset('back/js/custom.min.js') }}"></script>
+
+{% endblock %}

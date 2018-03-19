@@ -1,0 +1,105 @@
+index:
+    path:     /
+    defaults: { _controller: BackBundle:Default:index }
+accueil:
+    path:     /accueil
+    defaults: { _controller: BackBundle:Default:accueil }
+app_profile:
+    path:     /app_profile
+    defaults: { _controller: BackBundle:Default:app_profile }
+chart_amchart:
+    path:     /chart_amchart
+    defaults: { _controller: BackBundle:Default:chart_amchart }
+chart_chartist:
+    path:     /chart_chartist
+    defaults: { _controller: BackBundle:Default:chart_chartist }
+chart_chartjs:
+    path:     /chart_chartjs
+    defaults: { _controller: BackBundle:Default:chart_chartjs }
+chart_echart:
+    path:     /chart_echart
+    defaults: { _controller: BackBundle:Default:chart_echart }
+chart_flot:
+    path:     /chart_flot
+    defaults: { _controller: BackBundle:Default:chart_flot }
+chart_morris:
+    path:     /chart_morris
+    defaults: { _controller: BackBundle:Default:chart_morris }
+chart_peity:
+    path:     /chart_peity
+    defaults: { _controller: BackBundle:Default:chart_peity }
+chart_sparkline:
+    path:     /chart_sparkline
+    defaults: { _controller: BackBundle:Default:chart_sparkline }
+email_compose:
+    path:     /email_compose
+    defaults: { _controller: BackBundle:Default:email_compose }
+email_inbox:
+    path:     /email_inbox
+    defaults: { _controller: BackBundle:Default:email_inbox }
+email_read:
+    path:     /email_read
+    defaults: { _controller: BackBundle:Default:email_read }
+form_basic:
+    path:     /form_basic
+    defaults: { _controller: BackBundle:Default:form_basic }
+form_dropzone:
+    path:     /form_dropzone
+    defaults: { _controller: BackBundle:Default:form_dropzone }
+form_editor:
+    path:     /form_editor
+    defaults: { _controller: BackBundle:Default:form_editor }
+form_layout:
+    path:     /form_layout
+    defaults: { _controller: BackBundle:Default:form_layout }
+form_validation:
+    path:     /form_validation
+    defaults: { _controller: BackBundle:Default:form_validation }
+index1:
+    path:     /index1
+    defaults: { _controller: BackBundle:Default:index1 }
+layout_blank:
+    path:     /layout_blank
+    defaults: { _controller: BackBundle:Default:layout_blank }
+layout_boxed:
+    path:     /layout_boxed
+    defaults: { _controller: BackBundle:Default:layout_boxed }
+map_google:
+    path:     /map_google
+    defaults: { _controller: BackBundle:Default:map_google }
+map_vector:
+    path:     /map_vector
+    defaults: { _controller: BackBundle:Default:map_vector }
+page_invoice:
+    path:     /page_invoice
+    defaults: { _controller: BackBundle:Default:page_invoice }
+page_login:
+    path:     /page_login
+    defaults: { _controller: BackBundle:Default:page_login }
+page_register:
+    path:     /page_register  table_bootstrap
+    defaults: { _controller: BackBundle:Default:page_register }
+table_bootstrap:
+    path:     /table_bootstrap
+    defaults: { _controller: BackBundle:Default:table_bootstrap }
+table_database:
+    path:     /table_database
+    defaults: { _controller: BackBundle:Default:table_database }
+uc_calendar:
+    path:     /uc_calendar
+    defaults: { _controller: BackBundle:Default:uc_calendar }
+uc_toastr:
+    path:     /uc_toastr
+    defaults: { _controller: BackBundle:Default:uc_toastr }
+ui_alert:
+    path:     /ui_alert
+    defaults: { _controller: BackBundle:Default:ui_alert }
+ui_button:
+    path:     /ui_button
+    defaults: { _controller: BackBundle:Default:ui_button }
+ui_progressbar:
+    path:     /ui_progressbar
+    defaults: { _controller: BackBundle:Default:ui_progressbar }
+ui_tab:
+    path:     /ui_tab
+    defaults: { _controller: BackBundle:Default:ui_tab }

@@ -1,0 +1,9 @@
+user_homepage:
+    path:     /
+    defaults: { _controller: UserBundle:Default:index }
+ROLE_USER:
+    path:     /user/test
+    defaults: { _controller: UserBundle:Default:testRoleUser }
+ROLE_ADMIN:
+    path:     /admin/test
+    defaults: { _controller: UserBundle:Default:testRoleAdmin }

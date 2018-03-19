@@ -1,0 +1,55 @@
+front_homepage:
+    path:     /
+    defaults: { _controller: FrontBundle:Default:index }
+
+layout:
+    path:     /layout
+    defaults: { _controller: FrontBundle:Default:layout }
+accueil:
+    path:     /accueil
+    defaults: { _controller: FrontBundle:Default:accueil }
+wishlist:
+    path:     /wishlist
+    defaults: { _controller: FrontBundle:Default:wishlist }
+about:
+    path:     /about
+    defaults: { _controller: FrontBundle:Default:about }
+care:
+    path:     /care
+    defaults: { _controller: FrontBundle:Default:care }
+codes:
+    path:     /codes
+    defaults: { _controller: FrontBundle:Default:codes }
+contact:
+    path:     /contact
+    defaults: { _controller: FrontBundle:Default:contact }
+faqs:
+    path:     /faqs
+    defaults: { _controller: FrontBundle:Default:faqs }
+hold:
+    path:     /hold
+    defaults: { _controller: FrontBundle:Default:hold }
+kitchen:
+    path:     /kitchen
+    defaults: { _controller: FrontBundle:Default:kitchen }
+login:
+    path:     /login
+    defaults: { _controller: FrontBundle:Default:login }
+offer:
+    path:     /offer
+    defaults: { _controller: FrontBundle:Default:offer }
+register:
+    path:     /register
+    defaults: { _controller: FrontBundle:Default:register }
+shipping:
+    path:     /shipping
+    defaults: { _controller: FrontBundle:Default:shipping }
+single:
+    path:     /single
+    defaults: { _controller: FrontBundle:Default:single }
+terms:
+    path:     /terms
+    defaults: { _controller: FrontBundle:Default:terms }
+
+
+

@@ -1,0 +1,6 @@
+{% block subject %}Confirmation d'inscription{% endblock %}
+{% block body_text %}
+{% autoescape false %}
+bonjour {{ user.username }}
+    {% endautoescape %}
+{% endblock %}

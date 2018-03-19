@@ -1,6 +1,0 @@
-front_homepage:
-    path:     /
-    defaults: { _controller: FrontBundle:Default:index }
-home:
-    path:     /home
-    defaults: { _controller: FrontBundle:Default:home }
