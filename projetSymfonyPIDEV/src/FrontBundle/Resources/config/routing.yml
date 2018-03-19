@@ -39,7 +39,7 @@ offer:
     path:     /offer
     defaults: { _controller: FrontBundle:Default:offer }
 register:
-    path:     /register/
+    path:     /register
     defaults: { _controller: FrontBundle:Default:register }
 shipping:
     path:     /shipping
