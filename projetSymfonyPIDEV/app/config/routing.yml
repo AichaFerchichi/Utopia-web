@@ -1,10 +1,10 @@
 back:
     resource: "@BackBundle/Resources/config/routing.yml"
-    prefix:   /
+    prefix:   /back
 
 user:
     resource: "@UserBundle/Resources/config/routing.yml"
-    prefix:   /
+    prefix:   /user
 
 front:
     resource: "@FrontBundle/Resources/config/routing.yml"
@@ -17,4 +17,5 @@ app:
 fos_user:
     resource: "@FOSUserBundle/Resources/config/routing/all.xml"
     prefix: /fos
+
 

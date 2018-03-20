@@ -74,6 +74,13 @@ class DefaultController extends Controller
         return $this->render('FrontBundle:Default:terms.html.twig');
     }
 
-
+    public function testRoleUserAction(Request $request){
+        $this->denyAccessUnlessGranted('ROLE_USER');
+        return $this->render('Exemples_Roles/hello-world-user.html.twig');
+    }
+    public function testRoleAdminAction(Request $request){
+        $this->denyAccessUnlessGranted('ROLE_ADMIN');
+        return $this->render('Exemples_Roles/hello-world-admin.html.twig');
+    }
 
 }
