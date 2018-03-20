@@ -1,6 +1,6 @@
 front_homepage:
     path:     /
-    defaults: { _controller: FrontBundle:Default:index }
+    defaults: { _controller: FrontBundle:Default:accueil }
 
 layout:
     path:     /layout
@@ -51,5 +51,10 @@ terms:
     path:     /terms
     defaults: { _controller: FrontBundle:Default:terms }
 
-
+ROLE_USER:
+    path:     /fos/user/test
+    defaults: { _controller: FrontBundle:Default:testRoleUser }
+ROLE_ADMIN:
+    path:     /fos/admin/test
+    defaults: { _controller: FrontBundle:Default:testRoleAdmin }
 
