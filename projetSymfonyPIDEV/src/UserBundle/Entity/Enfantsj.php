@@ -1,16 +1,16 @@
 <?php
 
-namespace FrontBundle\Entity;
+namespace UserBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Enfants
+ * Enfantsj
  *
- * @ORM\Table(name="enfants", indexes={@ORM\Index(name="enfants_ibfk_1", columns={"id_parent"}), @ORM\Index(name="id_garderie", columns={"id_garderie"})})
+ * @ORM\Table(name="enfantsj", indexes={@ORM\Index(name="id_parent", columns={"id_parent"}), @ORM\Index(name="id_jardinEnfant", columns={"id_jardinEnfant"})})
  * @ORM\Entity
  */
-class Enfants
+class Enfantsj
 {
     /**
      * @var integer
@@ -45,14 +45,14 @@ class Enfants
     /**
      * @var string
      *
-     * @ORM\Column(name="image", type="string", length=100, nullable=false)
+     * @ORM\Column(name="image", type="string", length=200, nullable=false)
      */
     private $image;
 
     /**
-     * @var \FosUser
+     * @var \User
      *
-     * @ORM\ManyToOne(targetEntity="FosUser")
+     * @ORM\ManyToOne(targetEntity="User")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="id_parent", referencedColumnName="id")
      * })
@@ -60,14 +60,14 @@ class Enfants
     private $idParent;
 
     /**
-     * @var \Garderies
+     * @var \Jardinenfants
      *
-     * @ORM\ManyToOne(targetEntity="Garderies")
+     * @ORM\ManyToOne(targetEntity="Jardinenfants")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="id_garderie", referencedColumnName="id_garderie")
+     *   @ORM\JoinColumn(name="id_jardinEnfant", referencedColumnName="id_jardinEnfant")
      * })
      */
-    private $idGarderie;
+    private $idJardinenfant;
 
 
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace FrontBundle\Entity;
+namespace UserBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -36,6 +36,16 @@ class Rate
     private $pasaimer = '0';
 
     /**
+     * @var \User
+     *
+     * @ORM\ManyToOne(targetEntity="User")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_user", referencedColumnName="id")
+     * })
+     */
+    private $idUser;
+
+    /**
      * @var \Clubs
      *
      * @ORM\ManyToOne(targetEntity="Clubs")
@@ -44,16 +54,6 @@ class Rate
      * })
      */
     private $nomClub;
-
-    /**
-     * @var \FosUser
-     *
-     * @ORM\ManyToOne(targetEntity="FosUser")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="id_user", referencedColumnName="id")
-     * })
-     */
-    private $idUser;
 
 
 }

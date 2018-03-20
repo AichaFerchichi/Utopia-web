@@ -1,6 +1,6 @@
 <?php
 
-namespace FrontBundle\Entity;
+namespace UserBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -57,9 +57,9 @@ class Evaluations
     private $prenomEnfant;
 
     /**
-     * @var \FosUser
+     * @var \User
      *
-     * @ORM\ManyToOne(targetEntity="FosUser")
+     * @ORM\ManyToOne(targetEntity="User")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="id_enseignant", referencedColumnName="id")
      * })

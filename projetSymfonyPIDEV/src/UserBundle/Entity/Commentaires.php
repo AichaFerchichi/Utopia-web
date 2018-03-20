@@ -1,6 +1,6 @@
 <?php
 
-namespace FrontBundle\Entity;
+namespace UserBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -29,6 +29,16 @@ class Commentaires
     private $contenu;
 
     /**
+     * @var \User
+     *
+     * @ORM\ManyToOne(targetEntity="User")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_parent", referencedColumnName="id")
+     * })
+     */
+    private $idParent;
+
+    /**
      * @var \Produits
      *
      * @ORM\ManyToOne(targetEntity="Produits")
@@ -37,16 +47,6 @@ class Commentaires
      * })
      */
     private $idProduit;
-
-    /**
-     * @var \FosUser
-     *
-     * @ORM\ManyToOne(targetEntity="FosUser")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="id_parent", referencedColumnName="id")
-     * })
-     */
-    private $idParent;
 
 
 }
