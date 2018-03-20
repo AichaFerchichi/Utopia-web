@@ -23,9 +23,9 @@
     <favorites_list name="projetSymfonyPIDEV" />
   </component>
   <component name="FileEditorManager">
-<<<<<<< HEAD
+
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
-=======
+
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="register.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/vendor/friendsofsymfony/user-bundle/Resources/views/Registration/register.html.twig">
@@ -57,7 +57,7 @@
           </provider>
         </entry>
       </file>
-<<<<<<< HEAD
+
       <file leaf-file-name="routing.yml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/UserBundle/Resources/config/routing.yml">
           <provider selected="true" editor-type-id="text-editor">
@@ -73,13 +73,14 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="34">
               <caret line="2" column="28" selection-start-line="2" selection-start-column="28" selection-end-line="2" selection-end-column="28" />
-=======
+
       <file leaf-file-name="register_content.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/vendor/friendsofsymfony/user-bundle/Resources/views/Registration/register_content.html.twig">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="68">
               <caret line="4" column="9" selection-start-line="4" selection-start-column="9" selection-end-line="4" selection-end-column="9" />
->>>>>>> c327534980deeb2ebd18d4ec94760de625b45c0b
+
+
               <folding />
             </state>
           </provider>
@@ -88,10 +89,10 @@
       <file leaf-file-name="register.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/FrontBundle/Resources/views/Default/register.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-<<<<<<< HEAD
+
+
             <state relative-caret-position="51">
               <caret line="3" column="10" selection-start-line="3" selection-start-column="10" selection-end-line="3" selection-end-column="10" />
-=======
             <state relative-caret-position="90">
               <caret line="181" column="36" selection-start-line="181" selection-start-column="36" selection-end-line="181" selection-end-column="36" />
               <folding />
@@ -104,7 +105,7 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
               <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
->>>>>>> e9d81b5904f6b13858c0ae06e5d219cc4e14523e
+
               <folding />
             </state>
           </provider>
@@ -130,10 +131,10 @@
           </provider>
         </entry>
       </file>
-<<<<<<< HEAD
+
       <file leaf-file-name="registration.email.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Resources/views/email/registration.email.twig">
-=======
+
       <file leaf-file-name="routing.yml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/FrontBundle/Resources/config/routing.yml">
           <provider selected="true" editor-type-id="text-editor">
@@ -146,7 +147,7 @@
       </file>
       <file leaf-file-name="DefaultController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/FrontBundle/Controller/DefaultController.php">
->>>>>>> e9d81b5904f6b13858c0ae06e5d219cc4e14523e
+
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="238">
               <caret line="61" column="34" selection-start-line="61" selection-start-column="34" selection-end-line="61" selection-end-column="34" />
@@ -156,17 +157,16 @@
         </entry>
       </file>
     </leaf>
->>>>>>> 4356e735c5cdc5a32403fb3033a98f979a5bc067
+
   </component>
   <component name="FrameworkCommandLineHistory">
     <commandsHistory>
-<<<<<<< HEAD
-=======
+
       <command text="sudo git clone https://github.com/FriendsOfSymfony/FOSUserBundle.git vendor/bundles/FOS/UserBundle" />
       <command text="git clone https://github.com/FriendsOfSymfony/FOSUserBundle.git vendor/bundles/FOS/UserBundle" />
       <command text="php git clone https://github.com/FriendsOfSymfony/FOSUserBundle.git vendor/bundles/FOS/UserBundle" />
       <command text="composer require friendsofsymfony/user-bundle &quot;~2.0&quot;" />
->>>>>>> e9d81b5904f6b13858c0ae06e5d219cc4e14523e
+
       <command text="php composer require friendsofsymfony/user-bundle &quot;~2.0&quot;" />
       <command text="s doctrine:database:create" />
       <command text="s generate:bundle " />
@@ -187,15 +187,15 @@
       <command text="clear" />
       <command text="s cache:clear" />
       <command text="s doctrine:schema:create" />
-<<<<<<< HEAD
+
       <command text="s generate:bundle" />
       <command text="c dump-autoload" />
       <command text="s generate:bundle" />
       <command text="c clear-cache" />
       <command text="c install " />
-=======
+
       <command text="php bin/console" />
->>>>>>> e9d81b5904f6b13858c0ae06e5d219cc4e14523e
+
     </commandsHistory>
   </component>
   <component name="IdeDocumentHistory">
@@ -366,7 +366,7 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-<<<<<<< HEAD
+
               <option name="myItemId" value="web" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
@@ -594,9 +594,8 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="Controller" />
-=======
+
               <option name="myItemId" value="vendor" />
->>>>>>> e9d81b5904f6b13858c0ae06e5d219cc4e14523e
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -732,63 +731,55 @@
       <workItem from="1521401384483" duration="6432000" />
       <workItem from="1521404490057" duration="5246000" />
       <workItem from="1521462782711" duration="879000" />
-<<<<<<< HEAD
+
       <workItem from="1521463805942" duration="459000" />
-<<<<<<< HEAD
+
       <workItem from="1521466237771" duration="1770000" />
       <workItem from="1521470530055" duration="2738000" />
-=======
       <workItem from="1521466237771" duration="3069000" />
       <workItem from="1521473200554" duration="955000" />
-=======
+
       <workItem from="1521463805942" duration="7836000" />
-<<<<<<< HEAD
+
       <workItem from="1521480977257" duration="575000" />
-=======
->>>>>>> c327534980deeb2ebd18d4ec94760de625b45c0b
->>>>>>> 4356e735c5cdc5a32403fb3033a98f979a5bc067
->>>>>>> e9d81b5904f6b13858c0ae06e5d219cc4e14523e
+
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-<<<<<<< HEAD
+
     <option name="totallyTimeSpent" value="78504000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="0" />
-=======
-<<<<<<< HEAD
+
     <option name="totallyTimeSpent" value="81948000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="false" />
-=======
-<<<<<<< HEAD
+
     <option name="totallyTimeSpent" value="78020000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="false" />
-=======
+
     <option name="totallyTimeSpent" value="81373000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
->>>>>>> e9d81b5904f6b13858c0ae06e5d219cc4e14523e
+
     <editor active="true" />
->>>>>>> c327534980deeb2ebd18d4ec94760de625b45c0b
->>>>>>> 4356e735c5cdc5a32403fb3033a98f979a5bc067
+
     <layout>
       <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16398244" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329653" sideWeight="0.1068814" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-<<<<<<< HEAD
-=======
+
       <window_info id="Command Line Tools Console" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33280757" sideWeight="0.8931186" order="8" side_tool="false" content_ui="tabs" />
->>>>>>> 4356e735c5cdc5a32403fb3033a98f979a5bc067
+
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -1050,13 +1041,13 @@
         </state>
       </provider>
     </entry>
-<<<<<<< HEAD
+
     <entry file="file://$PROJECT_DIR$/vendor/friendsofsymfony/user-bundle/Controller/RegistrationController.php" />
     <entry file="file://$PROJECT_DIR$/vendor/friendsofsymfony/user-bundle/Resources/config/routing/all.xml" />
     <entry file="file://$PROJECT_DIR$/vendor/bundles/FOS/UserBundle/Controller/RegistrationController.php" />
     <entry file="file://$PROJECT_DIR$/vendor/friendsofsymfony/user-bundle/Resources/config/routing/registration.xml" />
     <entry file="file://$PROJECT_DIR$/src/UserBundle/Entity/User.php">
-=======
+
     <entry file="file://$PROJECT_DIR$/vendor/friendsofsymfony/user-bundle/Resources/config/routing/resetting.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1086,7 +1077,7 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/views/email/registration.email.twig">
->>>>>>> e9d81b5904f6b13858c0ae06e5d219cc4e14523e
+
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="4" column="22" selection-start-line="4" selection-start-column="22" selection-end-line="4" selection-end-column="22" />
@@ -1100,12 +1091,12 @@
         </state>
       </provider>
     </entry>
-<<<<<<< HEAD
+
     <entry file="file://$PROJECT_DIR$/vendor/friendsofsymfony/user-bundle/Resources/views/Registration/register_content.html.twig" />
     <entry file="file://$PROJECT_DIR$/vendor/friendsofsymfony/user-bundle/Resources/views/Registration/register.html.twig" />
     <entry file="file://$PROJECT_DIR$/vendor/friendsofsymfony/user-bundle/Resources/views/Registration/email.txt.twig" />
     <entry file="file://$PROJECT_DIR$/app/Resources/views/email/registration.email.twig">
-=======
+
     <entry file="file://$PROJECT_DIR$/vendor/friendsofsymfony/user-bundle/Resources/config/routing/registration.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
@@ -1128,7 +1119,7 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/vendor/friendsofsymfony/user-bundle/Resources/views/layout.html.twig">
->>>>>>> e9d81b5904f6b13858c0ae06e5d219cc4e14523e
+
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="9" column="35" selection-start-line="9" selection-start-column="35" selection-end-line="9" selection-end-column="35" />
@@ -1136,10 +1127,10 @@
         </state>
       </provider>
     </entry>
-<<<<<<< HEAD
+
     <entry file="file://$PROJECT_DIR$/vendor/friendsofsymfony/user-bundle/Resources/config/routing/security.xml" />
     <entry file="file://$PROJECT_DIR$/app/config/config.yml">
-=======
+
     <entry file="file://$PROJECT_DIR$/vendor/friendsofsymfony/user-bundle/Resources/views/Registration/register.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
@@ -1149,7 +1140,7 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/config/security.yml">
->>>>>>> e9d81b5904f6b13858c0ae06e5d219cc4e14523e
+
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="361">
           <caret line="22" column="54" selection-start-line="22" selection-start-column="54" selection-end-line="22" selection-end-column="54" />
@@ -1165,31 +1156,27 @@
         </state>
       </provider>
     </entry>
-<<<<<<< HEAD
+
     <entry file="file://$PROJECT_DIR$/src/FrontBundle/Resources/views/Default/register.html.twig">
-=======
-<<<<<<< HEAD
+
     <entry file="file://$PROJECT_DIR$/app/config/security.yml">
-=======
+
     <entry file="file://$PROJECT_DIR$/src/FrontBundle/Controller/DefaultController.php">
->>>>>>> 4356e735c5cdc5a32403fb3033a98f979a5bc067
+
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
           <caret line="181" column="36" selection-start-line="181" selection-start-column="36" selection-end-line="181" selection-end-column="36" />
           <folding />
         </state>
       </provider>
-    </entry>
-<<<<<<< HEAD
+
     <entry file="file://$PROJECT_DIR$/app/config/parameters.yml" />
     <entry file="file://$PROJECT_DIR$/app/config/security.yml">
-=======
-<<<<<<< HEAD
+
     <entry file="file://$PROJECT_DIR$/app/config/routing_dev.yml">
-=======
+
     <entry file="file://$PROJECT_DIR$/src/FrontBundle/Resources/config/routing.yml">
->>>>>>> c327534980deeb2ebd18d4ec94760de625b45c0b
->>>>>>> 4356e735c5cdc5a32403fb3033a98f979a5bc067
+
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -1198,7 +1185,7 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/FrontBundle/Resources/views/Default/accueil.html.twig">
->>>>>>> e9d81b5904f6b13858c0ae06e5d219cc4e14523e
+
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="37" selection-start-line="0" selection-start-column="37" selection-end-line="0" selection-end-column="37" />
@@ -1224,11 +1211,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/FrontBundle/Controller/DefaultController.php">
       <provider selected="true" editor-type-id="text-editor">
-<<<<<<< HEAD
+
         <state relative-caret-position="238">
           <caret line="61" column="34" selection-start-line="61" selection-start-column="34" selection-end-line="61" selection-end-column="34" />
-=======
-<<<<<<< HEAD
+
         <state relative-caret-position="136">
           <caret line="8" column="2" selection-start-line="8" selection-start-column="2" selection-end-line="8" selection-end-column="2" />
           <folding />
@@ -1237,18 +1223,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/config/parameters.yml">
       <provider selected="true" editor-type-id="text-editor">
-<<<<<<< HEAD
+
         <state relative-caret-position="51">
           <caret line="3" column="10" selection-start-line="3" selection-start-column="10" selection-end-line="3" selection-end-column="10" />
-=======
+
         <state relative-caret-position="34">
           <caret line="2" column="28" selection-start-line="2" selection-start-column="28" selection-end-line="2" selection-end-column="28" />
-=======
+
         <state relative-caret-position="153">
           <caret line="9" column="35" selection-start-line="9" selection-start-column="35" selection-end-line="9" selection-end-column="35" />
->>>>>>> c327534980deeb2ebd18d4ec94760de625b45c0b
->>>>>>> 4356e735c5cdc5a32403fb3033a98f979a5bc067
->>>>>>> e9d81b5904f6b13858c0ae06e5d219cc4e14523e
+
           <folding />
         </state>
       </provider>

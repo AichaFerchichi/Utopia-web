@@ -1,5 +1,5 @@
 index:
-    path:     /
+    path:     /index
     defaults: { _controller: BackBundle:Default:index }
 accueil:
     path:     /accueil
@@ -103,3 +103,6 @@ ui_progressbar:
 ui_tab:
     path:     /ui_tab
     defaults: { _controller: BackBundle:Default:ui_tab }
+gestionProduits:
+    path:     /gestionProduits
+    defaults: { _controller: BackBundle:Default:gestionProduits }
