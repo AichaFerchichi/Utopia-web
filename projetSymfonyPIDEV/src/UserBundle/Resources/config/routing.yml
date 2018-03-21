@@ -7,3 +7,6 @@ ROLE_USER:
 ROLE_ADMIN:
     path:     /fos/admin/test
     defaults: { _controller: UserBundle:Default:testRoleAdmin }
+gestion_produits:
+    path:     /gestionProduits
+    defaults: { _controller: UserBundle:Produits:gestionProduits }
