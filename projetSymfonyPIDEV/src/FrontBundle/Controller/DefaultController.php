@@ -47,7 +47,7 @@ class DefaultController extends Controller
     }
     public function kitchenAction()
     {
-        return $this->render('FrontBundle:Default:kitchen.html.twig');
+        return $this->render('FrontBundle:Default:service.html.twig');
     }
     public function loginAction()
     {
