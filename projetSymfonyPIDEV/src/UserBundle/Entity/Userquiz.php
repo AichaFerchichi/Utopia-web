@@ -1,6 +1,6 @@
 <?php
 
-namespace FrontBundle\Entity;
+namespace UserBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -22,6 +22,16 @@ class Userquiz
     private $idUserquiz;
 
     /**
+     * @var \User
+     *
+     * @ORM\ManyToOne(targetEntity="User")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_user", referencedColumnName="id")
+     * })
+     */
+    private $idUser;
+
+    /**
      * @var \Quiz
      *
      * @ORM\ManyToOne(targetEntity="Quiz")
@@ -30,16 +40,6 @@ class Userquiz
      * })
      */
     private $idQuiz;
-
-    /**
-     * @var \FosUser
-     *
-     * @ORM\ManyToOne(targetEntity="FosUser")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="id_user", referencedColumnName="id")
-     * })
-     */
-    private $idUser;
 
 
 }
