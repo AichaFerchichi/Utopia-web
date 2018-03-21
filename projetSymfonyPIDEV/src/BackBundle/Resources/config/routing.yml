@@ -114,4 +114,10 @@ ui_tab:
     defaults: { _controller: BackBundle:Default:ui_tab }
 gestionProduits:
     path:     /gestionProduits
-    defaults: { _controller: BackBundle:Default:gestionProduits }
+    defaults: { _controller: UserBundle:Produits:gestionProduits }
+supprimerProduit:
+    path:     /supprimer/{id}
+    defaults: { _controller: UserBundle:Produits:supprimer }
+modifierProduits:
+    path:     /modifier/{id}
+    defaults: { _controller: UserBundle:Produits:modifier }
