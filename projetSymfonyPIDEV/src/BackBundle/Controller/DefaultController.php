@@ -46,10 +46,7 @@ class DefaultController extends Controller
     {
         return $this->render('BackBundle:Default:chart_sparkline.html.twig');
     }
-    public function email_composeAction()
-    {
-        return $this->render('BackBundle:Default:email_compose.html.twig');
-    }
+
     public function email_inboxAction()
     {
         return $this->render('BackBundle:Default:email_inbox.html.twig');

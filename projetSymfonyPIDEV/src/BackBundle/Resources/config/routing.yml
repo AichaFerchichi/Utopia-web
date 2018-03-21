@@ -33,7 +33,16 @@ chart_sparkline:
     defaults: { _controller: BackBundle:Default:chart_sparkline }
 email_compose:
     path:     /email_compose
-    defaults: { _controller: BackBundle:Default:email_compose }
+    defaults: { _controller: UserBundle:Garderies:ajout }
+modifierGarderie:
+    path:     /modifierGarderie/{id}
+    defaults: { _controller: UserBundle:Garderies:modifier }
+supprimerGarderie:
+    path:     /supprimerGarderie/{id}
+    defaults: { _controller: UserBundle:Garderies:delete }
+rechercherGarderie:
+    path:     /rechercherGarderie
+    defaults: { _controller: UserBundle:Garderies:rechercher }
 email_inbox:
     path:     /email_inbox
     defaults: { _controller: BackBundle:Default:email_inbox }
