@@ -18,7 +18,8 @@ class RechercheForm extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('nom',null,array('attr'=>array('class'=>'form-control', 'placeholder'=>'Search Default')))->add('search',SubmitType::class,array('attr'=>array('class'=>'btn btn-primary ti-search', 'placeholder'=>'Search Default')));
+        $builder->add('nom',null,array('label'=> 'nom','attr'=>array('class'=>'form-control', 'placeholder'=>'Recherche par nom..', 'style'=>'width:300px')))
+            ->add('Rechercher',SubmitType::class,array('label'=> ' ','attr'=>array('class'=>'btn btn-primary btn-group-right ti-search input-group-btn'))) ;
     }/**
  * {@inheritdoc}
  */

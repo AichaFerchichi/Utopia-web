@@ -40,14 +40,14 @@ class GarderiesController extends Controller
         $em=$this->getDoctrine()->getManager();
         $equipes=$em->getRepository('UserBundle:Garderies')->findAll();
 
-        $marque=new Garderies();
-        $form2=$this->createForm(RechercheForm::class,$marque);
-        if($form2->handleRequest($request)->isValid()){
+        $voiture2= new Garderies();
+        $form2=$this->createForm(RechercheForm::class,$voiture2);
+        if ($form2->handleRequest($request)->isValid())
+        {
             $em=$this->getDoctrine()->getManager();
-            $equipes=$em->getRepository('UserBundle:Garderies')->findBy($marque->getNom());
-
+            $equipes=$em->getRepository('UserBundle:Garderies')->find($voiture2->getNom());
         }
-        return $this->render('BackBundle:Default:email_compose.html.twig',array('f'=>$form->createView(),'m'=>$equipes,'form'=>$form2->createView()));
+        return $this->render('BackBundle:Default:email_compose.html.twig',array('f'=>$form->createView(),'m'=>$equipes,'f2'=>$form2->createView()));
 
     }
     public function rechercherAction(Request $request)

@@ -12,19 +12,30 @@
                             <div class="row" style="background-color: darkviolet">
                                 <div class="col-lg-12">
                                     <div class="card">
-                                        <div class="form-group"><div class="input-group input-group-flat">
-                                            <span class="input-group-btn">
-                                                {{ form_start(form) }}
+                                        <div class="col-lg-6">
+                                                    <div class="input-group input-group-default" >
+                                                        {{ form_start(f2) }}
+                                                        <table>
+                                                            <tr><td></td><td></td><td></td>
+                                                                <td>{{ form_widget(f2.nom) }}</td>
+
+                                                                <td> <span class="input-group-btn">{{ form_widget(f2.Rechercher) }}</span></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td></td>
+                                                            </tr>
+                                                        </table>
+
+                                                        {{ form_end(f2) }}
 
 
 
+                                                        <!--<span class="input-group-btn"><button class="btn btn-primary input-group-close-icon btn-group-left" type="submit"><i class="ti-close"></i></button></span>
+                                                        <input type="text" class="form-control" placeholder="recherche par catégorie..">
+                                                        <span class="input-group-btn"><button class="btn btn-primary btn-group-right" type="submit"><i class="ti-search"></i></button></span>-->
+                                                    </div>
+                                                    </div>
 
-                                                {{ form_end(form) }}
-
-
-                                                <button class="btn btn-primary input-group-close-icon" type="submit">
-                                                    <i class="ti-close"></i></button></span>
-                                            </div></div>
                                         <div class="card-title">
                                             <h4>Liste des garderies</h4>
 
@@ -40,7 +51,7 @@
                                                         <tbody>
                                                         <tr>
                                                             <td>
-<img src="{{ asset("ressources/" ~ i.getImage()) }}" width="200px" height="auto" >
+<img src="{{ asset("ressources/" ~ i.getImage()) }}" width="150px" height="auto" >
                                                             </td>
                                                             <td style="text-align: left"><li>{{ i.nom }}</li>
                                                                 <li>Email:{{ i.Email }}</li>
@@ -50,7 +61,7 @@
 
                                                                 <li>nombre de place Disponible:{{ i.getNbPlaceDispo() }}</li></td><td>
                                                                <form action="{{ path('modifierGarderie',{'id':i.getIdGarderie() }) }}" method="post">
-                                                                        <button type="submit" class="btn btn-warning m-b-10 m-l-5"value="Modifier" ><img width="20px" height="auto" src="{{ asset("ressources/modifier.png") }}"></button></form>
+                                                                        <button type="submit" class="btn btn-warning m-b-10 m-l-5"value="Modifier" ><img width="20px" height="auto" src="{{ asset("ressources/modifier.png") }}"></button></form></li>
                                                                <form action="{{ path('supprimerGarderie',{'id':i.getIdGarderie() }) }}" method="post"><button type="submit" class="btn btn-danger m-b-10 m-l-5"><img width="20px" height="auto" src="{{ asset("ressources/delete.png") }}"></button></form>
                                                                 <li class="nav-item dropdown mega-dropdown"> <a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="input-group-btn"><button class="btn btn-primary" type="submit" ><p style="color: white">+</p></button></span></a>
 
@@ -96,7 +107,7 @@
                                 <div class="col-lg-12">
                                     <div class="card">
                                         <div class="card-title">
-                                            <h4>Ajouter des nouvelles garderies</h4>
+                                            <h4>Ajout</h4>
 
                                         </div>
                                         <div class="card-body">

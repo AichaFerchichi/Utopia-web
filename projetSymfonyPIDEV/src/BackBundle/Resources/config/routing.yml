@@ -40,9 +40,6 @@ modifierGarderie:
 supprimerGarderie:
     path:     /supprimerGarderie/{id}
     defaults: { _controller: UserBundle:Garderies:delete }
-rechercherGarderie:
-    path:     /rechercherGarderie
-    defaults: { _controller: UserBundle:Garderies:rechercher }
 email_inbox:
     path:     /email_inbox
     defaults: { _controller: BackBundle:Default:email_inbox }
