@@ -1,5 +1,5 @@
 index:
-    path:     /
+    path:     /index
     defaults: { _controller: BackBundle:Default:index }
 accueil:
     path:     /accueil
@@ -33,7 +33,13 @@ chart_sparkline:
     defaults: { _controller: BackBundle:Default:chart_sparkline }
 email_compose:
     path:     /email_compose
-    defaults: { _controller: BackBundle:Default:email_compose }
+    defaults: { _controller: UserBundle:Garderies:ajout }
+modifierGarderie:
+    path:     /modifierGarderie/{id}
+    defaults: { _controller: UserBundle:Garderies:modifier }
+supprimerGarderie:
+    path:     /supprimerGarderie/{id}
+    defaults: { _controller: UserBundle:Garderies:delete }
 email_inbox:
     path:     /email_inbox
     defaults: { _controller: BackBundle:Default:email_inbox }
@@ -103,3 +109,15 @@ ui_progressbar:
 ui_tab:
     path:     /ui_tab
     defaults: { _controller: BackBundle:Default:ui_tab }
+<<<<<<< HEAD
+=======
+gestionProduits:
+    path:     /gestionProduits
+    defaults: { _controller: UserBundle:Produits:gestionProduits }
+supprimerProduit:
+    path:     /supprimer/{id}
+    defaults: { _controller: UserBundle:Produits:supprimer }
+modifierProduits:
+    path:     /modifier/{id}
+    defaults: { _controller: UserBundle:Produits:modifier }
+>>>>>>> 93acd274b38513ba033e93a8620a6fe70e78155e
