@@ -82,5 +82,10 @@ class DefaultController extends Controller
         $this->denyAccessUnlessGranted('ROLE_ADMIN');
         return $this->render('Exemples_Roles/hello-world-admin.html.twig');
     }
+    public function profilAction()
+    {
+        return $this->render('FrontBundle:Default:createProfile.html.twig');
+    }
+
 
 }
