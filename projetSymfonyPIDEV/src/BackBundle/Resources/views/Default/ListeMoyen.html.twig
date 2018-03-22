@@ -5,8 +5,16 @@
 
     <!-- Start Page Content -->
     <div class="row">
-        <div class="col-lg-16">
+
+
             <div class="card">
+                <div class="form-group">
+
+                    <div class="input-group input-group-rounded">
+                        <input type="text" placeholder="Search Round" name="Search" class="form-control">
+                        <span class="input-group-btn"><button class="btn btn-primary btn-group-right" type="submit"><i class="ti-search"></i></button></span>
+                    </div>
+                </div>
                 <div class="card-title">
                     <h4>Liste des moyens de transport</h4>
                 </div>
@@ -17,23 +25,23 @@
                         <table class="table table-striped" cellspacing="0" width="100%">
                             <thead>
                             <tr>
-
-                                <th>Type</th>
-                                <th>Immatriculation</th>
-                                <th>Nombre de place disponnible</th>
-                               <th></th>
-                                <th></th>
+                                <td>Type</td>
+                                <td>Immatriculation</td>
+                                <td>Nombre de place disponnible</td>
+                                <td></td>
+                                <td></td>
                             </tr>
                             </thead>
                             <tbody>
 
                             {% for i in e %}
                                 <tr>
+
                                     <td>{{ i.type }}</td>
                                     <td>{{ i.immatriculation }}</td>
                                     <td>{{ i.nombreDePlace }}</td>
                                     <td><a href="{{ path('Modifier',{'id':i.idMoyentransport})}}">
-                                            <span class="badge badge-primary">Modifier</span></a></td>
+                                           <span class="badge badge-primary">Modifier</span></a></td>
                                     <td><a href="{{ path('Supprimer',{'id':i.idMoyentransport})}}">
                                             <span class="badge badge-success">Supprimer</span></a></td>
 
@@ -46,7 +54,7 @@
                 </div>
             </div>
         </div>
-    </div>
+
     <!-- End PAge Content -->
 
 

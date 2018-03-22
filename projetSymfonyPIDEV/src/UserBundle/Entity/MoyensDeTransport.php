@@ -42,6 +42,70 @@ class MoyensDeTransport
      */
     private $nombreDePlace;
 
+    /**
+     * @return int
+     */
+    public function getIdMoyentransport()
+    {
+        return $this->idMoyentransport;
+    }
+
+    /**
+     * @param int $idMoyentransport
+     */
+    public function setIdMoyentransport($idMoyentransport)
+    {
+        $this->idMoyentransport = $idMoyentransport;
+    }
+
+    /**
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+
+    /**
+     * @param string $type
+     */
+    public function setType($type)
+    {
+        $this->type = $type;
+    }
+
+    /**
+     * @return string
+     */
+    public function getImmatriculation()
+    {
+        return $this->immatriculation;
+    }
+
+    /**
+     * @param string $immatriculation
+     */
+    public function setImmatriculation($immatriculation)
+    {
+        $this->immatriculation = $immatriculation;
+    }
+
+    /**
+     * @return int
+     */
+    public function getNombreDePlace()
+    {
+        return $this->nombreDePlace;
+    }
+
+    /**
+     * @param int $nombreDePlace
+     */
+    public function setNombreDePlace($nombreDePlace)
+    {
+        $this->nombreDePlace = $nombreDePlace;
+    }
+
 
 }
 
