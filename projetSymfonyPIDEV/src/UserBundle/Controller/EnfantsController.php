@@ -3,24 +3,27 @@
 namespace UserBundle\Controller;
 
 
+use UserBundle\Entity\Enfants;
+use UserBundle\Form\EnfantsType;
+
 use UserBundle\Form\RechercheForm;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-use UserBundle\Entity\Garderies;
-use UserBundle\Form\GarderiesType;
+use UserBundle\Entity\Enseignants;
 
-class GarderiesController extends Controller
+
+class EnfantsController extends Controller
 {
     public function indexAction()
     {
-        return $this->render('BackBundle:Default:email_compose.html.twig');
+        return $this->render('BackBundle:Default:email_read2.html.twig');
     }
     public function ajoutAction(Request $request)
     {
-        $joueur= new Garderies();
+        $joueur= new Enfants();
 
 
-        $form=$this->createForm(GarderiesType::class,$joueur);
+        $form=$this->createForm(EnfantsType::class,$joueur);
         if ($form->handleRequest($request)->isValid())
         {/**
          * @var UploadedFile $file
@@ -34,34 +37,34 @@ class GarderiesController extends Controller
             $em->persist($joueur);
             $em->flush();
             //return $this->redirectToRoute('affiche');
-            return $this->redirectToRoute('email_compose');
+            return $this->redirectToRoute('email_read2');
 
         }
         $em=$this->getDoctrine()->getManager();
-        $equipes=$em->getRepository('UserBundle:Garderies')->findAll();
+        $equipes=$em->getRepository('UserBundle:Enfants')->findAll();
 
 
-        return $this->render('BackBundle:Default:email_compose.html.twig',array('f'=>$form->createView(),'m'=>$equipes));
+        return $this->render('BackBundle:Default:email_read2.html.twig',array('f'=>$form->createView(),'m'=>$equipes));
 
     }
 
     public function rechercherAction(Request $request){
         $em=$this->getDoctrine()->getManager();
         $motcle=$request->get('motcle');
-        $repository=$em->getRepository('UserBundle:Garderies');
+        $repository=$em->getRepository('UserBundle:Enfants');
         $query=$em->createQueryBuilder()
-            ->select('p')->from('UserBundle:Garderies','p')
-            ->where('p.nom like :nom')
+            ->select('p')->from('UserBundle:Enfants','p')
+            ->where('p.nomEnfant like :nom')
             ->setParameter('nom','%'.$motcle.'%')
-            ->orderBy('p.nom','ASC')
+            ->orderBy('p.nomEnfant','ASC')
             ->getQuery();
 
         $produits=$query->getResult();
 //ajout
-        $joueur= new Garderies();
+        $joueur= new Enfants();
 
 
-        $form=$this->createForm(GarderiesType::class,$joueur);
+        $form=$this->createForm(EnfantsType::class,$joueur);
         if ($form->handleRequest($request)->isValid())
         {/**
          * @var UploadedFile $file
@@ -75,30 +78,30 @@ class GarderiesController extends Controller
             $em->persist($joueur);
             $em->flush();
             //return $this->redirectToRoute('affiche');
-            return $this->redirectToRoute('email_compose');
+            return $this->redirectToRoute('email_read2');
 
         }
 
-        return $this->render('BackBundle:Default:email_compose.html.twig',array('m'=>$produits,'f'=>$form->createView()));
+        return $this->render('BackBundle:Default:email_read2.html.twig',array('m'=>$produits,'f'=>$form->createView()));
     }
 
     public function affichageAction()
     {
-        $marque=new Garderies();
+        $marque=new Enfants();
 
         $em=$this->getDoctrine()->getManager();
 
-        $equipes=$em->getRepository('UserBundle:Garderies')->findAll();
+        $equipes=$em->getRepository('UserBundle:Enfants')->findAll();
 
-        return $this->render('BackBundle:Default:email_compose.html.twig', array(
+        return $this->render('BackBundle:Default:email_read2.html.twig', array(
             'm'=>$equipes));
 
     }
     public function modifierAction(Request $request,$id)
     {
         $em = $this->getDoctrine()->getManager();
-        $mark = $em->getRepository('UserBundle:Garderies')->find($id);
-        $form = $this->createForm(GarderiesType::class, $mark);
+        $mark = $em->getRepository('UserBundle:Enfants')->find($id);
+        $form = $this->createForm(EnfantsType::class, $mark);
         if ($form->handleRequest($request)->isValid()) {
             /**
              * @var UploadedFile $file
@@ -109,18 +112,18 @@ class GarderiesController extends Controller
             $mark->setImage($fileName);
             $em->persist($mark);
             $em->flush();
-            return $this->redirectToRoute('email_compose');
+            return $this->redirectToRoute('email_read2');
         }
-        return $this->render('BackBundle:Default:modifierGarderie.html.twig', array('f' => $form->createView()));
+        return $this->render('BackBundle:Default:modifierEnfant.html.twig', array('f' => $form->createView()));
     }
 
 
     public function deleteAction($id)
     {
         $em=$this->getDoctrine()->getManager();
-        $equipe=$em->find(Garderies::class,$id);
+        $equipe=$em->find(Enfants::class,$id);
         $em->remove($equipe);
         $em->flush();
-        return $this->redirectToRoute('email_compose');
+        return $this->redirectToRoute('email_read2');
     }
 }
