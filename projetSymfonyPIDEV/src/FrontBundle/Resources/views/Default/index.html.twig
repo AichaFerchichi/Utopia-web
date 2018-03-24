@@ -67,6 +67,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 </head>
 <body>
+
 <div>
     {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
         {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} |
@@ -93,13 +94,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     {% endblock fos_user_content %}
 </div>
 <div id="container">
-    <a href={{ path('offer') }}><img src="{{ asset('images/download.png') }}" class="img-head" alt=""></a>
     <div class="header">
 
         <div class="container">
 
             <div class="logo">
-                <h1 ><a href={{ path('accueil') }}><b>T<br>H<br>E</b>Big Store<span>The Best Supermarket</span></a></h1>
+                <h1 ><a href={{ path('accueil1') }}><b>T<br>H<br>E</b>Big Store<span>The Best Supermarket</span></a></h1>
             </div>
             <div class="head-t">
                 <ul class="card">
@@ -138,20 +138,67 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </div>
                     <div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
                         <ul class="nav navbar-nav ">
-                            <li class=" active"><a href={{ path('accueil') }} class="hyper"><span>Home</span></a></li>
+                            <li class=" active"><a href={{ path('accueil1') }} class="hyper"><span>Home</span></a></li>
 
                             <li><a href={{ path('kitchen') }} class="hyper"> <span>Nos services</span></a></li>
                             <li><a href={{ path('care') }} class="hyper"> <span>Nos Garderies</span></a></li>
 
 
                             <li class="dropdown">
+<<<<<<< HEAD
                                 <a href="" class="dropdown-toggle hyper" data-toggle="dropdown" ><span>Household<b class="caret"></b></span></a>
+=======
+
+                                <a href="#" class="dropdown-toggle hyper" data-toggle="dropdown" ><span> Personal Care <b class="caret"></b></span></a>
+                                <ul class="dropdown-menu multi multi1">
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <ul class="multi-column-dropdown">
+                                                <li><a href={{ path('care') }}><i class="fa fa-angle-right" aria-hidden="true"></i> Ayurvedic </a></li>
+                                                <li><a href={{ path('care') }}><i class="fa fa-angle-right" aria-hidden="true"></i>Baby Care</a></li>
+                                                <li><a href={{ path('care') }}><i class="fa fa-angle-right" aria-hidden="true"></i>Cosmetics</a></li>
+                                                <li><a href={{ path('care') }}><i class="fa fa-angle-right" aria-hidden="true"></i>Deo & Purfumes</a></li>
+
+                                            </ul>
+
+                                        </div>
+                                        <div class="col-sm-3">
+
+                                            <ul class="multi-column-dropdown">
+                                                <li><a href={{ path('care') }}> <i class="fa fa-angle-right" aria-hidden="true"></i>Hair Care </a></li>
+                                                <li><a href={{ path('care') }}><i class="fa fa-angle-right" aria-hidden="true"></i>Oral Care</a></li>
+                                                <li><a href={{ path('care') }}><i class="fa fa-angle-right" aria-hidden="true"></i>Personal Hygiene</a></li>
+                                                <li><a href={{ path('care') }}><i class="fa fa-angle-right" aria-hidden="true"></i>Skin care</a></li>
+
+                                            </ul>
+
+                                        </div>
+                                        <div class="col-sm-3">
+
+                                            <ul class="multi-column-dropdown">
+                                                <li><a href={{ path('care') }}><i class="fa fa-angle-right" aria-hidden="true"></i> Fashion Accessories </a></li>
+                                                <li><a href={{ path('care') }}><i class="fa fa-angle-right" aria-hidden="true"></i>Grooming Tools</a></li>
+                                                <li><a href={{ path('care') }}><i class="fa fa-angle-right" aria-hidden="true"></i>Shaving Need</a></li>
+                                                <li><a href={{ path('care') }}><i class="fa fa-angle-right" aria-hidden="true"></i>Sanitary Needs</a></li>
+
+                                            </ul>
+                                        </div>
+                                        <div class="col-sm-3 w3l">
+                                            <a href={{ path('care') }}><img src="{{ asset('images/me1.png') }}" class="img-responsive" alt=""></a>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle hyper" data-toggle="dropdown" ><span>Transport<b class="caret"></b></span></a>
+>>>>>>> 1ed128b142f10a7717346d75fc202305732ec08d
                                 <ul class="dropdown-menu multi multi2">
                                     <div class="row">
                                         <div class="col-sm-3">
                                             <ul class="multi-column-dropdown">
-                                                <li><a href={{ path('hold') }}><i class="fa fa-angle-right" aria-hidden="true"></i>Cleaning Accessories</a></li>
-                                                <li><a href={{ path('hold') }}><i class="fa fa-angle-right" aria-hidden="true"></i>CookWear</a></li>
+                                                <li><a href={{ path('hold') }}><i class="fa fa-angle-right" aria-hidden="true"></i>Proposer un trajet</a></li>
+                                                <li><a href={{ path('hold') }}><i class="fa fa-angle-right" aria-hidden="true"></i>Rechercher un trajet</a></li>
                                                 <li><a href={{ path('hold') }}><i class="fa fa-angle-right" aria-hidden="true"></i>Detergents</a></li>
                                                 <li><a href={{ path('hold') }}><i class="fa fa-angle-right" aria-hidden="true"></i>Gardening Needs</a></li>
 
@@ -927,10 +974,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <div class="col-md-3 footer-grid ">
             <h3>Menu</h3>
             <ul>
-                <li><a href={{ path('accueil') }}>Home</a></li>
+                <li><a href={{ path('accueil1') }}>Home</a></li>
                 <li><a href={{ path('kitchen') }}>Kitchen</a></li>
                 <li><a href={{ path('care') }}>Personal Care</a></li>
-                <li><a href={{ path('hold') }}>Household</a></li>
+                <li><a href={{ path('hold') }}>Transport</a></li>
                 <li><a href={{ path('codes') }}>Short Codes</a></li>
                 <li><a href={{ path('contact') }}>Contact</a></li>
             </ul>
@@ -958,7 +1005,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         </div>
         <div class="clearfix"></div>
         <div class="footer-bottom">
-            <h2 ><a href={{ path('accueil') }}><b>T<br>H<br>E</b>Big Store<span>The Best Supermarket</span></a></h2>
+            <h2 ><a href={{ path('accueil1') }}><b>T<br>H<br>E</b>Big Store<span>The Best Supermarket</span></a></h2>
             <p class="fo-para">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris</p>
             <ul class="social-fo">
                 <li><a href="#" class=" face"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>

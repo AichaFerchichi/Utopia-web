@@ -1,0 +1,67 @@
+{% extends 'BackBundle:Default:index.html.twig' %}
+{% block content %}
+
+    <!-- Container fluid  -->
+
+    <!-- Start Page Content -->
+    <div class="row">
+
+
+            <div class="card">
+                <div class="form-group">
+
+                    <div class="input-group input-group-rounded">
+                        <input type="text" placeholder="Search Round" name="Search" class="form-control">
+                        <span class="input-group-btn"><button class="btn btn-primary btn-group-right" type="submit"><i class="ti-search"></i></button></span>
+                    </div>
+                </div>
+                <div class="card-title">
+                    <h4>Liste des moyens de transport</h4>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+
+
+                        <table class="table table-striped" cellspacing="0" width="100%">
+                            <thead>
+                            <tr>
+                                <td>Type</td>
+                                <td>Immatriculation</td>
+                                <td>Nombre de place disponnible</td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            </thead>
+                            <tbody>
+
+                            {% for i in e %}
+                                <tr>
+
+                                    <td>{{ i.type }}</td>
+                                    <td>{{ i.immatriculation }}</td>
+                                    <td>{{ i.nombreDePlace }}</td>
+                                    <td><a href="{{ path('Modifier',{'id':i.idMoyentransport})}}">
+                                           <span class="badge badge-primary">Modifier</span></a></td>
+                                    <td><a href="{{ path('Supprimer',{'id':i.idMoyentransport})}}">
+                                            <span class="badge badge-success">Supprimer</span></a></td>
+
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    <!-- End PAge Content -->
+
+
+
+    <!--stickey kit -->
+    <script src="{{ asset('back/js/lib/sticky-kit-master/dist/sticky-kit.min.js') }}"></script>
+    <script src="{{ asset('back/js/lib/html5-editor/wysihtml5-0.3.0.js') }}"></script>
+    <script src="{{ asset('back/js/lib/html5-editor/bootstrap-wysihtml5.js') }}"></script>
+    <script src="{{ asset('back/js/lib/html5-editor/wysihtml5-init.js') }}"></script>
+{% endblock %}

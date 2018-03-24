@@ -13,9 +13,9 @@ class DefaultController extends Controller
         return $this->render('FrontBundle:Default:index.html.twig');
     }
 
-    public function accueilAction()
+    public function accueil1Action()
     {
-        return $this->render('FrontBundle:Default:accueil.html.twig');
+        return $this->render('FrontBundle:Default:accueil1.html.twig');
     }
     public function plusAction()
     {

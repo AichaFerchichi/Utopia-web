@@ -1,7 +1,7 @@
 {% extends 'FrontBundle:Default:index.html.twig' %}
 {% block content %}
 
-    <div class="nav-top">
+    <div class="nav-top" xmlns="http://www.w3.org/1999/html">
         <nav class="navbar navbar-default">
 
             <div class="navbar-header nav_2">
@@ -180,68 +180,112 @@
 
     <div class="login">
     <div class="main-agileits">
-        <div class="form-w3agile form1">
-            {{ form_start(f) }}
-            <div class="col-md2 ">
+    <div class="form-w3agile form1">
 
-                <h1 style="color: #277ee1">General</h1><br>
+    {{ form_start(f) }}
+    <div class="col-md2 ">
+
+        <h1 style="color: #277ee1">General</h1><br>
+        <img src="{{ asset('images/barre3.png') }}" class="img-responsive img1" alt="">
+<br><br>
+        <table>
+            <tr>
+                <td><label>Prenom</label><span class="text-danger">* </span></td>
+                <td><input  class="form-control" type="text" disabled="true" value={{ nom }} name="Prenom" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Prenom';}" required="">
+                </td>
+            </tr>
+            <tr>
+                <td><label>Adresse</label><span class="text-danger">* </span></td>
+                <td>{{ form_widget(f.adresse) }}</td>
+            </tr>
+            <tr>
+                <td><label>Age</label><span class="text-danger">* </span></td>
+                <td>{{ form_widget(f.age) }}</td>
+            </tr>
+            <tr>
+                <td><label>Sexe</label><span class="text-danger">* </span></td>
+                <td>{{ form_widget(f.sexe ,{ 'attr' : { 'class' : 'form-control'} }) }}</td>
+            </tr>
+            <tr>
+                <td><label>Motivation et experience</label><span class="text-danger">* </span></td>
+                <td>{{ form_widget(f.description ,{ 'attr' : { 'class' : 'form-control'} }) }}</td>
+            </tr></table> <br><br>
+
+
+                <h1 style="color: #277ee1">Coordonnées</h1><br>
                 <img src="{{ asset('images/barre3.png') }}" class="img-responsive img1" alt="">
-
-                <table>
+        <br><br>
+        <table>
                     <tr>
-                        <td>Prenom<span class="text-danger">* </span></td>
-                        <td><input  type="text" value="Prenom" name="Prenom" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Prenom';}" required="">
+                        <td><label>Numero telephone</label><span class="text-danger">* </span></td>
+                        <td>{{ form_widget(f.numtel) }}</td>
                         </td>
                     </tr>
+
                     <tr>
-                        <td>Adresse<span class="text-danger">* </span></td>
-                        <td>{{ form_widget(f.adresse) }}</td>
+                        <td><label>Email</label><span class="text-danger">* </span></td>
+                        <td><input  disabled="true" value={{ email }} class="form-control" type="text" value="Email" name="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}" required="">
+                        </td>
                     </tr>
-                    <tr>
-                        <td>Date de naissance<span class="text-danger">* </span></td>
-                        <td>{{ form_widget(f.dateNaissance) }}</td>
+                </table> <br><br>
+        <h1 style="color: #277ee1">À propos de moi</h1><br>
+        <img src="{{ asset('images/barre3.png') }}" class="img-responsive img1" alt="">
+        <br><br>
+        <table>
+                <tr>
+                    <td><label>Experience</label><span class="text-danger">* </span></td>
+                    <td>{{ form_widget(f.experience ,{ 'attr' : { 'class' : 'form-control'} }) }}</td>
+                </tr>
+                <tr>
+                    <td><label>Lieu baby-sitter</label><span class="text-danger">* </span></td>
+                    <td>{{ form_widget(f.lieu_baby ,{ 'attr' : { 'class' : 'form-control'} }) }}</td>
+                </tr>
+                <tr>
+                    <td><label>Est-ce que vous fumez?</label><span class="text-danger">* </span></td>
+                    <td>Oui {{ form_widget(f.fumeuse) }}  {{ form_widget(f.nfumeuse) }}     Non </td>
+
+
+                </tr>
+                  <tr>
+                      <td><label>Avez-vous des enfants?</label><span class="text-danger">* </span></td>
+
+                      <td>Oui {{ form_widget(f.enfant) }}  {{ form_widget(f.nenfant) }}     Non</td>
+
+
+                  </tr>
+                  <tr>
+                      <td><label>Avez-vous un permis de conduire?</label><span class="text-danger">* </span></td>
+
+
+                      <td>Oui {{ form_widget(f.conduite) }}  {{ form_widget(f.nconduite) }}  Non</td>
+
+
+                  </tr>
+                  <tr>
+                      <td><label>Je suis une assistante maternelle agréée</label><span class="text-danger">* </span></td>
+                      <td>Oui {{ form_widget(f.agregation) }}  {{ form_widget(f.nagregation) }}  Non</td>
+
+                  </tr>
+            <tr>
+                <td><label>Disponibilité</label><span class="text-danger">* </span></td>
+                <td>{{ form_widget(f.dispo ,{ 'attr' : { 'class' : 'form-control'} }) }}</td>
+
+            </tr></table> <br><br>
+                <h1 style="color: #277ee1">Photo de profil</h1><br>
+                <img src="{{ asset('images/barre3.png') }}" class="img-responsive img1" alt="">
+                <br><br>
+                <table><tr>
+                      <td><label>Image</label><span class="text-danger">* </span></td>
+                      <td>{{ form_widget(f.image,{ 'attr' : { 'class' : 'btn btn-primary'} }) }}</td>
+
                     </tr>
-                    <tr>
-                        <td>Sexe<span class="text-danger">* </span></td>
-                        <td>{{ form_widget(f.sexe) }}</td>
-                    </tr>
-                    <tr>
-                        <td>Motivation et experience<span class="text-danger">* </span></td>
-                        <td>{{ form_widget(f.description) }}</td>
-                    </tr><table>
+                  <tr>
+                      <td>{{ form_widget(f.Valider) }}</td>
+                  </tr>
 
 
-    <h1 style="color: #277ee1">Coordonnées</h1><br>
-    <img src="{{ asset('images/barre3.png') }}" class="img-responsive img1" alt="">
-                        <table>
-                            <tr>
-                                <td>Numero telephone<span class="text-danger">* </span></td>
-                                <td>{{ form_widget(f.numtel) }}</td>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td>Email<span class="text-danger">* </span></td>
-                                <td><input  type="text" value="Email" name="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}" required="">
-                                </td>
-                            </tr>
-                            </table>
-                            <tr>
-                                <td>Experience<span class="text-danger">* </span></td>
-                                <td>{{ form_widget(f.experience) }}</td>
-                            </tr>
-                            <tr>
-                                <td>Lieu baby-sitter<span class="text-danger">* </span></td>
-                                <td>{{ form_widget(f.lieu_baby) }}</td>
-                            </tr>
-                            <tr>
-                                <td>Sexe<span class="text-danger">* </span></td>
-                                <td>{{ form_widget(f.sexe) }}</td>
-                            </tr>
-                            <tr>
-                                <td>Motivation et experience<span class="text-danger">* </span></td>
-                                <td>{{ form_widget(f.description) }}</td>
-                            </tr><table>
+                  </tr>
+                </table>
 
 
 
@@ -249,20 +293,10 @@
 
 
 
-
-                {{ form_end(f) }}
-
+                    {{ form_end(f) }}
 
 
 
-
-            </div>
-
-
-
-
-
-        </div>
 
     </div>
     </div>{% endblock %}

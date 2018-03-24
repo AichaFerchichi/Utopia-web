@@ -97,15 +97,21 @@ form_basic:
 form_dropzone:
     path:     /form_dropzone
     defaults: { _controller: BackBundle:Default:form_dropzone }
-form_editor:
-    path:     /form_editor
-    defaults: { _controller: BackBundle:Default:form_editor }
+ListeMoyen:
+    path:     /ListeMoyen
+    defaults: { _controller: UserBundle:MoyenTransport:afficher }
+Supprimer:
+    path:     /Supprimer/{id}
+    defaults: { _controller: UserBundle:MoyenTransport:supprimer }
+Modifier:
+    path:     /Modifier
+    defaults: { _controller: UserBundle:MoyenTransport:Modifier }
 form_layout:
     path:     /form_layout
     defaults: { _controller: BackBundle:Default:form_layout }
-form_validation:
-    path:     /form_validation
-    defaults: { _controller: BackBundle:Default:form_validation }
+AjoutMoyen:
+    path:     /AjoutMoyen
+    defaults: { _controller: UserBundle:MoyenTransport:ajouter }
 index1:
     path:     /index1
     defaults: { _controller: BackBundle:Default:index1 }
@@ -154,6 +160,7 @@ ui_progressbar:
 ui_tab:
     path:     /ui_tab
     defaults: { _controller: BackBundle:Default:ui_tab }
+
 gestionProduits:
     path:     /gestionProduits
     defaults: { _controller: UserBundle:Produits:gestionProduits }
@@ -163,3 +170,4 @@ supprimerProduit:
 modifierProduits:
     path:     /modifier/{id}
     defaults: { _controller: UserBundle:Produits:modifier }
+
