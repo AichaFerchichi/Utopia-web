@@ -134,14 +134,15 @@
         <li data-target="#myCarousel" data-slide-to="2"></li>
       </ol>
       <div class="carousel-inner" role="listbox">
-        <div class="item active">
-          <a href="care.html"><img class="first-slide" src="{{ asset("ressources/garderieW1.png") }}" alt="First slide" ></a>
 
-        </div>
         <div class="item">
-          <a href="kitchen.html"><img class="second-slide " src="{{ asset("ressources/garderieW2.png") }}" alt="Second slide" ></a>
+          <a href="kitchen.html"><img class="second-slide " src="{{ asset("ressources/enfance1.png") }}" alt="Second slide" ></a>
 
         </div>
+		  <div class="item active">
+			  <a href="care.html"><img class="first-slide" src="{{ asset("ressources/enfance3.png") }}" alt="First slide" ></a>
+
+		  </div>
         <div class="item">
           <a href="hold.html"><img class="third-slide " src="{{ asset("ressources/garderieW1.png") }}" alt="Third slide"></a>
 
@@ -192,7 +193,7 @@
 							</ul>
 						</td>
 						<td>
-							<form action="{{ path('plus') }}" method="post">
+							<form action="{{ path('plus',{'id':i.idGarderie}) }}" method="post">
 								<button type="submit" class="btn btn-success m-b-10 m-l-5"value="Modifier" >Voir Plus</button></form></li>
 						</td>
 					</tr>

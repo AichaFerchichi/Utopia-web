@@ -15,8 +15,11 @@ about:
     path:     /about
     defaults: { _controller: FrontBundle:Default:about }
 plus:
-    path:     /plus
-    defaults: { _controller: FrontBundle:Default:plus }
+    path:     /plus/{id}
+    defaults: { _controller: UserBundle:Garderies:plus }
+enseignants:
+    path:     /enseignants/{id}
+    defaults: { _controller: UserBundle:Enseignants:enseignants }
 care:
     path:     /care
     defaults: { _controller: UserBundle:Garderies:affichage }
