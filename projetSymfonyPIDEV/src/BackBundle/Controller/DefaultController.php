@@ -16,7 +16,7 @@ class DefaultController extends Controller
     }
     public function accueilAction()
     {
-        return $this->render('BackBundle:Default:accueil.html.twig');
+        return $this->render('BackBundle:Default:accueil1.html.twig');
     }
     public function app_profileAction()
     {

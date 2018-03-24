@@ -11,7 +11,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 
 
-class OffresBabysitterType extends AbstractType
+class modifierType extends AbstractType
 {
     /**
      * {@inheritdoc}
@@ -40,39 +40,15 @@ class OffresBabysitterType extends AbstractType
                 ),
             ))->add('lieu_baby',ChoiceType::class,array('choices'=>array(
                 'Votre lieu de garde' => array(
-                'Pas de preferences'=>'Pas de preferences',
-            'A mon domicile'=>'A mon domicile',
-            'Au domicile de la famille'=>'Au domicile de la famille',
+                    'Pas de preferences'=>'Pas de preferences',
+                    'A mon domicile'=>'A mon domicile',
+                    'Au domicile de la famille'=>'Au domicile de la famille',
 
-        ))))->add('fumeuse', CheckboxType::class, array(
-            'label'    => 'oui',
-            'required' => false,
-        ))->add('nfumeuse', CheckboxType::class, array(
-            'label'    => 'non',
-            'required' => false,
-        ))->add('enfant', CheckboxType::class, array(
-            'label'    => 'oui',
-            'required' => false,
-        ))->add('nenfant', CheckboxType::class, array(
-            'label'    => 'non',
-            'required' => false,
-        ))->add('conduite', CheckboxType::class, array(
-            'label'    => 'oui',
-            'required' => false,
-        ))->add('nconduite', CheckboxType::class, array(
-            'label'    => 'non',
-            'required' => false,
-        ))->add('agregation', CheckboxType::class, array(
-            'label'    => 'oui',
-            'required' => false,
-        ))->add('nagregation', CheckboxType::class, array(
-            'label'    => 'non',
-            'required' => false,
-        ))->add('dispo',TextareaType::class)->add('image', FileType::class, array('data_class' => null, 'label' => 'insérer une image'))->add('Valider',SubmitType::class,array('label'=> 'Valider','attr'=>array('class'=>'btn btn-primary')));
+                ))))->add('dispo',TextareaType::class)->add('image', FileType::class, array('data_class' => null, 'label' => 'insérer une image'))->add('Valider',SubmitType::class,array('label'=> 'Valider','attr'=>array('class'=>'btn btn-primary')));
 
     }/**
-     * {@inheritdoc}
-     */
+ * {@inheritdoc}
+ */
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
