@@ -10,31 +10,17 @@
                         <div class="card-content" >
                             <!-- /# row -->
                             <div class="row" style="background-color: darkviolet">
+
                                 <div class="col-lg-12">
                                     <div class="card">
-                                        <div class="col-lg-6">
-                                                    <div class="input-group input-group-default" >
-                                                        {{ form_start(f2) }}
-                                                        <table>
-                                                            <tr><td></td><td></td><td></td>
-                                                                <td>{{ form_widget(f2.nom) }}</td>
-
-                                                                <td> <span class="input-group-btn">{{ form_widget(f2.Rechercher) }}</span></td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td></td>
-                                                            </tr>
-                                                        </table>
-
-                                                        {{ form_end(f2) }}
-
-
-
-                                                        <!--<span class="input-group-btn"><button class="btn btn-primary input-group-close-icon btn-group-left" type="submit"><i class="ti-close"></i></button></span>
-                                                        <input type="text" class="form-control" placeholder="recherche par catégorie..">
-                                                        <span class="input-group-btn"><button class="btn btn-primary btn-group-right" type="submit"><i class="ti-search"></i></button></span>-->
-                                                    </div>
-                                                    </div>
+                                        <table>
+                                            <div class="input-group input-group-default" >
+                                                <form class="navbar-form navbar-right" action="{{ path('rechercher') }}" method="post">
+                                                    <span class="input-group-btn"><td><input type="text" class="form-control" placeholder="Tapez votre texte..."
+                                                                                             name="motcle" id="motcle"></td></span>
+                                                                 </form>
+                                      </div>
+                                        </table>
 
                                         <div class="card-title">
                                             <h4>Liste des garderies</h4>
@@ -60,10 +46,12 @@
                                                                 <li>Description:{{ i.description }}</li>
 
                                                                 <li>nombre de place Disponible:{{ i.getNbPlaceDispo() }}</li></td><td>
-                                                               <form action="{{ path('modifierGarderie',{'id':i.getIdGarderie() }) }}" method="post">
-                                                                        <button type="submit" class="btn btn-warning m-b-10 m-l-5"value="Modifier" ><img width="20px" height="auto" src="{{ asset("ressources/modifier.png") }}"></button></form></li>
-                                                               <form action="{{ path('supprimerGarderie',{'id':i.getIdGarderie() }) }}" method="post"><button type="submit" class="btn btn-danger m-b-10 m-l-5"><img width="20px" height="auto" src="{{ asset("ressources/delete.png") }}"></button></form>
-                                                                <li class="nav-item dropdown mega-dropdown"> <a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="input-group-btn"><button class="btn btn-primary" type="submit" ><p style="color: white">+</p></button></span></a>
+                                                                <form action="{{ path('modifierGarderie',{'id':i.getIdGarderie() }) }}" method="post">
+                                                                    <button type="submit" class="btn btn-warning m-b-10 m-l-5"value="Modifier" ><img width="15px" height="auto" src="{{ asset("ressources/modifier.png") }}"></button></form></li>
+                                                                <form action="{{ path('email_inbox',{'id':i.getIdGarderie() }) }}" method="post"><button type="submit" class="btn btn-warning m-b-10 m-l-5" style="background-color: #0d71bb;border-color:#0d71bb " ><i  class="fa fa-table"></i></button></form>
+
+                                                               <form action="{{ path('supprimerGarderie',{'id':i.getIdGarderie() }) }}" method="post"><button type="submit" class="btn btn-danger m-b-10 m-l-5"><img width="15px" height="auto" src="{{ asset("ressources/delete.png") }}"></button></form>
+                                                                <li class="nav-item dropdown mega-dropdown"> <a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="input-group-btn"><button class="btn btn-primary" type="submit"><img width="15px" height="auto" src="{{ asset("ressources/loop.png") }}"></button></span></a>
 
                                                                     <div class="dropdown-menu animated zoomIn">
                                                                         <ul class="mega-dropdown-menu row">
@@ -82,7 +70,9 @@
 
                                                                         </ul>
                                                                     </div>
-                                                                </li> </td>
+                                                                </li>
+
+                                                            </td>
                                                         </tr>
 
                                                         </tbody>

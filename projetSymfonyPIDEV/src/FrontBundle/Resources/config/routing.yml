@@ -14,9 +14,12 @@ wishlist:
 about:
     path:     /about
     defaults: { _controller: FrontBundle:Default:about }
+plus:
+    path:     /plus
+    defaults: { _controller: FrontBundle:Default:plus }
 care:
     path:     /care
-    defaults: { _controller: FrontBundle:Default:care }
+    defaults: { _controller: UserBundle:Garderies:affichage }
 codes:
     path:     /codes
     defaults: { _controller: FrontBundle:Default:codes }
@@ -71,4 +74,9 @@ ROLE_USER:
 ROLE_ADMIN:
     path:     /fos/admin/test
     defaults: { _controller: FrontBundle:Default:testRoleAdmin }
-
+ListeCov:
+    path:     /ListeCov
+    defaults: { _controller: UserBundle:Covoiturage:afficher }
+AjouterCov:
+    path:     /AjouterCov
+    defaults: { _controller: UserBundle:Covoiturage:ajouter }

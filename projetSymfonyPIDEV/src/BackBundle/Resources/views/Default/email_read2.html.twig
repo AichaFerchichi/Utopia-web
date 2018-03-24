@@ -1,0 +1,119 @@
+{% extends 'BackBundle:Default:index.html.twig' %}
+{% block content %}
+    <!-- Container fluid  -->
+    <div class="container-fluid">
+        <!-- Start Page Content -->
+        <div class="row" >
+
+
+            <div class="card-body" >
+                <div class="card-content" >
+                    <!-- /# row -->
+                    <div class="row" style="background-color: darkviolet">
+
+                        <div class="col-lg-12">
+                            <div class="card">
+                                <table>
+                                    <div class="input-group input-group-default" >
+                                        <form class="navbar-form navbar-right" action="{{ path('rechercherEn') }}" method="post">
+                                                    <span class="input-group-btn"><td><input type="text" class="form-control" placeholder="Tapez votre texte..."
+                                                                                             name="motcle" id="motcle"></td></span>
+                                        </form>
+                                    </div>
+                                </table>
+
+                                <div class="card-title">
+                                    <h4>Liste des enfants</h4>
+
+                                </div>
+                                <div class="col-lg-12">
+
+
+                                    <div class="card-body">
+
+                                        <table class="table">
+
+                                            {% for i in m %}
+                                                <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <img src="{{ asset("ressources/" ~ i.getImage()) }}" width="150px" height="auto" >
+                                                    </td>
+                                                    <td style="text-align: left"><li>{{ i.nomEnfant }} {{ i.prenom }}</li>
+                                                        <li>Parent:{{ i.idParent.getUsername() }} {{ i.idParent.getPrenom() }}</li>
+                                                        <li>Garderie:{{ i.idGarderie.getNom() }}</li>
+
+                                                        <li>Age:{{ i.age }}</li>
+
+
+                                                        </td><td>
+                                                        <form action="{{ path('modifierEnfant',{'id':i.getIdEnfant() }) }}" method="post">
+                                                            <button type="submit" class="btn btn-warning m-b-10 m-l-5"value="Modifier" ><img width="20px" height="auto" src="{{ asset("ressources/modifier.png") }}"></button></form></li>
+                                                        <form action="{{ path('supprimerEnfant',{'id':i.getIdEnfant() }) }}" method="post"><button type="submit" class="btn btn-danger m-b-10 m-l-5"><img width="20px" height="auto" src="{{ asset("ressources/delete.png") }}"></button></form>
+                                                         </td>
+                                                </tr>
+
+                                                </tbody>
+                                            {% endfor %}
+                                        </table>
+                                        <script src="{{ asset('jquery.js')}}"></script>
+                                        <script>
+
+
+                                            $("#bt").click(
+                                                function(){
+                                                    $("#myModal1").hide() ;
+
+                                                }
+                                            )
+
+                                        </script>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-12">
+                            <div class="card">
+                                <div class="card-title">
+                                    <h4>Ajout des Enfants</h4>
+
+                                </div>
+                                <div class="card-body">
+                                    <div class="basic-elements"> {{ form_start(f) }}
+
+                                        {{ form_widget(f) }}
+
+
+                                        {{ form_end(f) }}
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /# column -->
+
+                        <!-- /# card -->
+                    </div>
+                    <!-- /# column -->
+                </div>
+                <!-- /# row -->
+
+
+            </div>
+        </div>
+
+    </div>
+    </div>
+    <!-- End PAge Content -->
+    </div>
+    <!-- End Container fluid  -->
+    <!-- footer -->
+
+    <!-- End Wrapper -->
+
+
+    <!--stickey kit -->
+    <script src="{{ asset('back/js/lib/sticky-kit-master/dist/sticky-kit.min.js') }}"></script>
+    <!--Custom JavaScript -->
+    <script src="{{ asset('back/js/custom.min.js') }}"></script>
+{% endblock %}

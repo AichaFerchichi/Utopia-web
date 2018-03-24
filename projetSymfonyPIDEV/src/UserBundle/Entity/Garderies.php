@@ -7,7 +7,15 @@ use Symfony\Component\Validator\Constraints as Assert ;
 /**
  * Garderies
  *
+<<<<<<< HEAD
  * @ORM\Table(name="garderies", indexes={@ORM\Index(name="id_garderie", columns={"id_garderie"})})
+=======
+<<<<<<< HEAD
+ * @ORM\Table(name="garderies")
+=======
+ * @ORM\Table(name="garderies", indexes={@ORM\Index(name="id_garderie", columns={"id_garderie"})})
+>>>>>>> b4234a2331026ebef06f00803ffa4e02b4f84c6c
+>>>>>>> 3bc1d8a9225682bf1b1b659405e99d34143db1df
  * @ORM\Entity
  */
 class Garderies
@@ -82,6 +90,29 @@ class Garderies
      * @ORM\Column(name="nb_place_dispo", type="integer", nullable=true)
      */
     private $nb_place_dispo;
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="nbEnfant", type="integer", nullable=true)
+     */
+    private $nbEnfant;
+
+    /**
+     * @return int
+     */
+    public function getNbEnfant()
+    {
+        return $this->nbEnfant;
+    }
+
+    /**
+     * @param int $nbEnfant
+     */
+    public function setNbEnfant($nbEnfant)
+    {
+        $this->nbEnfant = $nbEnfant;
+    }
+
 
     /**
      * @return int

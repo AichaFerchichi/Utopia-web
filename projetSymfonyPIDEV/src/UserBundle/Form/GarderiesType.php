@@ -26,7 +26,8 @@ class GarderiesType extends AbstractType
             ->add('image', FileType::class, array('data_class' => null,'label' => 'insérer une image','attr'=>array('style'=>'color:violet')))
             ->add('proEducatif',null,array('label'=> 'Programme','attr'=>array('class'=>'text-muted m-b-15 f-s-12 form-control input-focus','placeholder'=>'Veuillez saisir la quantité..')))
             ->add('objectif',null,array('label'=> 'Objectif','attr'=>array('class'=>'text-muted m-b-15 f-s-12 form-control input-focus','placeholder'=>'Veuillez saisir la quantité..')))
-            ->add('nb_place_dispo',null,array('label'=> 'NombrePlace','attr'=>array('min' =>1,'class'=>'text-muted m-b-15 f-s-12 form-control input-focus','placeholder'=>'Veuillez saisir la quantité..')))
+            ->add('nbEnfant',null,array('label'=> 'NombreEnfant','attr'=>array('min' =>0,'class'=>'text-muted m-b-15 f-s-12 form-control input-focus','placeholder'=>'Veuillez saisir la quantité..')))
+            ->add('nb_place_dispo',null,array('label'=> 'NombrePlace','attr'=>array('min' =>0,'class'=>'text-muted m-b-15 f-s-12 form-control input-focus','placeholder'=>'Veuillez saisir la quantité..')))
             ->add('Ajouter',SubmitType::class,array('label'=> 'Valider','attr'=>array('class'=>'btn btn-primary')));
     }
     public function configureOptions(OptionsResolver $resolver)

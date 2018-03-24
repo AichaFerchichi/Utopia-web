@@ -2,26 +2,54 @@
 {% block content %}
 
     <!-- Container fluid  -->
-    <div class="container-fluid">
-        <!-- Start Page Content -->
-        <div class="row">
-            <div class="col-12">
-                <div class="card">
-                    <div class="card-body">
-                        <h4 class="card-title">Bootstrap wysihtml5</h4>
-                        <h6 class="card-subtitle">Bootstrap html5 editor</h6>
-                        <form method="post">
-                            <div class="form-group">
-                                <textarea class="textarea_editor form-control" rows="15" placeholder="Enter text ..." style="height:450px"></textarea>
-                            </div>
-                        </form>
+
+    <!-- Start Page Content -->
+    <div class="row">
+        <div class="col-lg-16">
+            <div class="card">
+                <div class="card-title">
+                    <h4>Liste des moyens de transport</h4>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+
+
+                        <table class="table table-striped" cellspacing="0" width="100%">
+                            <thead>
+                            <tr>
+
+                                <th>Type</th>
+                                <th>Immatriculation</th>
+                                <th>Nombre de place disponnible</th>
+                               <th></th>
+                                <th></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+
+                            {% for i in e %}
+                                <tr>
+                                    <td>{{ i.type }}</td>
+                                    <td>{{ i.immatriculation }}</td>
+                                    <td>{{ i.nombreDePlace }}</td>
+                                    <td><a href="{{ path('Modifier',{'id':i.idMoyentransport})}}">
+                                            <span class="badge badge-primary">Modifier</span></a></td>
+                                    <td><a href="{{ path('Supprimer',{'id':i.idMoyentransport})}}">
+                                            <span class="badge badge-success">Supprimer</span></a></td>
+
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
                     </div>
+
                 </div>
             </div>
         </div>
-        <!-- End PAge Content -->
     </div>
-    <
+    <!-- End PAge Content -->
+
+
 
     <!--stickey kit -->
     <script src="{{ asset('back/js/lib/sticky-kit-master/dist/sticky-kit.min.js') }}"></script>
