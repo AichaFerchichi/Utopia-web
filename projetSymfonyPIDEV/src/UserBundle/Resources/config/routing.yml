@@ -11,6 +11,13 @@ ROLE_ADMIN:
 gestion_produits:
     path:     /gestionProduits
     defaults: { _controller: UserBundle:Produits:gestionProduits }
+gestion_profil:
+    path:     /profil
+    defaults: { _controller: UserBundle:OffresBabysitter:ajoutOffres }
+profil_BB:
+    path:     /profilBB
+    defaults: { _controller: UserBundle:OffresBabysitter:affichage}
+
 
 
 ajouter:

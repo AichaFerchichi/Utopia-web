@@ -44,14 +44,35 @@ supprimerGarderie:
     path:     /supprimerGarderie/{id}
     defaults: { _controller: UserBundle:Garderies:delete }
 email_inbox:
-    path:     /email_inbox
-    defaults: { _controller: BackBundle:Default:email_inbox }
+    path:     /email_inbox/{id}
+    defaults: { _controller: UserBundle:Activite:ajout }
+supprimerActivite:
+    path:     /supprimerActivite/{id}
+    defaults: { _controller: UserBundle:Activite:delete }
+supprimerActivite2:
+    path:     /supprimerActivite2/{id}/{idG}
+    defaults: { _controller: UserBundle:Activite:delete2 }
+modifierActivite:
+    path:     /modifierActivite/{id}/{idG}
+    defaults: { _controller: UserBundle:Activite:modifier }
+etape:
+    path:     /etape/{id}/{nb}/{etape}
+    defaults: { _controller: UserBundle:Etape:ajout }
+valider:
+    path:     /valider/{id}/{nb}/{etape}
+    defaults: { _controller: UserBundle:Etape:valider }
+ListeActivite:
+    path:     /ListeActivite/{id}
+    defaults: { _controller: UserBundle:Activite:affichage }
 email_read:
     path:     /email_read
     defaults: { _controller: UserBundle:Enseignants:ajout }
 rechercherE:
     path:     /rechercherE
     defaults: { _controller: UserBundle:Enseignants:rechercher }
+rechercherA:
+    path:     /rechercherA/{idG}
+    defaults: { _controller: UserBundle:Activite:rechercher }
 modifierEnseignant:
     path:     /modifierEnseignant/{id}
     defaults: { _controller: UserBundle:Enseignants:modifier }

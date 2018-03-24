@@ -1,7 +1,8 @@
 <?php
 
 namespace UserBundle\Form;
-
+use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -17,23 +18,58 @@ class OffresBabysitterType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('adresse')->add('dateNaissance')->add('sexe',ChoiceType::class,array('choices'=>array(
-            'Femme'=>'Femme',
-            'Homme'=>'Homme',
-        )))->add('description', TextareaType::class)->add('numtel')->add('experience',ChoiceType::class,array('choices'=>array(
-            '1-2'=>'1-2',
-            '3-4'=>'3-4',
-            '4-5'=>'4-5',
-            'Sans experience'=>'Sans experience',
-        )))->add('lieu_baby',ChoiceType::class,array('choices'=>array(
-            'Pas de preferences'=>'Pas de preferences',
+        $builder->add('adresse',null,array('attr' =>array('class'   => 'form-control')))->add('age',null,array('attr' =>array('class'   => 'form-control')))
+            ->add('sexe',ChoiceType::class, array(
+                'choices'  => array(
+                    'Sexe' => array(
+                        'Homme' => 'Homme',
+                        'Femme'=> 'Femme',
+
+                    ),
+                ),
+            ))->add('description', TextareaType::class)->add('numtel',null,array('attr' =>array('class'   => 'form-control')))
+
+            ->add('experience',ChoiceType::class, array(
+                'choices'  => array(
+                    'Votre experience' => array(
+                        'Sans experience' => 'Sans experience',
+                        '1-2'=> '1-2',
+                        '3-4' => '3-4',
+                        '4-5' => '4-5',
+                    ),
+                ),
+            ))->add('lieu_baby',ChoiceType::class,array('choices'=>array(
+                'Votre lieu de garde' => array(
+                'Pas de preferences'=>'Pas de preferences',
             'A mon domicile'=>'A mon domicile',
             'Au domicile de la famille'=>'Au domicile de la famille',
 
-        )))->add('fumeuse', CheckboxType::class, array(
-            'label'    => 'Show this entry publicly?',
+        ))))->add('fumeuse', CheckboxType::class, array(
+            'label'    => 'oui',
             'required' => false,
-        ))->add('enfant')->add('conduite')->add('agregation')->add('dispo')->add('image')->add('video');
+        ))->add('nfumeuse', CheckboxType::class, array(
+            'label'    => 'non',
+            'required' => false,
+        ))->add('enfant', CheckboxType::class, array(
+            'label'    => 'oui',
+            'required' => false,
+        ))->add('nenfant', CheckboxType::class, array(
+            'label'    => 'non',
+            'required' => false,
+        ))->add('conduite', CheckboxType::class, array(
+            'label'    => 'oui',
+            'required' => false,
+        ))->add('nconduite', CheckboxType::class, array(
+            'label'    => 'non',
+            'required' => false,
+        ))->add('agregation', CheckboxType::class, array(
+            'label'    => 'oui',
+            'required' => false,
+        ))->add('nagregation', CheckboxType::class, array(
+            'label'    => 'non',
+            'required' => false,
+        ))->add('dispo',TextareaType::class)->add('image', FileType::class, array('data_class' => null, 'label' => 'insérer une image'))->add('Valider',SubmitType::class,array('label'=> 'Valider','attr'=>array('class'=>'btn btn-primary')));
+
     }/**
      * {@inheritdoc}
      */

@@ -1,13 +1,14 @@
 <?php
 
 namespace UserBundle\Entity;
+use Symfony\Component\Validator\Constraints as Assert;
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * OffresBabysitter
  *
- * @ORM\Table(name="offres_babysitter", indexes={@ORM\Index(name="id_babysitter", columns={"id_babysitter"})})
+ * @ORM\Table(name="offres_babysitter", indexes={@ORM\Index(name="idbb", columns={"idbb"})})
  * @ORM\Entity
  */
 class OffresBabysitter
@@ -62,47 +63,68 @@ class OffresBabysitter
     private $lieu_baby;   /**
  * @var string
  *
- * @ORM\Column(name="fumeuse", type="string", length=100, nullable=false)
+ * @ORM\Column(name="fumeuse", type="string", length=100, nullable=true)
  */
-    private $fumeuse;   /**
+    private $fumeuse;
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nfumeuse", type="string", length=100, nullable=true)
+     */
+    private $nfumeuse;
+ /**
+     * @var integer
+     * @Assert\Range(min=18,max=65)
+     *
+     * @ORM\Column(name="age", type="integer", nullable=true)
+  */
+    private $age;
+
+    /**
  * @var string
  *
- * @ORM\Column(name="enfant", type="string", length=100, nullable=false)
+ * @ORM\Column(name="enfant", type="string", length=100, nullable=true)
  */
-    private $enfant;   /**
+    private $enfant;
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nenfant", type="string", length=100, nullable=true)
+     */
+    private $nenfant; /**
  * @var string
  *
- * @ORM\Column(name="conduite", type="string", length=100, nullable=false)
+ * @ORM\Column(name="conduite", type="string", length=100, nullable=true)
  */
-    private $conduite;   /**
+    private $conduite;
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nconduite", type="string", length=100, nullable=true)
+     */
+    private $nconduite; /**
  * @var string
  *
- * @ORM\Column(name="agregation", type="string", length=100, nullable=false)
+ * @ORM\Column(name="agregation", type="string", length=100, nullable=true)
  */
-    private $agregation;   /**
+    private $agregation;
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nagregation", type="string", length=100, nullable=true)
+     */
+    private $nagregation;/**
  * @var string
  *
- * @ORM\Column(name="dispo", type="string", length=100, nullable=false)
+ * @ORM\Column(name="dispo", type="string", length=100, nullable=true)
  */
-    private $dispo;   /**
+    private $dispo;
+    /**
  * @var string
  *
  * @ORM\Column(name="image", type="string", length=100, nullable=false)
  */
-    private $image;   /**
- * @var string
- *
- * @ORM\Column(name="video", type="string", length=100, nullable=false)
- */
-    private $video;   /**
-
-    /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="dateNaissance", type="date", nullable=false)
-     */
-
-    private $dateNaissance;
+    private $image;     /**
 
 
 
@@ -111,10 +133,11 @@ class OffresBabysitter
      *
      * @ORM\ManyToOne(targetEntity="User")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="id_babysitter", referencedColumnName="id")
+     *   @ORM\JoinColumn(name="idbb", referencedColumnName="id")
      * })
      */
-    private $idBabysitter;
+    private $idbb;
+
 
     /**
      * @return int
@@ -122,6 +145,22 @@ class OffresBabysitter
     public function getIdOffre()
     {
         return $this->idOffre;
+    }
+
+    /**
+     * @return int
+     */
+    public function getAge()
+    {
+        return $this->age;
+    }
+
+    /**
+     * @param int $age
+     */
+    public function setAge($age)
+    {
+        $this->age = $age;
     }
 
     /**
@@ -324,52 +363,89 @@ class OffresBabysitter
         $this->image = $image;
     }
 
+
+
+
+
+
     /**
      * @return string
      */
-    public function getVideo()
+    public function getNfumeuse()
     {
-        return $this->video;
+        return $this->nfumeuse;
     }
 
     /**
-     * @param string $video
+     * @param string $nfumeuse
      */
-    public function setVideo($video)
+    public function setNfumeuse($nfumeuse)
     {
-        $this->video = $video;
+        $this->nfumeuse = $nfumeuse;
     }
 
     /**
-     * @return \DateTime
+     * @return string
      */
-    public function getDateNaissance()
+    public function getNenfant()
     {
-        return $this->dateNaissance;
+        return $this->nenfant;
     }
 
     /**
-     * @param \DateTime $dateNaissance
+     * @param string $nenfant
      */
-    public function setDateNaissance($dateNaissance)
+    public function setNenfant($nenfant)
     {
-        $this->dateNaissance = $dateNaissance;
+        $this->nenfant = $nenfant;
+    }
+
+    /**
+     * @return string
+     */
+    public function getNconduite()
+    {
+        return $this->nconduite;
+    }
+
+    /**
+     * @param string $nconduite
+     */
+    public function setNconduite($nconduite)
+    {
+        $this->nconduite = $nconduite;
+    }
+
+    /**
+     * @return string
+     */
+    public function getNagregation()
+    {
+        return $this->nagregation;
+    }
+
+    /**
+     * @param string $nagregation
+     */
+    public function setNagregation($nagregation)
+    {
+        $this->nagregation = $nagregation;
     }
 
     /**
      * @return \User
      */
-    public function getIdBabysitter()
+    public function getIdbb()
     {
-        return $this->idBabysitter;
+        return $this->idbb;
     }
 
     /**
-     * @param \User $idBabysitter
+     * @param \User $idbb
      */
-    public function setIdBabysitter($idBabysitter)
+    public function setIdbb($idbb)
     {
-        $this->idBabysitter = $idBabysitter;
+        $this->idbb = $idbb;
     }
 
 

@@ -21,7 +21,7 @@ class EnfantsType extends AbstractType
             ->add('prenom',null,array('label'=> 'Prenom','attr'=>array('class'=>'text-muted m-b-15 f-s-12 form-control input-focus', 'placeholder'=>'Veuillez saisir le prenom..', 'style'=>'width:300px')))
             ->add('idGarderie',EntityType::class,array('class'=>'UserBundle\Entity\Garderies','choice_label'=>'nom','attr'=>array('class'=>'text-muted m-b-15 f-s-12 form-control input-focus', 'placeholder'=>'Veuillez saisir la garderie..', 'style'=>'width:300px')))
             ->add('idParent',EntityType::class,array('class'=>'UserBundle\Entity\User','choice_label'=>'username','attr'=>array('class'=>'text-muted m-b-15 f-s-12 form-control input-focus', 'placeholder'=>'Veuillez saisir le parent..', 'style'=>'width:300px')))
-            ->add('age',null,array('label'=> 'Age','attr'=>array('class'=>'text-muted m-b-15 f-s-12 form-control input-focus','placeholder'=>'Veuillez saisir son age..')))
+            ->add('age',null,array('label'=> 'Age','attr'=>array('class'=>'text-muted m-b-15 f-s-12 form-control input-focus','placeholder'=>'Veuillez saisir son age..', 'style'=>'width:300px')))
             ->add('image', FileType::class, array('data_class' => null,'label' => 'insérer une image','attr'=>array('style'=>'color:violet')))
             ->add('Ajouter',SubmitType::class,array('label'=> 'Valider','attr'=>array('class'=>'btn btn-primary')));
 

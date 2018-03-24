@@ -46,6 +46,7 @@
                                                         <li>Salaire:{{ i.salaire }}</li>
                                                         <li>Age:{{ i.age }}</li>
                                                         <li>Diplome:{{ i.diplome }}</li>
+                                                        <li>Garderie:{{ i.idGarderie.getNom() }}</li>
 
                                                         </td><td>
                                                         <form action="{{ path('modifierEnseignant',{'id':i.getIdEnseignant() }) }}" method="post">

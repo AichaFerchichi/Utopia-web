@@ -90,10 +90,11 @@ class GarderiesController extends Controller
 
         $equipes=$em->getRepository('UserBundle:Garderies')->findAll();
 
-        return $this->render('BackBundle:Default:email_compose.html.twig', array(
+        return $this->render('FrontBundle:Default:care.html.twig', array(
             'm'=>$equipes));
 
     }
+
     public function modifierAction(Request $request,$id)
     {
         $em = $this->getDoctrine()->getManager();

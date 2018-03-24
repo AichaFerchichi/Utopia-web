@@ -35,6 +35,31 @@ class Enseignants
      * @ORM\Column(name="prenom", type="string", length=50, nullable=false)
      */
     private $prenom;
+    /**
+     * @var \Garderies
+     *
+     * @ORM\ManyToOne(targetEntity="Garderies")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="idGarderie", referencedColumnName="id_garderie")
+     * })
+     */
+    private $idGarderie;
+
+    /**
+     * @return \Garderies
+     */
+    public function getIdGarderie()
+    {
+        return $this->idGarderie;
+    }
+
+    /**
+     * @param \Garderies $idGarderie
+     */
+    public function setIdGarderie($idGarderie)
+    {
+        $this->idGarderie = $idGarderie;
+    }
 
     /**
      * @var string
