@@ -10,31 +10,17 @@
                         <div class="card-content" >
                             <!-- /# row -->
                             <div class="row" style="background-color: darkviolet">
+
                                 <div class="col-lg-12">
                                     <div class="card">
-                                        <div class="col-lg-6">
-                                                    <div class="input-group input-group-default" >
-                                                        {{ form_start(f2) }}
-                                                        <table>
-                                                            <tr><td></td><td></td><td></td>
-                                                                <td>{{ form_widget(f2.nom) }}</td>
-
-                                                                <td> <span class="input-group-btn">{{ form_widget(f2.Rechercher) }}</span></td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td></td>
-                                                            </tr>
-                                                        </table>
-
-                                                        {{ form_end(f2) }}
-
-
-
-                                                        <!--<span class="input-group-btn"><button class="btn btn-primary input-group-close-icon btn-group-left" type="submit"><i class="ti-close"></i></button></span>
-                                                        <input type="text" class="form-control" placeholder="recherche par catégorie..">
-                                                        <span class="input-group-btn"><button class="btn btn-primary btn-group-right" type="submit"><i class="ti-search"></i></button></span>-->
-                                                    </div>
-                                                    </div>
+                                        <table>
+                                            <div class="input-group input-group-default" >
+                                                <form class="navbar-form navbar-right" action="{{ path('rechercher') }}" method="post">
+                                                    <span class="input-group-btn"><td><input type="text" class="form-control" placeholder="Tapez votre texte..."
+                                                                                             name="motcle" id="motcle"></td></span>
+                                                                 </form>
+                                      </div>
+                                        </table>
 
                                         <div class="card-title">
                                             <h4>Liste des garderies</h4>

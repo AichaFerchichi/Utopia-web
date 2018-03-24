@@ -20,7 +20,8 @@ class RechercheForm extends AbstractType
     {
         $builder->add('nom',null,array('label'=> 'nom','attr'=>array('class'=>'form-control', 'placeholder'=>'Recherche par nom..', 'style'=>'width:300px')))
             ->add('Rechercher',SubmitType::class,array('label'=> ' ','attr'=>array('class'=>'btn btn-primary btn-group-right ti-search input-group-btn'))) ;
-    }/**
+    }
+    /**
  * {@inheritdoc}
  */
     public function configureOptions(OptionsResolver $resolver)
