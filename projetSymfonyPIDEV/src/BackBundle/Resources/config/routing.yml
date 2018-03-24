@@ -112,3 +112,20 @@ supprimerProduit:
 modifierProduits:
     path:     /modifier/{id}
     defaults: { _controller: UserBundle:Produits:modifier }
+promotionProduits:
+    path:     /promotionProduits/{id}
+    defaults: { _controller: UserBundle:Promotions:gestionPromotions }
+rechercher:
+    path:     /rechercher
+    defaults: { _controller: UserBundle:Produits:rechercher }
+affichagePromotions:
+    path:     /affichagePromotions
+    defaults: { _controller: UserBundle:Promotions:afficher }
+supprimerPromotion:
+    path:     /supprimerPromotion/{id}
+    defaults: { _controller: UserBundle:Promotions:supprimerPromotion }
+modifierPromotion:
+    path:     /modifierPromotion/{id}
+    defaults: { _controller: UserBundle:Promotions:modifierPromotion }
+
+
