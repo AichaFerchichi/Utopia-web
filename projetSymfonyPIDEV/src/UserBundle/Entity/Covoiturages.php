@@ -71,14 +71,158 @@ class Covoiturages
     private $nbrePlaceDispo;
 
     /**
-     * @var \User
+     * @var \Users
      *
-     * @ORM\ManyToOne(targetEntity="User")
+     * @ORM\ManyToOne(targetEntity="Users")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="id_user", referencedColumnName="id")
+     *   @ORM\JoinColumn(name="id_user", referencedColumnName="id_user")
      * })
      */
     private $idUser;
+
+    /**
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param int $id
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDepart()
+    {
+        return $this->depart;
+    }
+
+    /**
+     * @param string $depart
+     */
+    public function setDepart($depart)
+    {
+        $this->depart = $depart;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getDatedepart()
+    {
+        return $this->datedepart;
+    }
+
+    /**
+     * @param \DateTime $datedepart
+     */
+    public function setDatedepart($datedepart)
+    {
+        $this->datedepart = $datedepart;
+    }
+
+    /**
+     * @return string
+     */
+    public function getHeured()
+    {
+        return $this->heured;
+    }
+
+    /**
+     * @param string $heured
+     */
+    public function setHeured($heured)
+    {
+        $this->heured = $heured;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDestination()
+    {
+        return $this->destination;
+    }
+
+    /**
+     * @param string $destination
+     */
+    public function setDestination($destination)
+    {
+        $this->destination = $destination;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getDatearrive()
+    {
+        return $this->datearrive;
+    }
+
+    /**
+     * @param \DateTime $datearrive
+     */
+    public function setDatearrive($datearrive)
+    {
+        $this->datearrive = $datearrive;
+    }
+
+    /**
+     * @return string
+     */
+    public function getHeurea()
+    {
+        return $this->heurea;
+    }
+
+    /**
+     * @param string $heurea
+     */
+    public function setHeurea($heurea)
+    {
+        $this->heurea = $heurea;
+    }
+
+    /**
+     * @return int
+     */
+    public function getNbrePlaceDispo()
+    {
+        return $this->nbrePlaceDispo;
+    }
+
+    /**
+     * @param int $nbrePlaceDispo
+     */
+    public function setNbrePlaceDispo($nbrePlaceDispo)
+    {
+        $this->nbrePlaceDispo = $nbrePlaceDispo;
+    }
+
+    /**
+     * @return \User
+     */
+    public function getIdUser()
+    {
+        return $this->idUser;
+    }
+
+    /**
+     * @param \User $idUser
+     */
+    public function setIdUser($idUser)
+    {
+        $this->idUser = $idUser;
+    }
 
 
 }

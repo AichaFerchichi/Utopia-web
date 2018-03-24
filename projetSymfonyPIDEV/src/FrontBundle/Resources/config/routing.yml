@@ -60,4 +60,9 @@ ROLE_USER:
 ROLE_ADMIN:
     path:     /fos/admin/test
     defaults: { _controller: FrontBundle:Default:testRoleAdmin }
-
+ListeCov:
+    path:     /ListeCov
+    defaults: { _controller: UserBundle:Covoiturage:afficher }
+AjouterCov:
+    path:     /AjouterCov
+    defaults: { _controller: UserBundle:Covoiturage:ajouter }

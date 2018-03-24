@@ -12,3 +12,15 @@ gestion_produits:
     path:     /gestionProduits
     defaults: { _controller: UserBundle:Produits:gestionProduits }
 
+
+ajouter:
+    path:     /ajouter
+    defaults: { _controller: UserBundle:Covoiturage:ajouter }
+
+afficher:
+    path:     /afficher
+    defaults: { _controller: UserBundle:Covoiturage:afficher }
+
+modifier:
+    path:     /modifier
+    defaults: { _controller: UserBundle:Covoiturage:modifier }
