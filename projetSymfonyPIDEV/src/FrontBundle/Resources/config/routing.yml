@@ -1,22 +1,28 @@
 front_homepage:
     path:     /
-    defaults: { _controller: FrontBundle:Default:accueil }
+    defaults: { _controller: FrontBundle:Default:accueil1 }
 
 layout:
     path:     /layout
     defaults: { _controller: FrontBundle:Default:layout }
-accueil:
-    path:     /accueil
-    defaults: { _controller: FrontBundle:Default:accueil }
+accueil1:
+    path:     /accueil1
+    defaults: { _controller: FrontBundle:Default:accueil1 }
 wishlist:
     path:     /wishlist
     defaults: { _controller: FrontBundle:Default:wishlist }
 about:
     path:     /about
     defaults: { _controller: FrontBundle:Default:about }
+plus:
+    path:     /plus/{id}
+    defaults: { _controller: UserBundle:Garderies:plus }
+enseignants:
+    path:     /enseignants/{id}
+    defaults: { _controller: UserBundle:Enseignants:enseignants }
 care:
     path:     /care
-    defaults: { _controller: FrontBundle:Default:care }
+    defaults: { _controller: UserBundle:Garderies:affichage }
 codes:
     path:     /codes
     defaults: { _controller: FrontBundle:Default:codes }
@@ -56,13 +62,28 @@ single3:
 terms:
     path:     /terms
     defaults: { _controller: FrontBundle:Default:terms }
-
+profil:
+    path:     /profil
+    defaults: { _controller: UserBundle:OffresBabysitter:ajoutOffres }
+profilBB:
+    path:     /profilBB
+    defaults: { _controller: UserBundle:OffresBabysitter:affichage }
+delete:
+    path:     /supprimer/{ref1}
+    defaults: { _controller: UserBundle:OffresBabysitter:delete }
+modifier:
+    path:     /modifier/{ref2}
+    defaults: { _controller: UserBundle:OffresBabysitter:modifier }
+profilParent:
+    path:     /profilParent
+    defaults: { _controller: UserBundle:OffresBabysitter:profilParent }
 ROLE_USER:
     path:     /fos/user/test
     defaults: { _controller: FrontBundle:Default:testRoleUser }
 ROLE_ADMIN:
     path:     /fos/admin/test
     defaults: { _controller: FrontBundle:Default:testRoleAdmin }
+<<<<<<< HEAD
 Boutique:
     path:     /Boutique
     defaults: { _controller: UserBundle:Produits:affichageProduits }
@@ -76,3 +97,11 @@ nosFournitures:
     path:     /nosFournitures
     defaults: { _controller: UserBundle:Produits:nosFournitures }
 
+=======
+ListeCov:
+    path:     /ListeCov
+    defaults: { _controller: UserBundle:Covoiturage:afficher }
+AjouterCov:
+    path:     /AjouterCov
+    defaults: { _controller: UserBundle:Covoiturage:ajouter }
+>>>>>>> 8fbaa7926e73845be87484c9bec92a7e181cb554

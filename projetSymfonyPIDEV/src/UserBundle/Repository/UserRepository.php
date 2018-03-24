@@ -10,5 +10,15 @@ namespace UserBundle\Repository;
  */
 class UserRepository extends \Doctrine\ORM\EntityRepository
 {
+<<<<<<< HEAD
 
+=======
+    function findDateDebut()
+    {
+        $query=$this->getEntityManager()->createQuery(
+            "select m  From UserBundle:Activite m where m.dateFin  > CURRENT_DATE()");
+
+        return $query->getResult();
+    }
+>>>>>>> 8fbaa7926e73845be87484c9bec92a7e181cb554
 }

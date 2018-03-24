@@ -13,9 +13,16 @@ class DefaultController extends Controller
         return $this->render('FrontBundle:Default:index.html.twig');
     }
 
-    public function accueilAction()
+    public function accueil1Action()
     {
-        return $this->render('FrontBundle:Default:accueil.html.twig');
+        return $this->render('FrontBundle:Default:accueil1.html.twig');
+<<<<<<< HEAD
+=======
+    }
+    public function plusAction()
+    {
+        return $this->render('FrontBundle:Default:plus.html.twig');
+>>>>>>> 3bc1d8a9225682bf1b1b659405e99d34143db1df
     }
     public function wishlistAction()
     {
@@ -79,5 +86,10 @@ class DefaultController extends Controller
         $this->denyAccessUnlessGranted('ROLE_ADMIN');
         return $this->render('Exemples_Roles/hello-world-admin.html.twig');
     }
+    public function profilAction()
+    {
+        return $this->render('FrontBundle:Default:createProfile.html.twig');
+    }
+
 
 }
