@@ -1,0 +1,54 @@
+{% extends 'BackBundle:Default:index.html.twig' %}
+{% block content %}
+    <!-- Container fluid  -->
+    <div class="container-fluid"><table style="align-self: right"><tr><td></td><td></td><td>
+        <form action="{{ path('supprimerActivite',{'id':id }) }}" method="post" style="text-align: right"><button type="submit" style="background-color: transparent;border-color: transparent"><img width="30px" height="auto" src="{{ asset("ressources/croix.png") }}"></button></form>
+            </td><td> <form action="{{ path('valider',{'id':id,'nb':nb,'etape':etape  }) }}" method="post" style="text-align: right"><button type="submit" style="background-color: transparent;border-color: transparent"><img width="30px" height="auto" src="{{ asset("ressources/V.png") }}"></button></form>
+            </td></tr></table>
+        <!-- Start Page Content -->
+        {% if app.session.flashBag.has('danger') %}
+            <div class="alert alert-danger">
+                {% for msg in app.session.flashBag.get('danger') %}
+                    {{ msg }}
+                {% endfor %}
+            </div>
+        {% endif %}
+        {% for i in 1..nb %}  <div class="row">
+
+                           <div class="col-lg-12">
+                                <div class="card">
+                                    <div class="card-body">
+                                         <h4 class="card-title"></h4><div class="ad-left">
+                                             <p style="border-radius: 100px;background:#ffb64d;color: #fff; text-align: center;width: 50px;height: 50px;-webkit-border-radius:100px;
+  -moz-border-radius: 100px;-o-border-radius: 100px;
+  -ms-border-radius: 100px;font-size: 1.5em;line-height: 2.5em;">{{ i }}</p>
+                                        </div><br><br><br><center>
+                                        <div class="basic-elements">
+                                            <input type="hidden" value="{{ id }}"><input type="hidden" value="{{ etape }}">
+<form action="{{ path('etape',{'id':id,'nb':nb,'etape':etape }) }}" method="post">
+    <label>Nom:</label>
+    <input type="text" name="nom" class="text-muted m-b-15 f-s-12 form-control input-focus" placeholder='Veuillez saisir le nom..'  style='width:300px'>
+    <label>Description:</label>
+    <input type="text" name='description' class="text-muted m-b-15 f-s-12 form-control input-focus" placeholder='Veuillez saisir la description..'  style='width:300px'>
+    <label>Date Debut:</label>
+    <input type="date" name='dateDebut' class="text-muted m-b-15 f-s-12 form-control input-focus" placeholder='Veuillez saisir la Date debut..'  style='width:300px'>
+    <label>Date Fin:</label>
+    <input type="date" name='dateFin' class="text-muted m-b-15 f-s-12 form-control input-focus" placeholder='Veuillez saisir la Date Fin..'  style='width:300px'>
+<input type="submit" value="Valider" name="valider" class="input-group-btn">
+</form>
+
+
+                                        </div></center>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="clearfix"></div>
+
+
+        </div>{% endfor %}
+        <!-- End PAge Content -->
+
+    </div>
+
+{% endblock %}

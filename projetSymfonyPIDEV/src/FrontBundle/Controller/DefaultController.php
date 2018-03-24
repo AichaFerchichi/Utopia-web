@@ -17,6 +17,10 @@ class DefaultController extends Controller
     {
         return $this->render('FrontBundle:Default:accueil.html.twig');
     }
+    public function plusAction()
+    {
+        return $this->render('FrontBundle:Default:plus.html.twig');
+    }
     public function wishlistAction()
     {
         return $this->render('FrontBundle:Default:wishlist.html.twig');

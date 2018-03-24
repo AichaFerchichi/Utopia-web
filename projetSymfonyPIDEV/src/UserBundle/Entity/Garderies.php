@@ -82,6 +82,29 @@ class Garderies
      * @ORM\Column(name="nb_place_dispo", type="integer", nullable=true)
      */
     private $nb_place_dispo;
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="nbEnfant", type="integer", nullable=true)
+     */
+    private $nbEnfant;
+
+    /**
+     * @return int
+     */
+    public function getNbEnfant()
+    {
+        return $this->nbEnfant;
+    }
+
+    /**
+     * @param int $nbEnfant
+     */
+    public function setNbEnfant($nbEnfant)
+    {
+        $this->nbEnfant = $nbEnfant;
+    }
+
 
     /**
      * @return int

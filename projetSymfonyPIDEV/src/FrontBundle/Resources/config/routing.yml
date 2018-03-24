@@ -14,9 +14,12 @@ wishlist:
 about:
     path:     /about
     defaults: { _controller: FrontBundle:Default:about }
+plus:
+    path:     /plus
+    defaults: { _controller: FrontBundle:Default:plus }
 care:
     path:     /care
-    defaults: { _controller: FrontBundle:Default:care }
+    defaults: { _controller: UserBundle:Garderies:affichage }
 codes:
     path:     /codes
     defaults: { _controller: FrontBundle:Default:codes }

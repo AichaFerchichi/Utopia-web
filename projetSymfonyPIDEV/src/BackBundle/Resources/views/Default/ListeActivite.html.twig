@@ -15,7 +15,7 @@
                                     <div class="card">
                                         <table>
                                             <div class="input-group input-group-default" >
-                                                <form class="navbar-form navbar-right" action="{{ path('rechercher') }}" method="post">
+                                                <form class="navbar-form navbar-right" action="{{ path('rechercherA',{'idG':idG}) }}" method="post">
                                                     <span class="input-group-btn"><td><input type="text" class="form-control" placeholder="Tapez votre texte..."
                                                                                              name="motcle" id="motcle"></td></span>
                                                                  </form>
@@ -23,48 +23,53 @@
                                         </table>
 
                                         <div class="card-title">
-                                            <h4>Liste des garderies</h4>
+
 
                                         </div>
                                         <div class="col-lg-12">
 
 
                                             <div class="card-body">
-
+<input type="hidden" value="{{ idG }}">
                                                 <table class="table">
-
+                                                    <tr >
+                                                        <td style="color: darkviolet">Nom</td>
+                                                        <td style="color: darkviolet">Garderie</td>
+                                                        <td style="color: darkviolet">Nombre d'étape</td>
+                                                        <td style="color: darkviolet">Date Debut</td>
+                                                        <td style="color: darkviolet"> Date Fin</td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                    </tr>
                                                     {% for i in m %}
                                                         <tbody>
+
                                                         <tr>
-                                                            <td>
-<img src="{{ asset("ressources/" ~ i.getImage()) }}" width="150px" height="auto" >
+
+                                                            <td style="text-align: left">{{ i.nom }}</td>
+                                                                <td>{{ i.idGarderie.getNom() }}</td>
+                                                                <td>{{ i.nbEtape }}</td>
+                                                            <td>{{ i.dateDebut|date  }}</td>
+                                                              <td>{{ i.dateFin|date }}</td>
+
+
+
+                                                            <td>  <form action="{{ path('supprimerActivite2',{'idG':idG,'id':i.getIdActivite() }) }}" method="post"><button type="submit" class="btn btn-danger m-b-10 m-l-5"><img width="15px" height="auto" src="{{ asset("ressources/delete.png") }}"></button></form></td>
+                                                            <td>      <li class="nav-item dropdown mega-dropdown"> <a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="input-group-btn"><button class="btn btn-primary" type="submit"><img width="15px" height="auto" src="{{ asset("ressources/loop.png") }}"></button></span></a>
                                                             </td>
-                                                            <td style="text-align: left"><li>{{ i.nom }}</li>
-                                                                <li>Email:{{ i.Email }}</li>
-                                                                <li>Adresse:{{ i.adresse }}</li>
-                                                                <li>Numero de téléphone:{{ i.numTel }}</li>
-                                                                <li>Description:{{ i.description }}</li>
-
-                                                                <li>nombre de place Disponible:{{ i.getNbPlaceDispo() }}</li></td><td>
-                                                                <form action="{{ path('modifierGarderie',{'id':i.getIdGarderie() }) }}" method="post">
-                                                                    <button type="submit" class="btn btn-warning m-b-10 m-l-5"value="Modifier" ><img width="15px" height="auto" src="{{ asset("ressources/modifier.png") }}"></button></form></li>
-                                                                <form action="{{ path('email_inbox',{'id':i.getIdGarderie() }) }}" method="post"><button type="submit" class="btn btn-warning m-b-10 m-l-5" style="background-color: #0d71bb;border-color:#0d71bb " ><i  class="fa fa-table"></i></button></form>
-
-                                                               <form action="{{ path('supprimerGarderie',{'id':i.getIdGarderie() }) }}" method="post"><button type="submit" class="btn btn-danger m-b-10 m-l-5"><img width="15px" height="auto" src="{{ asset("ressources/delete.png") }}"></button></form>
-                                                                <li class="nav-item dropdown mega-dropdown"> <a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="input-group-btn"><button class="btn btn-primary" type="submit"><img width="15px" height="auto" src="{{ asset("ressources/loop.png") }}"></button></span></a>
-
                                                                     <div class="dropdown-menu animated zoomIn">
                                                                         <ul class="mega-dropdown-menu row">
 
 
                                                                             <li class="col-lg-12  ">
-<p style="color: darkviolet">Programme:</p> </br>{{ i.proEducatif }}
+
 
                                                                             </li>
                                                                             <li class="col-lg-12 ">
 
 
-                                                                                <p style="color: darkviolet">Objectif: </p></br>{{ i.objectif }}
+
                                                                             </li>
 
 
@@ -72,7 +77,7 @@
                                                                     </div>
                                                                 </li>
 
-                                                            </td>
+
                                                         </tr>
 
                                                         </tbody>
@@ -94,24 +99,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-lg-12">
-                                    <div class="card">
-                                        <div class="card-title">
-                                            <h4>Ajout</h4>
 
-                                        </div>
-                                        <div class="card-body">
-                                            <div class="basic-elements"> {{ form_start(f) }}
-
-                                                {{ form_widget(f) }}
-
-
-                                                {{ form_end(f) }}
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
                                 <!-- /# column -->
 
                                     <!-- /# card -->
