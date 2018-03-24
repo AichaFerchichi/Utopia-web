@@ -170,12 +170,12 @@
         <img src="{{ asset('images/barreB.png') }}" class="img-responsive img1" alt="">
         <div class="big-sale2">
             <h3>Créer votre profil</h3><br><br>
-		</div>
+        </div>
 
 
 
 
-       </div>
+    </div>
     <!--login-->
 
     <div class="login">
@@ -187,7 +187,7 @@
 
         <h1 style="color: #277ee1">General</h1><br>
         <img src="{{ asset('images/barre3.png') }}" class="img-responsive img1" alt="">
-<br><br>
+        <br><br>
         <table>
             <tr>
                 <td><label>Prenom</label><span class="text-danger">* </span></td>
@@ -212,88 +212,63 @@
             </tr></table> <br><br>
 
 
-                <h1 style="color: #277ee1">Coordonnées</h1><br>
-                <img src="{{ asset('images/barre3.png') }}" class="img-responsive img1" alt="">
+        <h1 style="color: #277ee1">Coordonnées</h1><br>
+        <img src="{{ asset('images/barre3.png') }}" class="img-responsive img1" alt="">
         <br><br>
         <table>
-                    <tr>
-                        <td><label>Numero telephone</label><span class="text-danger">* </span></td>
-                        <td>{{ form_widget(f.numtel) }}</td>
-                        </td>
-                    </tr>
+            <tr>
+                <td><label>Numero telephone</label><span class="text-danger">* </span></td>
+                <td>{{ form_widget(f.numtel) }}</td>
+                </td>
+            </tr>
 
-                    <tr>
-                        <td><label>Email</label><span class="text-danger">* </span></td>
-                        <td><input  disabled="true" value={{ email }} class="form-control" type="text" value="Email" name="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}" required="">
-                        </td>
-                    </tr>
-                </table> <br><br>
+            <tr>
+                <td><label>Email</label><span class="text-danger">* </span></td>
+                <td><input  disabled="true" value={{ email }} class="form-control" type="text" value="Email" name="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}" required="">
+                </td>
+            </tr>
+        </table> <br><br>
         <h1 style="color: #277ee1">À propos de moi</h1><br>
         <img src="{{ asset('images/barre3.png') }}" class="img-responsive img1" alt="">
         <br><br>
         <table>
-                <tr>
-                    <td><label>Experience</label><span class="text-danger">* </span></td>
-                    <td>{{ form_widget(f.experience ,{ 'attr' : { 'class' : 'form-control'} }) }}</td>
-                </tr>
-                <tr>
-                    <td><label>Lieu baby-sitter</label><span class="text-danger">* </span></td>
-                    <td>{{ form_widget(f.lieu_baby ,{ 'attr' : { 'class' : 'form-control'} }) }}</td>
-                </tr>
-                <tr>
-                    <td><label>Est-ce que vous fumez?</label><span class="text-danger">* </span></td>
-                    <td>Oui {{ form_widget(f.fumeuse) }}  {{ form_widget(f.nfumeuse) }}     Non </td>
+            <tr>
+                <td><label>Experience</label><span class="text-danger">* </span></td>
+                <td>{{ form_widget(f.experience ,{ 'attr' : { 'class' : 'form-control'} }) }}</td>
+            </tr>
+            <tr>
+                <td><label>Lieu baby-sitter</label><span class="text-danger">* </span></td>
+                <td>{{ form_widget(f.lieu_baby ,{ 'attr' : { 'class' : 'form-control'} }) }}</td>
+            </tr>
 
-
-                </tr>
-                  <tr>
-                      <td><label>Avez-vous des enfants?</label><span class="text-danger">* </span></td>
-
-                      <td>Oui {{ form_widget(f.enfant) }}  {{ form_widget(f.nenfant) }}     Non</td>
-
-
-                  </tr>
-                  <tr>
-                      <td><label>Avez-vous un permis de conduire?</label><span class="text-danger">* </span></td>
-
-
-                      <td>Oui {{ form_widget(f.conduite) }}  {{ form_widget(f.nconduite) }}  Non</td>
-
-
-                  </tr>
-                  <tr>
-                      <td><label>Je suis une assistante maternelle agréée</label><span class="text-danger">* </span></td>
-                      <td>Oui {{ form_widget(f.agregation) }}  {{ form_widget(f.nagregation) }}  Non</td>
-
-                  </tr>
             <tr>
                 <td><label>Disponibilité</label><span class="text-danger">* </span></td>
                 <td>{{ form_widget(f.dispo ,{ 'attr' : { 'class' : 'form-control'} }) }}</td>
 
             </tr></table> <br><br>
-                <h1 style="color: #277ee1">Photo de profil</h1><br>
-                <img src="{{ asset('images/barre3.png') }}" class="img-responsive img1" alt="">
-                <br><br>
-                <table><tr>
-                      <td><label>Image</label><span class="text-danger">* </span></td>
-                      <td>{{ form_widget(f.image,{ 'attr' : { 'class' : 'btn btn-primary'} }) }}</td>
+        <h1 style="color: #277ee1">Photo de profil</h1><br>
+        <img src="{{ asset('images/barre3.png') }}" class="img-responsive img1" alt="">
+        <br><br>
+        <table><tr>
+                <td><label>Image</label><span class="text-danger">* </span></td>
+                <td>{{ form_widget(f.image,{ 'attr' : { 'class' : 'btn btn-primary'} }) }}</td>
 
-                    </tr>
-                  <tr>
-                      <td>{{ form_widget(f.Valider) }}</td>
-                  </tr>
-
-
-                  </tr>
-                </table>
+            </tr>
+            <tr>
+                <td>{{ form_widget(f.Valider) }}</td>
+            </tr>
 
 
+            </tr>
+        </table>
 
 
 
 
 
-                    {{ form_end(f) }}
+
+
+        {{ form_end(f) }}
 
 
 

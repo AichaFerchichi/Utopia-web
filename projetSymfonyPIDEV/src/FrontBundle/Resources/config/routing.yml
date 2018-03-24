@@ -1,13 +1,13 @@
 front_homepage:
     path:     /
-    defaults: { _controller: FrontBundle:Default:accueil }
+    defaults: { _controller: FrontBundle:Default:accueil1 }
 
 layout:
     path:     /layout
     defaults: { _controller: FrontBundle:Default:layout }
-accueil:
-    path:     /accueil
-    defaults: { _controller: FrontBundle:Default:accueil }
+accueil1:
+    path:     /accueil1
+    defaults: { _controller: FrontBundle:Default:accueil1 }
 wishlist:
     path:     /wishlist
     defaults: { _controller: FrontBundle:Default:wishlist }
@@ -52,8 +52,19 @@ terms:
     defaults: { _controller: FrontBundle:Default:terms }
 profil:
     path:     /profil
-    defaults: { _controller: FrontBundle:OffresBabysitter:gestionOffres }
-
+    defaults: { _controller: UserBundle:OffresBabysitter:ajoutOffres }
+profilBB:
+    path:     /profilBB
+    defaults: { _controller: UserBundle:OffresBabysitter:affichage }
+delete:
+    path:     /supprimer/{ref1}
+    defaults: { _controller: UserBundle:OffresBabysitter:delete }
+modifier:
+    path:     /modifier/{ref2}
+    defaults: { _controller: UserBundle:OffresBabysitter:modifier }
+profilParent:
+    path:     /profilParent
+    defaults: { _controller: UserBundle:OffresBabysitter:profilParent }
 ROLE_USER:
     path:     /fos/user/test
     defaults: { _controller: FrontBundle:Default:testRoleUser }
