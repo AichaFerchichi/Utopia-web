@@ -36,6 +36,86 @@ class Commandes
     private $date = 'CURRENT_TIMESTAMP';
 
     /**
+     * @return int
+     */
+    public function getIdCommande()
+    {
+        return $this->idCommande;
+    }
+
+    /**
+     * @param int $idCommande
+     */
+    public function setIdCommande($idCommande)
+    {
+        $this->idCommande = $idCommande;
+    }
+
+    /**
+     * @return float
+     */
+    public function getTotal()
+    {
+        return $this->total;
+    }
+
+    /**
+     * @param float $total
+     */
+    public function setTotal($total)
+    {
+        $this->total = $total;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getDate()
+    {
+        return $this->date;
+    }
+
+    /**
+     * @param \DateTime $date
+     */
+    public function setDate($date)
+    {
+        $this->date = $date;
+    }
+
+    /**
+     * @return \User
+     */
+    public function getIdParent()
+    {
+        return $this->idParent;
+    }
+
+    /**
+     * @param \User $idParent
+     */
+    public function setIdParent($idParent)
+    {
+        $this->idParent = $idParent;
+    }
+
+    /**
+     * @return \Lignecommandes
+     */
+    public function getIdLigne()
+    {
+        return $this->idLigne;
+    }
+
+    /**
+     * @param \Lignecommandes $idLigne
+     */
+    public function setIdLigne($idLigne)
+    {
+        $this->idLigne = $idLigne;
+    }
+
+    /**
      * @var \User
      *
      * @ORM\ManyToOne(targetEntity="User")

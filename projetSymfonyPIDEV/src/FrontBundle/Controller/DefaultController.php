@@ -16,12 +16,18 @@ class DefaultController extends Controller
     public function accueil1Action()
     {
         return $this->render('FrontBundle:Default:accueil1.html.twig');
+<<<<<<< HEAD
 
+=======
+>>>>>>> 2fa14e4bda6c5236979f4abcde7dca5391e436ed
     }
     public function plusAction()
     {
         return $this->render('FrontBundle:Default:plus.html.twig');
+<<<<<<< HEAD
 
+=======
+>>>>>>> 2fa14e4bda6c5236979f4abcde7dca5391e436ed
     }
     public function wishlistAction()
     {
@@ -71,10 +77,7 @@ class DefaultController extends Controller
     {
         return $this->render('FrontBundle:Default:shipping.html.twig');
     }
-    public function singleAction()
-    {
-        return $this->render('FrontBundle:Default:single.html.twig');
-    }
+
     public function termsAction()
     {
         return $this->render('FrontBundle:Default:terms.html.twig');

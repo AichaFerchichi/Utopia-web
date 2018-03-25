@@ -13,6 +13,101 @@ use Doctrine\ORM\Mapping as ORM;
 class Promotions
 {
     /**
+     * @return int
+     */
+    public function getIdPromo()
+    {
+        return $this->idPromo;
+    }
+
+    /**
+     * @param int $idPromo
+     */
+    public function setIdPromo($idPromo)
+    {
+        $this->idPromo = $idPromo;
+    }
+
+    /**
+     * @return int
+     */
+    public function getPourcentage()
+    {
+        return $this->pourcentage;
+    }
+
+    /**
+     * @param int $pourcentage
+     */
+    public function setPourcentage($pourcentage)
+    {
+        $this->pourcentage = $pourcentage;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getDateDebut()
+    {
+        return $this->dateDebut;
+    }
+
+    /**
+     * @param \DateTime $dateDebut
+     */
+    public function setDateDebut($dateDebut)
+    {
+        $this->dateDebut = $dateDebut;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getDateFin()
+    {
+        return $this->dateFin;
+    }
+
+    /**
+     * @param \DateTime $dateFin
+     */
+    public function setDateFin($dateFin)
+    {
+        $this->dateFin = $dateFin;
+    }
+
+    /**
+     * @return float
+     */
+    public function getPrixpromo()
+    {
+        return $this->prixpromo;
+    }
+
+    /**
+     * @param float $prixpromo
+     */
+    public function setPrixpromo($prixpromo)
+    {
+        $this->prixpromo = $prixpromo;
+    }
+
+    /**
+     * @return \Produits
+     */
+    public function getIdProduit()
+    {
+        return $this->idProduit;
+    }
+
+    /**
+     * @param \Produits $idProduit
+     */
+    public function setIdProduit($idProduit)
+    {
+        $this->idProduit = $idProduit;
+    }
+    /**
      * @var integer
      *
      * @ORM\Column(name="id_promo", type="integer", nullable=false)
