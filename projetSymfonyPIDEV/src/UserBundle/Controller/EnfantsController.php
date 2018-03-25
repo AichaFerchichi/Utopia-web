@@ -6,6 +6,7 @@ namespace UserBundle\Controller;
 use UserBundle\Entity\Enfants;
 use UserBundle\Form\EnfantsType;
 
+use UserBundle\Form\InscriptionType;
 use UserBundle\Form\RechercheForm;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -45,6 +46,42 @@ class EnfantsController extends Controller
 
 
         return $this->render('BackBundle:Default:email_read2.html.twig',array('f'=>$form->createView(),'m'=>$equipes));
+
+    }
+    public function inscrireAction(Request $request,$id)
+    {
+        $user = $this->get('security.token_storage')->getToken()->getUser();
+        $em = $this->getDoctrine()->getManager();
+        if ($user=='anon.')
+            return $this->redirectToRoute('fos_user_security_login');
+        else {
+
+            $joueur = new Enfants();
+
+            $equipes=$em->getRepository('UserBundle:Garderies')->findOneBy(array('idGarderie'=>$id));
+            $form = $this->createForm(InscriptionType::class, $joueur);
+            if ($form->handleRequest($request)->isValid()) {
+                /**
+                 * @var UploadedFile $file
+                 */
+                $file = $joueur->getImage();
+                $fileName = md5(uniqid()) . '.' . $file->guessExtension();
+                $file->move($this->getParameter('image_directory'), $fileName);
+                $joueur->setImage($fileName);
+                $joueur->setIdParent($user);
+                $joueur->setIdGarderie($equipes);
+                $em = $this->getDoctrine()->getManager();
+
+                $em->persist($joueur);
+                $em->flush();
+                //return $this->redirectToRoute('affiche');
+                return $this->redirectToRoute('inscriEnfant',array('id'=>$id));
+
+            }
+
+
+        }
+        return $this->render('FrontBundle:Default:inscriEnfant.html.twig',array('f'=>$form->createView(),'id'=>$id));
 
     }
 

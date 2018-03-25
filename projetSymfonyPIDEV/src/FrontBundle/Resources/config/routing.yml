@@ -20,6 +20,18 @@ plus:
 enseignants:
     path:     /enseignants/{id}
     defaults: { _controller: UserBundle:Enseignants:enseignants }
+activiteFront:
+    path:     /activiteFront/{id}
+    defaults: { _controller: UserBundle:Activite:affichageF }
+etapeF:
+    path:     /etapeF/{id}
+    defaults: { _controller: UserBundle:Etape:affichageF }
+participer:
+    path:     /participer/{idE}/{id}
+    defaults: { _controller: UserBundle:Etape:participer }
+annuler:
+    path:     /annuler/{idE}/{id}
+    defaults: { _controller: UserBundle:Etape:annuler }
 care:
     path:     /care
     defaults: { _controller: UserBundle:Garderies:affichage }
@@ -59,6 +71,9 @@ terms:
 profil:
     path:     /profil
     defaults: { _controller: UserBundle:OffresBabysitter:ajoutOffres }
+inscriEnfant:
+    path:     /inscriEnfant/{id}
+    defaults: { _controller: UserBundle:Enfants:inscrire }
 profilBB:
     path:     /profilBB
     defaults: { _controller: UserBundle:OffresBabysitter:affichage }
