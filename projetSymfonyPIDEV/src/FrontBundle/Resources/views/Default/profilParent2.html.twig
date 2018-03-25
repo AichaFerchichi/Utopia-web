@@ -1,6 +1,8 @@
 {% extends 'FrontBundle:Default:index.html.twig' %}
 {% block content %}
-    <div class="nav-top" xmlns="http://www.w3.org/1999/html">
+
+
+    <div class="nav-top">
         <nav class="navbar navbar-default">
 
             <div class="navbar-header nav_2">
@@ -161,210 +163,143 @@
 
     </div>
     </div>
-
-    <div class="container-fluid">
-    <!-- Start Page Content -->
-
-
-    <div class="row">
-    <!-- Column -->
-    <div class="col-lg-12">
-
-    <div class="login">
-
-    <div class="col-md2 ">
-
-
-    <div class="main-agileits">
-
-    <div class="card-two">
-
-    <header>
-
-    <div class="avatar">
+    <!---->
+    <!--banner-->
     {% for i in m %}
 
-        <img  class="img-circle" width="150px" height="auto" src={{ asset("ressources/" ~ i.getImage()) }} >
+        <div class="col-md2 ">
+            <img src="{{ asset('images/barreA.png') }}" class="img-responsive img1" alt="">
+            <div class="big-sale2">
+                <img class="img-circle" src="{{ asset("ressources/" ~ i.image) }}" width="130px" height="auto" >
 
-        </div><br><br>
-        </header>
-
-        <h3>Bonjour,{{ nom }} <i class="fa fa-heart text-danger"></i></h3><br><br>
-
-        </div>
-        <ul id="myTab" class="nav nav-tabs" role="tablist">
-            <li role="presentation" class="dropdown">
-                <a href="#" id="myTabDrop1" class="dropdown-toggle" data-toggle="dropdown" aria-controls="myTabDrop1-contents">Paramétrage du profil <span class="caret"></span></a>
-                <ul class="dropdown-menu" role="menu" aria-labelledby="myTabDrop1" id="myTabDrop1-contents">
-                    <li><a href="{{ path('delete',{'ref1':i.getIdOffre()}) }}" id="clickme">Désactiver votre profil</a></li>
-
-                    <script>
-                        var element = document.getElementById('clickme');
-
-                        element.addEventListener('click', function() {
-                            alert('Im an alert box',{
-
-                            title : 'Alert Title',
-
-                            ok : 'Okey'
-
-                        })
-                        });
-                    </script>
-
-                    <li><a href="{{ path('modifier',{'ref2':i.getIdOffre()}) }}">Modifier votre profil</a></li>
-                </ul>
-            </li>
-        </ul><br><br>
-        <div class="contacts">
-            <table><tr><td>{{ facebookButton({'url':'http://www.facebook.com'} ) }}</td>
-                    <td>{{ twitterButton()}}</td>
-                    <td>{{ googleplusButton({'locale':'fr', 'url':'http://google.fr' })}}</td>
-                    <td> {{ linkedinButton({'url': 'http://www.linked.net'}) }}</td>
-                    <td> {{ pinterestButton() }}</td></tr>
-            </table>    <div class="clear"></div>
-        </div>
-        </div>
-
-
-        </div></div></div>
+        <h3 style="color: #808070">Bonjour, je m'appelle {{ i.username }}!</h3>
+            </div>
 
 
 
-    </div>
-
-        </div>
-
-            <!-- Column -->
-            <!-- Column -->
-        <div class="container">
-            <div class="advantages">
-                <div class="col-md-6 advantages-left ">
-                    <h3>Quelques informations</h3>
-                    <div class="advn-one">
-                            <div class="ad-mian">
-                                <div class="ad-left">
-                                    <p>1</p>
-                                </div>
-                                <div class="ad-right">
-                                           <h2 style="color: #277ee1">General</h2><br>
-<table>
-                               <tr> <td><label>Adresse:</label> </td><td><p>{{ i.getAdresse() }} </p></td></tr>
-    <tr> <td><label>Age:</label> </td><td><p>{{ i.getAge() }} ans </p></td></tr>
-    <tr> <td><label>Sexe:</label> </td><td><p>{{ i.getSexe() }} </p></td></tr>
-    <tr> <td><label>Motivation et experience:</label> </td><td><p>{{ i.getDescription() }}  </p></td></tr>
 
 
-</table>
-                                </div>
-                                <div class="clearfix"></div>
-                            </div>
-                            <div class="ad-mian">
-                                <div class="ad-left">
-                                    <p>2</p>
-                                </div>
-                                <div class="ad-right">
-                                    <h2 style="color: #277ee1">Coordonnées</h2><br>
-                                    <table>
-                                        <tr> <td><label>Numero de telephone:</label> </td><td><p>{{ i.getNumtel() }} </p></td></tr>
-                                        <tr> <td><label>Adresse mail:</label> </td><td><p>{{ email }} </p></td></tr>
 
-                                    </table>
-                                </div>
-                                <div class="clearfix"></div>
-                            </div>
-                            <div class="ad-mian">
-                                <div class="ad-left">
-                                    <p>2</p>
-                                </div>
-                                <div class="ad-right">
-                                    <h2 style="color: #277ee1">A propos de moi</h2><br>
-                                    <table>
-                                        <tr> <td><label>Experience:</label> </td><td><p>{{ i.getExperience() }} </p></td></tr>
-                                        <tr> <td><label>Lieu de travail:</label> </td><td><p>{{ i.getLieuBaby() }} </p></td></tr>
-                                        <tr> <td><label>Disponibilité:</label> </td><td><p>{{ i.getDispo() }} </p></td></tr>
-                                    </table>
-                                </div>
-                                <div class="clearfix"></div>
-                            </div> <div class="ad-mian">
-                                <div class="ad-left">
-                                    <p>4</p>
-                                </div>
-                                <div class="ad-right">
-                                    <h2 style="color: #277ee1">Mes activités</h2><br>
-                                    <table>
-                                        {% if(i.getFumeuse()=='1')  %}
 
-                                            <tr> <td><label>*</label></td><td><p>Je fume</p></td></tr>
+    <!-- faqs -->
+    <div class="about-w3 ">
 
-                                        {% endif %}
-                                        {% if(i.getFumeuse()!='1')  %}
 
-                                        <tr> <td><label>*</label></td> <td><p>Je ne fume pas</p></td></tr>
+        <!--about-->
 
-                                        {% endif %}
-                                        {% if(i.getEnfant()=='1')  %}
+        <!--//about-->
 
-                                        <tr>  <td><label>*</label></td><td><p>Je suis maman</p></td></tr>
+        <!--work-experience-->
+        <div  class="work">
+            <div class="container">
 
-                                        {% endif %}
-                                        {% if(i.getEnfant()!='1')  %}
+                <div class="work-info">
+                    <div class="col-md-6 work-left">
+                        <div class=" work-w3 ">
+                            <p><ul class="multi-column-dropdown">
 
-                                        <tr> <td><label>*</label></td> <td><p>Je ne suis pas une maman </p></td></tr>
+                            <li style="color: #ffae91">      Ma motivation</li>
 
-                                        {% endif %}
-                                        {% if(i.getConduite()=='1')  %}
-
-                                        <tr>  <td><label>*</label></td><td><p>Je posséde un permis de conduire</p></td></tr>
-
-                                        {% endif %}
-                                        {% if(i.getConduite()!='1')  %}
-
-                                        <tr>  <td><label>*</label></td><td><p>Je ne posséde pas un permis de conduire</p></td></tr>
-
-                                        {% endif %}  {% if(i.getAgregation()=='1')  %}
-
-                                        <tr> <td><label>*</label></td> <td><p>Je suis une assistante maternelle agréée</p></td></tr>
-
-                                        {% endif %}
-                                        {% if(i.getAgregation()!='1')  %}
-
-                                        <tr>  <td><label>*</label></td><td><p>Je ne suis pas une assistante maternelle agréée</p></td></tr>
-
-                                        {% endif %}
-
-                                    </table>
-                                    <br><br>
-                                </div>
-                                <div class="clearfix"></div>
+                            <p> {{ i.description}} </p><br><div  class="work-info">
                             </div>
 
+                                <li style="color: #ffae91">      Mes activités</li>
 
+                                {% if(i.fumeuse=='1')  %}
 
-                            </div>
+                                    <li style="color: #a7a795"><img src="{{ asset("images/Bien.png") }}" width="15px">Je fume</li>
+
+                                {% endif %}
+                                {% if(i.fumeuse!='1')  %}
+
+                                    <li style="color: #a7a795"><img src="{{ asset("images/Bien.png") }}" width="15px">Je ne fume pas</li>
+
+                                {% endif %}
+                                {% if(i.enfant=='1')  %}
+
+                                    <li style="color: #a7a795"><img src="{{ asset("images/Bien.png") }}" width="15px">Je suis maman</li>
+
+                                {% endif %}
+                                {% if(i.enfant!='1')  %}
+
+                                    <li style="color: #a7a795"><img src="{{ asset("images/Bien.png") }}" width="15px">Je ne suis pas une maman </li>
+
+                                {% endif %}
+                                {% if(i.conduite=='1')  %}
+
+                                    <li style="color: #a7a795"><img src="{{ asset("images/Bien.png") }}" width="15px">Je posséde un permis de conduire</li>
+
+                                {% endif %}
+                                {% if(i.conduite!='1')  %}
+
+                                    <li style="color: #a7a795"><img src="{{ asset("images/Bien.png") }}" width="15px">Je ne posséde pas un permis de conduire</li>
+
+                                {% endif %}  {% if(i.agregation=='1')  %}
+
+                                    <li style="color: #a7a795"><img src="{{ asset("images/Bien.png") }}" width="15px">Je suis une assistante maternelle agréée</li>
+
+                                {% endif %}
+                                {% if(i.agregation!='1')  %}
+
+                                    <li style="color: #a7a795"><img src="{{ asset("images/Bien.png") }}" width="15px">Je ne suis pas une assistante maternelle agréée</li>
+
+                                {% endif %}
+
+                            </ul></p>
                         </div>
-
-                <div class="col-md-6 advantages-left about-agi">
-                    <h3>Mes demandes</h3>
-                        <div class="advn-two">
-                            <h4><a href="single.html"></a></h4>
-                            <p></p>
-                            <ul>
-                                <li><a href="#"> <!--i class="fa fa-angle-right" aria-hidden="true"></i!--></a></li>
-                                <li><a href="#"> <!--i class="fa fa-angle-right" aria-hidden="true"></i!--></a></li>
-                                <li><a href="#"> <!--i class="fa fa-angle-right" aria-hidden="true"></i!--></a></li>
-                                <li><a href="#"> <!--i class="fa fa-angle-right" aria-hidden="true"></i!--></a></li>
-                                <li><a href="#"> <!--i class="fa fa-angle-right" aria-hidden="true"></i!--></a></li>
-                            </ul>
-                        </div>
+                        <label></label>
                     </div>
-                    <div class="clearfix"></div>
+                    <div class="col-md-6 work-right">
+                        <div class=" work-w31">
+                            <p><ul class="multi-column-dropdown">
+
+                            <li style="color: #ffae91">    A propos de moi en tant que baby-sitter</li>
+
+
+                           <li style="color: #a7a795"><img src="{{ asset("ressources/enfant.png") }}" width="15px"> Age:{{ i.age}}ans </li>
+                            <li style="color: #a7a795"><img src="{{ asset("ressources/adresse.png") }}" width="15px">  Adresse:{{ i.adresse}} </li>
+                            <li style="color: #a7a795"><img src="{{ asset("ressources/numero.png") }}" width="15px"> Numéro de téléphone: {{ i.numtel}} </li>
+                                <li style="color: #a7a795"><img src="{{ asset("ressources/mail.png") }}" width="15px">Email : {{ i.email}} </li>
+
+                                <li style="color: #a7a795"><img src="{{ asset("ressources/description.png") }}" width="15px">  Mon experience: {{ i.experience}} </li>
+
+                                <li style="color: #a7a795"> <img src="{{ asset("ressources/description.png") }}" width="15px"> Lieu de travail: {{ i.lieu_baby}} </li>
+                            <li style="color: #a7a795"><img src="{{ asset("ressources/description.png") }}" width="15px">Disponibilité: {{ i.dispo}} </li>
+</ul>
+                            <div  class="work-info">
+                            </div>
+
+                            <p></p>                        </div>
+                        <label></label>
+                    </div>
+                    <button type="submit" class="btn btn-success m-b-10 m-l-5"value="Modifier" >Reserver</button>
+
+                </div>
+                <div class="work-info">
+
+
+                    <div class="clearfix"> </div>
+                </div>
+                <div class="work-info">
+
+
+                    <div class="clearfix"> </div>
+                </div>
+                <div class="work-info">
+
+                    <div class="clearfix"> </div>
+
+                </div>
             </div>
         </div>
+        <!--//work-experience-->
         <!--advantages-->
 
-        </div>
 
-    {% endfor %}
+    </div></div>    </div>
+
+        <!-- // Terms of use -->
+{% endfor %}
+
 
 {% endblock %}

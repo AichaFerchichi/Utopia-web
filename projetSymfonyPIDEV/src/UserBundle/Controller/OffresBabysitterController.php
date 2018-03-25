@@ -22,7 +22,7 @@ class OffresBabysitterController extends Controller
 
 
        else {
-           $profil = $em->getRepository('UserBundle:OffresBabysitter', $user)->findByidbb($user->getId());
+           $profil = $em->getRepository('UserBundle:OffresBabysitter', $user)->findBy(array('idbb' => $user->getId()));
 
            if ($profil == null) {
                $voiture = new OffresBabysitter();
@@ -61,7 +61,7 @@ class OffresBabysitterController extends Controller
 
         $em=$this->getDoctrine()->getManager();
 
-        $equipes=$em->getRepository('UserBundle:OffresBabysitter')->findAll();
+        $equipes=$em->getRepository('UserBundle:OffresBabysitter')->findBy(array('idbb' => $user->getId()));
 
 
         return $this->render('FrontBundle:Default:profilbaby.html.twig', array(
@@ -100,5 +100,37 @@ class OffresBabysitterController extends Controller
             return $this->redirectToRoute('profilBB') ;
         }        return $this->render('FrontBundle:Default:modifierProfil.html.twig',array('f'=>$form->createView(),'nom'=>$user->getUsername(),'email'=>$user->getEmail())) ;
     }
+    public function profilParentAction(){
+
+        $em=$this->getDoctrine()->getManager();
+
+
+        $query1=$em->createQueryBuilder()
+            ->select('m.idOffre,m.dateProfil,u.username,u.email,m.description,m.adresse,m.sexe,m.numtel,m.experience,m.lieu_baby,m.fumeuse,m.enfant,m.conduite,m.agregation,m.dispo,m.age,m.image')->from('UserBundle:OffresBabysitter','m')
+            ->join('UserBundle:User','u')->where('m.idbb = u.id')
+          ->getQuery();
+
+        $equipes=$query1->getResult();
+
+
+        return $this->render('FrontBundle:Default:profilParent.html.twig', array(
+            'm'=>$equipes));
+    }
+    public function monprofilAction($id){
+
+        $em=$this->getDoctrine()->getManager();
+
+
+        $query1=$em->createQuery("select m.dateProfil,u.username,u.email,m.description,m.adresse,m.sexe,m.numtel,m.experience,m.lieu_baby,m.fumeuse,m.enfant,
+m.conduite,m.agregation,m.dispo,m.age,m.image from UserBundle:OffresBabysitter m join UserBundle:User u where  u.id=m.idbb and m.idOffre=:x")
+            ->setParameter('x',$id);
+
+        $equipes=$query1->getResult();
+
+
+        return $this->render('FrontBundle:Default:profilParent2.html.twig', array(
+            'm'=>$equipes));
+    }
+
 
 }

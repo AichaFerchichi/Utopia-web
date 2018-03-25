@@ -68,6 +68,9 @@ modifier:
 profilParent:
     path:     /profilParent
     defaults: { _controller: UserBundle:OffresBabysitter:profilParent }
+monprofil:
+   path:     /monprofil/{id}
+   defaults: { _controller: UserBundle:OffresBabysitter:monprofil }
 ROLE_USER:
     path:     /fos/user/test
     defaults: { _controller: FrontBundle:Default:testRoleUser }
