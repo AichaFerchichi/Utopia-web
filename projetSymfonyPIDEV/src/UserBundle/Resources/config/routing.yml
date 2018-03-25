@@ -11,6 +11,20 @@ ROLE_ADMIN:
 gestion_produits:
     path:     /gestionProduits
     defaults: { _controller: UserBundle:Produits:gestionProduits }
+<<<<<<< HEAD
+
+gestion_promotions:
+    path:     /gestionPromotions
+    defaults: { _controller: UserBundle:Promotions:gestionPromotions }
+
+supprimer_promotion:
+    path:     /supprimerPromotion
+    defaults: { _controller: UserBundle:Promotions:supprimerPromotion }
+
+modifier_promotion:
+    path:     /modifierPromotion
+    defaults: { _controller: UserBundle:Promotions:modifierPromotion }
+=======
 gestion_profil:
     path:     /profil
     defaults: { _controller: UserBundle:OffresBabysitter:ajoutOffres }
@@ -32,3 +46,4 @@ afficher:
 modifier:
     path:     /modifier
     defaults: { _controller: UserBundle:Covoiturage:modifier }
+>>>>>>> 8fbaa7926e73845be87484c9bec92a7e181cb554

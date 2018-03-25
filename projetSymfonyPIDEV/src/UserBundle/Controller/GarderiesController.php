@@ -94,6 +94,19 @@ class GarderiesController extends Controller
             'm'=>$equipes));
 
     }
+    public function plusAction($id)
+    {
+        $marque=new Garderies();
+
+        $em=$this->getDoctrine()->getManager();
+
+        $equipes=$em->getRepository('UserBundle:Garderies')->findOneBy(array('idGarderie'=>$id));
+
+        return $this->render('FrontBundle:Default:plus.html.twig', array(
+            'm'=>$equipes,'id'=>$id));
+
+    }
+
 
     public function modifierAction(Request $request,$id)
     {

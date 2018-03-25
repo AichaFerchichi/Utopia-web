@@ -69,10 +69,7 @@ class DefaultController extends Controller
     {
         return $this->render('FrontBundle:Default:shipping.html.twig');
     }
-    public function singleAction()
-    {
-        return $this->render('FrontBundle:Default:single.html.twig');
-    }
+
     public function termsAction()
     {
         return $this->render('FrontBundle:Default:terms.html.twig');

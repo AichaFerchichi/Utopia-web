@@ -121,7 +121,11 @@
 					<div class="clearfix"></div>
 				</div>
 
-				</div>
+				</div><ol class="breadcrumb"><li><a href="{{ path('plus',{'id':id}) }}" class="active">Objectif&Programme</a></li>
+	<li ><a href="{{ path('enseignants',{'id':id}) }}">Enseignants</a></li>
+	<li ><a href="#">Inscription</a></li>
+	<li ><a href="#">Activité</a></li>
+	<li ><a href="#">Quiz</a></li></ol>
 </div>
   <!---->
 
@@ -132,29 +136,46 @@
 
 <!--content-->
 		<div class="product">
-			<ol class="breadcrumb">
-				<li><a href="#" class="active">Objectif&Programme</a></li>
-				<li ><a href="#"><a style="color: white">Enseignants</a></a></li>
-				<li ><a href="#"><a style="color: white">Inscription</a></a></li>
-				<li ><a href="#"><a style="color: white">Activité</a></a></li>
-				<li ><a href="#"><a style="color: white">Quiz</a></a></li>
-			</ol>
-		<div class="container">
-			<div class="spec ">
 
-				<h3>Les Garderies</h3>
-				<div class="ser-t">
-					<b></b>
-					<span><i></i></span>
-					<b class="line"></b>
+			<input type="hidden" value="{{ id }}">
+
+			<div class="container">
+
+				<div class="spec ">
+
+					<h4 >Notre Programme Educatif</h4>
+				</br><div class="ser-t">
+						<b></b>
+						<span ><i ></i></span>
+						<b class="line"></b>
+
+
+					</div>
 
 				</div>
+				<div class="bs-docs-example">
+				</div><h6>{{ m.getProEducatif() }}</h6>
+				<div class="clearfix"></div>
 
 			</div>
-			<div class="bs-docs-example">
-			</div>
-							<div class="clearfix"></div>
+		</br></br>
+			<div class="container">
+				<div class="spec ">
 
-		</div>
+					<h4>Notre Objectif</h4>
+					</br><div class="ser-t">
+						<b></b>
+						<span ><i ></i></span>
+						<b class="line"></b>
+
+
+					</div>
+
+				</div>
+				<div class="bs-docs-example">
+				</div><h6>{{ m.getObjectif() }}</h6>
+				<div class="clearfix"></div>
+
+			</div>
 	</div>
 {% endblock %}

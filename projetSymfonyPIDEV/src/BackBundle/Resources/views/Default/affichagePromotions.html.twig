@@ -1,0 +1,66 @@
+{% extends 'BackBundle:Default:index.html.twig' %}
+{% block content %}
+
+<div class="container-fluid">
+
+
+
+<div class="col-lg-16">
+    <div class="card">
+        <div class="card-title">
+            <h4>Liste des promotions</h4>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+
+                <table  class="table table-hover " cellspacing="0" width="100%">
+                    <thead>
+                    <tr>
+                        <td>Produit</td>
+                        <td>Pourcentage</td>
+                        <td>Date Début</td>
+                        <td>Date Fin</td>
+                        <td>Prix avant promo</td>
+                        <td>Prix après promo</td>
+                        <td></td>
+                        <td></td>
+
+
+                    </tr>
+                    </thead>
+                    {% for i in m %}
+                        <tbody>
+                        <tr>
+
+                            <td><img  width="150px" height="auto" src={{ asset("ressources/" ~ i.getIdProduit().getImage() ) }} ></td>
+                            <td>{{ i.getPourcentage() }}</td>
+                            <td>{{ i.getDateDebut()|date }}</td>
+                            <td>{{ i.getDateFin()|date }}</td>
+                            <td style="text-decoration: line-through">{{ i.getIdProduit().getPrixProduit() }}</td>
+                            <td>{{ i.getPrixPromo() }}</td>
+                            <td><form action="{{ path('supprimerPromotion',{'id':i.getIdPromo()}) }}" method="POST">
+                                    <button  class="btn btn-warning m-b-10 m-l-5" type="submit" ><img width="20px" height="auto" src="{{ asset("ressources/delete.png") }}"></button>
+                                </form></td>
+                            <td><form action="{{ path('modifierPromotion',{'id':i.getIdPromo()}) }}" method="POST">
+                                    <button  class="btn btn-warning m-b-10 m-l-5" type="submit" ><img width="20px" height="auto" src="{{ asset("ressources/updateIcon.png") }}"></button>
+                                </form></td>
+
+                        </tr>
+                        </tbody>
+                    {% endfor %}
+                </table>
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+    </div>
+ {% endblock %}
