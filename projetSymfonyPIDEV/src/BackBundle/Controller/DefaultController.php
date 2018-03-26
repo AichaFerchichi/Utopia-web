@@ -1,8 +1,12 @@
 <?php
 
 namespace BackBundle\Controller;
-
+use Symfony\Component\HttpFoundation\File\UploadedFile ;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
+use UserBundle\Entity\Produits;
+use UserBundle\Form\ProduitsType;
+use UserBundle\Form\RechercherProduits;
 
 class DefaultController extends Controller
 {
@@ -12,7 +16,7 @@ class DefaultController extends Controller
     }
     public function accueilAction()
     {
-        return $this->render('BackBundle:Default:accueil.html.twig');
+        return $this->render('BackBundle:Default:accueil1.html.twig');
     }
     public function app_profileAction()
     {
@@ -46,10 +50,7 @@ class DefaultController extends Controller
     {
         return $this->render('BackBundle:Default:chart_sparkline.html.twig');
     }
-    public function email_composeAction()
-    {
-        return $this->render('BackBundle:Default:email_compose.html.twig');
-    }
+
     public function email_inboxAction()
     {
         return $this->render('BackBundle:Default:email_inbox.html.twig');
@@ -142,8 +143,6 @@ class DefaultController extends Controller
     {
         return $this->render('BackBundle:Default:ui_tab.html.twig');
     }
-    public function gestionProduitsAction()
-    {
-        return $this->render('BackBundle:Default:gestionProduits.html.twig');
-    }
+
+
 }

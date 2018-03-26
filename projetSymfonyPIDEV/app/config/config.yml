@@ -10,6 +10,7 @@ imports:
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     locale: en
+    image_directory : '%kernel.project_dir%/web/ressources'
 
 framework:
     #esi: ~
@@ -63,12 +64,14 @@ doctrine:
         naming_strategy: doctrine.orm.naming_strategy.underscore
         auto_mapping: true
 swiftmailer:
-    transport: '%mailer_transport%'
-    host: '%mailer_host%'
-    username: '%mailer_user%'
-    password: '%mailer_password%'
-    encryption: '%mailer_encryption%'
-    spool: { type: memory }
+    transport: "%mailer_transport%"
+    host:      "%mailer_host%"
+    username:  "%mailer_user%"
+    password:  "%mailer_password%"
+    encryption: tls
+    port:    587
+    spool:     { type: memory }
+    logging: true
 fos_user:
    db_driver: orm
    firewall_name: main
@@ -86,3 +89,44 @@ fos_user:
               sender_name: admin allforkids
           template: 'email/registration.email.twig'
 
+nomaya_social:
+    buttons:
+        facebook:
+            url:            null
+            message:        "Je veux partager avec vous mon profil de Babysitter pour augmenter ma chance de travail,merci"
+            locale:         "fr_FR"
+            send:           false
+            width:          300
+            showFaces:      false
+            layout:         "button_count"
+            tag:            "AllForKids"
+            via:            "AllFordKids"
+            text:           "Tweet"
+        twitter:
+            url:            null
+            locale:         "fr"
+            message:        "Je veux partager avec vous mon profil de Babysitter pour augmenter ma chance de travail,merci"
+            tag:            "AllForKids"
+            via:            "AllFordKids"
+            text:           "Tweet"
+        googleplus:
+            url:            null
+            locale :        "fr"
+            size :          "medium"
+            annotation :    "bubble"
+            width :         300
+            message:        "Je veux partager avec vous mon profil de Babysitter pour augmenter ma chance de travail,merci"
+            tag:            "AllForKids"
+        linkedin:
+            url:            null
+            locale:         "fr_FR"
+            counter:        "right"
+            message:        "Je veux partager ça avec vous mon profil de Babysitter pour augmenter ma chance de travail,merci"
+            tag:            "AllForKids"
+        pinterest:
+            url:            null
+
+    links:
+        facebook:           "http://www.facebook.com/yann.chauvel"
+        googleplus:         "https://plus.google.com/105931415830389032796"
+    theme:                  'default' # optional

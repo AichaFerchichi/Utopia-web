@@ -13,9 +13,21 @@ class DefaultController extends Controller
         return $this->render('FrontBundle:Default:index.html.twig');
     }
 
-    public function accueilAction()
+    public function accueil1Action()
     {
-        return $this->render('FrontBundle:Default:accueil.html.twig');
+        return $this->render('FrontBundle:Default:accueil1.html.twig');
+<<<<<<< HEAD
+
+=======
+>>>>>>> 2fa14e4bda6c5236979f4abcde7dca5391e436ed
+    }
+    public function plusAction()
+    {
+        return $this->render('FrontBundle:Default:plus.html.twig');
+<<<<<<< HEAD
+
+=======
+>>>>>>> 2fa14e4bda6c5236979f4abcde7dca5391e436ed
     }
     public function wishlistAction()
     {
@@ -65,10 +77,7 @@ class DefaultController extends Controller
     {
         return $this->render('FrontBundle:Default:shipping.html.twig');
     }
-    public function singleAction()
-    {
-        return $this->render('FrontBundle:Default:single.html.twig');
-    }
+
     public function termsAction()
     {
         return $this->render('FrontBundle:Default:terms.html.twig');
@@ -82,5 +91,10 @@ class DefaultController extends Controller
         $this->denyAccessUnlessGranted('ROLE_ADMIN');
         return $this->render('Exemples_Roles/hello-world-admin.html.twig');
     }
+    public function profilAction()
+    {
+        return $this->render('FrontBundle:Default:createProfile.html.twig');
+    }
+
 
 }

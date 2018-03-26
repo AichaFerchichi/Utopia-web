@@ -1,0 +1,63 @@
+{% extends 'BackBundle:Default:index.html.twig' %}
+{% block content %}
+
+    <div class="container-fluid">
+    <div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-title">
+                <p style="color : deeppink">Voulez-vous modifier le produit {{ e }} ? Veuillez remplir les champs suivants !</p>
+                <hr>
+            </div>
+            <div class="card-body">
+                {#
+                {{ form(f) }}
+                #}
+                {{ form_start(f) }}
+
+                <center><table>
+                    <tr>
+                        <td>Nom<span class="text-danger">* </span></td>
+                        <td>{{ form_widget(f.nom) }}</td>
+                    </tr>
+                    <tr>
+                        <td>Catégorie<span class="text-danger">* </span></td>
+                        <td>{{ form_widget(f.categorie,{ 'attr' : { 'class' : 'text-muted m-b-15 f-s-12 form-control input-focus' } }) }}</td>
+                    </tr>
+                    <tr>
+                        <td>Prix<span class="text-danger">* </span></td>
+                        <td>{{ form_widget(f.prixProduit) }}</td>
+                    </tr>
+                    <tr>
+                        <td>Description<span class="text-danger">* </span></td>
+                        <td>{{ form_widget(f.description) }}</td>
+                    </tr>
+                    <tr>
+                        <td>Quantite<span class="text-danger">* </span></td>
+                        <td>{{ form_widget(f.quantite) }}</td>
+                    </tr>
+                    <tr>
+                        <td>Image<span class="text-danger">* </span></td>
+                        <td>{{ form_widget(f.image) }}</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>{{ form_widget(f.Valider) }}</td>
+                    </tr>
+                </table></center>
+
+                {{ form_end(f) }}
+
+
+
+
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+
+
+
+
+{% endblock %}

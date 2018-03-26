@@ -33,28 +33,85 @@ chart_sparkline:
     defaults: { _controller: BackBundle:Default:chart_sparkline }
 email_compose:
     path:     /email_compose
-    defaults: { _controller: BackBundle:Default:email_compose }
+    defaults: { _controller: UserBundle:Garderies:ajout }
+rechercher:
+    path:     /rechercher
+    defaults: { _controller: UserBundle:Garderies:rechercher }
+modifierGarderie:
+    path:     /modifierGarderie/{id}
+    defaults: { _controller: UserBundle:Garderies:modifier }
+supprimerGarderie:
+    path:     /supprimerGarderie/{id}
+    defaults: { _controller: UserBundle:Garderies:delete }
 email_inbox:
-    path:     /email_inbox
-    defaults: { _controller: BackBundle:Default:email_inbox }
+    path:     /email_inbox/{id}
+    defaults: { _controller: UserBundle:Activite:ajout }
+supprimerActivite:
+    path:     /supprimerActivite/{id}
+    defaults: { _controller: UserBundle:Activite:delete }
+supprimerActivite2:
+    path:     /supprimerActivite2/{id}/{idG}
+    defaults: { _controller: UserBundle:Activite:delete2 }
+modifierActivite:
+    path:     /modifierActivite/{id}/{idG}
+    defaults: { _controller: UserBundle:Activite:modifier }
+etape:
+    path:     /etape/{id}/{nb}/{etape}
+    defaults: { _controller: UserBundle:Etape:ajout }
+valider:
+    path:     /valider/{id}/{nb}/{etape}
+    defaults: { _controller: UserBundle:Etape:valider }
+ListeActivite:
+    path:     /ListeActivite/{id}
+    defaults: { _controller: UserBundle:Activite:affichage }
 email_read:
     path:     /email_read
-    defaults: { _controller: BackBundle:Default:email_read }
+    defaults: { _controller: UserBundle:Enseignants:ajout }
+rechercherE:
+    path:     /rechercherE
+    defaults: { _controller: UserBundle:Enseignants:rechercher }
+rechercherA:
+    path:     /rechercherA/{idG}
+    defaults: { _controller: UserBundle:Activite:rechercher }
+modifierEnseignant:
+    path:     /modifierEnseignant/{id}
+    defaults: { _controller: UserBundle:Enseignants:modifier }
+supprimerEnseignant:
+    path:     /supprimerEnseignant/{id}
+    defaults: { _controller: UserBundle:Enseignants:delete }
+email_read2:
+    path:     /email_read2
+    defaults: { _controller: UserBundle:Enfants:ajout }
+rechercherEn:
+    path:     /rechercherEn
+    defaults: { _controller: UserBundle:Enfants:rechercher }
+modifierEnfant:
+    path:     /modifierEnfant/{id}
+    defaults: { _controller: UserBundle:Enfants:modifier }
+supprimerEnfant:
+    path:     /supprimerEnfant/{id}
+    defaults: { _controller: UserBundle:Enfants:delete }
 form_basic:
     path:     /form_basic
     defaults: { _controller: BackBundle:Default:form_basic }
 form_dropzone:
     path:     /form_dropzone
     defaults: { _controller: BackBundle:Default:form_dropzone }
-form_editor:
-    path:     /form_editor
-    defaults: { _controller: BackBundle:Default:form_editor }
+ListeMoyen:
+    path:     /ListeMoyen
+    defaults: { _controller: UserBundle:MoyenTransport:afficher }
+Supprimer:
+    path:     /Supprimer/{id}
+    defaults: { _controller: UserBundle:MoyenTransport:supprimer }
+Modifier:
+    path:     /Modifier
+    defaults: { _controller: UserBundle:MoyenTransport:Modifier }
 form_layout:
     path:     /form_layout
     defaults: { _controller: BackBundle:Default:form_layout }
-form_validation:
-    path:     /form_validation
-    defaults: { _controller: BackBundle:Default:form_validation }
+AjoutMoyen:
+    path:     /AjoutMoyen
+    defaults: { _controller: UserBundle:MoyenTransport:ajouter }
 index1:
     path:     /index1
     defaults: { _controller: BackBundle:Default:index1 }
@@ -103,6 +160,33 @@ ui_progressbar:
 ui_tab:
     path:     /ui_tab
     defaults: { _controller: BackBundle:Default:ui_tab }
+
 gestionProduits:
     path:     /gestionProduits
-    defaults: { _controller: BackBundle:Default:gestionProduits }
+    defaults: { _controller: UserBundle:Produits:gestionProduits }
+supprimerProduit:
+    path:     /supprimer/{id}
+    defaults: { _controller: UserBundle:Produits:supprimer }
+modifierProduits:
+    path:     /modifier/{id}
+    defaults: { _controller: UserBundle:Produits:modifier }
+<<<<<<< HEAD
+promotionProduits:
+    path:     /promotionProduits/{id}
+    defaults: { _controller: UserBundle:Promotions:gestionPromotions }
+rechercher:
+    path:     /rechercher
+    defaults: { _controller: UserBundle:Produits:rechercher }
+affichagePromotions:
+    path:     /affichagePromotions
+    defaults: { _controller: UserBundle:Promotions:afficher }
+supprimerPromotion:
+    path:     /supprimerPromotion/{id}
+    defaults: { _controller: UserBundle:Promotions:supprimerPromotion }
+modifierPromotion:
+    path:     /modifierPromotion/{id}
+    defaults: { _controller: UserBundle:Promotions:modifierPromotion }
+
+=======
+>>>>>>> 8fbaa7926e73845be87484c9bec92a7e181cb554
+
