@@ -230,7 +230,26 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             </li>
 
                             <li><a href={{ path('codes') }} class="hyper"> <span>Codes</span></a></li>
-                            <li><a href={{ path('contact') }} class="hyper"><span>Contact Us</span></a></li>
+                            <li class="dropdown">
+
+                                <a href="#" class="dropdown-toggle hyper" data-toggle="dropdown" ><span> Clubs & Evénements <b class="caret"></b></span></a>
+                                <ul class="dropdown-menu multi multi1">
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <ul class="multi-column-dropdown">
+                                                <li><a href={{ path('care') }}><i class="fa fa-angle-right" aria-hidden="true"></i> Clubs </a></li>
+                                                <li><a href={{ path('care') }}><i class="fa fa-angle-right" aria-hidden="true"></i>Evénements</a></li>
+                                                <li><a href={{ path('care') }}><i class="fa fa-angle-right" aria-hidden="true"></i>Galerie</a></li>
+                                            </ul>
+
+                                        </div>
+                                        <div class="col-sm-3 w3l">
+                                            <a href={{ path('care') }}><img src="{{ asset('images/club.jpg') }}" class="img-responsive" alt=""></a>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </ul>
+                            </li>
                         </ul>
                     </div>
                 </nav>
@@ -974,7 +993,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <li><a href={{ path('care') }}>Personal Care</a></li>
                 <li><a href={{ path('hold') }}>Household</a></li>
                 <li><a href={{ path('codes') }}>Short Codes</a></li>
-                <li><a href={{ path('contact') }}>Contact</a></li>
+                <li><a href={{ path('contact') }}>Clubs & Evenements</a></li>
             </ul>
         </div>
         <div class="col-md-3 footer-grid ">
@@ -983,7 +1002,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <li><a href={{ path('shipping') }}>Shipping</a></li>
                 <li><a href={{ path('terms') }}>Terms & Conditions</a></li>
                 <li><a href={{ path('faqs') }}>Faqs</a></li>
-                <li><a href={{ path('contact') }}>Contact</a></li>
+                <li><a href={{ path('contact') }}>Clubs & Evenements</a></li>
                 <li><a href={{ path('offer') }}>Online Shopping</a></li>
 
             </ul>
