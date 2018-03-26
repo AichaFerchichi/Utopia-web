@@ -37,9 +37,24 @@ email_compose:
 rechercher:
     path:     /rechercher
     defaults: { _controller: UserBundle:Garderies:rechercher }
+rechercherQ:
+    path:     /rechercherQ
+    defaults: { _controller: UserBundle:Quiz:rechercher }
+quiz:
+    path:     /quiz
+    defaults: { _controller: UserBundle:Quiz:ajout }
+validerQuiz:
+    path:     /validerQuiz/{id}
+    defaults: { _controller: UserBundle:Quiz:valider }
 modifierGarderie:
     path:     /modifierGarderie/{id}
     defaults: { _controller: UserBundle:Garderies:modifier }
+modifierQuiz:
+    path:     /modifierQuiz/{id}
+    defaults: { _controller: UserBundle:Quiz:modifier }
+supprimerQuiz:
+    path:     /supprimerQuiz/{id}
+    defaults: { _controller: UserBundle:Quiz:delete }
 supprimerGarderie:
     path:     /supprimerGarderie/{id}
     defaults: { _controller: UserBundle:Garderies:delete }
@@ -170,7 +185,7 @@ supprimerProduit:
 modifierProduits:
     path:     /modifier/{id}
     defaults: { _controller: UserBundle:Produits:modifier }
-<<<<<<< HEAD
+
 promotionProduits:
     path:     /promotionProduits/{id}
     defaults: { _controller: UserBundle:Promotions:gestionPromotions }
@@ -187,6 +202,5 @@ modifierPromotion:
     path:     /modifierPromotion/{id}
     defaults: { _controller: UserBundle:Promotions:modifierPromotion }
 
-=======
->>>>>>> 8fbaa7926e73845be87484c9bec92a7e181cb554
+
 

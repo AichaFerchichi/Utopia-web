@@ -14,6 +14,18 @@ wishlist:
 about:
     path:     /about
     defaults: { _controller: FrontBundle:Default:about }
+quizF:
+    path:     /quizF/{id}
+    defaults: { _controller: UserBundle:Quiz:affichage }
+bravo:
+    path:     /bravo/{id}
+    defaults: { _controller: UserBundle:Quiz:bravo }
+echec:
+    path:     /echec/{id}
+    defaults: { _controller: UserBundle:Quiz:echec }
+DejaJoue:
+    path:     /DejaJoue/{id}
+    defaults: { _controller: UserBundle:Quiz:DejaJoue }
 plus:
     path:     /plus/{id}
     defaults: { _controller: UserBundle:Garderies:plus }
@@ -101,7 +113,7 @@ ROLE_USER:
 ROLE_ADMIN:
     path:     /fos/admin/test
     defaults: { _controller: FrontBundle:Default:testRoleAdmin }
-<<<<<<< HEAD
+
 Boutique:
     path:     /Boutique
     defaults: { _controller: UserBundle:Produits:affichageProduits }
@@ -115,11 +127,10 @@ nosFournitures:
     path:     /nosFournitures
     defaults: { _controller: UserBundle:Produits:nosFournitures }
 
-=======
 ListeCov:
     path:     /ListeCov
     defaults: { _controller: UserBundle:Covoiturage:afficher }
 AjouterCov:
     path:     /AjouterCov
     defaults: { _controller: UserBundle:Covoiturage:ajouter }
->>>>>>> 8fbaa7926e73845be87484c9bec92a7e181cb554
+

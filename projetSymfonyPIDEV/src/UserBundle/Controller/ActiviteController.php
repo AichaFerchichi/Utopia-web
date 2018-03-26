@@ -35,7 +35,7 @@ class ActiviteController extends Controller
                 $i=$i+1;
         }
             $equipes=$em->getRepository('UserBundle:Garderies')->findOneBy(array('idGarderie'=>$id));
-if(($joueur->getDateDebut() > (new \DateTime('now')))&&($joueur->getDateFin()> (new \DateTime('now'))  )&&($joueur->getDateFin()> $joueur->getDateDebut()))
+if(($joueur->getDateDebut() > (new \DateTime('now')))&&($joueur->getDateFin()> (new \DateTime('now'))  )&&($joueur->getDateFin()>= $joueur->getDateDebut()))
 {
     $joueur->setIdGarderie($equipes);
     /**
@@ -130,12 +130,13 @@ return $this->render('BackBundle:Default:email_inbox.html.twig',array('id'=>$id)
         $marque=new Activite();
 
         $em=$this->getDoctrine()->getManager();
-$date=(new \DateTime('now'));
+
 
         //$equipes=$em->getRepository('UserBundle:Activite')->findDateDebut();
         $query=$em->createQueryBuilder()
             ->select('p')->from('UserBundle:Activite','p')
-            ->where('p.dateFin > CURRENT_DATE()')
+            ->where('p.dateFin > CURRENT_DATE() and p.idGarderie =:x')
+            ->setParameter('x',$id)
             ->orderBy('p.dateFin','ASC')
             ->getQuery();
 
