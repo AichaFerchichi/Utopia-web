@@ -133,4 +133,9 @@ ListeCov:
 AjouterCov:
     path:     /AjouterCov
     defaults: { _controller: UserBundle:Covoiturage:ajouter }
-
+my_app_mail_homepage:
+    path: /Mail
+    defaults: { _controller: UserBundle:Mail:index }
+my_app_mail_accuse:
+    path: /success
+    defaults: { _controller: UserBundle:Mail:success }

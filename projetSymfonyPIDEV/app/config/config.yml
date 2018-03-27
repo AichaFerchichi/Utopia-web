@@ -130,3 +130,21 @@ nomaya_social:
         facebook:           "http://www.facebook.com/yann.chauvel"
         googleplus:         "https://plus.google.com/105931415830389032796"
     theme:                  'default' # optional
+
+knp_snappy:
+    pdf:
+        enabled:    true
+        # If you have wkhtmltopdf as an environment variable you don't need to provide the
+        # full path to the executable, use it in the same way as you use in the console
+        #binary:  "wkhtmltopdf"
+        binary:     "/Users/MacBook/Downloads/wkhtmltox-0.12.4_osx-cocoa-x86-64.pkg"
+        options:    []
+    image:
+        enabled:    true
+        binary:     "/Users/MacBook/Downloads/wkhtmltox-0.12.4_osx-cocoa-x86-64.pkg"
+        options:
+            no-outline: true
+            page-size: LETTER
+            # Recommended to set UTF-8 as default encoding :)
+            encoding: UTF-8
+
