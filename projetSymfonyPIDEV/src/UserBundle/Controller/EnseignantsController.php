@@ -114,7 +114,18 @@ class EnseignantsController extends Controller
         }
         return $this->render('BackBundle:Default:modifierEnseignant.html.twig', array('f' => $form->createView()));
     }
+    public function enseignantsAction($id)
+    {
+        $marque=new Enseignants();
 
+        $em=$this->getDoctrine()->getManager();
+
+        $equipes=$em->getRepository('UserBundle:Enseignants')->findBy(array('idGarderie'=>$id));
+
+        return $this->render('FrontBundle:Default:enseignants.html.twig', array(
+            'm'=>$equipes,'id'=>$id));
+
+    }
 
     public function deleteAction($id)
     {

@@ -126,7 +126,12 @@ class OffresBabysitter
  */
     private $image;     /**
 
-
+/**
+ * @var datetime
+ *
+ * @ORM\Column(name="dateProfil", type="datetime", nullable=true)
+ */
+    private $dateProfil;
 
     /**
      * @var \User
@@ -137,6 +142,22 @@ class OffresBabysitter
      * })
      */
     private $idbb;
+
+    /**
+     * @return datetime
+     */
+    public function getDateProfil()
+    {
+        return $this->dateProfil;
+    }
+
+    /**
+     * @param datetime $dateProfil
+     */
+    public function setDateProfil($dateProfil)
+    {
+        $this->dateProfil = $dateProfil;
+    }
 
 
     /**

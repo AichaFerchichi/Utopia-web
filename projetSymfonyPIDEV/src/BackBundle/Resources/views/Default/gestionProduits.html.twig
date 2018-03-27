@@ -40,6 +40,7 @@
                                 <td>{{ form_widget(f.image) }}</td>
                             </tr>
                             <tr>
+                                <td></td>
                                 <td>{{ form_widget(f.Valider) }}</td>
                             </tr>
                         </table>
@@ -58,16 +59,15 @@
                 <div class="card">
                     <div class="card-title">
                       <div class="input-group input-group-default">
-                            {{ form_start(f2) }}
-                            <table>
-                                <tr>
-                                    <td>{{ form_widget(f2.categorie) }}</td>
+                          <table>
 
-                                    <td><span class="input-group-btn">{{ form_widget(f2.Rechercher) }}</span></td>
-                                </tr>
-                            </table>
+                                  <form class="navbar-form navbar-right" action="{{ path('rechercher') }}" method="post">
+              <span class="input-group-btn"><td><input type="text" class="form-control" style="width:420px" placeholder="Recherche par catégorie..."
+                                                       name="motcle" id="motcle"></td></span>
+                                  </form>
 
-                            {{ form_end(f2) }}
+                          </table>
+
 
 
 
@@ -81,7 +81,7 @@
                     <div class="card-body">
                         <br>
                         <br>
-                        <br>
+
 
 
 
@@ -90,7 +90,7 @@
                         <br>
                         <br>
                         <br>
-                        <br>
+
 
 
 
@@ -142,7 +142,13 @@
                                     <!--<td><span class="input-group-btn"><button class="btn btn-primary input-group-close-icon label label-rouded label-warning pull-right"  ><i class="ti-close"></i></button></span></td>-->
 
                                     <td><input type="submit" class="btn btn-primary" value="Commentaires"></td>
-                                    <td><input type="submit" class="btn btn-info" value="Promotion"></td>
+
+
+                                    <td><form action="{{ path('promotionProduits',{'id':i.getIdProduit()}) }}" method="POST">
+                                            <button  class="btn btn-info" type="submit" >Promotion</button>
+                                        </form></td>
+
+
 
                                 </tr>
                                 </tbody>

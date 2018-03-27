@@ -35,8 +35,17 @@ class ActiviteController extends Controller
                 $i=$i+1;
         }
             $equipes=$em->getRepository('UserBundle:Garderies')->findOneBy(array('idGarderie'=>$id));
-if(($joueur->getDateDebut() > (new \DateTime('now')))&&($joueur->getDateFin()> (new \DateTime('now'))  )&&($joueur->getDateFin()> $joueur->getDateDebut()))
-{   $joueur->setIdGarderie($equipes);
+if(($joueur->getDateDebut() > (new \DateTime('now')))&&($joueur->getDateFin()> (new \DateTime('now'))  )&&($joueur->getDateFin()>= $joueur->getDateDebut()))
+{
+    $joueur->setIdGarderie($equipes);
+    /**
+     * @var UploadedFile $file
+     */
+    $file=$joueur->getImage() ;
+    $fileName = md5(uniqid()).'.'.$file->guessExtension();
+    $file->move($this->getParameter('image_directory'),$fileName) ;
+    $joueur->setImage($fileName) ;
+    $em=$this->getDoctrine()->getManager();
     $em->persist($joueur);
             $em->flush();
 
@@ -121,7 +130,28 @@ return $this->render('BackBundle:Default:email_inbox.html.twig',array('id'=>$id)
         $marque=new Activite();
 
         $em=$this->getDoctrine()->getManager();
-$date=(new \DateTime('now'));
+
+
+        //$equipes=$em->getRepository('UserBundle:Activite')->findDateDebut();
+        $query=$em->createQueryBuilder()
+            ->select('p')->from('UserBundle:Activite','p')
+            ->where('p.dateFin > CURRENT_DATE() and p.idGarderie =:x')
+            ->setParameter('x',$id)
+            ->orderBy('p.dateFin','ASC')
+            ->getQuery();
+
+        $equipes=$query->getResult();
+        return $this->render('BackBundle:Default:ListeActivite.html.twig', array(
+            'm'=>$equipes,'idG'=>$id));
+
+    }
+
+    public function affichageFAction($id)
+    {
+        $marque=new Activite();
+
+        $em=$this->getDoctrine()->getManager();
+        $date=(new \DateTime('now'));
 
         //$equipes=$em->getRepository('UserBundle:Activite')->findDateDebut();
         $query=$em->createQueryBuilder()
@@ -131,8 +161,8 @@ $date=(new \DateTime('now'));
             ->getQuery();
 
         $equipes=$query->getResult();
-        return $this->render('BackBundle:Default:ListeActivite.html.twig', array(
-            'm'=>$equipes,'idG'=>$id));
+        return $this->render('FrontBundle:Default:activites.html.twig', array(
+            'm'=>$equipes,'id'=>$id));
 
     }
   /*  public function modifierAction(Request $request,$id,$idG)

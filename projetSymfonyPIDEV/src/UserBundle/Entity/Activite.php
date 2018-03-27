@@ -3,6 +3,7 @@
 namespace UserBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert ;
 
 /**
  * Activite
@@ -28,6 +29,29 @@ class Activite
      */
     private $nom;
 
+    /**
+     * @var string
+     *@Assert\NotBlank(message="Please, upload an image.")
+     * @Assert\Image()
+     * @ORM\Column(name="image", type="string", length=100, nullable=true)
+     */
+    private $image;
+
+    /**
+     * @return string
+     */
+    public function getImage()
+    {
+        return $this->image;
+    }
+
+    /**
+     * @param string $image
+     */
+    public function setImage($image)
+    {
+        $this->image = $image;
+    }
 
 
     /**

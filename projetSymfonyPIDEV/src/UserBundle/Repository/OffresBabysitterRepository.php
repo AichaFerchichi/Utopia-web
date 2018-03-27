@@ -19,5 +19,15 @@ function findByidbb($p)
     return $query->getResult();
 
 }
+    function findAll1()
+    {
+        $query=$this->getEntityManager()->createQuery(
+            "select u.username,u.email,m.description,m.adresse,m.sexe,m.numtel,m.experience,
+     m.lieu_baby,m.fumeuse,m.enfant,m.conduite,m.agregation,m.dispo,m.age,m.image from UserBundle:OffresBabysitter m 
+     join UserBundle:User u on m.idbb=u.id"
+        );
+        return $query->getResult();
+
+    }
 }
 

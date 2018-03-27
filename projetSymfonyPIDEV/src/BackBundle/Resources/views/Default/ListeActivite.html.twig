@@ -33,6 +33,7 @@
 <input type="hidden" value="{{ idG }}">
                                                 <table class="table">
                                                     <tr >
+                                                        <td style="color: darkviolet">Image</td>
                                                         <td style="color: darkviolet">Nom</td>
                                                         <td style="color: darkviolet">Garderie</td>
                                                         <td style="color: darkviolet">Nombre d'étape</td>
@@ -46,12 +47,14 @@
                                                         <tbody>
 
                                                         <tr>
-
+                                                            <td>
+                                                                <img src="{{ asset("ressources/" ~ i.getImage()) }}" width="150px" height="auto" >
+                                                            </td>
                                                             <td style="text-align: left">{{ i.nom }}</td>
                                                                 <td>{{ i.idGarderie.getNom() }}</td>
                                                                 <td>{{ i.nbEtape }}</td>
-                                                            <td>{{ i.dateDebut|date  }}</td>
-                                                              <td>{{ i.dateFin|date }}</td>
+                                                            <td>{{ i.dateDebut|date('d-m-Y')  }}</td>
+                                                              <td>{{ i.dateFin|date('d-m-Y') }}</td>
 
 
 
