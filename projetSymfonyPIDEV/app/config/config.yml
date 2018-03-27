@@ -64,6 +64,14 @@ doctrine:
         naming_strategy: doctrine.orm.naming_strategy.underscore
         auto_mapping: true
 swiftmailer:
+<<<<<<< HEAD
+    transport: '%mailer_transport%'
+    host: '%mailer_host%'
+    username: '%mailer_user%'
+    password: '%mailer_password%'
+    encryption: tls
+    spool: { type: memory }
+=======
     transport: "%mailer_transport%"
     host:      "%mailer_host%"
     username:  "%mailer_user%"
@@ -72,6 +80,7 @@ swiftmailer:
     port:    587
     spool:     { type: memory }
     logging: true
+>>>>>>> 887f5e871e5721d38c6fa481e4bfffb035a9fd79
 fos_user:
    db_driver: orm
    firewall_name: main
