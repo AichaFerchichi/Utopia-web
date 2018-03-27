@@ -7,3 +7,40 @@ ROLE_USER:
 ROLE_ADMIN:
     path:     /fos/admin/test
     defaults: { _controller: UserBundle:Default:testRoleAdmin }
+
+gestion_produits:
+    path:     /gestionProduits
+    defaults: { _controller: UserBundle:Produits:gestionProduits }
+
+
+gestion_promotions:
+    path:     /gestionPromotions
+    defaults: { _controller: UserBundle:Promotions:gestionPromotions }
+
+supprimer_promotion:
+    path:     /supprimerPromotion
+    defaults: { _controller: UserBundle:Promotions:supprimerPromotion }
+
+modifier_promotion:
+    path:     /modifierPromotion
+    defaults: { _controller: UserBundle:Promotions:modifierPromotion }
+
+gestion_profil:
+    path:     /profil
+    defaults: { _controller: UserBundle:OffresBabysitter:ajoutOffres }
+profil_BB:
+    path:     /profilBB
+    defaults: { _controller: UserBundle:OffresBabysitter:affichage}
+
+ajouter:
+    path:     /ajouter
+    defaults: { _controller: UserBundle:Covoiturage:ajouter }
+
+afficher:
+    path:     /afficher
+    defaults: { _controller: UserBundle:Covoiturage:afficher }
+
+modifier:
+    path:     /modifier
+    defaults: { _controller: UserBundle:Covoiturage:modifier }
+

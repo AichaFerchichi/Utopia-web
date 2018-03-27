@@ -1,6 +1,8 @@
 {% extends 'FrontBundle:Default:index.html.twig' %}
 {% block content %}
-
+    {% if app.user.hasRole('ROLE_ADMIN') %}
+		<div>Tu es admin, tout les utilisateurs ont accès à cette page, mais seul toi peut voir cette phrase</div>
+    {% endif %}
 
 				<div class="nav-top">
 					<nav class="navbar navbar-default">

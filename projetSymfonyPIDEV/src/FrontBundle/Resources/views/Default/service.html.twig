@@ -1,0 +1,212 @@
+{% extends 'FrontBundle:Default:index.html.twig' %}
+{% block content %}
+
+
+				<div class="nav-top">
+					<nav class="navbar navbar-default">
+					
+					<div class="navbar-header nav_2">
+						<button type="button" class="navbar-toggle collapsed navbar-toggle1" data-toggle="collapse" data-target="#bs-megadropdown-tabs">
+							<span class="sr-only">Toggle navigation</span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+						
+
+					</div> 
+					<div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
+						<ul class="nav navbar-nav ">
+
+							<li ><a href={{ path('accueil') }} class="hyper"><span>Home</span></a></li>
+							
+
+
+										<li class="active"><a href={{ path('kitchen') }} class="hyper"> <span>Nos services</span></a></li>
+
+							<li class="dropdown">
+							
+								<a href="#" class="dropdown-toggle hyper" data-toggle="dropdown" ><span> Personal Care <b class="caret"></b></span></a>
+								<ul class="dropdown-menu multi multi1">
+									<div class="row">
+										<div class="col-sm-3">
+											<ul class="multi-column-dropdown">
+												<li><a href="care.html"><i class="fa fa-angle-right" aria-hidden="true"></i> Ayurvedic </a></li>
+												<li><a href="care.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Baby Care</a></li>
+												<li><a href="care.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Cosmetics</a></li>
+												<li><a href="care.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Deo & Purfumes</a></li>
+										
+											</ul>
+											
+										</div>
+										<div class="col-sm-3">
+											
+											<ul class="multi-column-dropdown">
+												<li><a href="care.html"> <i class="fa fa-angle-right" aria-hidden="true"></i>Hair Care </a></li>
+												<li><a href="care.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Oral Care</a></li>
+												<li><a href="care.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Personal Hygiene</a></li>
+												<li><a href="care.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Skin care</a></li>
+										
+											</ul>
+											
+										</div>
+										<div class="col-sm-3">
+											
+											<ul class="multi-column-dropdown">
+												<li><a href="care.html"><i class="fa fa-angle-right" aria-hidden="true"></i> Fashion Accessories </a></li>
+												<li><a href="care.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Grooming Tools</a></li>
+												<li><a href="care.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Shaving Need</a></li>
+												<li><a href="care.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Sanitary Needs</a></li>
+										
+											</ul>
+										</div>
+										<div class="col-sm-3 w3l">
+											<a href="care.html"><img src="{{ asset('images/me1.png') }}" class="img-responsive" alt=""></a>
+										</div>
+										<div class="clearfix"></div>
+									</div>	
+								</ul>
+							</li>
+							<li class="dropdown">
+								<a href="#" class="dropdown-toggle hyper" data-toggle="dropdown" ><span>Household<b class="caret"></b></span></a>
+								<ul class="dropdown-menu multi multi2">
+									<div class="row">
+										<div class="col-sm-3">
+											<ul class="multi-column-dropdown">
+												<li><a href="hold.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Cleaning Accessories</a></li>
+												<li><a href="hold.html"><i class="fa fa-angle-right" aria-hidden="true"></i>CookWear</a></li>
+												<li><a href="hold.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Detergents</a></li>
+												<li><a href="hold.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Gardening Needs</a></li>
+										
+											</ul>
+										
+										</div>
+										<div class="col-sm-3">
+											
+											<ul class="multi-column-dropdown">
+												<li><a href="hold.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Kitchen & Dining</a></li>
+												<li><a href="hold.html"><i class="fa fa-angle-right" aria-hidden="true"></i>KitchenWear</a></li>
+												<li><a href="hold.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Pet Care</a></li>
+												<li><a href="hold.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Plastic Wear</a></li>
+										
+											</ul>
+										
+										</div>
+										<div class="col-sm-3">
+										
+											<ul class="multi-column-dropdown">
+												<li><a href="hold.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Pooja Needs</a></li>
+												<li><a href="hold.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Serveware</a></li>
+												<li><a href="hold.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Safety Accessories</a></li>
+												<li><a href="hold.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Festive Decoratives </a></li>
+										
+											</ul>
+										</div>
+										<div class="col-sm-3 w3l">
+											<a href="hold.html"><img src="{{ asset('images/me2.png') }}" class="img-responsive" alt=""></a>
+										</div>
+										<div class="clearfix"></div>
+									</div>	
+								</ul>
+							</li>
+							
+							<li><a href="codes.html" class="hyper"> <span>Codes</span></a></li>
+							<li><a href="contact.html" class="hyper"><span>Contact Us</span></a></li>
+						</ul>
+					</div>
+					</nav>
+					 <div class="cart" >
+					
+						<span class="fa fa-shopping-cart my-cart-icon"><span class="badge badge-notify my-cart-badge"></span></span>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+				</div>
+</div>
+
+	<div data-vide-bg="{{ asset('video/sitter') }}">
+		<div class="container">
+			<div class="banner-info">
+				<h3>TROUVEZ UNE PERSONNE DE CONFIANCE
+					SANS CONTRAINTES ADMINISTRATIVES</h3>
+
+			</div>
+		</div>
+
+	</div>
+	<script>window.jQuery || document.write('<script src="{{ asset('js/vendor/jquery-1.11.1.min.js') }}"><\/script>')</script>
+	<script src="{{ asset('js/jquery.vide.min.js') }}"></script>
+	<br><br>
+<h1>Nous avons connecté des millions de familles et de gardiens depuis 2001</h1>
+
+
+
+
+
+
+
+
+<!--content-->
+<div class="kic-top ">
+	<div class="container ">
+
+		<div class="col-md-4 kic-top1">
+			<a href="single.html">
+				<img src="{{ asset('images/locate.png') }}">
+			</a>
+
+		</div>
+		<div class="col-md-4 kic-top1">
+			<a href="single.html">
+				<img
+						src="{{ asset('images/plan.svg') }}"
+						height="355px"
+						width="1000px" />			</a>
+
+		</div>
+
+	</div>
+</div>
+		<br><br>
+
+		<div class="col-md2 ">
+				<img src="{{ asset('images/barreA.png') }}" class="img-responsive img1" alt="">
+				<div class="big-sale2">
+					<h3>Vous êtes?</h3><br><br>
+					<div class="add">
+						<ul class="nav navbar-nav ">
+
+						<li><a href={{ path('profilParent') }} class="active"> <span>Parent</span></a></li>
+							<li><a href={{ path('profil') }} class="active"><span>Baby-sitter</span></a></li>
+
+						</ul>
+					</div>		</div>
+
+
+
+
+		<div class="col-md2 ">
+			<img src="{{ asset('images/sitter2.jpg') }}" class="img-responsive img1" alt="">
+
+		</div></div>
+	<div class="col-md2 ">
+
+
+		<h1>
+			Comment ça marche?</h1>
+
+		<div class="col-md2 ">
+			<img src="{{ asset('images/Loupe-icon.png') }}">Lisez les commentaires et profils détaillés. Cherchez une aide occasionnelle, de dernière-minute, à mi-temps ou plein-temps.
+
+
+
+		</div>
+
+
+
+
+
+	</div>
+
+
+{% endblock %}

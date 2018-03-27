@@ -1,0 +1,36 @@
+<svg class="homepage-statistics__image" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="721" height="447" viewBox="0 0 721 447">
+    <defs>
+        <path id="a" d="M0 0h721v447H0z"/>
+        <linearGradient id="c" x1="24.133%" x2="66.574%" y1="26.683%" y2="67.067%">
+            <stop offset="0%" stop-color="#FFF" stop-opacity=".8"/>
+            <stop offset="100%" stop-color="#FFF" stop-opacity="0"/>
+        </linearGradient>
+    </defs>
+    <g fill="none" fill-rule="evenodd">
+        <mask id="b" fill="#fff">
+            <use xlink:href="#a"/>
+        </mask>
+        <use fill="#F6F7F7" xlink:href="#a"/>
+        <path fill="#FFF" d="M16 48h87v87H16zM135 48h87v87h-87zM255 48h87v87h-87zM375 48h87v87h-87zM496 48h87v87h-87zM616 48h87v87h-87zM16 160h87v87H16zM135 160h87v87h-87zM255 160h87v87h-87zM375 160h87v87h-87zM496 160h87v87h-87zM616 160h87v87h-87zM375 272h87v87h-87zM496 272h87v87h-87zM616 272h87v87h-87zM375 384h87v87h-87zM496 384h87v87h-87zM616 384h87v87h-87z" mask="url(#b)"/>
+        <text fill="#CCCDCF" font-family="Graphik-Medium, Graphik" font-size="20" font-weight="400" letter-spacing=".1" mask="url(#b)">
+            <tspan x="35.36" y="35">MON</tspan>
+        </text>
+        <text fill="#CCCDCF" font-family="Graphik-Medium, Graphik" font-size="20" font-weight="400" letter-spacing=".1" mask="url(#b)">
+            <tspan x="162.45" y="35">TUE</tspan>
+        </text>
+        <text fill="#CCCDCF" font-family="Graphik-Medium, Graphik" font-size="20" font-weight="400" letter-spacing=".1" mask="url(#b)">
+            <tspan x="276.32" y="35">WED</tspan>
+        </text>
+        <text fill="#CCCDCF" font-family="Graphik-Medium, Graphik" font-size="20" font-weight="400" letter-spacing=".1" mask="url(#b)">
+            <tspan x="398.28" y="35">THU</tspan>
+        </text>
+        <text fill="#CCCDCF" font-family="Graphik-Medium, Graphik" font-size="20" font-weight="400" letter-spacing=".1" mask="url(#b)">
+            <tspan x="524.14" y="35">FRI</tspan>
+        </text>
+        <text fill="#CCCDCF" font-family="Graphik-Medium, Graphik" font-size="20" font-weight="400" letter-spacing=".1" mask="url(#b)">
+            <tspan x="641.07" y="35">SAT</tspan>
+        </text>
+        <path fill="#00E273" d="M654.728 106L646 96.667l2.909-3.11 5.819 6.222L675.09 78 678 81.112zM654.728 216L646 206.667l2.909-3.11 5.819 6.222L675.09 188l2.909 3.112zM531.728 216L523 206.667l2.909-3.11 5.819 6.222L552.09 188l2.909 3.112zM411.728 330L403 320.667l2.909-3.11 5.819 6.222L432.09 302l2.909 3.112zM652.728 330L644 320.667l2.909-3.11 5.819 6.222L673.09 302l2.909 3.112zM531.728 442L523 432.667l2.909-3.11 5.819 6.222L552.09 414l2.909 3.112zM411.728 106L403 96.667l2.909-3.11 5.819 6.222L432.09 78 435 81.112z" mask="url(#b)"/>
+        <path fill="url(#c)" d="M0 0h721v447H0z"/>
+    </g>
+</svg>

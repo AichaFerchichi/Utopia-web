@@ -20,11 +20,15 @@ security:
         main:
             pattern: ^/
             form_login:
-                provider:               fos_userbundle
 
+                provider:               fos_userbundle
                 csrf_token_generator:   security.csrf.token_manager
+                check_path: /fos/login_check
+                login_path: /fos/login
+            logout:
+                path: /fos/logout
             anonymous: true
-            logout:    true
+
 
     access_control:
         - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }

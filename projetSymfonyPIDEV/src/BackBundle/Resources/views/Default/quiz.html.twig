@@ -1,0 +1,178 @@
+{% extends 'BackBundle:Default:index.html.twig' %}
+{% block content %}
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="card">
+                    <div class="card-title">
+                        <h4>Ajouter un produit</h4>
+                        <hr>
+                        </div>
+                    <div class="card-body">
+                        {#
+                        {{ form(f) }}
+                        #}
+                        {{ form_start(f) }}
+                        <table>
+                            <tr>
+                                <td>Theme<span class="text-danger">* </span></td>
+                                <td>{{ form_widget(f.theme) }}</td>
+                            </tr>
+                            <tr>
+                                <td>Question<span class="text-danger">* </span></td>
+                                <td>{{ form_widget(f.question,{ 'attr' : { 'class' : 'text-muted m-b-15 f-s-12 form-control input-focus' } }) }}</td>
+                            </tr>
+                            <tr>
+                                <td>Réponse 1<span class="text-danger">* </span></td>
+                                <td>{{ form_widget(f.rep1) }}</td>
+                            </tr>
+                            <tr>
+                                <td>Réponse 2<span class="text-danger">* </span></td>
+                                <td>{{ form_widget(f.rep2) }}</td>
+                            </tr>
+                            <tr>
+                                <td>Réponse 3<span class="text-danger">* </span></td>
+                                <td>{{ form_widget(f.rep3) }}</td>
+                            </tr>
+                            <tr>
+                                <td>Réponse Correcte<span class="text-danger">* </span></td>
+                                <td>{{ form_widget(f.repC) }}</td>
+                            </tr>
+                            <tr>
+                                <td>Image<span class="text-danger">* </span></td>
+                                <td>{{ form_widget(f.image) }}</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>{{ form_widget(f.Valider) }}</td>
+                            </tr>
+                        </table>
+
+                        {{ form_end(f) }}
+
+
+
+
+                        </div>
+                    </div>
+                </div>
+
+
+            <div class="col-lg-6">
+                <div class="card">
+                    <div class="card-title">
+                      <div class="input-group input-group-default">
+                          <table>
+
+                                  <form class="navbar-form navbar-right" action="{{ path('rechercherQ') }}" method="post">
+              <span class="input-group-btn"><td><input type="text" class="form-control" style="width:420px" placeholder="Recherche par thème..."
+                                                       name="motcle" id="motcle"></td></span>
+                                  </form>
+
+                          </table>
+
+
+
+
+                            <!--<span class="input-group-btn"><button class="btn btn-primary input-group-close-icon btn-group-left" type="submit"><i class="ti-close"></i></button></span>
+                            <input type="text" class="form-control" placeholder="recherche par catégorie..">
+                            <span class="input-group-btn"><button class="btn btn-primary btn-group-right" type="submit"><i class="ti-search"></i></button></span>-->
+
+                    </div>
+                        <hr>
+                    </div>
+                    <div class="card-body">
+
+
+
+
+
+                        <center><img src="{{ asset("ressources/" ~ quizj.getImage()) }}" width="200px" height="150px"><br><br><br>
+                        <label style="color: red;font-size: 14px">Quiz: <a style="color:black;">{{ quizj.getTheme() }}</a></label><br>
+                        <label style="color: red;font-size: 14px">Question: <a style="color:black;">{{ quizj.getQuestion() }}</a></label><br>
+                        </center> <input type="checkbox" disabled='{checkStat == 1 ? true : false}'> <a style="color:black;">{{ quizj.getRep1() }}</a><br>
+                        <input type="checkbox" disabled='{checkStat == 1 ? true : false}'> <a style="color:black;">{{ quizj.getRep2() }}</a><br>
+                        <input type="checkbox" disabled='{checkStat == 1 ? true : false}'> <a style="color:black;">{{ quizj.getRep3() }}</a><br>
+
+                        <br>
+                        <br>
+                        <br>
+
+
+                        </div>
+                </div>
+            </div>
+            </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card">
+
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <a style="color: red;font-size: 18px"> Quiz du jour actuelle</a><br><br>
+                            <label>{{ Q.getQuestion() }} ?</label>
+                        </div></div>
+
+
+                </div></div></div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-title">
+                        <h4>Liste des quizs</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+
+                        <table  class="table table-hover " cellspacing="0" width="100%">
+
+                            {% for i in m %}
+                                <tbody>
+                                <tr>
+                                    <td><img  width="75px" height="auto" src={{ asset("ressources/" ~ i.getImage()) }} ></td>
+                                    <td>{{ i.getTheme() }}</td>
+                                    <td>{{ i.getQuestion() }}</td>
+                                    <td>{{ i.getRep1() }}</td>
+                                    <td>{{ i.getRep2() }}</td>
+                                    <td>{{ i.getRep3() }}</td>
+                                    <td>{{ i.getRepC() }}</td>
+                                    <td><form action="{{ path('supprimerQuiz',{'id':i.getIdQuiz() }) }}" method="POST">
+                                            <button  class="btn btn-danger m-b-10 m-l-5" type="submit" ><img width="20px" height="auto" src="{{ asset("ressources/delete.png") }}"></button>
+                                        </form></td>
+                                    <td><form action="{{ path('modifierQuiz',{'id':i.getIdQuiz() }) }}" method="POST">
+                                            <button  class="btn btn-warning m-b-10 m-l-5" type="submit" ><img width="20px" height="auto" src="{{ asset("ressources/modifier.png") }}"></button>
+                                        </form></td>
+                                    <!--<td><span class="input-group-btn"><button class="btn btn-primary input-group-close-icon label label-rouded label-warning pull-right"  ><i class="ti-close"></i></button></span></td>-->
+
+                                    <td><form action="{{ path('validerQuiz',{'id':i.getIdQuiz() }) }}" method="POST"><input type="submit" class="btn btn-primary" value="Quiz du jour"></form></td>
+
+
+
+
+
+
+                                </tr>
+                                </tbody>
+                            {% endfor %}
+                        </table>
+
+
+
+
+
+
+
+
+                        </div>
+                </div>
+
+                        </div>
+            </div>
+        </div>
+
+
+
+
+        </div>
+{% endblock %}

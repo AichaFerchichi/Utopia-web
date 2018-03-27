@@ -1,0 +1,179 @@
+{% extends 'BackBundle:Default:index.html.twig' %}
+{% block content %}
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="card">
+                    <div class="card-title">
+                        <h4>Ajouter un produit</h4>
+                        <hr>
+                        </div>
+                    <div class="card-body">
+                        {#
+                        {{ form(f) }}
+                        #}
+                        {{ form_start(f) }}
+                        <table>
+                            <tr>
+                                <td>Nom<span class="text-danger">* </span></td>
+                                <td>{{ form_widget(f.nom) }}</td>
+                            </tr>
+                            <tr>
+                                <td>Catégorie<span class="text-danger">* </span></td>
+                                <td>{{ form_widget(f.categorie,{ 'attr' : { 'class' : 'text-muted m-b-15 f-s-12 form-control input-focus' } }) }}</td>
+                            </tr>
+                            <tr>
+                                <td>Prix<span class="text-danger">* </span></td>
+                                <td>{{ form_widget(f.prixProduit) }}</td>
+                            </tr>
+                            <tr>
+                                <td>Description<span class="text-danger">* </span></td>
+                                <td>{{ form_widget(f.description) }}</td>
+                            </tr>
+                            <tr>
+                                <td>Quantite<span class="text-danger">* </span></td>
+                                <td>{{ form_widget(f.quantite) }}</td>
+                            </tr>
+                            <tr>
+                                <td>Image<span class="text-danger">* </span></td>
+                                <td>{{ form_widget(f.image) }}</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>{{ form_widget(f.Valider) }}</td>
+                            </tr>
+                        </table>
+
+                        {{ form_end(f) }}
+
+
+
+
+                        </div>
+                    </div>
+                </div>
+
+
+            <div class="col-lg-6">
+                <div class="card">
+                    <div class="card-title">
+                      <div class="input-group input-group-default">
+                          <table>
+
+                                  <form class="navbar-form navbar-right" action="{{ path('rechercher') }}" method="post">
+              <span class="input-group-btn"><td><input type="text" class="form-control" style="width:420px" placeholder="Recherche par catégorie..."
+                                                       name="motcle" id="motcle"></td></span>
+                                  </form>
+
+                          </table>
+
+
+
+
+                            <!--<span class="input-group-btn"><button class="btn btn-primary input-group-close-icon btn-group-left" type="submit"><i class="ti-close"></i></button></span>
+                            <input type="text" class="form-control" placeholder="recherche par catégorie..">
+                            <span class="input-group-btn"><button class="btn btn-primary btn-group-right" type="submit"><i class="ti-search"></i></button></span>-->
+
+                    </div>
+                        <hr>
+                    </div>
+                    <div class="card-body">
+                        <br>
+                        <br>
+
+
+
+
+                        <img  width="430px" height="auto" src={{ asset("ressources/img/1.jpg") }} >
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+
+
+
+
+                        </div>
+                </div>
+            </div>
+            </div>
+
+        <div class="row">
+            <div class="col-lg-16">
+                <div class="card">
+                    <div class="card-title">
+                        <h4>Liste des produits</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+
+                        <table  class="table table-hover " cellspacing="0" width="100%">
+                            <thead>
+                            <tr>
+                                <td>Produit</td>
+                                <td>Nom</td>
+                                <td>Catégorie</td>
+                                <td>Prix</td>
+                                <td>Description</td>
+                                <td>Quantité</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+
+                            </tr>
+                            </thead>
+                            {% for i in m %}
+                                <tbody>
+                                <tr>
+                                    <td><img  width="150px" height="auto" src={{ asset("ressources/" ~ i.getImage()) }} ></td>
+                                    <td>{{ i.getNom() }}</td>
+                                    <td>{{ i.getCategorie() }}</td>
+                                    <td>{{ i.getPrixProduit() }}</td>
+                                    <td>{{ i.getDescription() }}</td>
+                                    <td>{{ i.getQuantite() }}</td>
+                                    <td><form action="{{ path('supprimerProduit',{'id':i.getIdProduit()}) }}" method="POST">
+                                            <button  class="btn btn-warning m-b-10 m-l-5" type="submit" ><img width="20px" height="auto" src="{{ asset("ressources/delete.png") }}"></button>
+                                        </form></td>
+                                    <td><form action="{{ path('modifierProduits',{'id':i.getIdProduit()}) }}" method="POST">
+                                            <button  class="btn btn-warning m-b-10 m-l-5" type="submit" ><img width="20px" height="auto" src="{{ asset("ressources/updateIcon.png") }}"></button>
+                                        </form></td>
+                                    <!--<td><span class="input-group-btn"><button class="btn btn-primary input-group-close-icon label label-rouded label-warning pull-right"  ><i class="ti-close"></i></button></span></td>-->
+
+                                    <td><input type="submit" class="btn btn-primary" value="Commentaires"></td>
+
+
+                                    <td><form action="{{ path('promotionProduits',{'id':i.getIdProduit()}) }}" method="POST">
+                                            <button  class="btn btn-info" type="submit" >Promotion</button>
+                                        </form></td>
+
+
+
+                                </tr>
+                                </tbody>
+                            {% endfor %}
+                        </table>
+
+
+
+
+
+
+
+
+                        </div>
+                </div>
+                    </div>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+        </div>
+{% endblock %}

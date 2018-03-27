@@ -67,6 +67,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 </head>
 <body>
+
 <div>
     {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
         {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} |
@@ -93,13 +94,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     {% endblock fos_user_content %}
 </div>
 <div id="container">
-    <a href={{ path('offer') }}><img src="{{ asset('images/download.png') }}" class="img-head" alt=""></a>
     <div class="header">
 
         <div class="container">
 
             <div class="logo">
-                <h1 ><a href={{ path('accueil') }}><b>T<br>H<br>E</b>Big Store<span>The Best Supermarket</span></a></h1>
+                <h1 ><a href={{ path('accueil1') }}><b>T<br>H<br>E</b>Big Store<span>The Best Supermarket</span></a></h1>
             </div>
             <div class="head-t">
                 <ul class="card">
@@ -138,53 +138,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </div>
                     <div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
                         <ul class="nav navbar-nav ">
-                            <li class=" active"><a href={{ path('accueil') }} class="hyper"><span>Home</span></a></li>
+                            <li class=" active"><a href={{ path('accueil1') }} class="hyper"><span>Home</span></a></li>
 
-                            <li class="dropdown ">
-                                <a href="#" class="dropdown-toggle  hyper" data-toggle="dropdown" ><span>Kitchen<b class="caret"></b></span></a>
-                                <ul class="dropdown-menu multi">
-                                    <div class="row">
-                                        <div class="col-sm-3">
-                                            <ul class="multi-column-dropdown">
+                            <li><a href={{ path('kitchen') }} class="hyper"> <span>Nos services</span></a></li>
+                            <li><a href={{ path('care') }} class="hyper"> <span>Nos Garderies</span></a></li>
 
-                                                <li><a href={{ path('kitchen') }}><i class="fa fa-angle-right" aria-hidden="true"></i>Water & Beverages</a></li>
-                                                <li><a href={{ path('kitchen') }}><i class="fa fa-angle-right" aria-hidden="true"></i>Fruits & Vegetables</a></li>
-                                                <li><a href={{ path('kitchen') }}> <i class="fa fa-angle-right" aria-hidden="true"></i>Staples</a></li>
-                                                <li><a href={{ path('kitchen') }}><i class="fa fa-angle-right" aria-hidden="true"></i>Branded Food</a></li>
 
-                                            </ul>
-
-                                        </div>
-                                        <div class="col-sm-3">
-
-                                            <ul class="multi-column-dropdown">
-                                                <li><a href={{ path('kitchen') }}><i class="fa fa-angle-right" aria-hidden="true"></i>Breakfast &amp; Cereal</a></li>
-                                                <li><a href={{ path('kitchen') }}><i class="fa fa-angle-right" aria-hidden="true"></i>Snacks</a></li>
-                                                <li><a href={{ path('kitchen') }}><i class="fa fa-angle-right" aria-hidden="true"></i>Spices</a></li>
-                                                <li><a href={{ path('kitchen') }}><i class="fa fa-angle-right" aria-hidden="true"></i>Biscuit &amp; Cookie</a></li>
-                                                <li><a href={{ path('kitchen') }}><i class="fa fa-angle-right" aria-hidden="true"></i>Sweets</a></li>
-
-                                            </ul>
-
-                                        </div>
-                                        <div class="col-sm-3">
-
-                                            <ul class="multi-column-dropdown">
-                                                <li><a href={{ path('kitchen') }}><i class="fa fa-angle-right" aria-hidden="true"></i>Pickle & Condiment</a></li>
-                                                <li><a href={{ path('kitchen') }}><i class="fa fa-angle-right" aria-hidden="true"></i>Instant Food</a></li>
-                                                <li><a href={{ path('kitchen') }}><i class="fa fa-angle-right" aria-hidden="true"></i>Dry Fruit</a></li>
-                                                <li><a href={{ path('kitchen') }}><i class="fa fa-angle-right" aria-hidden="true"></i>Tea &amp; Coffee</a></li>
-
-                                            </ul>
-                                        </div>
-                                        <div class="col-sm-3 w3l">
-                                            <a href={{ path('kitchen') }}><img src="{{ asset('images/me.png') }}" class="img-responsive" alt=""></a>
-                                        </div>
-                                        <div class="clearfix"></div>
-                                    </div>
-                                </ul>
-                            </li>
                             <li class="dropdown">
+
+
+
 
                                 <a href="#" class="dropdown-toggle hyper" data-toggle="dropdown" ><span> Personal Care <b class="caret"></b></span></a>
                                 <ul class="dropdown-menu multi multi1">
@@ -228,13 +191,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 </ul>
                             </li>
                             <li class="dropdown">
-                                <a href="#" class="dropdown-toggle hyper" data-toggle="dropdown" ><span>Household<b class="caret"></b></span></a>
+                                <a href="#" class="dropdown-toggle hyper" data-toggle="dropdown" ><span>Transport<b class="caret"></b></span></a>
+
                                 <ul class="dropdown-menu multi multi2">
                                     <div class="row">
                                         <div class="col-sm-3">
                                             <ul class="multi-column-dropdown">
-                                                <li><a href={{ path('hold') }}><i class="fa fa-angle-right" aria-hidden="true"></i>Cleaning Accessories</a></li>
-                                                <li><a href={{ path('hold') }}><i class="fa fa-angle-right" aria-hidden="true"></i>CookWear</a></li>
+                                                <li><a href={{ path('hold') }}><i class="fa fa-angle-right" aria-hidden="true"></i>Proposer un trajet</a></li>
+                                                <li><a href={{ path('ListeCov') }}><i class="fa fa-angle-right" aria-hidden="true"></i>Rechercher un trajet</a></li>
                                                 <li><a href={{ path('hold') }}><i class="fa fa-angle-right" aria-hidden="true"></i>Detergents</a></li>
                                                 <li><a href={{ path('hold') }}><i class="fa fa-angle-right" aria-hidden="true"></i>Gardening Needs</a></li>
 
@@ -271,7 +235,68 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             </li>
 
                             <li><a href={{ path('codes') }} class="hyper"> <span>Codes</span></a></li>
-                            <li><a href={{ path('contact') }} class="hyper"><span>Contact Us</span></a></li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle hyper" data-toggle="dropdown" ><span>Clubs & Evénements<b class="caret"></b></span></a>
+
+                                <ul class="dropdown-menu multi multi2">
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <ul class="multi-column-dropdown">
+                                                <li><a href={{ path('clubs') }}><i class="fa fa-angle-right" aria-hidden="true"></i>Clubs</a></li>
+                                                <li>
+                                                    <div class="col-sm-3 w3l">
+                                                        <a href={{ path('clubs') }}><img src="{{ asset('images/cl.png') }}" class="img-responsive" alt=""></a>
+                                                    </div>
+                                                    <div class="clearfix"></div>
+                                                </li>
+
+                                            </ul>
+
+                                        </div>
+                                        <div class="col-sm-3">
+
+                                            <ul class="multi-column-dropdown">
+                                                <li><a href={{ path('hold') }}><i class="fa fa-angle-right" aria-hidden="true"></i>Evénements</a></li>
+                                                <li>
+                                                    <div class="col-sm-3 w3l">
+                                                        <a href={{ path('hold') }}><img src="{{ asset('images/ev.png') }}" class="img-responsive" alt=""></a>
+                                                    </div>
+                                                    <div class="clearfix"></div>
+                                                </li>
+
+                                            </ul>
+
+                                        </div>
+                                        <div class="col-sm-3">
+
+                                            <ul class="multi-column-dropdown">
+                                                <li><a href={{ path('hold') }}><i class="fa fa-angle-right" aria-hidden="true"></i>Galerie</a></li>
+                                                <li>
+                                                    <div class="col-sm-3 w3l">
+                                                        <a href={{ path('hold') }}><img src="{{ asset('images/gal.png') }}" class="img-responsive" alt=""></a>
+                                                    </div>
+                                                    <div class="clearfix"></div>
+                                                </li>
+
+                                            </ul>
+                                        </div>
+                                        <div class="col-sm-3">
+
+                                            <ul class="multi-column-dropdown">
+                                                <li><a href={{ path('hold') }}><i class="fa fa-angle-right" aria-hidden="true"></i>Forum</a></li>
+                                                <li>
+                                                    <div class="col-sm-3 w3l">
+                                                        <a href={{ path('hold') }}><img src="{{ asset('images/for.png') }}" class="img-responsive" alt=""></a>
+                                                    </div>
+                                                    <div class="clearfix"></div>
+                                                </li>
+
+                                            </ul>
+                                        </div>
+
+                                    </div>
+                                </ul>
+                            </li>
                         </ul>
                     </div>
                 </nav>
@@ -337,7 +362,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     </a>
                                     <div class="mid-1">
                                         <div class="women">
-                                            <h6><a href={{ path('single') }}>Moong</a>(1 kg)</h6>
+                                            <h6><a href="">Moong</a>(1 kg)</h6>
                                         </div>
                                         <div class="mid-2">
                                             <p ><label>$2.00</label><em class="item_price">$1.50</em></p>
@@ -361,7 +386,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     </a>
                                     <div class="mid-1">
                                         <div class="women">
-                                            <h6><a href={{ path('single') }}>Sunflower Oil</a>(5 kg)</h6>
+                                            <h6><a href="">Sunflower Oil</a>(5 kg)</h6>
                                         </div>
                                         <div class="mid-2">
                                             <p ><label>$10.00</label><em class="item_price">$9.00</em></p>
@@ -384,7 +409,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     </a>
                                     <div class="mid-1">
                                         <div class="women">
-                                            <h6><a href={{ path('single') }}>Kabuli Chana</a>(1 kg)</h6>
+                                            <h6><a href="">Kabuli Chana</a>(1 kg)</h6>
                                         </div>
                                         <div class="mid-2">
                                             <p ><label>$3.00</label><em class="item_price">$2.00</em></p>
@@ -407,7 +432,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     </a>
                                     <div class="mid-1">
                                         <div class="women">
-                                            <h6><a href={{ path('single') }}>Soya Chunks</a>(1 kg)</h6>
+                                            <h6><a href="">Soya Chunks</a>(1 kg)</h6>
                                         </div>
                                         <div class="mid-2">
                                             <p ><label>$4.00</label><em class="item_price">$3.50</em></p>
@@ -435,7 +460,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     </a>
                                     <div class="mid-1">
                                         <div class="women">
-                                            <h6><a href={{ path('single') }}>Lays</a>(100 g)</h6>
+                                            <h6><a href="">Lays</a>(100 g)</h6>
                                         </div>
                                         <div class="mid-2">
                                             <p ><label>$1.00</label><em class="item_price">$0.70</em></p>
@@ -458,7 +483,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     </a>
                                     <div class="mid-1">
                                         <div class="women">
-                                            <h6><a href={{ path('single') }}>Kurkure</a>(100 g)</h6>
+                                            <h6><a href="">Kurkure</a>(100 g)</h6>
                                         </div>
                                         <div class="mid-2">
                                             <p ><label>$1.00</label><em class="item_price">$0.70</em></p>
@@ -481,7 +506,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     </a>
                                     <div class="mid-1">
                                         <div class="women">
-                                            <h6><a href={{ path('single') }}>Popcorn</a>(250 g)</h6>
+                                            <h6><a href="">Popcorn</a>(250 g)</h6>
                                         </div>
                                         <div class="mid-2">
                                             <p ><label>$2.00</label><em class="item_price">$1.00</em></p>
@@ -504,7 +529,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     </a>
                                     <div class="mid-1">
                                         <div class="women">
-                                            <h6><a href={{ path('single') }}>Nuts</a>(250 g)</h6>
+                                            <h6><a href="">Nuts</a>(250 g)</h6>
                                         </div>
                                         <div class="mid-2">
                                             <p ><label>$4.00</label><em class="item_price">$3.50</em></p>
@@ -532,7 +557,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     </a>
                                     <div class="mid-1">
                                         <div class="women">
-                                            <h6><a href={{ path('single') }}>Banana</a>(6 pcs)</h6>
+                                            <h6><a href="">Banana</a>(6 pcs)</h6>
                                         </div>
                                         <div class="mid-2">
                                             <p ><label>$2.00</label><em class="item_price">$1.50</em></p>
@@ -555,7 +580,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     </a>
                                     <div class="mid-1">
                                         <div class="women">
-                                            <h6><a href={{ path('single') }}>Onion</a>(1 kg)</h6>
+                                            <h6><a href="">Onion</a>(1 kg)</h6>
                                         </div>
                                         <div class="mid-2">
                                             <p ><label>$1.00</label><em class="item_price">$0.70</em></p>
@@ -578,7 +603,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     </a>
                                     <div class="mid-1">
                                         <div class="women">
-                                            <h6><a href={{ path('single') }}> Bitter Gourd</a>(1 kg)</h6>
+                                            <h6><a href=""> Bitter Gourd</a>(1 kg)</h6>
                                         </div>
                                         <div class="mid-2">
                                             <p ><label>$2.00</label><em class="item_price">$1.00</em></p>
@@ -601,7 +626,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     </a>
                                     <div class="mid-1">
                                         <div class="women">
-                                            <h6><a href={{ path('single') }}>Apples</a>(1 kg)</h6>
+                                            <h6><a href="">Apples</a>(1 kg)</h6>
                                         </div>
                                         <div class="mid-2">
                                             <p ><label>$4.00</label><em class="item_price">$3.50</em></p>
@@ -629,7 +654,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     </a>
                                     <div class="mid-1">
                                         <div class="women">
-                                            <h6><a href={{ path('single') }}>Honey</a>(500 g)</h6>
+                                            <h6><a href="">Honey</a>(500 g)</h6>
                                         </div>
                                         <div class="mid-2">
                                             <p ><label>$7.00</label><em class="item_price">$6.00</em></p>
@@ -652,7 +677,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     </a>
                                     <div class="mid-1">
                                         <div class="women">
-                                            <h6><a href={{ path('single') }}>Chocos</a>(250 g)</h6>
+                                            <h6><a href="">Chocos</a>(250 g)</h6>
                                         </div>
                                         <div class="mid-2">
                                             <p ><label>$5.00</label><em class="item_price">$4.50</em></p>
@@ -675,7 +700,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     </a>
                                     <div class="mid-1">
                                         <div class="women">
-                                            <h6><a href={{ path('single') }}>Oats</a>(1 kg)</h6>
+                                            <h6><a href={"">Oats</a>(1 kg)</h6>
                                         </div>
                                         <div class="mid-2">
                                             <p ><label>$4.00</label><em class="item_price">$3.50</em></p>
@@ -698,7 +723,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     </a>
                                     <div class="mid-1">
                                         <div class="women">
-                                            <h6><a href={{ path('single') }}>Bread</a>(500 g)</h6>
+                                            <h6><a href="">Bread</a>(500 g)</h6>
                                         </div>
                                         <div class="mid-2">
                                             <p ><label>$1.00</label><em class="item_price">$0.80</em></p>
@@ -823,7 +848,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </a>
                     <div class="mid-1">
                         <div class="women">
-                            <h6><a href={{ path('single') }}>Moisturiser</a>(500 g)</h6>
+                            <h6><a href="">Moisturiser</a>(500 g)</h6>
                         </div>
                         <div class="mid-2">
                             <p ><label>$7.00</label><em class="item_price">$6.00</em></p>
@@ -845,7 +870,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </a>
                     <div class="mid-1">
                         <div class="women">
-                            <h6><a href={{ path('single') }}>  Lady Finger</a>(250 g)</h6>
+                            <h6><a href="">  Lady Finger</a>(250 g)</h6>
                         </div>
                         <div class="mid-2">
                             <p ><label>$5.00</label><em class="item_price">$4.50</em></p>
@@ -867,7 +892,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </a>
                     <div class="mid-1">
                         <div class="women">
-                            <h6><a href={{ path('single') }}> Ribbon</a>(1 pc)</h6>
+                            <h6><a href=""> Ribbon</a>(1 pc)</h6>
                         </div>
                         <div class="mid-2">
                             <p ><label>$4.00</label><em class="item_price">$3.50</em></p>
@@ -889,7 +914,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </a>
                     <div class="mid-1">
                         <div class="women">
-                            <h6><a href={{ path('single') }}>Grapes</a>(500 g)</h6>
+                            <h6><a href="">Grapes</a>(500 g)</h6>
                         </div>
                         <div class="mid-2">
                             <p ><label>$1.00</label><em class="item_price">$0.80</em></p>
@@ -912,7 +937,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </a>
                     <div class="mid-1">
                         <div class="women">
-                            <h6><a href={{ path('single') }}>Clips</a>(1 pack)</h6>
+                            <h6><a href="">Clips</a>(1 pack)</h6>
                         </div>
                         <div class="mid-2">
                             <p ><label>$7.00</label><em class="item_price">$6.00</em></p>
@@ -934,7 +959,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </a>
                     <div class="mid-1">
                         <div class="women">
-                            <h6><a href={{ path('single') }}>Conditioner</a>(250 g)</h6>
+                            <h6><a href="">Conditioner</a>(250 g)</h6>
                         </div>
                         <div class="mid-2">
                             <p ><label>$5.00</label><em class="item_price">$4.50</em></p>
@@ -956,7 +981,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </a>
                     <div class="mid-1">
                         <div class="women">
-                            <h6><a href={{ path('single') }}>Cleaner</a>(250 kg)</h6>
+                            <h6><a href="">Cleaner</a>(250 kg)</h6>
                         </div>
                         <div class="mid-2">
                             <p ><label>$4.00</label><em class="item_price">$3.50</em></p>
@@ -978,7 +1003,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </a>
                     <div class="mid-1">
                         <div class="women">
-                            <h6><a href={{ path('single') }}>Gel</a>(150 g)</h6>
+                            <h6><a href="">Gel</a>(150 g)</h6>
                         </div>
                         <div class="mid-2">
                             <p ><label>$1.00</label><em class="item_price">$0.80</em></p>
@@ -1010,10 +1035,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <div class="col-md-3 footer-grid ">
             <h3>Menu</h3>
             <ul>
-                <li><a href={{ path('accueil') }}>Home</a></li>
+                <li><a href={{ path('accueil1') }}>Home</a></li>
                 <li><a href={{ path('kitchen') }}>Kitchen</a></li>
                 <li><a href={{ path('care') }}>Personal Care</a></li>
-                <li><a href={{ path('hold') }}>Household</a></li>
+                <li><a href={{ path('hold') }}>Transport</a></li>
                 <li><a href={{ path('codes') }}>Short Codes</a></li>
                 <li><a href={{ path('contact') }}>Contact</a></li>
             </ul>
@@ -1041,7 +1066,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         </div>
         <div class="clearfix"></div>
         <div class="footer-bottom">
-            <h2 ><a href={{ path('accueil') }}><b>T<br>H<br>E</b>Big Store<span>The Best Supermarket</span></a></h2>
+            <h2 ><a href={{ path('accueil1') }}><b>T<br>H<br>E</b>Big Store<span>The Best Supermarket</span></a></h2>
             <p class="fo-para">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris</p>
             <ul class="social-fo">
                 <li><a href="#" class=" face"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
@@ -1739,37 +1764,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     </div>
 </div>
 <!-- product -->
-<div class="modal fade" id="myModal20" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content modal-info">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            </div>
-            <div class="modal-body modal-spa">
-                <div class="col-md-5 span-2">
-                    <div class="item">
-                        <img src="{{ asset('images/of19.png') }}" class="img-responsive" alt="">
-                    </div>
-                </div>
-                <div class="col-md-7 span-1 ">
-                    <h3>Grapes(500 g)</h3>
-                    <p class="in-para"> There are many variations of passages of Lorem Ipsum.</p>
-                    <div class="price_single">
-                        <span class="reducedfrom "><del>$1.00</del>$0.80</span>
 
-                        <div class="clearfix"></div>
-                    </div>
-                    <h4 class="quick">Quick Overview:</h4>
-                    <p class="quick_desc"> Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam; es</p>
-                    <div class="add-to">
-                        <button class="btn btn-danger my-cart-btn my-cart-btn1 " data-id="20" data-name="Grapes" data-summary="summary 20" data-price="0.80" data-quantity="1" data-image="images/of19.png">Add to Cart</button>
-                    </div>
-                </div>
-                <div class="clearfix"> </div>
-            </div>
-        </div>
-    </div>
-</div>
 <!-- product -->
 <div class="modal fade" id="myModal21" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
