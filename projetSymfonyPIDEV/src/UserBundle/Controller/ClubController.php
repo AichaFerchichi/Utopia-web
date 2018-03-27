@@ -10,11 +10,7 @@ class ClubController extends Controller
     public function afficherAccueilAction()
     {
 
-
-        return $this->render('FrontBundle:Default:accueilClub.html.twig', array(
-
-            // ...
-
-        ));}
+        return $this->render('FrontBundle:Default:accueilClub.html.twig', array());
+    }
 
 }

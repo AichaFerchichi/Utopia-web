@@ -133,7 +133,6 @@ ListeCov:
 AjouterCov:
     path:     /AjouterCov
     defaults: { _controller: UserBundle:Covoiturage:ajouter }
-<<<<<<< HEAD
 AfficherC:
     path:     /AfficherC
     defaults: { _controller: UserBundle:Covoiturage:afficherC }
@@ -146,9 +145,7 @@ modifierCov:
 reserverCov:
     path:     /reserverCov/{id}
     defaults: { _controller: UserBundle:Covoiturage:Reserver }
-afficherAccueil:
-    path:     /afficherAccueil
+clubs:
+    path:     /clubs
     defaults: { _controller: UserBundle:Club:afficherAccueil }
-=======
 
->>>>>>> 219483866b08588c36252d84e1f1beca7d3d3c8d

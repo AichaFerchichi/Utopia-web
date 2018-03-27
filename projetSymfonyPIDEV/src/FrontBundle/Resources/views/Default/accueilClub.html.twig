@@ -104,7 +104,7 @@
                             </div>
                         </ul>
                     </li>
-                    <li class="dropdown active active1">
+                    <li >
                         <a href="#" class="dropdown-toggle hyper" data-toggle="dropdown" ><span>Transport<b class="caret"></b></span></a>
                         <ul class="dropdown-menu multi multi2">
                             <div class="row">
@@ -139,7 +139,68 @@
                     </li>
 
                     <li><a href="codes.html" class="hyper"> <span>Codes</span></a></li>
-                    <li><a href="contact.html" class="hyper"><span>Contact Us</span></a></li>
+                    <li class="dropdown active active1">
+                        <a href="#" class="dropdown-toggle hyper" data-toggle="dropdown" ><span>Clubs & Evénements<b class="caret"></b></span></a>
+
+                        <ul class="dropdown-menu multi multi2">
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <ul class="multi-column-dropdown">
+                                        <li><a href={{ path('clubs') }}><i class="fa fa-angle-right" aria-hidden="true"></i>Clubs</a></li>
+                                        <li>
+                                            <div class="col-sm-3 w3l">
+                                                <a href={{ path('clubs') }}><img src="{{ asset('images/cl.png') }}" class="img-responsive" alt=""></a>
+                                            </div>
+                                            <div class="clearfix"></div>
+                                        </li>
+
+                                    </ul>
+
+                                </div>
+                                <div class="col-sm-3">
+
+                                    <ul class="multi-column-dropdown">
+                                        <li><a href={{ path('hold') }}><i class="fa fa-angle-right" aria-hidden="true"></i>Evénements</a></li>
+                                        <li>
+                                            <div class="col-sm-3 w3l">
+                                                <a href={{ path('hold') }}><img src="{{ asset('images/ev.png') }}" class="img-responsive" alt=""></a>
+                                            </div>
+                                            <div class="clearfix"></div>
+                                        </li>
+
+                                    </ul>
+
+                                </div>
+                                <div class="col-sm-3">
+
+                                    <ul class="multi-column-dropdown">
+                                        <li><a href={{ path('hold') }}><i class="fa fa-angle-right" aria-hidden="true"></i>Galerie</a></li>
+                                        <li>
+                                            <div class="col-sm-3 w3l">
+                                                <a href={{ path('hold') }}><img src="{{ asset('images/gal.png') }}" class="img-responsive" alt=""></a>
+                                            </div>
+                                            <div class="clearfix"></div>
+                                        </li>
+
+                                    </ul>
+                                </div>
+                                <div class="col-sm-3">
+
+                                    <ul class="multi-column-dropdown">
+                                        <li><a href={{ path('hold') }}><i class="fa fa-angle-right" aria-hidden="true"></i>Forum</a></li>
+                                        <li>
+                                            <div class="col-sm-3 w3l">
+                                                <a href={{ path('hold') }}><img src="{{ asset('images/for.png') }}" class="img-responsive" alt=""></a>
+                                            </div>
+                                            <div class="clearfix"></div>
+                                        </li>
+
+                                    </ul>
+                                </div>
+
+                            </div>
+                        </ul>
+                    </li>
                 </ul>
             </div>
         </nav>
@@ -159,43 +220,46 @@
 
     <div class="carousel-inner" role="listbox">
 
-        <table>
-        <tr> <td><img  width="250px" height="auto" src={{ asset("images/club.jpg") }} >
-                <form action="" method="post">
-                    <button type="submit" class="btn btn-success m-b-10 m-l-5"value="Modifier" >Nos Clubs</button></form>
-            </td>
 
+        <!---->
+        <div data-vide-bg="{{ asset('video/video') }}">
 
-            <td><img  width="250px" height="auto" src={{ asset("images/partenaire.png") }} >
-                <form action="" method="post">
-                    <button type="submit" class="btn btn-success m-b-10 m-l-5"value="Modifier" >Devenir Parteaires</button></form>
-            </td>
+            <div class="container">
+                <div class="banner-info">
 
+                    <h3>
+                   Bienvenue dans nos Clubs
+                    </h3>
 
-        </tr>
-            <br>
+                    <div class="search-form">
 
-            <tr>
-                <td><img  width="250px" height="auto" src={{ asset("images/club1.jpg") }} >
-                    <form action="" method="post">
-                        <button type="submit" class="btn btn-success m-b-10 m-l-5"value="Modifier" >Mes Clubs</button></form>
-                </td>
-                </td>
+                        <form action="#" method="post">
 
-                <td><img  width="250px" height="auto" src={{ asset("images/top.jpg") }} >
-                    <form action="" method="post">
-                        <button type="submit" class="btn btn-success m-b-10 m-l-5"value="Modifier" >Top 3</button></form>
-                </td>
-                <td><img  width="250px" height="auto" src={{ asset("images/forum.jpg") }} >
-                    <form action="" method="post">
-                        <button type="submit" class="btn btn-success m-b-10 m-l-5"value="Modifier" >Forum</button></form>
-                </td>
+                        </form>
+                    </div>
 
+                </div>
+            </div>
+        </div>
 
-            </tr>
-    <br>
+        <script>window.jQuery || document.write('<script src="{{ asset('js/vendor/jquery-1.11.1.min.js') }}"><\/script>')</script>
+        <script src="{{ asset('js/jquery.vide.min.js') }}"></script>
 
-        </table>
+        <!--content-->
+         <table>
+             <th>
+                 <td>
+                 <a href={{ path('clubs') }}> <img  width="450px" height="400px" src={{ asset("images/nosclubs.jpg") }} ></a>
+             </td>
+
+             <td>
+                 <a href={{ path('clubs') }}> <img  width="450px" height="400px" src={{ asset("images/top3.png") }} ></a>
+             </td>
+             <td>
+                 <a href={{ path('clubs') }}> <img  width="450px" height="400px" src={{ asset("images/club.jpg") }} ></a>
+             </td>
+             </th>
+         </table>
 
     </div>
 
