@@ -159,62 +159,49 @@
 
     <div class="carousel-inner" role="listbox">
 
-        <h3 class="bars">Listes des covoiturages </h3>
-        <h4 class="typ1 t-button">
-            <a href={{ path('AjouterCov') }}><span class="label label-success">Propoposer un trajet</span></a>
-        </h4>
-
-        <div class="bs-docs-example">
-
-    <table class="table table-hover">
-
-    {% for i in m %}
-
-           <tr> <td><img  width="150px" height="auto" src={{ asset("ressources/" ~ i.idUser.image) }} ></td>
-            <td>Ville de depart: {{ i.depart }}<br>
-            Ville de destination: {{ i.destination }}<br>
-            Heure de depart: {{ i.heured }}<br>
-            Heure d'arrivée: {{ i.heurea }}<br>
-            Date arrivée : {{ i.datearrive |date('d-m-Y')  }}<br>
-            Date de depart : {{ i.datedepart |date('d-m-Y')  }}<br>
-            Nombre de place disponnible :{{ i.nbrePlaceDispo }}<br>
-               <td>
-                   <form action="{{ path('reserverCov',{'id' :i.id}) }}" method="post">
-                       <button type="submit" class="btn btn-success m-b-10 m-l-5"value="Modifier" >Reserver</button></form>
-               </td>
+        <table>
+        <tr> <td><img  width="250px" height="auto" src={{ asset("images/club.jpg") }} >
+                <form action="" method="post">
+                    <button type="submit" class="btn btn-success m-b-10 m-l-5"value="Modifier" >Nos Clubs</button></form>
             </td>
+
+
+            <td><img  width="250px" height="auto" src={{ asset("images/partenaire.png") }} >
+                <form action="" method="post">
+                    <button type="submit" class="btn btn-success m-b-10 m-l-5"value="Modifier" >Devenir Parteaires</button></form>
+            </td>
+
+
         </tr>
+            <br>
 
-       {% endfor %}
-      </table>
+            <tr>
+                <td><img  width="250px" height="auto" src={{ asset("images/club1.jpg") }} >
+                    <form action="" method="post">
+                        <button type="submit" class="btn btn-success m-b-10 m-l-5"value="Modifier" >Mes Clubs</button></form>
+                </td>
+                </td>
+
+                <td><img  width="250px" height="auto" src={{ asset("images/top.jpg") }} >
+                    <form action="" method="post">
+                        <button type="submit" class="btn btn-success m-b-10 m-l-5"value="Modifier" >Top 3</button></form>
+                </td>
+                <td><img  width="250px" height="auto" src={{ asset("images/forum.jpg") }} >
+                    <form action="" method="post">
+                        <button type="submit" class="btn btn-success m-b-10 m-l-5"value="Modifier" >Forum</button></form>
+                </td>
 
 
+            </tr>
+    <br>
+
+        </table>
 
     </div>
 
     <!--content-->
-    <div class="kic-top ">
-        <div class="container ">
-            <div class="kic ">
-
-            </div>
-
-            <div class="col-md-4 kic-top1">
-
-            </div>
-            <div class="col-md-4 kic-top1">
-                <a href="single.html">
-                    <img src="images/ki8.jpg" class="img-responsive" alt="">
-                </a>
-
-                <h4>VOUS ÊTES CONDUCTEUR ?</h4>
 
 
-                <p>Économique, le covoiturage vous permet de proposer des places et de partager les frais, avec eux.</p>
-            </div>
-        </div>
-    </div>
-</div>
     <!--content-->
     <div class="product">
 

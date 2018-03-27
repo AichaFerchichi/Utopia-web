@@ -159,62 +159,69 @@
 
     <div class="carousel-inner" role="listbox">
 
-        <h3 class="bars">Listes des covoiturages </h3>
-        <h4 class="typ1 t-button">
-            <a href={{ path('AjouterCov') }}><span class="label label-success">Propoposer un trajet</span></a>
-        </h4>
+
+
 
         <div class="bs-docs-example">
 
-    <table class="table table-hover">
+            <table class="table table-hover">
 
-    {% for i in m %}
+                {% for i in r %}
 
-           <tr> <td><img  width="150px" height="auto" src={{ asset("ressources/" ~ i.idUser.image) }} ></td>
-            <td>Ville de depart: {{ i.depart }}<br>
-            Ville de destination: {{ i.destination }}<br>
-            Heure de depart: {{ i.heured }}<br>
-            Heure d'arrivée: {{ i.heurea }}<br>
-            Date arrivée : {{ i.datearrive |date('d-m-Y')  }}<br>
-            Date de depart : {{ i.datedepart |date('d-m-Y')  }}<br>
-            Nombre de place disponnible :{{ i.nbrePlaceDispo }}<br>
-               <td>
-                   <form action="{{ path('reserverCov',{'id' :i.id}) }}" method="post">
-                       <button type="submit" class="btn btn-success m-b-10 m-l-5"value="Modifier" >Reserver</button></form>
-               </td>
-            </td>
-        </tr>
+                    <tr>
+                        <td>Ville de depart: {{ i.depart }}<br>
+                            Ville de destination: {{ i.destination }}<br>
+                            Heure de depart: {{ i.heured }}<br>
+                            Heure d'arrivée: {{ i.heurea }}<br>
+                            Date arrivée : {{ i.datearrive |date('d-m-Y')  }}<br>
+                            Date de depart : {{ i.datedepart |date('d-m-Y')  }}<br>
+                            Nombre de place disponnible :{{ i.nbrePlaceDispo }}<br>
 
-       {% endfor %}
-      </table>
+                        </td>
+                    </tr>
+
+                {% endfor %}
+            </table>
+
+        </div>
+
+        {{ form_start(f) }}
+        <div class="col-md2 ">
+            <br><br>
+            <table>
+                <tr>
+                    <td><label>Nombre de place </label><span class="text-danger">* </span></td>
+                    <td>{{ form_widget(f.nbrePlace ,{ 'attr' : { 'class' : 'form-control'} }) }}</td>
+                </tr>
+                <td>{{ form_widget(f.Valider,{ 'attr' : { 'class' : 'form-control'} }) }}</td>
+
+            </table>
+            {{ form_end(f) }}
+        </div>
+
+        <!--content-->
+        <div class="kic-top ">
+            <div class="container ">
+                <div class="kic ">
+
+                </div>
+
+                <div class="col-md-4 kic-top1">
+
+                </div>
+                <div class="col-md-4 kic-top1">
+                    <a href="single.html">
+                        <img src="images/ki8.jpg" class="img-responsive" alt="">
+                    </a>
+
+                    <h4>VOUS ÊTES CONDUCTEUR ?</h4>
 
 
-
-    </div>
-
-    <!--content-->
-    <div class="kic-top ">
-        <div class="container ">
-            <div class="kic ">
-
-            </div>
-
-            <div class="col-md-4 kic-top1">
-
-            </div>
-            <div class="col-md-4 kic-top1">
-                <a href="single.html">
-                    <img src="images/ki8.jpg" class="img-responsive" alt="">
-                </a>
-
-                <h4>VOUS ÊTES CONDUCTEUR ?</h4>
-
-
-                <p>Économique, le covoiturage vous permet de proposer des places et de partager les frais, avec eux.</p>
+                    <p>Économique, le covoiturage vous permet de proposer des places et de partager les frais, avec eux.</p>
+                </div>
             </div>
         </div>
     </div>
-</div>
     <!--content-->
     <div class="product">
 
