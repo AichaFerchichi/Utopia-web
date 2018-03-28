@@ -122,11 +122,11 @@
 				</div>
 
 	</div><ol class="breadcrumb">
-	<li><a href="{{ path('plus',{'id':id}) }}" >Objectif&Programme</a></li>
-	<li ><a href="{{ path('enseignants',{'id':id}) }}">Enseignants</a></li>
-	<li ><a href="{{ path('inscriEnfant',{'id':id}) }}">Inscription</a></li>
-	<li ><a href="{{ path('activiteFront',{'id':id}) }}">Activité</a></li>
-	<li ><a href="{{ path('quizF',{'id':id}) }}">Quiz</a></li></ol>
+	<li><a href="{{ path('plus',{'id':id}) }}" style="color: deeppink">Objectif&Programme</a></li>
+	<li ><a href="{{ path('enseignants',{'id':id}) }}"style="color: deeppink">Enseignants</a></li>
+	<li ><a href="{{ path('inscriEnfant',{'id':id}) }}"style="color: deeppink">Inscription</a></li>
+	<li ><a href="{{ path('activiteFront',{'id':id}) }}"style="color: deeppink">Activité</a></li>
+	<li ><a href="{{ path('quizF',{'id':id}) }}"style="color: deeppink">Quiz</a></li></ol>
 </ol>	</div>
 
 
@@ -135,7 +135,7 @@
 		<div class="container">
 
 			<div class="bs-docs-example">
-			<table class="table table-hover" style="border-color: #1A531B">
+			<table class="table table-hover" style="border-color: deepskyblue">
 
                 {% for i in m %}
 					<tbody>
@@ -157,7 +157,7 @@
 						</td>
 						<td></br></br></br></br></br>
                             <form action="{{ path('etapeF',{'id':i.idActivite}) }}" method="post">
-                                <button type="submit" class="btn btn-success m-b-10 m-l-5" >Participer</button></form></li>
+                                <button type="submit" class="btn btn-success m-b-10 m-l-5" style="border-color: deepskyblue;background-color: deepskyblue" >Participer</button></form></li>
                         </td>
 					</tr>
 

@@ -16,4 +16,7 @@ fos_user:
 back:
     resource: "@BackBundle/Resources/config/routing.yml"
     prefix:   /back
+pdf:
+    resource: "@PdfBundle/Resources/config/routing.yml"
+    prefix:   /pdf
 

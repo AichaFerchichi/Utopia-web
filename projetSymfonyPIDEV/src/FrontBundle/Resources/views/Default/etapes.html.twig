@@ -122,50 +122,60 @@
 				</div>
 
 	</div><ol class="breadcrumb">
-	<li><a href="{{ path('plus',{'id':id}) }}" >Objectif&Programme</a></li>
-	<li ><a href="{{ path('enseignants',{'id':id}) }}" >Enseignants</a></li>
-	<li ><a href="{{ path('inscriEnfant',{'id':id}) }}">Inscription</a></li>
-	<li ><a href="{{ path('activiteFront',{'id':id}) }}" class="active">Activité</a></li>
-	<li ><a href="#">Quiz</a></li>
+	<li><a href="{{ path('plus',{'id':id}) }}" style="color: deeppink">Objectif&Programme</a></li>
+	<li ><a href="{{ path('enseignants',{'id':id}) }}" style="color: deeppink">Enseignants</a></li>
+	<li ><a href="{{ path('inscriEnfant',{'id':id}) }}"style="color: deeppink">Inscription</a></li>
+	<li ><a href="{{ path('activiteFront',{'id':id}) }}" class="active"style="color: deeppink">Activité</a></li>
+	<li ><a href="{{ path('quizF',{'id':id}) }}"  style="color: deeppink">Quiz</a></li>
 </ol>	</div>
+	<div class="carousel-inner" role="listbox">
+
+		<div class="item active">
+			<a href="care.html"><img src="{{ asset("ressources/balon.png") }}"></a>
+
+		</div>
+
+	</div>
 
 
-		<div class="product">
 
-		<div class="container">
-
-			<div class="bs-docs-example">
-
-
+    {% if app.session.flashBag.has('danger') %}
+		<div class="alert alert-danger" style="font-size: 18px">
+            {% for msg in app.session.flashBag.get('danger') %}
+                {{ msg }}
+            {% endfor %}
+		</div>
+    {% endif %}
                 {% for i in m %}
 
-				<div class="login">
+
 					<div class="main-agileits">
-						<div class="form-w3agile form1">
 
 
-							<div class="col-md2 ">
+
+
 							<ul class="multi-column-dropdown">
-                                <li>{{ i.nom }}</li>
-                                <li>Activite:{{ i.idActivite.getNom() }}</li>
-                                <li>Description:{{ i.description }}</li>
-                                <li>Date Debut:{{ i.dateDebut|date('d-m-Y')  }}</li>
-                                <li>Date Fin:{{ i.dateFin|date('d-m-Y') }}</li>
-								<li>Nombre de place disponible:{{ i.nbPlace }}</li>
+
+                                <center><li><h2 style="color:deepskyblue;font-family: bold">{{ i.nom }}</h2></li><br>
+                                <li><label style="font-size: 14px">Activite:</label> {{ i.idActivite.getNom() }}</li>
+                                <li><label>Description:</label> {{ i.description }}</li>
+                                <li><label>Date Debut:</label> {{ i.dateDebut|date('d-m-Y')  }}</li>
+                                <li><label>Date Fin:</label> {{ i.dateFin|date('d-m-Y') }}</li>
+								<li><label>Nombre de place disponible:</label> {{ i.nbPlace }}</li></center>
 
 
 							</li>
 
+								<br>
+                           <li><center><form action="{{ path('participer',{'idE':i.idEtape,'id':id}) }}" method="post">
+                                <button type="submit" class="btn btn-success m-b-10 m-l-5" id="bt1" style="background-color: deepskyblue;border-color: deepskyblue">Participer</button></form></center></li>
 
-                           <li><form action="{{ path('participer',{'idE':i.idEtape,'id':id}) }}" method="post">
-                                <button type="submit" class="btn btn-success m-b-10 m-l-5" id="bt1">Participer</button></form></li>
+								<li><center><form action="{{ path('annuler',{'idE':i.idEtape,'id':id}) }}" method="post">
+											<button type="submit" class="btn btn-success m-b-10 m-l-5" id="bt" hidden="" style="background-color: deeppink;border-color: deeppink" >Annuler</button></form></center>
 
-								<li><form action="{{ path('annuler',{'idE':i.idEtape,'id':id}) }}" method="post">
-									<button type="submit" class="btn btn-success m-b-10 m-l-5" id="bt" hidden="" >Annuler</button></form>
+								</li>	</ul>		</div>
 
-								</li>	</ul>		</div></div></div>
 
-				</div>
 
                 {% endfor %}
 	</div>

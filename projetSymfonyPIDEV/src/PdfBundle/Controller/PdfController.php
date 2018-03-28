@@ -14,17 +14,18 @@ use Symfony\Component\HttpFoundation\Response;
 
 class PdfController extends Controller
 {
-    public function pdfAction($id)
+    public function pdfAction()
     {
         $user = $this->get('security.token_storage')->getToken()->getUser();
         $em = $this->getDoctrine()->getManager();
+      //  $equipes=$em->getRepository('UserBundle:Garderies')->findOneBy(array('idGarderie'=>$id));
 
         $html = $this->renderView('PdfBundle:Pdf:Pdf.html.twig');
 
 
 
 
-        $filename = sprintf('test-%s.pdf', date('Y-m-d'));
+        $filename = sprintf('Inscription-%s.pdf', date('Y-m-d'));
 
         return new Response(
             $this->get('knp_snappy.pdf')->getOutputFromHtml($html),
@@ -34,5 +35,6 @@ class PdfController extends Controller
                 'Content-Disposition' => sprintf('attachment; filename="%s"', $filename),
             ]
         );
+        return $this->redirectToRoute('care');
     }
 }

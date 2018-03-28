@@ -73,6 +73,9 @@ modifierActivite:
 etape:
     path:     /etape/{id}/{nb}/{etape}
     defaults: { _controller: UserBundle:Etape:ajout }
+email:
+    path:     /email/{id}
+    defaults: { _controller: UserBundle:Mail:index }
 valider:
     path:     /valider/{id}/{nb}/{etape}
     defaults: { _controller: UserBundle:Etape:valider }
@@ -153,7 +156,16 @@ page_register:
     defaults: { _controller: BackBundle:Default:page_register }
 table_bootstrap:
     path:     /table_bootstrap
-    defaults: { _controller: BackBundle:Default:table_bootstrap }
+    defaults: { _controller: UserBundle:Clubs:ajout }
+rechercherClub:
+    path:     /rechercherClub
+    defaults: { _controller: UserBundle:Clubs:rechercher }
+modifierClub:
+    path:     /modifierClub/{id}
+    defaults: { _controller: UserBundle:Clubs:modifier }
+supprimerClub:
+    path:     /supprimerClub/{id}
+    defaults: { _controller: UserBundle:Clubs:delete }
 table_database:
     path:     /table_database
     defaults: { _controller: BackBundle:Default:table_database }
@@ -201,7 +213,6 @@ supprimerPromotion:
 modifierPromotion:
     path:     /modifierPromotion/{id}
     defaults: { _controller: UserBundle:Promotions:modifierPromotion }
-
 
 
 

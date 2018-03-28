@@ -79,15 +79,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     {% endif %}
 </div>
 
-{% if app.request.hasPreviousSession %}
-    {% for type, messages in app.session.flashbag.all() %}
-        {% for message in messages %}
-            <div class="flash-{{ type }}">
-                {{ message }}
-            </div>
-        {% endfor %}
-    {% endfor %}
-{% endif %}
 
 <div>
     {% block fos_user_content %}
@@ -104,7 +95,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <div class="head-t">
                 <ul class="card">
                     <li><a href={{ path('wishlist') }} ><i class="fa fa-heart" aria-hidden="true"></i>Wishlist</a></li>
-                    <li><a href={{ path('fos_user_registration_register') }} ><i class="fa fa-user" aria-hidden="true"></i>Login</a></li>
+                    <li><a href={{ path('fos_user_security_login') }} ><i class="fa fa-user" aria-hidden="true"></i>Login</a></li>
                     <li><a href="{{ path('fos_user_registration_register') }}" ><i class="fa fa-arrow-right" aria-hidden="true"></i>Register</a></li>
                     <li><a href={{ path('about') }} ><i class="fa fa-file-text-o" aria-hidden="true"></i>Order History</a></li>
                     <li><a href={{ path('shipping') }} ><i class="fa fa-ship" aria-hidden="true"></i>Shipping</a></li>
@@ -235,68 +226,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             </li>
 
                             <li><a href={{ path('codes') }} class="hyper"> <span>Codes</span></a></li>
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle hyper" data-toggle="dropdown" ><span>Clubs & Evénements<b class="caret"></b></span></a>
-
-                                <ul class="dropdown-menu multi multi2">
-                                    <div class="row">
-                                        <div class="col-sm-3">
-                                            <ul class="multi-column-dropdown">
-                                                <li><a href={{ path('clubs') }}><i class="fa fa-angle-right" aria-hidden="true"></i>Clubs</a></li>
-                                                <li>
-                                                    <div class="col-sm-3 w3l">
-                                                        <a href={{ path('clubs') }}><img src="{{ asset('images/cl.png') }}" class="img-responsive" alt=""></a>
-                                                    </div>
-                                                    <div class="clearfix"></div>
-                                                </li>
-
-                                            </ul>
-
-                                        </div>
-                                        <div class="col-sm-3">
-
-                                            <ul class="multi-column-dropdown">
-                                                <li><a href={{ path('hold') }}><i class="fa fa-angle-right" aria-hidden="true"></i>Evénements</a></li>
-                                                <li>
-                                                    <div class="col-sm-3 w3l">
-                                                        <a href={{ path('hold') }}><img src="{{ asset('images/ev.png') }}" class="img-responsive" alt=""></a>
-                                                    </div>
-                                                    <div class="clearfix"></div>
-                                                </li>
-
-                                            </ul>
-
-                                        </div>
-                                        <div class="col-sm-3">
-
-                                            <ul class="multi-column-dropdown">
-                                                <li><a href={{ path('hold') }}><i class="fa fa-angle-right" aria-hidden="true"></i>Galerie</a></li>
-                                                <li>
-                                                    <div class="col-sm-3 w3l">
-                                                        <a href={{ path('hold') }}><img src="{{ asset('images/gal.png') }}" class="img-responsive" alt=""></a>
-                                                    </div>
-                                                    <div class="clearfix"></div>
-                                                </li>
-
-                                            </ul>
-                                        </div>
-                                        <div class="col-sm-3">
-
-                                            <ul class="multi-column-dropdown">
-                                                <li><a href={{ path('hold') }}><i class="fa fa-angle-right" aria-hidden="true"></i>Forum</a></li>
-                                                <li>
-                                                    <div class="col-sm-3 w3l">
-                                                        <a href={{ path('hold') }}><img src="{{ asset('images/for.png') }}" class="img-responsive" alt=""></a>
-                                                    </div>
-                                                    <div class="clearfix"></div>
-                                                </li>
-
-                                            </ul>
-                                        </div>
-
-                                    </div>
-                                </ul>
-                            </li>
+                            <li><a href={{ path('contact') }} class="hyper"><span>Contact Us</span></a></li>
                         </ul>
                     </div>
                 </nav>
@@ -1764,7 +1694,37 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     </div>
 </div>
 <!-- product -->
+<div class="modal fade" id="myModal20" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content modal-info">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body modal-spa">
+                <div class="col-md-5 span-2">
+                    <div class="item">
+                        <img src="{{ asset('images/of19.png') }}" class="img-responsive" alt="">
+                    </div>
+                </div>
+                <div class="col-md-7 span-1 ">
+                    <h3>Grapes(500 g)</h3>
+                    <p class="in-para"> There are many variations of passages of Lorem Ipsum.</p>
+                    <div class="price_single">
+                        <span class="reducedfrom "><del>$1.00</del>$0.80</span>
 
+                        <div class="clearfix"></div>
+                    </div>
+                    <h4 class="quick">Quick Overview:</h4>
+                    <p class="quick_desc"> Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam; es</p>
+                    <div class="add-to">
+                        <button class="btn btn-danger my-cart-btn my-cart-btn1 " data-id="20" data-name="Grapes" data-summary="summary 20" data-price="0.80" data-quantity="1" data-image="images/of19.png">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+        </div>
+    </div>
+</div>
 <!-- product -->
 <div class="modal fade" id="myModal21" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
@@ -1892,4 +1852,5 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             </div>
         </div>
     </div>
+
 </div>

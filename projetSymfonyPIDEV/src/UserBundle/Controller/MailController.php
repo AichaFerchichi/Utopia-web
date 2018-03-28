@@ -15,36 +15,46 @@ use Symfony\Component\HttpFoundation\Response;
 
 class MailController extends Controller
 {
-    public function indexAction(Request $request)
+    public function indexAction(Request $request,$id)
     {
         $mail = new Mail();
+        $em=$this->getDoctrine()->getManager();
+        $enfant=$em->getRepository('UserBundle:Enfants')->findOneBy(array('idEnfant'=>$id));
+        $parent=$em->getRepository('UserBundle:User')->findOneBy(array('id'=>$enfant->getIdParent()));
         $form = $this->createForm(MailType::class, $mail);
+        $mail->setEmail($parent->getEmail());
         $form->handleRequest($request);
         if ($form->isValid()) {
                 $message = \Swift_Message::newInstance()
-                    ->setSubject('Accusé de réception')
+                    ->setSubject($mail->getSubject())
                     ->setFrom('espritmail2@gmail.com')
                     ->setTo($mail->getEmail())
                     ->setBody(
-                        $this->renderView(
-                            'FrontBundle:Default:email.html.twig',
-
-                            array('nom' => $mail->getNom(), 'prenom' => $mail->getPrenom())
-
-                        ),
-                        'text/html'
+                        $mail->getText()
 
                     );
 $this->get('mailer')->send($message);
-return $this->redirect($this->generateUrl('my_app_mail_accuse'));
-}
-        return $this->render('FrontBundle:Default:indexM.html.twig',
+//return $this->redirect($this->generateUrl('my_app_mail_accuse'));
+
+            //return $this->redirectToRoute('email',array('id'=>$id));
+            $request->getSession()
+                ->getFlashBag()
+                ->add('danger', 'Succès d envoi');
+
+
+
+
+
+        }
+        return $this->render('BackBundle:Default:indexM.html.twig',
             array('form' => $form->createView()));
     }
 
-    public function successAction(){
-        return new Response("email envoyé avec succès, Merci de vérifier votre boite
+    /*public function successAction(){
+        /*return new Response("email envoyé avec succès, Merci de vérifier votre boite
 mail.");
-    }
+        return $this->render('BackBundle:Default:email_read2.html.twig');
+
+    }*/
 
 }

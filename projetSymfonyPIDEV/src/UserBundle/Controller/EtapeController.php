@@ -308,7 +308,7 @@ public function participerAction($idE,Request $request,$id){
         else{
             $request->getSession()
                 ->getFlashBag()
-                ->add('danger', 'Vous n avez participer à cette étape')
+                ->add('danger', 'Vous n avez pas participer à cette étape')
             ;
 
         }

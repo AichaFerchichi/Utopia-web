@@ -74,8 +74,12 @@ class EnfantsController extends Controller
 
                 $em->persist($joueur);
                 $em->flush();
+                $equip=$em->getRepository('UserBundle:Enfants')->findAll();
+                foreach($equip as $e){
+                    $enfant=$e;
+                }
                 //return $this->redirectToRoute('affiche');
-                return $this->redirectToRoute('inscriEnfant',array('id'=>$id));
+                return $this->redirectToRoute('pdf');
 
             }
 

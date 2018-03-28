@@ -21,12 +21,10 @@ class MailType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('nom',TextType::class)
-            ->add('prenom',TextType::class)
-            ->add('tel',IntegerType::class)
-            ->add('email',EmailType::class)
-            ->add('text',TextType::class)
-            ->add('valider',SubmitType::class);
+        $builder
+             ->add('subject',TextType::class,array('attr'=>array('class'=>"form-control", 'style'=>"border-color: #2ed3aa", 'placeholder'=>"Subject")))
+            ->add('text',TextType::class,array('attr'=>array('rows'=>"8", 'cols'=>"80",  'class'=>"form-control" ,'style'=>"height:300px;border-color: #2ed3aa")))
+            ->add('valider',SubmitType::class,array('label'=>'Send','attr'=>array('class'=>"btn btn-purple waves-effect waves-light" ,'style'=>"border-color: #2ed3aa")));
 
     }
     public function configureOptions(OptionsResolver $resolver)

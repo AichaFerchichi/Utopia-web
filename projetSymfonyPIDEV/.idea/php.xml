@@ -42,13 +42,13 @@
       <path value="$PROJECT_DIR$/vendor/psr/link" />
       <path value="$PROJECT_DIR$/vendor/bundles/FOS" />
       <path value="$PROJECT_DIR$/vendor/friendsofsymfony/user-bundle" />
-<<<<<<< HEAD
-      <path value="$PROJECT_DIR$/vendor/knplabs/knp-snappy" />
-      <path value="$PROJECT_DIR$/vendor/knplabs/knp-snappy-bundle" />
-=======
       <path value="$PROJECT_DIR$/vendor/stefangabos/zebra_curl" />
       <path value="$PROJECT_DIR$/vendor/nomaya/social-bundle" />
->>>>>>> 887f5e871e5721d38c6fa481e4bfffb035a9fd79
+      <path value="$PROJECT_DIR$/vendor/knplabs/knp-snappy-bundle" />
+      <path value="$PROJECT_DIR$/vendor/knplabs/knp-snappy" />
+      <path value="$PROJECT_DIR$/vendor/wkhtmltopdf/include" />
+      <path value="$PROJECT_DIR$/vendor/wkhtmltopdf/lib" />
+      <path value="$PROJECT_DIR$/vendor/wkhtmltopdf/bin" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="5.5.0" />

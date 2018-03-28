@@ -1,32 +1,13 @@
 
-{% extends 'FrontBundle:Default:index.html.twig' %}
-{% block body %}
-    <h1 style="position: fixed;left: 70%">Souk El Madina</h1><br><br><br><br>
+
 
     <div>
-        <fieldset>
-            <h1>Facture</h1> <h2 ><br> N° {{ commande.id }} <br> Date {{ commande.dateCommande|date ("Y-m-d") }}  </h2>
+
+            <h1>Inscription</h1> <h2 > <br> </h2>
             <br>
-        </fieldset>
+        <p>Cher utilisateur {{ app.user.username() }}</p><br>
+        <a>l'inscription de votre enfant dans notre garderie a ete bien effectuer et pour la confirmer veuillez nous visiter le plutot possible </a>
     </div>
     <br>
-    <div >
-
-    </div>
-    <table border="1" style="width: 100% ;">
-        <tr>
-            <th>Produit</th>
-            <th>Quantité</th>
-            <th>Prix Unitaire</th>
-            <th>Remise</th>
-            <th>Total</th>
-            <th>Adresse de livraison 1</th>
-            <th>Adresse de livraison 2</th>
-
-        </tr>
-
-
-    </table>
-    <div style="text-align: right">Total:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ totalHT }}</div><br><br><br>
-
-{% endblock %}
+    <div>
+</div>

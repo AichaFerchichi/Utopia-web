@@ -71,11 +71,11 @@ class Covoiturages
     private $nbrePlaceDispo;
 
     /**
-     * @var \User
+     * @var \Users
      *
-     * @ORM\ManyToOne(targetEntity="User")
+     * @ORM\ManyToOne(targetEntity="Users")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="id_user", referencedColumnName="id")
+     *   @ORM\JoinColumn(name="id_user", referencedColumnName="id_user")
      * })
      */
     private $idUser;
@@ -223,7 +223,6 @@ class Covoiturages
     {
         $this->idUser = $idUser;
     }
-
 
 
 }

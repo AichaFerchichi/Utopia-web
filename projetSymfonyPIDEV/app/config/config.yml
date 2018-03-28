@@ -64,14 +64,6 @@ doctrine:
         naming_strategy: doctrine.orm.naming_strategy.underscore
         auto_mapping: true
 swiftmailer:
-<<<<<<< HEAD
-    transport: '%mailer_transport%'
-    host: '%mailer_host%'
-    username: '%mailer_user%'
-    password: '%mailer_password%'
-    encryption: tls
-    spool: { type: memory }
-=======
     transport: "%mailer_transport%"
     host:      "%mailer_host%"
     username:  "%mailer_user%"
@@ -80,7 +72,6 @@ swiftmailer:
     port:    587
     spool:     { type: memory }
     logging: true
->>>>>>> 887f5e871e5721d38c6fa481e4bfffb035a9fd79
 fos_user:
    db_driver: orm
    firewall_name: main
@@ -143,14 +134,15 @@ nomaya_social:
 knp_snappy:
     pdf:
         enabled:    true
-        # If you have wkhtmltopdf as an environment variable you don't need to provide the
-        # full path to the executable, use it in the same way as you use in the console
-        #binary:  "wkhtmltopdf"
-        binary:     "/Users/MacBook/Downloads/wkhtmltox-0.12.4_osx-cocoa-x86-64.pkg"
+        #binary:     "C:/wamp/www/Utopia-web2/projetSymfonyPIDEV/vendor/wkhtmltopdf/bin/wkhtmltopdf.exe"
+        binary:      /usr/local/bin/wkhtmltopdf
         options:    []
+
+
     image:
         enabled:    true
-        binary:     "/Users/MacBook/Downloads/wkhtmltox-0.12.4_osx-cocoa-x86-64.pkg"
+        #binary:     "C:/wamp/www/Utopia-web2/projetSymfonyPIDEV/vendor/wkhtmltopdf/bin/wkhtmltoimage.exe"
+        binary:      /usr/local/bin/wkhtmltoimage
         options:
             no-outline: true
             page-size: LETTER

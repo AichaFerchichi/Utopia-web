@@ -1,0 +1,79 @@
+
+{% extends 'BackBundle:Default:index.html.twig' %}
+{% block content %}
+    <!--<body>
+<h2><strong>Formulaire de contact</strong></h2>
+<hr>
+<h3><p> Contacter nous </p></h3>
+
+
+
+</body>-->
+    <!-- Container fluid  -->
+    <div class="container-fluid">
+        <!-- Start Page Content -->
+        {% if app.session.flashBag.has('danger') %}
+        <div class="alert alert-danger">
+            {% for msg in app.session.flashBag.get('danger') %}
+                {{ msg }}
+            {% endfor %}
+        </div>
+        <div class="row">
+
+            {% endif %}
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="card-content">
+
+
+                            {{ form_start (form) }}
+
+
+                                <div class="mt-4">
+
+                                    <form role="form">
+                                       <center> <h4 style="color: #2ed3aa">Veuillez remplir les champs nécessaires pour l'envoi du mail</h4><br><br>
+                                       </center>
+                                        <div class="form-group">
+                                            {{ form_widget (form.subject) }}
+                                        </div>
+                                        <div class="form-group">
+                                            {{ form_widget (form.text) }}
+
+
+                                                                                               </textarea>
+                                        </div>
+
+                                        <div class="form-group m-b-0">
+
+                                            <div class="text-right">
+
+                                                {{ form_widget (form.valider) }}<i class="fa fa-send m-l-10"></i>
+                                            </div>
+                                        </div>
+
+                                    </form>
+                                    {{ form_end (form) }}
+                                </div>
+                                <!-- end card-->
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End PAge Content -->
+
+    <!-- End Container fluid  -->
+    <!-- footer -->
+
+    <!-- End Wrapper -->
+
+
+    <!--stickey kit -->
+    <script src="{{ asset('back/js/lib/sticky-kit-master/dist/sticky-kit.min.js') }}"></script>
+    <!--Custom JavaScript -->
+    <script src="{{ asset('back/js/custom.min.js') }}"></script>
+{% endblock %}

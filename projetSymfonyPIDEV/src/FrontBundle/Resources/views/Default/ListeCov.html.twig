@@ -178,10 +178,6 @@
             Date arrivée : {{ i.datearrive |date('d-m-Y')  }}<br>
             Date de depart : {{ i.datedepart |date('d-m-Y')  }}<br>
             Nombre de place disponnible :{{ i.nbrePlaceDispo }}<br>
-               <td>
-                   <form action="{{ path('reserverCov',{'id' :i.id}) }}" method="post">
-                       <button type="submit" class="btn btn-success m-b-10 m-l-5"value="Modifier" >Reserver</button></form>
-               </td>
             </td>
         </tr>
 

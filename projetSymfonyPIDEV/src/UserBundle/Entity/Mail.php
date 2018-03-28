@@ -21,6 +21,29 @@ class Mail
      */
     private $prenom;
     /**
+     * @var string
+     *
+     * @ORM\Column(name="subject", type="string", nullable=false)
+     */
+    private $subject;
+
+    /**
+     * @return string
+     */
+    public function getSubject()
+    {
+        return $this->subject;
+    }
+
+    /**
+     * @param string $subject
+     */
+    public function setSubject($subject)
+    {
+        $this->subject = $subject;
+    }
+
+    /**
      * @var int
      *
      * @ORM\Column(name="tel", type="integer", nullable=false)
