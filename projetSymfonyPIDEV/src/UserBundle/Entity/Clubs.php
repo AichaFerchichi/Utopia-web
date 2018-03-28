@@ -76,7 +76,7 @@ class Clubs
      *
      * @ORM\Column(name="date_ajout", type="datetime", nullable=true)
      */
-    private $dateAjout;
+    private $dateAjout = 'CURRENT_TIMESTAMP';
 
     /**
      * @var string

@@ -35,7 +35,9 @@ class ClubsController extends Controller
             $file->move($this->getParameter('image_directory'),$fileName) ;
             $joueur->setImage($fileName) ;
             $em=$this->getDoctrine()->getManager();
-
+$joueur->setTotalaimer(0);
+$joueur->setTotalpasaimer(0);
+$joueur->setDateAjout((new \DateTime('now')));
             $em->persist($joueur);
             $em->flush();
             //return $this->redirectToRoute('affiche');
