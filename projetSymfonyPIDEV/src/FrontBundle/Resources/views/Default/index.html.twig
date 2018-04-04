@@ -1,12 +1,53 @@
-<!--
-Author: W3layouts
-Author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
--->
+
 <!DOCTYPE html>
 <html>
 <head>
+    <!--ghada CSS-->
+    <style>
+        .textOverImage{
+            position:relative;
+            width:500px;
+            height:300px;
+            float:left;
+            margin:4px;
+            background-size:100%;
+            background-position:center;
+            transition:0.5s;
+        }
+
+        .textOverImage:hover{
+            background-size:110%;
+        }
+
+        .textOverImage:after{
+            position:absolute;
+            top:100%;
+            bottom:0;
+            left:0;
+            right:0;
+            white-space:pre-wrap;
+            overflow:hidden;
+            background-color:rgba(0,0,0,0.6);
+            color:#fff;
+            padding:0 8px;
+            opacity:0;
+            content:attr(data-text);
+            transition:0.5s;
+        }
+
+        .textOverImage:hover:after{
+            opacity:1;
+            top:0;
+            padding:8px;
+        }
+
+        .textOverImage:first-line{
+            color:#fff;
+            font-weight:bold;
+            font-size:1.5em;
+        }
+    </style>
+    <!--ghada CSS-->
     <meta charset="UTF-8" />
     <title>Big store a Ecommerce Online Shopping Category Flat Bootstrap Responsive Website Template| Home :: w3layouts</title>
     <!-- for-mobile-apps -->
@@ -226,7 +267,50 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             </li>
 
                             <li><a href={{ path('codes') }} class="hyper"> <span>Codes</span></a></li>
-                            <li><a href={{ path('contact') }} class="hyper"><span>Contact Us</span></a></li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle hyper" data-toggle="dropdown" ><span>Clubs & Evénéments<b class="caret"></b></span></a>
+
+                                <ul class="dropdown-menu multi multi2">
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <ul class="multi-column-dropdown">
+                                                <li><a href={{ path('clubs') }}><i class="fa fa-angle-right" aria-hidden="true"></i>Clubs</a></li>
+                                                <li><a href={{ path('ListeCov') }}><i class="fa fa-angle-right" aria-hidden="true"></i>Evénéments</a></li>
+                                                <li><a href={{ path('hold') }}><i class="fa fa-angle-right" aria-hidden="true"></i>Detergents</a></li>
+                                                <li><a href={{ path('hold') }}><i class="fa fa-angle-right" aria-hidden="true"></i>Gardening Needs</a></li>
+
+                                            </ul>
+
+                                        </div>
+                                        <div class="col-sm-3">
+
+                                            <ul class="multi-column-dropdown">
+                                                <li><a href={{ path('hold') }}><i class="fa fa-angle-right" aria-hidden="true"></i>Kitchen & Dining</a></li>
+                                                <li><a href={{ path('hold') }}><i class="fa fa-angle-right" aria-hidden="true"></i>KitchenWear</a></li>
+                                                <li><a href={{ path('hold') }}><i class="fa fa-angle-right" aria-hidden="true"></i>Pet Care</a></li>
+                                                <li><a href={{ path('hold') }}><i class="fa fa-angle-right" aria-hidden="true"></i>Plastic Wear</a></li>
+
+                                            </ul>
+
+                                        </div>
+                                        <div class="col-sm-3">
+
+                                            <ul class="multi-column-dropdown">
+                                                <li><a href={{ path('hold') }}><i class="fa fa-angle-right" aria-hidden="true"></i>Pooja Needs</a></li>
+                                                <li><a href={{ path('hold') }}><i class="fa fa-angle-right" aria-hidden="true"></i>Serveware</a></li>
+                                                <li><a href={{ path('hold') }}><i class="fa fa-angle-right" aria-hidden="true"></i>Safety Accessories</a></li>
+                                                <li><a href={{ path('hold') }}><i class="fa fa-angle-right" aria-hidden="true"></i>Festive Decoratives </a></li>
+
+                                            </ul>
+                                        </div>
+                                        <div class="col-sm-3 w3l">
+                                            <a href={{ path('hold') }}><img src="{{ asset('images/me2.png') }}" class="img-responsive" alt=""></a>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </ul>
+                            </li>
+
                         </ul>
                     </div>
                 </nav>

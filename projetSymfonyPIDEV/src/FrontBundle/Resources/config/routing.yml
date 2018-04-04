@@ -126,7 +126,6 @@ nosVetements:
 nosFournitures:
     path:     /nosFournitures
     defaults: { _controller: UserBundle:Produits:nosFournitures }
-
 ListeCov:
     path:     /ListeCov
     defaults: { _controller: UserBundle:Covoiturage:afficher }
@@ -139,3 +138,15 @@ my_app_mail_homepage:
 my_app_mail_accuse:
     path: /success
     defaults: { _controller: UserBundle:Mail:success }
+clubs:
+    path: /clubs
+    defaults: { _controller: UserBundle:Clubs:afficherClubsFront}
+rechercherClubF:
+    path: /rechercherClubF
+    defaults: { _controller: UserBundle:Clubs:rechercherParNomClub}
+rechercherCombo:
+    path: /rechercherCombo
+    defaults: { _controller: UserBundle:Clubs:rechercherCombo}
+devenirPartenaire:
+    path: /partenaire
+    defaults: { _controller: UserBundle:Clubs:devenirPartenaire}
