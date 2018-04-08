@@ -129,6 +129,16 @@ nomaya_social:
         googleplus:         "https://plus.google.com/105931415830389032796"
     theme:                  'default' # optional
 <<<<<<< HEAD
+
+fos_comment:
+    db_driver: orm
+    class:
+        model:
+            comment: UserBundle\Entity\Comment
+            thread: UserBundle\Entity\Thread
+
+=======
+<<<<<<< HEAD
 fos_message:
     db_driver: orm
     thread_class: MessageBundle\Entity\Thread
@@ -154,3 +164,4 @@ knp_snappy:
             encoding: UTF-8
 
 >>>>>>> f3b76d99922d08b50542a2bafefe0c028ef85a15
+>>>>>>> 07c9094cc20f883bda0e8ee120102e2e8c83231d

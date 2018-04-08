@@ -27,11 +27,19 @@ class AppKernel extends Kernel
             new PdfBundle\PdfBundle(),
             new Nomaya\SocialBundle\NomayaSocialBundle(),
 <<<<<<< HEAD
+            new blackknight467\StarRatingBundle\StarRatingBundle(),
+            new FOS\RestBundle\FOSRestBundle(),
+            new FOS\CommentBundle\FOSCommentBundle(),
+            new JMS\SerializerBundle\JMSSerializerBundle($this),
+
+=======
+<<<<<<< HEAD
             new FOS\MessageBundle\FOSMessageBundle(),
             new MessageBundle\MessageBundle(),
 =======
             new Knp\Bundle\SnappyBundle\KnpSnappyBundle(),
 >>>>>>> f3b76d99922d08b50542a2bafefe0c028ef85a15
+>>>>>>> 07c9094cc20f883bda0e8ee120102e2e8c83231d
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

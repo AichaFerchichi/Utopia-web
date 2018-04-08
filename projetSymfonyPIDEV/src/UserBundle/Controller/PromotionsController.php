@@ -23,16 +23,56 @@ class PromotionsController extends Controller
 
         if ($form->handleRequest($request)->isValid())
         {
+            if($voiture->getDateDebut()<$voiture->getDateFin()){
             $em->persist($voiture);
             $p=$voiture->getPourcentage();
             $nouvPrix= $ancienPrix - ($ancienPrix*$p/100);
             $voiture->setPrixpromo($nouvPrix) ;
-            //$prod->setPrixProduit($nouvPrix) ;
+            $prod->setNouvPrix($nouvPrix) ;
+            $prod->setPromotion(1) ;
             $em->flush();
-            return $this->redirectToRoute('affichagePromotions');
+            return $this->redirectToRoute('affichagePromotions');}
+            else
+            {
+                return $this->redirectToRoute('promotionProduitsAlerte',array('id'=>$id));
+            }
         }
 
         return $this->render('BackBundle:Default:promotionProduits.html.twig', array(
+            'e'=>$nom, 'f'=>$form->createView() , 'id'=> $id , 'a'=>$prod->getImage()
+        ));
+    }
+
+    public function gestionPromotions2Action(Request $request, $id)
+    {
+        //ajout
+        $voiture= new Promotions();
+        $form=$this->createForm(PromotionsType::class,$voiture);
+        $em=$this->getDoctrine()->getManager();
+        $prod=$em->getRepository('UserBundle:Produits')->find($id) ;
+        $nom=$prod->getNom() ;
+        $voiture->setIdProduit($prod) ;
+        $ancienPrix = $prod->getPrixProduit() ;
+
+
+        if ($form->handleRequest($request)->isValid())
+        {
+            if($voiture->getDateDebut()<$voiture->getDateFin()){
+                $em->persist($voiture);
+                $p=$voiture->getPourcentage();
+                $nouvPrix= $ancienPrix - ($ancienPrix*$p/100);
+                $voiture->setPrixpromo($nouvPrix) ;
+                $prod->setNouvPrix($nouvPrix) ;
+                $prod->setPromotion(1) ;
+                $em->flush();
+                return $this->redirectToRoute('affichagePromotions');}
+            else
+            {
+                return $this->redirectToRoute('promotionProduitsAlerte',array('id'=>$id));
+            }
+        }
+
+        return $this->render('BackBundle:Default:promotionProduitsAlerte.html.twig', array(
             'e'=>$nom, 'f'=>$form->createView() , 'id'=> $id , 'a'=>$prod->getImage()
         ));
     }

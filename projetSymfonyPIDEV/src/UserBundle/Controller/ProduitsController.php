@@ -1,10 +1,16 @@
 <?php
 
 namespace UserBundle\Controller;
+use blackknight467\StarRatingBundle\Form\RatingType;
+use FrontBundle\Form\RatingForm;
 use Symfony\Component\HttpFoundation\File\UploadedFile ;
 use Symfony\Component\HttpFoundation\Request;
+use UserBundle\Entity\Comment;
+use UserBundle\Entity\Notes;
 use UserBundle\Entity\Produits;
+use UserBundle\Entity\Rate;
 use UserBundle\Form\modifProduitsType;
+use UserBundle\Form\NotesType;
 use UserBundle\Form\ProduitsType;
 use UserBundle\Form\RechercherProduits;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -25,6 +31,7 @@ class ProduitsController extends Controller
             $fileName = md5(uniqid()).'.'.$file->guessExtension();
             $file->move($this->getParameter('image_directory'),$fileName) ;
             $voiture->setImage($fileName) ;
+            $voiture->setPromotion(0) ;
             $em=$this->getDoctrine()->getManager();
             $em->persist($voiture);
             $em->flush();
@@ -82,7 +89,7 @@ class ProduitsController extends Controller
         }        return $this->render('BackBundle:Default:modifierProduits.html.twig',array( 'e'=> $name , 'f'=>$form->createView())) ;
     }
 
-    public function rechercherAction(Request $request){
+    public function rechercherProduitAction(Request $request){
         $em=$this->getDoctrine()->getManager();
         $motcle=$request->get('motcle');
         $repository=$em->getRepository('UserBundle:Produits');
@@ -119,12 +126,15 @@ class ProduitsController extends Controller
     public function affichageProduitsAction(){
         $em=$this->getDoctrine()->getManager();
         $marks=$em->getRepository('UserBundle:Produits')->findAll();
+        $user = $this->get('security.token_storage')->getToken()->getUser();
+        $yo= $em->getRepository("UserBundle:Commandes")->findBy(array('idParent'=>$user));
         return $this->render('FrontBundle:Default:Boutique.html.twig', array(
-            'm'=>$marks
+            'm'=>$marks , 'com'=>$yo
         ));
     }
 
-    public function singleAction($id){
+    public function singleAction($id, Request $request){
+
         $em=$this->getDoctrine()->getManager();
         $marks=$em->getRepository('UserBundle:Produits')->find($id);
         $voitures=$em->getRepository('UserBundle:Promotions')->findOneBy(array('idProduit'=>$id)) ;
@@ -135,16 +145,69 @@ class ProduitsController extends Controller
             ->setParameter('categorie','%'.$mot.'%')
             ->setMaxResults(4)
             ->getQuery();
-
         $some=$query->getResult();
+
+        //ajout
+        $user = $this->get('security.token_storage')->getToken()->getUser();
+        $yo= $em->getRepository("UserBundle:Commandes")->findBy(array('idParent'=>$user));
+
+
+        $bla= new Notes();
+        $form=$this->createForm(NotesType::class,$bla);
+        if ($form->handleRequest($request)->isValid())
+        {
+            if ($user=='anon.')
+            {  return $this->redirectToRoute('fos_user_security_login');}
+            else {
+            $em5=$this->getDoctrine()->getManager();
+            $bla->setIdParent($user) ;
+            $bla->setIdProduit($marks) ;
+            // $rate = $request->get('rating') ;
+            $bla->setRating(1);
+            $em5->persist($bla);
+            $em5->flush();
+            return $this->redirectToRoute('single', array(
+                'id' => $id));}
+        }
+
+     /*   $bla2 = new Rate() ;
+        $form2=$this->createForm(RatingType::class,$bla2) ; */
+
+
+
+        //comment
+        $id = 'thread_id';
+        $thread = $this->container->get('fos_comment.manager.thread')->findThreadById($id);
+        if (null === $thread) {
+            $thread = $this->container->get('fos_comment.manager.thread')->createThread();
+            $thread->setId($id);
+            $thread->setPermalink($request->getUri());
+            //$thread->setIdProduit($marks->getIdProduit()) ;
+
+            // Add the thread
+            $this->container->get('fos_comment.manager.thread')->saveThread($thread);
+        }
+
+        $comments = $this->container->get('fos_comment.manager.comment')->findCommentTreeByThread($thread);
+        $em6=$this->getDoctrine()->getManager();
+        $com = $em6->getRepository('UserBundle:Comment')->findOneBy(array('thread'=>$thread)) ;
+        $com->setIdProduit($marks) ;
+        $em6->persist($com) ;
+        $em6->flush();
+
+        //$comments->setIdProduit($voitures->getIdProduit()) ;
+
+
+        //comment
 
 
         return $this->render('FrontBundle:Default:single.html.twig', array(
-            'i'=>$marks , 'e'=>$voitures , 'some'=>$some
+            'i'=>$marks , 'e'=>$voitures , 'some'=>$some , 'comments' => $comments,
+            'thread' => $thread,'f'=>$form->createView() , 'com'=>$yo
         ));
     }
 
-    public function single2Action($id){
+    public function single2Action($id, Request $request){
         $em=$this->getDoctrine()->getManager();
         $marks=$em->getRepository('UserBundle:Produits')->find($id);
         $voitures=$em->getRepository('UserBundle:Promotions')->findOneBy(array('idProduit'=>$id)) ;
@@ -155,14 +218,64 @@ class ProduitsController extends Controller
             ->setParameter('categorie','%'.$mot.'%')
             ->setMaxResults(4)
             ->getQuery();
-
         $some=$query->getResult();
+
+        //ajout
+        $user = $this->get('security.token_storage')->getToken()->getUser();
+        $yo= $em->getRepository("UserBundle:Commandes")->findBy(array('idParent'=>$user));
+        /* if ($user=='anon.')
+             return $this->redirectToRoute('fos_user_security_login');*/
+        $bla= new Notes();
+        $form=$this->createForm(NotesType::class,$bla);
+        if ($form->handleRequest($request)->isValid())
+        {
+            $em5=$this->getDoctrine()->getManager();
+            $bla->setIdParent($user) ;
+            $bla->setIdProduit($marks) ;
+            // $rate = $request->get('rating') ;
+            $bla->setRating(1);
+            $em5->persist($bla);
+            $em5->flush();
+            return $this->redirectToRoute('single', array(
+                'id' => $id));
+        }
+
+        /*   $bla2 = new Rate() ;
+           $form2=$this->createForm(RatingType::class,$bla2) ; */
+
+
+
+        //comment
+        $id = 'thread_id';
+        $thread = $this->container->get('fos_comment.manager.thread')->findThreadById($id);
+        if (null === $thread) {
+            $thread = $this->container->get('fos_comment.manager.thread')->createThread();
+            $thread->setId($id);
+            $thread->setPermalink($request->getUri());
+            //$thread->setIdProduit($marks->getIdProduit()) ;
+
+            // Add the thread
+            $this->container->get('fos_comment.manager.thread')->saveThread($thread);
+        }
+
+        $comments = $this->container->get('fos_comment.manager.comment')->findCommentTreeByThread($thread);
+        $em6=$this->getDoctrine()->getManager();
+        $com = $em6->getRepository('UserBundle:Comment')->findOneBy(array('thread'=>$thread)) ;
+        $com->setIdProduit($marks) ;
+        $em6->persist($com) ;
+        $em6->flush();
+
+        //$comments->setIdProduit($voitures->getIdProduit()) ;
+
+
+        //comment
         return $this->render('FrontBundle:Default:single2.html.twig', array(
-            'i'=>$marks , 'e'=>$voitures , 'some'=>$some
+            'i'=>$marks , 'e'=>$voitures , 'some'=>$some , 'comments' => $comments,
+            'thread' => $thread,'f'=>$form->createView(), 'com'=>$yo
         ));
     }
 
-    public function single3Action($id){
+    public function single3Action($id, Request $request){
         $em=$this->getDoctrine()->getManager();
         $marks=$em->getRepository('UserBundle:Produits')->find($id);
         $voitures=$em->getRepository('UserBundle:Promotions')->findOneBy(array('idProduit'=>$id)) ;
@@ -173,33 +286,89 @@ class ProduitsController extends Controller
             ->setParameter('categorie','%'.$mot.'%')
             ->setMaxResults(4)
             ->getQuery();
-
         $some=$query->getResult();
+
+        //ajout
+        $user = $this->get('security.token_storage')->getToken()->getUser();
+        $yo= $em->getRepository("UserBundle:Commandes")->findBy(array('idParent'=>$user));
+        /* if ($user=='anon.')
+             return $this->redirectToRoute('fos_user_security_login');*/
+        $bla= new Notes();
+        $form=$this->createForm(NotesType::class,$bla);
+        if ($form->handleRequest($request)->isValid())
+        {
+            $em5=$this->getDoctrine()->getManager();
+            $bla->setIdParent($user) ;
+            $bla->setIdProduit($marks) ;
+            // $rate = $request->get('rating') ;
+            $bla->setRating(1);
+            $em5->persist($bla);
+            $em5->flush();
+            return $this->redirectToRoute('single', array(
+                'id' => $id));
+        }
+
+        /*   $bla2 = new Rate() ;
+           $form2=$this->createForm(RatingType::class,$bla2) ; */
+
+
+
+        //comment
+        $id = 'thread_id';
+        $thread = $this->container->get('fos_comment.manager.thread')->findThreadById($id);
+        if (null === $thread) {
+            $thread = $this->container->get('fos_comment.manager.thread')->createThread();
+            $thread->setId($id);
+            $thread->setPermalink($request->getUri());
+            //$thread->setIdProduit($marks->getIdProduit()) ;
+
+            // Add the thread
+            $this->container->get('fos_comment.manager.thread')->saveThread($thread);
+        }
+
+        $comments = $this->container->get('fos_comment.manager.comment')->findCommentTreeByThread($thread);
+        $em6=$this->getDoctrine()->getManager();
+        $com = $em6->getRepository('UserBundle:Comment')->findOneBy(array('thread'=>$thread)) ;
+        $com->setIdProduit($marks) ;
+        $em6->persist($com) ;
+        $em6->flush();
+
+        //$comments->setIdProduit($voitures->getIdProduit()) ;
+
+
+        //comment
         return $this->render('FrontBundle:Default:single3.html.twig', array(
-            'i'=>$marks , 'e'=>$voitures , 'some'=>$some
+            'i'=>$marks , 'e'=>$voitures , 'some'=>$some , 'comments' => $comments,
+            'thread' => $thread,'f'=>$form->createView(), 'com'=>$yo
         ));
     }
 
     public function nosJouetsAction(){
         $em=$this->getDoctrine()->getManager();
         $marks=$em->getRepository('UserBundle:Produits')->findBy(array('categorie'=>'jouets'));
+        $user = $this->get('security.token_storage')->getToken()->getUser();
+        $yo= $em->getRepository("UserBundle:Commandes")->findBy(array('idParent'=>$user));
         return $this->render('FrontBundle:Default:nosJouets.html.twig', array(
-            'm'=>$marks
+            'm'=>$marks, 'com'=>$yo
         ));
     }
     public function nosVetementsAction(){
         $em=$this->getDoctrine()->getManager();
         $marks=$em->getRepository('UserBundle:Produits')->findBy(array('categorie'=>'vêtements'));
+        $user = $this->get('security.token_storage')->getToken()->getUser();
+        $yo= $em->getRepository("UserBundle:Commandes")->findBy(array('idParent'=>$user));
         return $this->render('FrontBundle:Default:nosVetements.html.twig', array(
-            'm'=>$marks
+            'm'=>$marks, 'com'=>$yo
         ));
     }
 
     public function nosFournituresAction(){
         $em=$this->getDoctrine()->getManager();
         $marks=$em->getRepository('UserBundle:Produits')->findBy(array('categorie'=>'fournitures'));
+        $user = $this->get('security.token_storage')->getToken()->getUser();
+        $yo= $em->getRepository("UserBundle:Commandes")->findBy(array('idParent'=>$user));
         return $this->render('FrontBundle:Default:nosFournitures.html.twig', array(
-            'm'=>$marks
+            'm'=>$marks, 'com'=>$yo
         ));
     }
 

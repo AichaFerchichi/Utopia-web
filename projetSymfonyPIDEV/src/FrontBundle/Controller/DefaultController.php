@@ -9,19 +9,51 @@ use Symfony\Component\HttpFoundation\Request;
 class DefaultController extends Controller
 {
     public function indexAction()
-    {
-        return $this->render('FrontBundle:Default:index.html.twig');
+    { $em=$this->getDoctrine()->getManager();
+
+        $query=$em->createQueryBuilder()
+            ->select('p')->from('UserBundle:Activite','p')
+            ->where('p.dateFin > CURRENT_DATE()')
+            ->orderBy('p.dateDebut','DESC')
+            ->getQuery();
+
+        $produits=$query->getResult();
+        $p1=null;
+        $p2=null;
+        $p3=null;
+
+        foreach ($produits as $p) {
+           if($p1==null){
+               $p1=$p;
+           }
+           elseif ($p2==null){
+               $p2=$p;
+           }
+           elseif($p3==null){
+               $p3=$p;
+           }
+           else{
+               break;
+           }
+        }
+        return $this->render('FrontBundle:Default:index.html.twig',array('p1'=>$p1,'p2'=>$p2,'p3'=>$p3));
     }
 
     public function accueil1Action()
     {
         return $this->render('FrontBundle:Default:accueil1.html.twig');
+<<<<<<< HEAD
+=======
 
+>>>>>>> 07c9094cc20f883bda0e8ee120102e2e8c83231d
     }
     public function plusAction()
     {
         return $this->render('FrontBundle:Default:plus.html.twig');
+<<<<<<< HEAD
+=======
 
+>>>>>>> 07c9094cc20f883bda0e8ee120102e2e8c83231d
     }
     public function wishlistAction()
     {
@@ -85,7 +117,28 @@ class DefaultController extends Controller
         $this->denyAccessUnlessGranted('ROLE_ADMIN');
         return $this->render('Exemples_Roles/hello-world-admin.html.twig');
     }
+<<<<<<< HEAD
+    public function profilAction()
+    {
+        return $this->render('FrontBundle:Default:createProfile.html.twig');
+    }
+    public function FormulaireLivraisonAlerteAction()
+    {
+        $em=$this->getDoctrine()->getManager();
+        $user = $this->get('security.token_storage')->getToken()->getUser();
+        $yo= $em->getRepository("UserBundle:Commandes")->findBy(array('idParent'=>$user));
+        return $this->render('FrontBundle:Default:FormulaireLivraisonAlerte.html.twig',array('com'=>$yo));
+    }
+    public function wishlistAlerteAction()
+    {
+        $em=$this->getDoctrine()->getManager();
+        $user = $this->get('security.token_storage')->getToken()->getUser();
+        $yo= $em->getRepository("UserBundle:Commandes")->findBy(array('idParent'=>$user));
+        return $this->render('FrontBundle:Default:wishlistAlerte.html.twig',array('com'=>$yo));
+    }
+=======
 
+>>>>>>> 07c9094cc20f883bda0e8ee120102e2e8c83231d
 
 
 }

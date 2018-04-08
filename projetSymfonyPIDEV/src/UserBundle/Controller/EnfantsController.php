@@ -79,7 +79,7 @@ class EnfantsController extends Controller
                     $enfant=$e;
                 }
                 //return $this->redirectToRoute('affiche');
-                return $this->redirectToRoute('pdf');
+                return $this->redirectToRoute('pdf',array('idG'=>$equipes->getIdGarderie(),'idE'=>$enfant->getIdEnfant()));
 
             }
 
