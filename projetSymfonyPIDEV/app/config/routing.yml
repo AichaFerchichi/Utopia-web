@@ -20,9 +20,16 @@ fos_user:
 back:
     resource: "@BackBundle/Resources/config/routing.yml"
     prefix:   /back
+<<<<<<< HEAD
 fos_message:
     resource: "@FOSMessageBundle/Resources/config/routing.xml"
     prefix: /chat
 message:
     resource: "@MessageBundle/Resources/config/routing.yml"
     prefix:   /chat
+=======
+pdf:
+    resource: "@PdfBundle/Resources/config/routing.yml"
+    prefix:   /pdf
+
+>>>>>>> f3b76d99922d08b50542a2bafefe0c028ef85a15

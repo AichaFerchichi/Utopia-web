@@ -132,6 +132,31 @@ class GarderiesController extends Controller
     public function deleteAction($id)
     {
         $em=$this->getDoctrine()->getManager();
+        $enseignant = $em->getRepository('UserBundle:Enseignants')->findBy(array('idGarderie'=>$id));
+        $enfant = $em->getRepository('UserBundle:Enfants')->findBy(array('idGarderie'=>$id));
+        $act = $em->getRepository('UserBundle:Activite')->findBy(array('idGarderie'=>$id));
+        $etape = $em->getRepository('UserBundle:Activite')->findBy(array('idActivite'=>$act->getIdActivite()));
+        $userE = $em->getRepository('UserBundle:UserEtape')->findBy(array('idEtape'=>$etape->getIdEtape()));
+        foreach ($userE as $u){
+            $em->remove($u);
+            $em->flush();
+        }
+        foreach ($enseignant as $e){
+            $em->remove($e);
+            $em->flush();
+        }
+        foreach ($etape as $et){
+            $em->remove($et);
+            $em->flush();
+        }
+        foreach ($act as $a){
+            $em->remove($a);
+            $em->flush();
+        }
+        foreach ($enfant as $en){
+            $em->remove($en);
+            $em->flush();
+        }
         $equipe=$em->find(Garderies::class,$id);
         $em->remove($equipe);
         $em->flush();

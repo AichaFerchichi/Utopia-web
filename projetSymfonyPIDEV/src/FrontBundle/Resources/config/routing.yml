@@ -37,6 +37,18 @@ wishlist:
 about:
     path:     /about
     defaults: { _controller: FrontBundle:Default:about }
+quizF:
+    path:     /quizF/{id}
+    defaults: { _controller: UserBundle:Quiz:affichage }
+bravo:
+    path:     /bravo/{id}
+    defaults: { _controller: UserBundle:Quiz:bravo }
+echec:
+    path:     /echec/{id}
+    defaults: { _controller: UserBundle:Quiz:echec }
+DejaJoue:
+    path:     /DejaJoue/{id}
+    defaults: { _controller: UserBundle:Quiz:DejaJoue }
 plus:
     path:     /plus/{id}
     defaults: { _controller: UserBundle:Garderies:plus }
@@ -150,11 +162,35 @@ nosVetements:
 nosFournitures:
     path:     /nosFournitures
     defaults: { _controller: UserBundle:Produits:nosFournitures }
+<<<<<<< HEAD
 
+=======
+>>>>>>> f3b76d99922d08b50542a2bafefe0c028ef85a15
 ListeCov:
     path:     /ListeCov
     defaults: { _controller: UserBundle:Covoiturage:afficher }
 AjouterCov:
     path:     /AjouterCov
     defaults: { _controller: UserBundle:Covoiturage:ajouter }
+<<<<<<< HEAD
 
+=======
+my_app_mail_homepage:
+    path: /Mail
+    defaults: { _controller: UserBundle:Mail:index }
+my_app_mail_accuse:
+    path: /success
+    defaults: { _controller: UserBundle:Mail:success }
+clubs:
+    path: /clubs
+    defaults: { _controller: UserBundle:Clubs:afficherClubsFront}
+rechercherClubF:
+    path: /rechercherClubF
+    defaults: { _controller: UserBundle:Clubs:rechercherParNomClub}
+rechercherCombo:
+    path: /rechercherCombo
+    defaults: { _controller: UserBundle:Clubs:rechercherCombo}
+devenirPartenaire:
+    path: /partenaire
+    defaults: { _controller: UserBundle:Clubs:devenirPartenaire}
+>>>>>>> f3b76d99922d08b50542a2bafefe0c028ef85a15

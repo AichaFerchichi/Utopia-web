@@ -128,7 +128,29 @@ nomaya_social:
         facebook:           "http://www.facebook.com/yann.chauvel"
         googleplus:         "https://plus.google.com/105931415830389032796"
     theme:                  'default' # optional
+<<<<<<< HEAD
 fos_message:
     db_driver: orm
     thread_class: MessageBundle\Entity\Thread
     message_class: MessageBundle\Entity\Message
+=======
+
+knp_snappy:
+    pdf:
+        enabled:    true
+        #binary:     "C:/wamp/www/Utopia-web2/projetSymfonyPIDEV/vendor/wkhtmltopdf/bin/wkhtmltopdf.exe"
+        binary:      /usr/local/bin/wkhtmltopdf
+        options:    []
+
+
+    image:
+        enabled:    true
+        #binary:     "C:/wamp/www/Utopia-web2/projetSymfonyPIDEV/vendor/wkhtmltopdf/bin/wkhtmltoimage.exe"
+        binary:      /usr/local/bin/wkhtmltoimage
+        options:
+            no-outline: true
+            page-size: LETTER
+            # Recommended to set UTF-8 as default encoding :)
+            encoding: UTF-8
+
+>>>>>>> f3b76d99922d08b50542a2bafefe0c028ef85a15

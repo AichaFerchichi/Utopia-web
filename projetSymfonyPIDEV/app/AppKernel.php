@@ -5,6 +5,10 @@ use Symfony\Component\Config\Loader\LoaderInterface;
 
 class AppKernel extends Kernel
 {
+    public function __construct($environment, $debug) {
+        date_default_timezone_set('Europe/Warsaw');
+        parent::__construct($environment, $debug);
+    }
     public function registerBundles()
     {
         $bundles = [
@@ -20,9 +24,14 @@ class AppKernel extends Kernel
             new UserBundle\UserBundle(),
             new FOS\UserBundle\FOSUserBundle(),
             new BackBundle\BackBundle(),
+            new PdfBundle\PdfBundle(),
             new Nomaya\SocialBundle\NomayaSocialBundle(),
+<<<<<<< HEAD
             new FOS\MessageBundle\FOSMessageBundle(),
             new MessageBundle\MessageBundle(),
+=======
+            new Knp\Bundle\SnappyBundle\KnpSnappyBundle(),
+>>>>>>> f3b76d99922d08b50542a2bafefe0c028ef85a15
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

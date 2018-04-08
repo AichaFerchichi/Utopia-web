@@ -122,11 +122,12 @@
 				</div>
 
 	</div><ol class="breadcrumb">
-	<li><a href="{{ path('plus',{'id':id}) }}" >Objectif&Programme</a></li>
-	<li ><a href="{{ path('enseignants',{'id':id}) }}" class="active">Enseignants</a></li>
-	<li ><a href="{{ path('inscriEnfant',{'id':id}) }}">Inscription</a></li>
-	<li ><a href="{{ path('activiteFront',{'id':id}) }}">Activité</a></li>
-	<li ><a href="#">Quiz</a></li>
+	<li><a href="{{ path('plus',{'id':id}) }}" style="color: deeppink">Objectif&Programme</a></li>
+	<li ><a href="{{ path('enseignants',{'id':id}) }}"style="color: deeppink">Enseignants</a></li>
+	<li ><a href="{{ path('inscriEnfant',{'id':id}) }}"style="color: deeppink">Inscription</a></li>
+	<li ><a href="{{ path('activiteFront',{'id':id}) }}"style="color: deeppink">Activité</a></li>
+	<li ><a href="{{ path('quizF',{'id':id}) }}"style="color: deeppink">Quiz</a></li></ol>
+	
 </ol>	</div>
 
 
@@ -159,9 +160,7 @@
 							</li>
 							</ul>
 						</td>
-						<td></br></br></br></br></br>
-                            <form action="#" method="post">
-                                <button type="submit" class="btn btn-success m-b-10 m-l-5" >Contacter</button></form></li>
+						<td>
                         </td>
 					</tr>
 
