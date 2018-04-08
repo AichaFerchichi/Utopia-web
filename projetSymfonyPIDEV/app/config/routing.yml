@@ -1,3 +1,7 @@
+message:
+    resource: "@MessageBundle/Resources/config/routing.yml"
+    prefix:   /
+
 user:
     resource: "@UserBundle/Resources/config/routing.yml"
     prefix:   /user
@@ -16,4 +20,9 @@ fos_user:
 back:
     resource: "@BackBundle/Resources/config/routing.yml"
     prefix:   /back
-
+fos_message:
+    resource: "@FOSMessageBundle/Resources/config/routing.xml"
+    prefix: /chat
+message:
+    resource: "@MessageBundle/Resources/config/routing.yml"
+    prefix:   /chat

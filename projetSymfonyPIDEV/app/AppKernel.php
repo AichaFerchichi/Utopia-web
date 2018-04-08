@@ -21,6 +21,8 @@ class AppKernel extends Kernel
             new FOS\UserBundle\FOSUserBundle(),
             new BackBundle\BackBundle(),
             new Nomaya\SocialBundle\NomayaSocialBundle(),
+            new FOS\MessageBundle\FOSMessageBundle(),
+            new MessageBundle\MessageBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

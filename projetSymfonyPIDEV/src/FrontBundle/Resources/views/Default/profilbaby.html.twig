@@ -160,6 +160,7 @@
     </div>
 
     </div>
+
     </div>
 
     <div class="container-fluid">
@@ -182,6 +183,55 @@
     <header>
 
     <div class="avatar">
+
+    {% if app.session.flashBag.has('accepter') %}
+        <div class="alert alert-info">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+
+            {% for msg in app.session.flashBag.get('accepter') %}
+                {{ msg }}
+            {% endfor %}
+        </div>
+    {% endif %}
+
+    {% if app.session.flashBag.has('refuser') %}
+        <div class="alert alert-danger">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+
+            {% for msg in app.session.flashBag.get('refuser') %}
+                {{ msg }}
+            {% endfor %}
+        </div>
+    {% endif %}
+    {% if app.session.flashBag.has('traitement1') %}
+        <div class="alert alert-danger">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+
+            {% for msg in app.session.flashBag.get('traitement1') %}
+                {{ msg }}
+            {% endfor %}
+        </div>
+    {% endif %}
+    {% if app.session.flashBag.has('traitement2') %}
+        <div class="alert alert-warning">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            {% for msg in app.session.flashBag.get('traitement2') %}
+                {{ msg }}
+            {% endfor %}
+            <a href={{ path('profilParent') }} class="alert-link">Consulter les profils</a>
+
+        </div>
+    {% endif %}
+    {% if app.session.flashBag.has('traitement3') %}
+        <div class="alert alert-info">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+
+            {% for msg in app.session.flashBag.get('traitement3') %}
+                {{ msg }}
+            {% endfor %}
+        </div>
+    {% endif %}
+
     {% for i in m %}
 
         <img  class="img-circle" width="150px" height="auto" src={{ asset("ressources/" ~ i.getImage()) }} >
@@ -196,21 +246,9 @@
             <li role="presentation" class="dropdown">
                 <a href="#" id="myTabDrop1" class="dropdown-toggle" data-toggle="dropdown" aria-controls="myTabDrop1-contents">Paramétrage du profil <span class="caret"></span></a>
                 <ul class="dropdown-menu" role="menu" aria-labelledby="myTabDrop1" id="myTabDrop1-contents">
-                    <li><a href="{{ path('delete',{'ref1':i.getIdOffre()}) }}" id="clickme">Désactiver votre profil</a></li>
+                    <li><a href="{{ path('delete',{'ref1':i.getIdOffre()}) }}">Désactiver votre profil</a></li>
 
-                    <script>
-                        var element = document.getElementById('clickme');
 
-                        element.addEventListener('click', function() {
-                            alert('Im an alert box',{
-
-                            title : 'Alert Title',
-
-                            ok : 'Okey'
-
-                        })
-                        });
-                    </script>
 
                     <li><a href="{{ path('modifier',{'ref2':i.getIdOffre()}) }}">Modifier votre profil</a></li>
                 </ul>
@@ -246,14 +284,36 @@
                                 <div class="ad-left">
                                     <p>1</p>
                                 </div>
-                                <div class="ad-right">
+                                <div class="ad-right"><ul>
                                            <h2 style="color: #277ee1">General</h2><br>
 <table>
-                               <tr> <td><label>Adresse:</label> </td><td><p>{{ i.getAdresse() }} </p></td></tr>
-    <tr> <td><label>Age:</label> </td><td><p>{{ i.getAge() }} ans </p></td></tr>
-    <tr> <td><label>Sexe:</label> </td><td><p>{{ i.getSexe() }} </p></td></tr>
-    <tr> <td><label>Motivation et experience:</label> </td><td><p>{{ i.getDescription() }}  </p></td></tr>
+    <tbody>
 
+    <tr >
+
+
+        <td style="text-align: left">
+            <ul class="multi-column-dropdown">
+
+                <li> <label>Adresse:</label><p>{{ i.getAdresse() }} </p></li>
+
+
+                <li><label>Age:</label><p>{{ i.getAge() }} ans </p></li>
+
+
+                <li><label>Sexe:</label> <p>{{ i.getSexe() }} </p></li>
+                <li>  <label>Motivation et experience:</label><p>{{ i.getDescription() }}  </p></li>
+
+
+        <td>
+            <h2 class="t-button">
+                </li>
+        </td>
+    </tr>
+
+    </tbody>
+
+</td></tr>
 
 </table>
                                 </div>
@@ -266,23 +326,66 @@
                                 <div class="ad-right">
                                     <h2 style="color: #277ee1">Coordonnées</h2><br>
                                     <table>
-                                        <tr> <td><label>Numero de telephone:</label> </td><td><p>{{ i.getNumtel() }} </p></td></tr>
-                                        <tr> <td><label>Adresse mail:</label> </td><td><p>{{ email }} </p></td></tr>
+                                        <tbody>
+
+                                        <tr >
+
+
+                                            <td style="text-align: left">
+                                                <ul class="multi-column-dropdown">
+
+
+                                                    <li><label>Numero de telephone:</label><p>{{ i.getNumtel() }} </p></li>
+                                                    <li>  <label>Adresse mail:</label> <p>{{ email }} </p></li>
+
+
+                                            <td>
+                                                <h2 class="t-button">
+                                                    </li>
+                                            </td>
+                                        </tr>
+
+                                        </tbody>
+
+                                        </td></tr>
 
                                     </table>
+                                 </ul>
                                 </div>
                                 <div class="clearfix"></div>
                             </div>
                             <div class="ad-mian">
                                 <div class="ad-left">
-                                    <p>2</p>
+                                    <p>3</p>
                                 </div>
                                 <div class="ad-right">
                                     <h2 style="color: #277ee1">A propos de moi</h2><br>
+
                                     <table>
-                                        <tr> <td><label>Experience:</label> </td><td><p>{{ i.getExperience() }} </p></td></tr>
-                                        <tr> <td><label>Lieu de travail:</label> </td><td><p>{{ i.getLieuBaby() }} </p></td></tr>
-                                        <tr> <td><label>Disponibilité:</label> </td><td><p>{{ i.getDispo() }} </p></td></tr>
+                                        <tbody>
+
+
+                                        <tr >
+
+
+                                            <td style="text-align: left">
+                                                <ul class="multi-column-dropdown">
+
+                                                    <li><label>Experience:</label> <p>{{ i.getExperience() }} </p></li>
+                                                    <li><label>Lieu de travail:</label> <p>{{ i.getLieuBaby() }} </p></li>
+                                                    <li><label>Disponibilité:</label> <p>{{ i.getDispo() }} </p></li>
+
+
+                                        <td>
+                                            <h2 class="t-button">
+                                                </li>
+                                        </td>
+                                        </tr>
+
+                                        </tbody>
+
+                                        </td></tr>
+
                                     </table>
                                 </div>
                                 <div class="clearfix"></div>
@@ -293,45 +396,61 @@
                                 <div class="ad-right">
                                     <h2 style="color: #277ee1">Mes activités</h2><br>
                                     <table>
+                                        <tbody>
+
+                                        <tr >
+
+
+                                            <td style="text-align: left">
+                                                <ul class="multi-column-dropdown">
                                         {% if(i.getFumeuse()=='1')  %}
 
-                                            <tr> <td><label>*</label></td><td><p>Je fume</p></td></tr>
+                                            <li><p>Je fume</li>
 
                                         {% endif %}
                                         {% if(i.getFumeuse()!='1')  %}
 
-                                        <tr> <td><label>*</label></td> <td><p>Je ne fume pas</p></td></tr>
+                                                    <li><p>Je ne fume pas</p></li>
 
                                         {% endif %}
                                         {% if(i.getEnfant()=='1')  %}
 
-                                        <tr>  <td><label>*</label></td><td><p>Je suis maman</p></td></tr>
+                                        <li><p>Je suis maman</p></li>
 
                                         {% endif %}
                                         {% if(i.getEnfant()!='1')  %}
 
-                                        <tr> <td><label>*</label></td> <td><p>Je ne suis pas une maman </p></td></tr>
+                                        <li><p>Je ne suis pas une maman </p></li>
 
                                         {% endif %}
                                         {% if(i.getConduite()=='1')  %}
 
-                                        <tr>  <td><label>*</label></td><td><p>Je posséde un permis de conduire</p></td></tr>
+                                        <li><p>Je posséde un permis de conduire</p></li>
 
                                         {% endif %}
                                         {% if(i.getConduite()!='1')  %}
 
-                                        <tr>  <td><label>*</label></td><td><p>Je ne posséde pas un permis de conduire</p></td></tr>
+                                        <li><p>Je ne posséde pas un permis de conduire</p></li>
 
                                         {% endif %}  {% if(i.getAgregation()=='1')  %}
 
-                                        <tr> <td><label>*</label></td> <td><p>Je suis une assistante maternelle agréée</p></td></tr>
+                                        <li><p>Je suis une assistante maternelle agréée</p></li>
 
                                         {% endif %}
                                         {% if(i.getAgregation()!='1')  %}
 
-                                        <tr>  <td><label>*</label></td><td><p>Je ne suis pas une assistante maternelle agréée</p></td></tr>
+                                        <li><p>Je ne suis pas une assistante maternelle agréée</p></li>
 
                                         {% endif %}
+                                        <td>
+                                            <h2 class="t-button">
+                                                </li>
+                                        </td>
+                                        </tr>
+
+                                        </tbody>
+
+                                        </td></tr>
 
                                     </table>
                                     <br><br>
@@ -343,19 +462,58 @@
 
                             </div>
                         </div>
-
+</ul>
                 <div class="col-md-6 advantages-left about-agi">
                     <h3>Mes demandes</h3>
+
                         <div class="advn-two">
                             <h4><a href="single.html"></a></h4>
                             <p></p>
-                            <ul>
-                                <li><a href="#"> <!--i class="fa fa-angle-right" aria-hidden="true"></i!--></a></li>
-                                <li><a href="#"> <!--i class="fa fa-angle-right" aria-hidden="true"></i!--></a></li>
-                                <li><a href="#"> <!--i class="fa fa-angle-right" aria-hidden="true"></i!--></a></li>
-                                <li><a href="#"> <!--i class="fa fa-angle-right" aria-hidden="true"></i!--></a></li>
-                                <li><a href="#"> <!--i class="fa fa-angle-right" aria-hidden="true"></i!--></a></li>
-                            </ul>
+                            {% for j in m1 %}
+
+                            <table class="table table-hover" style="border-color: #ffffff">
+                                <img src="{{ asset('images/profilBarre.png') }}" class="img-responsive img1", alt=""><br>
+
+                                <form action="{{ path('accepterReserv',{'idReserv':j.idDemande}) }}" method="POST">
+                                    <button   style="background-color: transparent;border-color: transparent" type="submit" ><img width="20px" height="auto" src="{{ asset("images/confirmar.png") }}"></button>
+                                </form>
+                                <form action="{{ path('refuserReserv',{'idReserv':j.idDemande}) }}" method="POST">
+                                    <button  style="background-color: transparent;border-color: transparent" type="submit" ><img width="20px" height="auto" src="{{ asset("images/erro.png") }}"></button>
+                                </form>
+                                <tbody>
+
+                                <tr >
+
+
+                                    <td style="text-align: left">
+
+                                        <ul class="multi-column-dropdown">
+
+                                            <li> <h2 style="color: #277ee1">{{ j.username }} vous a reserver pour la garde de son enfant</h2>
+                                           <br>
+                                               </li>
+
+
+                                            <li><label>Description:</label><p>{{ j.description }}</p></li>
+
+
+                                            <li><label>Date debut:</label><p>{{ j.dateDebut|date('m.d.y') }}</p></li>
+                                            <li> <label>Date fin:</label><p>{{ j.dateFin|date('m.d.y') }}</p></li>
+                                            <li><label>Heure de pointe:</label><p>{{ j.heureDebut|date('g:i') }}</p></li>
+                                            <li><label>Heure de sortie:</label><p>{{ j.heureFin|date('g:i') }}</p></li>
+
+
+                                    <td>
+                                        <h2 class="t-button">
+                                        </li>
+                                    </td>
+                                </tr>
+
+                                </tbody>
+
+                                <br><br>
+                                {% endfor %}
+                            </table>
                         </div>
                     </div>
                     <div class="clearfix"></div>

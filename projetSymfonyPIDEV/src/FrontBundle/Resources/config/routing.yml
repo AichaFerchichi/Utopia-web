@@ -1,7 +1,30 @@
 front_homepage:
     path:     /
     defaults: { _controller: FrontBundle:Default:accueil1 }
-
+reserver:
+    path:     /reserver/{idbaby}
+    defaults: { _controller: UserBundle:DemandesParent:reserver }
+profilParentA:
+    path:     /profilParent
+    defaults: { _controller: UserBundle:DemandesParent:profilParentA }
+tri:
+    path:     /tri
+    defaults: { _controller: UserBundle:DemandesParent:recherchetri }
+profilReserv:
+    path:     /profilReserv
+    defaults: { _controller: UserBundle:OffresBabysitter:profilReserv }
+accepterReserv:
+    path:     /accepterReserv/{idReserv}
+    defaults: { _controller: UserBundle:DemandesParent:accepterReserv }
+refuserReserv:
+    path:     /refuserReserv/{idReserv}
+    defaults: { _controller: UserBundle:DemandesParent:refuserReserv }
+echec:
+    path:     /echec
+    defaults: { _controller: UserBundle:OffresBabysitter:echec }
+echecDate:
+    path:     /echecDate
+    defaults: { _controller: UserBundle:OffresBabysitter:echecDate }
 layout:
     path:     /layout
     defaults: { _controller: FrontBundle:Default:layout }
@@ -32,6 +55,9 @@ participer:
 annuler:
     path:     /annuler/{idE}/{id}
     defaults: { _controller: UserBundle:Etape:annuler }
+preference:
+    path:     /preference
+    defaults: { _controller: UserBundle:DemandesParent:preference }
 care:
     path:     /care
     defaults: { _controller: UserBundle:Garderies:affichage }
@@ -50,6 +76,12 @@ hold:
 kitchen:
     path:     /kitchen
     defaults: { _controller: FrontBundle:Default:kitchen }
+rechercherProfil:
+    path:     /rechercherProfil
+    defaults: { _controller: UserBundle:OffresBabysitter:rechercherProfil }
+rechercherReserv:
+    path:     /rechercherReserv
+    defaults: { _controller: UserBundle:DemandesParent:rechercherReserv }
 login:
     path:     /login
     defaults: { _controller: FrontBundle:Default:login }
@@ -86,6 +118,10 @@ profilBB:
 delete:
     path:     /supprimer/{ref1}
     defaults: { _controller: UserBundle:OffresBabysitter:delete }
+supprimerReserv:
+    path:     /supprimerReserv/{refD}
+    defaults: { _controller: UserBundle:DemandesParent:supprimerReserv }
+
 modifier:
     path:     /modifier/{ref2}
     defaults: { _controller: UserBundle:OffresBabysitter:modifier }
@@ -101,7 +137,7 @@ ROLE_USER:
 ROLE_ADMIN:
     path:     /fos/admin/test
     defaults: { _controller: FrontBundle:Default:testRoleAdmin }
-<<<<<<< HEAD
+
 Boutique:
     path:     /Boutique
     defaults: { _controller: UserBundle:Produits:affichageProduits }
@@ -115,11 +151,10 @@ nosFournitures:
     path:     /nosFournitures
     defaults: { _controller: UserBundle:Produits:nosFournitures }
 
-=======
 ListeCov:
     path:     /ListeCov
     defaults: { _controller: UserBundle:Covoiturage:afficher }
 AjouterCov:
     path:     /AjouterCov
     defaults: { _controller: UserBundle:Covoiturage:ajouter }
->>>>>>> 8fbaa7926e73845be87484c9bec92a7e181cb554
+

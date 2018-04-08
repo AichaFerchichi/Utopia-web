@@ -163,6 +163,13 @@
 
     </div>
     </div>
+    {% if app.session.flashBag.has('danger') %}
+        <div class="alert alert-danger">
+            {% for msg in app.session.flashBag.get('danger') %}
+                {{ msg }}
+            {% endfor %}
+        </div>
+    {% endif %}
     <!---->
     <!--banner-->
     {% for i in m %}
@@ -272,7 +279,8 @@
                             <p></p>                        </div>
                         <label></label>
                     </div>
-                    <button type="submit" class="btn btn-success m-b-10 m-l-5"value="Modifier" >Reserver</button>
+<a  href="{{ path('reserver',{'idbaby':i.id}) }}">
+                    <button type="submit" class="btn btn-success m-b-10 m-l-5">Reserver</button></a>
 
                 </div>
                 <div class="work-info">
@@ -298,8 +306,18 @@
 
     </div></div>    </div>
 
+
+            </div>
+            </div>
+        </div>
         <!-- // Terms of use -->
-{% endfor %}
 
 
+    {% endfor %}
+
+
+        </div>
+        </div>
+        </div>
+        </div>
 {% endblock %}

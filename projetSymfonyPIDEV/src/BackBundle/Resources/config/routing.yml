@@ -164,13 +164,22 @@ ui_tab:
 gestionProduits:
     path:     /gestionProduits
     defaults: { _controller: UserBundle:Produits:gestionProduits }
+gestionProfils:
+    path:     /gestionProfils
+    defaults: { _controller: UserBundle:OffresBabysitter:aprouverProfil }
+approuverProfil:
+   path:     /approuverProfil/{idOffre}
+   defaults: { _controller: UserBundle:OffresBabysitter:approuverProfil}
+refuserProfil:
+   path:     /refuserProfil/{idOffre}
+   defaults: { _controller: UserBundle:OffresBabysitter:refuserProfil}
 supprimerProduit:
     path:     /supprimer/{id}
     defaults: { _controller: UserBundle:Produits:supprimer }
 modifierProduits:
     path:     /modifier/{id}
     defaults: { _controller: UserBundle:Produits:modifier }
-<<<<<<< HEAD
+
 promotionProduits:
     path:     /promotionProduits/{id}
     defaults: { _controller: UserBundle:Promotions:gestionPromotions }
@@ -187,6 +196,5 @@ modifierPromotion:
     path:     /modifierPromotion/{id}
     defaults: { _controller: UserBundle:Promotions:modifierPromotion }
 
-=======
->>>>>>> 8fbaa7926e73845be87484c9bec92a7e181cb554
+
 
