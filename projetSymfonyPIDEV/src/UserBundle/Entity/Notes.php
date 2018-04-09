@@ -22,11 +22,9 @@ class Notes
     private $idNote;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="nb_etoiles", type="string", length=20, nullable=false)
+     * @ORM\Column (type="integer")
      */
-    private $nbEtoiles;
+    private $rating;
 
     /**
      * @var \User
@@ -47,6 +45,72 @@ class Notes
      * })
      */
     private $idProduit;
+
+    /**
+     * @return int
+     */
+    public function getIdNote()
+    {
+        return $this->idNote;
+    }
+
+    /**
+     * @param int $idNote
+     */
+    public function setIdNote($idNote)
+    {
+        $this->idNote = $idNote;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getRating()
+    {
+        return $this->rating;
+    }
+
+    /**
+     * @param mixed $rating
+     */
+    public function setRating($rating)
+    {
+        $this->rating = $rating;
+    }
+
+
+
+    /**
+     * @return \User
+     */
+    public function getIdParent()
+    {
+        return $this->idParent;
+    }
+
+    /**
+     * @param \User $idParent
+     */
+    public function setIdParent($idParent)
+    {
+        $this->idParent = $idParent;
+    }
+
+    /**
+     * @return \Produits
+     */
+    public function getIdProduit()
+    {
+        return $this->idProduit;
+    }
+
+    /**
+     * @param \Produits $idProduit
+     */
+    public function setIdProduit($idProduit)
+    {
+        $this->idProduit = $idProduit;
+    }
 
 
 }

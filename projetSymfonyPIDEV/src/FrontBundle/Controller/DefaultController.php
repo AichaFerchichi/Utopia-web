@@ -16,13 +16,10 @@ class DefaultController extends Controller
     public function accueil1Action()
     {
         return $this->render('FrontBundle:Default:accueil1.html.twig');
-<<<<<<< HEAD
-=======
     }
     public function plusAction()
     {
         return $this->render('FrontBundle:Default:plus.html.twig');
->>>>>>> 3bc1d8a9225682bf1b1b659405e99d34143db1df
     }
     public function wishlistAction()
     {
@@ -89,6 +86,20 @@ class DefaultController extends Controller
     public function profilAction()
     {
         return $this->render('FrontBundle:Default:createProfile.html.twig');
+    }
+    public function FormulaireLivraisonAlerteAction()
+    {
+        $em=$this->getDoctrine()->getManager();
+        $user = $this->get('security.token_storage')->getToken()->getUser();
+        $yo= $em->getRepository("UserBundle:Commandes")->findBy(array('idParent'=>$user));
+        return $this->render('FrontBundle:Default:FormulaireLivraisonAlerte.html.twig',array('com'=>$yo));
+    }
+    public function wishlistAlerteAction()
+    {
+        $em=$this->getDoctrine()->getManager();
+        $user = $this->get('security.token_storage')->getToken()->getUser();
+        $yo= $em->getRepository("UserBundle:Commandes")->findBy(array('idParent'=>$user));
+        return $this->render('FrontBundle:Default:wishlistAlerte.html.twig',array('com'=>$yo));
     }
 
 

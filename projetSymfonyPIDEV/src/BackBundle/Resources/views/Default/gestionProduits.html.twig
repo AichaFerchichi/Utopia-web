@@ -1,6 +1,17 @@
 {% extends 'BackBundle:Default:index.html.twig' %}
 {% block content %}
 
+    <div class="row page-titles">
+        <div class="col-md-5 align-self-center">
+            <h3 class="text-primary">Mes Produits</h3> </div>
+        <div class="col-md-7 align-self-center">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="javascript:void(0)">Gestion Produits</a></li>
+                <li class="breadcrumb-item active">Mes produits</li>
+            </ol>
+        </div>
+    </div>
+
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-6">
@@ -61,7 +72,7 @@
                       <div class="input-group input-group-default">
                           <table>
 
-                                  <form class="navbar-form navbar-right" action="{{ path('rechercher') }}" method="post">
+                                  <form class="navbar-form navbar-right" action="{{ path('rechercherProduit') }}" method="post">
               <span class="input-group-btn"><td><input type="text" class="form-control" style="width:420px" placeholder="Recherche par catégorie..."
                                                        name="motcle" id="motcle"></td></span>
                                   </form>
@@ -141,7 +152,10 @@
                                         </form></td>
                                     <!--<td><span class="input-group-btn"><button class="btn btn-primary input-group-close-icon label label-rouded label-warning pull-right"  ><i class="ti-close"></i></button></span></td>-->
 
-                                    <td><input type="submit" class="btn btn-primary" value="Commentaires"></td>
+                                  <!--  <td><input type="submit" class="btn btn-primary" value="Commentaires"></td>-->
+                                    <td><form action="{{ path('affichageCommentaires',{'id':i.getIdProduit()}) }}" method="POST">
+                                            <button  class="btn btn-primary" type="submit" >Commentaires</button>
+                                        </form></td>
 
 
                                     <td><form action="{{ path('promotionProduits',{'id':i.getIdProduit()}) }}" method="POST">

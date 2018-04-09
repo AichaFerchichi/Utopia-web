@@ -15,9 +15,9 @@
 
 
             </div>
-            <div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
-                <ul class="nav navbar-nav ">
-                    <li ><a href="index.html" class="hyper "><span>Home</span></a></li>
+            <div class="collapse navbar-collapse" id="bs-megadropdown-tabs" >
+                <ul class="nav navbar-nav " >
+                    <li ><a href="index.html" class="hyper " ><span>Home</span></a></li>
 
                     <li  class="dropdown">
                         <a href="#" class="dropdown-toggle  hyper" data-toggle="dropdown" ><span>Kitchen<b class="caret"></b></span></a>
@@ -149,14 +149,14 @@
                         </ul>
                     </li>
 
-                    <li class="active"><a href="codes.html" class="hyper"> <span>Codes</span></a></li>
+                    <li class="active" ><a href="codes.html" class="hyper" style="background-color: lightcoral"> <span>Codes</span></a></li>
                     <li><a href="contact.html" class="hyper"><span>Contact Us</span></a></li>
                 </ul>
             </div>
         </nav>
-        <div class="cart" >
+        <div class="cart" data-toggle="modal" data-target="#myModal123" >
 
-            <span class="fa fa-shopping-cart my-cart-icon"><span class="badge badge-notify my-cart-badge"></span></span>
+            <span class="fa fa-shopping-cart "></span> Mon Panier
         </div>
         <div class="clearfix"></div>
     </div></div></div>
@@ -166,28 +166,28 @@
     <!--banner-->
 
 
-        <div id="myCarousel" class="carousel slide" data-ride="carousel">
-            <!-- Indicators -->
-                <ol class="carousel-indicators">
-                    <li  data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                    <li data-target="#myCarousel" data-slide-to="1"></li>
-                    <li data-target="#myCarousel" data-slide-to="2"></li>
-                </ol>
-                <div class="carousel-inner" role="listbox">
-                    <div class="item active">
-                        <a href="#"> <img class="first-slide" src="{{ asset('images/boutique1.png') }}" alt="First slide"></a>
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li  data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner" role="listbox">
+            <div class="item active">
+                <a href="#"> <img class="first-slide" src="{{ asset('images/boutique1.png') }}" alt="First slide"></a>
 
-                    </div>
-                    <div class="item">
-                        <a href="#"> <img class="second-slide " src="{{ asset('images/boutique2.png') }}" alt="Second slide"></a>
-
-                    </div>
-                    <div class="item"> <!--e4adbd-->
-                        <a href="#"><img class="third-slide " src="{{ asset('images/boutique3.png') }}" alt="Third slide"></a>
-
-                    </div>
-                </div>
             </div>
+            <div class="item">
+                <a href="#"> <img class="second-slide " src="{{ asset('images/boutique2.png') }}" alt="Second slide"></a>
+
+            </div>
+            <div class="item"> <!--e4adbd-->
+                <a href="#"><img class="third-slide " src="{{ asset('images/boutique3.png') }}" alt="Third slide"></a>
+
+            </div>
+        </div>
+    </div>
 
 
     <!----------------------------------------------------------------------------------------------------------------->
@@ -197,7 +197,7 @@
 
     <div class="content-top ">
     <div class="container ">
-        <div class="tab-head ">
+    <div class="tab-head ">
         <nav class="nav-sidebar" style="color : #e4adbd ">
             <ul class="nav tabs ">
                 <li class="" ><a href="{{ path('nosJouets') }}" >Nos Jouets</a></li>
@@ -207,89 +207,164 @@
             </ul>
         </nav>
 
-</div>
-
-<!------------------------------------------------------------------------------------------------------------------------------>
+    </div>
 
 
-            <div class=" tab-content tab-content-t ">
-                <div class="tab-pane active text-style" id="tab1">
-                    <div class=" con-w3l">
-                        {% for i in m %}
-
-                        <div class="col-md-3 m-wthree">
-                            <div class="col-m" >
-                                <a href="#" data-toggle="modal" data-target="#myModal21" class="offer-img">
-                                <img  width="200px" class="img-responsive" alt="" height="auto" src={{ asset("ressources/" ~ i.getImage()) }}  >
-                                    </a>
+    <!------------------------------------------------------------------------------------------------------------------------------>
 
 
-                                <div class="mid-1" style="height: 250px">
-                                    <div class="women">
+    <div class=" tab-content tab-content-t ">
+        <div class="tab-pane active text-style" id="tab1">
+            <div class=" con-w3l">
+                {% for i in m %}
 
-                                        <a href="{{ path('single2',{'id':i.getIdProduit()}) }}"><h6>{{ i.getNom() }}</h6> </a>
-                                    </div>
+                    <div class="col-md-3 m-wthree">
+                        <div class="col-m" >
+                            <a href="#" data-toggle="modal" data-target="#myModal21" class="offer-img">
+                                <img  width="200px" style="background-size: cover; left: 0; top: 0; right: 0; z-index: 10; position:relative; background-size:cover; class="img-responsive" alt="" height="auto" src={{ asset("ressources/" ~ i.getImage()) }}  >
+                                {% if i.getPromotion()==1 %}
+                                    <img style=" position: absolute ; background-size: auto; width: 17%; height: auto; top: 0px; left: 150px; z-index: 999;"  src="{{ asset("ressources/promo.png") }}">
+
+                                {% endif %}
+                            </a>
+
+
+                            <div class="mid-1" style="height: 250px">
+                                <div class="women">
+
+                                    <a href="{{ path('single',{'id':i.getIdProduit()}) }}"><h6>{{ i.getNom() }}</h6> </a>
+                                </div>
+
+
+                                {% if i.getPromotion()==1 %}
+                                    <div class="reduced " style="color: red ; font-size: 15px"><del style="color: dodgerblue">{{ i.getPrixProduit() }}DT</del>{{ i.getNouvPrix() }}DT</div>
+                                {% else %}
                                     <br>
-                                    <div>Catégorie : {{ i.getCategorie() }}</div>
-                                    <div>Prix : {{ i.getPrixProduit() }}DT</div>
-                                    <!--<div>{{ i.getDescription() }}</div>-->
-                                    <div>Quantité disponible : {{ i.getQuantite() }}</div>
-                                    <!--<div class="mid-2">
-                                        <p ><label>$2.00</label><em class="item_price">$1.50</em></p>
-                                        <div class="block">
-                                            <div class="starbox small ghosting"> </div>
+
+                                    Prix :  <span class="reduced" style="color: dodgerblue ; font-size: 14px">{{ i.getPrixProduit() }}DT</span>
+
+                                {% endif %}
+
+                                <div>Catégorie : {{ i.getCategorie() }}</div>
+                                <!--<div>{{ i.getDescription() }}</div>-->
+                                <div>Quantité disponible : {{ i.getQuantite() }}</div>
+
+
+
+                                <!--<div class="mid-2">
+                                    <p ><label>$2.00</label><em class="item_price">$1.50</em></p>
+                                    <div class="block">
+                                        <div class="starbox small ghosting"> </div>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>-->
+
+
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-------------------------------------------------CART---------------------------------------------------------->
+
+
+
+                    <div class="modal fade" id="myModal123" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content modal-info">
+
+
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">×</span></button>
+                                        <h4 class="modal-title" id="myModalLabel">
+                                            <span class="glyphicon glyphicon-shopping-cart"></span>
+                                            Mon panier</h4>
+                                    </div><div class="modal-body">
+                                        <table class="table table-hover table-responsive" id="my-cart-table"><tbody>
+                                            {% for i in com %}<tr title="summary 21" data-id="21" data-price="0.80"><td class="text-center" style="width: 30px;"><img width="50px" height="auto" src={{ asset("ressources/" ~ i.getIdLigne().getIdProduit().getImage() ) }}>
+                                                </td><td>Prix : {{ i.getIdLigne().getIdProduit().getPrixProduit() }}</td>
+                                                <td title="Unit Price">Quantité commandée : {{ i.getIdLigne().getQuantite() }} </td>
+                                                <!--<td title="Quantity"><input type="number" min="1" style="width: 70px;" class="my-product-quantity" value="1"></td>-->
+                                                <td title="Total" class="my-product-total">Total payé : {{ i.getTotal() }}</td>
+
+                                                <!--<td>
+										<button  class="btn btn-warning m-b-10 m-l-5" type="submit" ><img width="20px" height="auto" src="{{ asset("ressources/delete.png") }}"></button>
+									</td>-->
+
+                                                <td title="Remove from Cart" class="text-center" style="width: 30px;">
+                                                    <form action="{{ path('supprimerCommande',{'id':i.getIdCommande()}) }}" method="POST">
+                                                        <button class="btn btn-xs btn-danger my-product-remove">X</button>
+                                                    </form></td></tr>{% endfor %}
+
+                                            </tbody></table></div><div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+                                    </div></div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+                    <!-------------------------------------------------CART------------------------------------->
+
+
+                    <!--------------------------------------------------------------------------------------------------------------------------------->
+                    <div class="modal fade" id="myModal21" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content modal-info">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                </div>
+                                <div class="modal-body modal-spa">
+                                    <div class="col-md-5 span-2">
+                                        <div class="item">
+                                            <img src="{{ asset("ressources/" ~ i.getImage()) }}" class="img-responsive" alt="">
                                         </div>
-                                        <div class="clearfix"></div>
-                                    </div>-->
-<br>
-                                    <br>
-                                    <div class="add">
-                                        <button class="btn btn-danger my-cart-btn my-cart-b " data-id="1" data-name="Moong" data-summary="summary 1" data-price="1.50" data-quantity="1" data-image="images/of.png">Add to Cart</button>
                                     </div>
+                                    <div class="col-md-7 span-1 ">
+                                        <h3>{{ i.getNom() }}</h3>
+                                        <p class="in-para"> Catégorie : {{ i.getCategorie() }}</p>
 
+                                        <div class="price_single">
+                                            {% if i.getPromotion()==1 %}
+                                                <div class="reduced " style="color: red ; font-size: 17px"><del style="color: dodgerblue">{{ i.getPrixProduit() }}DT</del>{{ i.getNouvPrix() }}DT</div>
+                                            {% else %}
+                                                <br>
+
+                                                <span class="reduced" style="color: dodgerblue ; font-size: 17px">{{ i.getPrixProduit() }}DT</span>
+
+                                            {% endif %}
+
+                                            <div class="clearfix"></div>
+                                        </div>
+                                        <h4 class="quick">Description :</h4>
+                                        <p class="quick_desc"> {{ i.getDescription() }}</p>
+
+                                        <p style="color: black ; font-size: 14px ">Quantité disponible : <select name="selection">{% for nb in 1..i.getQuantite() %}
+                                                    <option>
+                                                        {{ nb }}
+                                                    </option>
+                                                {% endfor %}</select></p>
+                                        <br> <br>
+                                        <form action="{{ path('ajouter_ligne_commande') }}" method="post">
+                                        <div class="add-to">
+                                            <button class="btn btn-danger my-cart-btn my-cart-btn1 " data-id="21" data-name="Clips" data-summary="summary 21" data-price="0.80" data-quantity="1" data-image="images/of20.png">Ajouter wishlist</button>
+                                        </div></form>
+                                    </div>
+                                    <div class="clearfix"> </div>
                                 </div>
                             </div>
                         </div>
-
-<!--------------------------------------------------------------------------------------------------------------------------------->
-                            <div class="modal fade" id="myModal21" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                                <div class="modal-dialog" role="document">
-                                    <div class="modal-content modal-info">
-                                        <div class="modal-header">
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                        </div>
-                                        <div class="modal-body modal-spa">
-                                            <div class="col-md-5 span-2">
-                                                <div class="item">
-                                                    <img src="{{ asset("ressources/" ~ i.getImage()) }}" class="img-responsive" alt="">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-7 span-1 ">
-                                                <h3>{{ i.getNom() }}</h3>
-                                                <p class="in-para"> Catégorie : {{ i.getCategorie() }}</p>
-
-                                                <div class="price_single">
-                                                    <span class="reducedfrom ">{{ i.getPrixProduit() }}DT</span>
-
-                                                    <div class="clearfix"></div>
-                                                </div>
-                                                <h4 class="quick">Description :</h4>
-                                                <p class="quick_desc"> {{ i.getDescription() }}</p>
-                                                <div class="add-to">
-                                                    <button class="btn btn-danger my-cart-btn my-cart-btn1 " data-id="21" data-name="Clips" data-summary="summary 21" data-price="0.80" data-quantity="1" data-image="images/of20.png">Add to Cart</button>
-                                                </div>
-                                            </div>
-                                            <div class="clearfix"> </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                    </div>
 
 
-                    {% endfor %}
-                        <div class="clearfix"></div>
-    </div>
-    </div></div>
+                {% endfor %}
+                <div class="clearfix"></div>
+            </div>
+        </div></div>
 
 
 {% endblock %}

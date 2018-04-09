@@ -130,3 +130,11 @@ nomaya_social:
         facebook:           "http://www.facebook.com/yann.chauvel"
         googleplus:         "https://plus.google.com/105931415830389032796"
     theme:                  'default' # optional
+
+fos_comment:
+    db_driver: orm
+    class:
+        model:
+            comment: UserBundle\Entity\Comment
+            thread: UserBundle\Entity\Thread
+

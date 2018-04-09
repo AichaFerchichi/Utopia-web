@@ -160,7 +160,6 @@ ui_progressbar:
 ui_tab:
     path:     /ui_tab
     defaults: { _controller: BackBundle:Default:ui_tab }
-
 gestionProduits:
     path:     /gestionProduits
     defaults: { _controller: UserBundle:Produits:gestionProduits }
@@ -170,13 +169,12 @@ supprimerProduit:
 modifierProduits:
     path:     /modifier/{id}
     defaults: { _controller: UserBundle:Produits:modifier }
-<<<<<<< HEAD
 promotionProduits:
     path:     /promotionProduits/{id}
     defaults: { _controller: UserBundle:Promotions:gestionPromotions }
-rechercher:
-    path:     /rechercher
-    defaults: { _controller: UserBundle:Produits:rechercher }
+rechercherProduit:
+    path:     /rechercherProduit
+    defaults: { _controller: UserBundle:Produits:rechercherProduit }
 affichagePromotions:
     path:     /affichagePromotions
     defaults: { _controller: UserBundle:Promotions:afficher }
@@ -186,7 +184,15 @@ supprimerPromotion:
 modifierPromotion:
     path:     /modifierPromotion/{id}
     defaults: { _controller: UserBundle:Promotions:modifierPromotion }
+affichageCommentaires:
+    path:     /affichageCommentaires/{id}
+    defaults: { _controller: UserBundle:Comment:affichageCommentaires }
+afficherCommandes:
+    path:     /afficherCommandes
+    defaults: { _controller: UserBundle:Commandes:afficherCommandes }
+promotionProduitsAlerte:
+    path:     /promotionProduitsAlerte/{id}
+    defaults: { _controller: UserBundle:Promotions:gestionPromotions2 }
 
-=======
->>>>>>> 8fbaa7926e73845be87484c9bec92a7e181cb554
+
 

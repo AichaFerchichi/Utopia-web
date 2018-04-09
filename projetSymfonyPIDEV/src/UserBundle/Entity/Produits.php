@@ -139,6 +139,53 @@ class Produits
      */
     private $image;
 
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="promotion", type="integer", nullable=false)
+     */
+    private $promotion;
+
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="nouvPrix", type="float", precision=10, scale=0, nullable=false)
+     */
+    private $nouvPrix;
+
+    /**
+     * @return float
+     */
+    public function getNouvPrix()
+    {
+        return $this->nouvPrix;
+    }
+
+    /**
+     * @param float $nouvPrix
+     */
+    public function setNouvPrix($nouvPrix)
+    {
+        $this->nouvPrix = $nouvPrix;
+    }
+
+    /**
+     * @return int
+     */
+    public function getPromotion()
+    {
+        return $this->promotion;
+    }
+
+    /**
+     * @param int $promotion
+     */
+    public function setPromotion($promotion)
+    {
+        $this->promotion = $promotion;
+    }
+
     /**
      * @return int
      */
@@ -197,6 +244,8 @@ class Produits
         $this->image=$this->file->getClientOriginalName() ;
         $this->file=null ;
     }*/
+
+
 
 
 }

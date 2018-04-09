@@ -154,9 +154,9 @@
 						</ul>
 					</div>
 					</nav>
-					 <div class="cart" >
+					 <div class="cart" data-toggle="modal" data-target="#myModal123" >
 					
-						<span class="fa fa-shopping-cart my-cart-icon"><span class="badge badge-notify my-cart-badge"></span></span>
+						<span class="fa fa-shopping-cart "></span> Mon Panier
 					</div>
 					<div class="clearfix"></div>
 				</div>
@@ -166,24 +166,27 @@
   <!---->
 
    <!--banner-->
-<div class="banner-top">
-	<div class="container">
-		<h3 >Wishlist</h3>
-		<h4><a href="index.html">Home</a><label>/</label>Wishlist</h4>
-		<div class="clearfix"> </div>
-	</div>
-</div>
+
+
+
+
+		<img src="{{ asset('images/divHeadWishlist.jpg') }}"/>
+
 
 	<!-- contact -->
 		<div class="check-out">	 
 		<div class="container">	 
 	 <div class="spec ">
-				<h3>Wishlist</h3>
-					<div class="ser-t">
-						<b></b>
-						<span><i></i></span>
-						<b class="line"></b>
-					</div>
+				<h3 style="font-size: 35px">Ma Wishlist</h3>
+
+		 {% if app.session.flashBag.has('danger') %}
+			 <div class="alert alert-danger">
+				 {% for msg in app.session.flashBag.get('danger') %}
+					 {{ msg }}
+				 {% endfor %}
+			 </div>
+		 {% endif %}
+
 			</div>
 				<script>$(document).ready(function(c) {
 					$('.close1').on('click', function(c){
@@ -211,81 +214,72 @@
 			   </script>	
  <table class="table ">
 		  <tr>
-			<th class="t-head head-it ">Products</th>
-			<th class="t-head">Price</th>
-		<th class="t-head">Quantity</th>
+			<th class="t-head head-it ">Produits</th>
+			<th class="t-head">Prix</th>
+		<th class="t-head">Quantité</th>
+			  <th class="t-head">Prix total</th>
 
-			<th class="t-head">Purchase</th>
+			<th class="t-head"><center>Je ne suis plus intéressé(e)</center></th>
+			  <th class="t-head"><center>Commander tout de suite</center></th>
+			  <th class="t-head"><center>Livraison gratuite ?</center></th>
 		  </tr>
+	 {% for i in m %}
 		  <tr class="cross">
-			<td class="ring-in t-data">
-				<a href="single.html" class="at-in">
-					<img src="images/wi.png" class="img-responsive" alt="">
-				</a>
-			<div class="sed">
-				<h5>Sed ut perspiciatis unde</h5>
-			</div>
-				<div class="clearfix"> </div>
-				<div class="close1"> <i class="fa fa-times" aria-hidden="true"></i></div>
+			<td >
+				<!--<a href="single.html" class="at-in">
+					<img src="images/wi.png" class="img-responsive" alt=""></a>-->
+				<img  width="100px" height="auto" style=" background-size: cover; left: 0; top: 0; right: 0; z-index: 10; position:relative; background-size:cover; " src={{ asset("ressources/" ~ i.getIdProduit().getImage() ) }} >
+				{% if i.getIdProduit().getPromotion()==1 %}
+
+				{% endif %}
+
+				<br>{{ i.getIdProduit().getNom() }}
+
 			 </td>
-			<td class="t-data">$10.00</td>
-			<td class="t-data"><div class="quantity"> 
-								<div class="quantity-select">            
-									<div class="entry value-minus">&nbsp;</div>
-										<div class="entry value"><span class="span-1">1</span></div>									
-									<div class="entry value-plus active">&nbsp;</div>
-								</div>
-							</div>
-			
-			</td>
 
-			<td class="t-data t-w3l"><a class=" add-1" href="single.html">Add To Cart</a></td>
-			
-		  </tr>
-		  <tr class="cross1">
-		  <td class="t-data ring-in"><a href="single.html" class="at-in"><img src="images/wi1.png" class="img-responsive" alt=""></a>
-			<div class="sed">
-				<h5>Sed ut perspiciatis unde</h5>
-			</div>
-			<div class="clearfix"> </div>
-							<div class="close2"> <i class="fa fa-times" aria-hidden="true"></i></div>
-</td>
-			<td class="t-data">$20.00</td>
-		<td class="t-data"><div class="quantity"> 
-								<div class="quantity-select">            
-									<div class="entry value-minus">&nbsp;</div>
-										<div class="entry value"><span class="span-1">1</span></div>									
-									<div class="entry value-plus active">&nbsp;</div>
-								</div>
-							</div>
-			
-			</td>
 
-			<td class="t-data t-w3l"><a class=" add-1" href="single.html">Add To Cart</a></td>
-			
-		  </tr>
-		  <tr class="cross2">
-		  <td class="t-data ring-in"><a href="single.html" class="at-in"><img src="images/wi2.png" class="img-responsive" alt=""></a>
-			<div class="sed">
-				<h5>Sed ut perspiciatis unde</h5>
-			</div>
-			<div class="clearfix"> </div>
-				<div class="close3"> <i class="fa fa-times" aria-hidden="true"></i></div>
-			</td>
-			<td class="t-data">$15.00</td>
-			<td class="t-data"><div class="quantity"> 
-								<div class="quantity-select">            
-									<div class="entry value-minus">&nbsp;</div>
-										<div class="entry value"><span class="span-1">1</span></div>									
-									<div class="entry value-plus active">&nbsp;</div>
-								</div>
-							</div>
-			
-			</td>
+			<td class="t-data">
+				{% if i.getIdProduit().getPromotion()==1 %}
+					<p class="reduced " style="color: red ; font-size: 15px"><del style="color: dodgerblue">{{ i.getPrixProduit() }}DT</del> {{ i.getIdProduit().getNouvPrix() }}DT</p>
+				{% else %}
+					<br>
 
-			<td class="t-data"><a class=" add-1" href="single.html">Add To Cart</a></td>
+					<span class="reduced" style="color: dodgerblue ; font-size: 15px">{{ i.getPrixProduit() }}DT</span>
+
+				{% endif %}
+			</td>
+			<td class="t-data" style="font-size: 12px">demandée : {{ i.getQuantite() }}
+				{% if i.getIdProduit().getQuantite() < 10 %}
+			<p style="font-size: 12px ; color: red">
+			Restant dans le stock : {{ i.getIdProduit().getQuantite() }}</p>
+			  {% else %}
+				  <p style="font-size: 12px ; color: black">
+					  Restant dans le stock : {{ i.getIdProduit().getQuantite() }}</p>
+			  {% endif %}</td>
+		 <td class="t-data">{{ i.getQuantite()*i.getPrixProduit() }}DT
 			
-		  </tr>
+			</td >
+<td class="t-data">
+		 <form action="{{ path('supprimerLigneCommande',{'id':i.getIdLigne()}) }}" method="POST">
+				 <button  class="btn btn-warning m-b-10 m-l-5" type="submit" ><img width="20px" height="auto" src="{{ asset("ressources/delete.png") }}"></button>
+			 </form>
+
+			</td>
+			  <td class="t-data">
+				  <form action="{{ path('ajouterCommande',{'id':i.getIdLigne()}) }}" method="POST">
+					  <button  class="btn btn-danger m-b-10 m-l-5" type="submit" ><img width="20px" height="auto" src="{{ asset("images/cart.png") }}"></button>
+				  </form>
+			  </td>
+		 <td class="t-data">
+			<center>
+				<a href={{ path('FormulaireLivraison',{'id':i.getIdProduit().getIdProduit()}) }}> <button data-toggle="modal" data-target="#myModal124" class="btn btn-success m-b-10 m-l-5" ><img width="22px" height="auto" src="{{ asset("images/delivery1.png") }}"></button></a>
+			 </center>
+		 </td>
+		  </tr>{% endfor %}
+
+
+
+
 	</table>
 		 </div>
 		 </div>
@@ -303,6 +297,66 @@
 			});
 			</script>
 			<!--quantity-->
+
+
+
+
+	<!-------------------------------------------------CART---------------------------------------------------------->
+
+
+
+	<div class="modal fade" id="myModal123" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content modal-info">
+
+
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">×</span></button>
+						<h4 class="modal-title" id="myModalLabel">
+							<span class="glyphicon glyphicon-shopping-cart"></span>
+							Mon panier</h4>
+					</div><div class="modal-body">
+						<table class="table table-hover table-responsive" id="my-cart-table"><tbody>
+							{% for i in com %}<tr title="summary 21" data-id="21" data-price="0.80"><td class="text-center" style="width: 30px;"><img width="50px" height="auto" src={{ asset("ressources/" ~ i.getIdLigne().getIdProduit().getImage() ) }}>
+								</td><td>Prix : {{ i.getIdLigne().getIdProduit().getPrixProduit() }}DT</td>
+								<td title="Unit Price">Quantité commandée : {{ i.getIdLigne().getQuantite() }} </td>
+								<!--<td title="Quantity"><input type="number" min="1" style="width: 70px;" class="my-product-quantity" value="1"></td>-->
+								<td title="Total" class="my-product-total">Total payé : {{ i.getTotal() }}</td>
+
+								<!--<td>
+										<button  class="btn btn-warning m-b-10 m-l-5" type="submit" ><img width="20px" height="auto" src="{{ asset("ressources/delete.png") }}"></button>
+									</td>-->
+
+								<td title="Remove from Cart" class="text-center" style="width: 30px;">
+									<form action="{{ path('supprimerCommande',{'id':i.getIdCommande()}) }}" method="POST">
+										<button class="btn btn-xs btn-danger my-product-remove">X</button>
+									</form></td></tr>{% endfor %}
+
+							</tbody></table></div><div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+					</div></div>
+			</div>
+		</div>
+	</div>
+
+
+
+
+	<!-------------------------------------------------CART------------------------------------->
+
+
+	<!-------------------------------------------------	DELIVERY---------------------------------------------------------->
+
+
+
+
+
+
+
+
+
 
 
 {% endblock %}
