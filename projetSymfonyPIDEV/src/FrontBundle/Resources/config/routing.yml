@@ -1,7 +1,6 @@
 front_homepage:
     path:     /
-    defaults: { _controller: FrontBundle:Default:accueil1 }
-
+    defaults: { _controller: FrontBundle:Default:index }
 layout:
     path:     /layout
     defaults: { _controller: FrontBundle:Default:layout }
@@ -23,6 +22,7 @@ bravo:
 echec:
     path:     /echec/{id}
     defaults: { _controller: UserBundle:Quiz:echec }
+
 DejaJoue:
     path:     /DejaJoue/{id}
     defaults: { _controller: UserBundle:Quiz:DejaJoue }

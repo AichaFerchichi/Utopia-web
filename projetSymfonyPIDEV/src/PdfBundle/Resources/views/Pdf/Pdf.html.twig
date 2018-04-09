@@ -5,8 +5,9 @@
 
             <h1>Inscription</h1> <h2 > <br> </h2>
             <br>
-        <p>Cher utilisateur {{ app.user.username() }}</p><br>
-        <a>l'inscription de votre enfant dans notre garderie a ete bien effectuer et pour la confirmer veuillez nous visiter le plutot possible </a>
+       <center> <h1 style="color: deeppink">Cher utilisateur {{ app.user.username() }}</h1></center><br>
+        <a style="font-family: Baskerville">l'inscription de votre enfant </a><b>{{ enfant.nomEnfant }} {{ enfant.prenom }}</b>
+        <a style="font-family: Baskerville"> dans notre garderie <b>{{ garderie.nom }} </b> a ete bien effectuer et pour la confirmer veuillez nous visiter le plutot possible a <b> {{ garderie.adresse }} </b></a>
     </div>
     <br>
     <div>

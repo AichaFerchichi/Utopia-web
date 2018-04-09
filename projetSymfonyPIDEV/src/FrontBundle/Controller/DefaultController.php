@@ -9,8 +9,34 @@ use Symfony\Component\HttpFoundation\Request;
 class DefaultController extends Controller
 {
     public function indexAction()
-    {
-        return $this->render('FrontBundle:Default:index.html.twig');
+    { $em=$this->getDoctrine()->getManager();
+
+        $query=$em->createQueryBuilder()
+            ->select('p')->from('UserBundle:Activite','p')
+            ->where('p.dateFin > CURRENT_DATE()')
+            ->orderBy('p.dateDebut','DESC')
+            ->getQuery();
+
+        $produits=$query->getResult();
+        $p1=null;
+        $p2=null;
+        $p3=null;
+
+        foreach ($produits as $p) {
+           if($p1==null){
+               $p1=$p;
+           }
+           elseif ($p2==null){
+               $p2=$p;
+           }
+           elseif($p3==null){
+               $p3=$p;
+           }
+           else{
+               break;
+           }
+        }
+        return $this->render('FrontBundle:Default:index.html.twig',array('p1'=>$p1,'p2'=>$p2,'p3'=>$p3));
     }
 
     public function accueil1Action()

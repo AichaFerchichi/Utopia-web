@@ -743,18 +743,25 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <li data-target="#myCarousel" data-slide-to="2"></li>
     </ol>
     <div class="carousel-inner" role="listbox">
-        <div class="item active">
-            <a href={{ path('kitchen') }}> <img class="first-slide" src="{{ asset('images/ba.jpg') }}" alt="First slide"></a>
 
+        {% if(p1!=null) %}
+        <div class="item active"><div class="col-md2 ">
+            <a href="{{ path('etapeF',{'id':p1.idActivite}) }}"> <img class="first-slide" src="{{ asset("ressources/" ~ p1.getImage()) }}" style="width: 1300px;height:400px" alt="First slide"></a>
+                <div class="big-sale2"><center><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><form action="{{ path('etapeF',{'id':p1.idActivite}) }}" method="post"><input type="submit" class="form-control btn btn-danger" style="width:300px ;" value="Participer" ></form></center></div></div>
         </div>
-        <div class="item">
-            <a href={{ path('care') }}> <img class="second-slide " src="{{ asset('images/ba1.jpg') }}" alt="Second slide"></a>
-
-        </div>
-        <div class="item">
-            <a href={{ path('hold') }}><img class="third-slide " src="{{ asset('images/ba2.jpg') }}" alt="Third slide"></a>
-
-        </div>
+        {% endif %}
+        {% if(p2!=null) %}
+            <div class="item"><div class="col-md2 ">
+                    <a href="#"> <img class="first-slide" src="{{ asset("ressources/" ~ p2.getImage()) }}" style="width: 1300px;height:400px" alt="Second slide"></a>
+                    <div class="big-sale2"><center><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><form action="{{ path('etapeF',{'id':p2.idActivite}) }}" method="post"><input type="submit" class="form-control btn btn-danger" style="width:300px ;" value="Participer" ></form> </center></div></div>
+            </div>
+        {% endif %}
+        {% if(p3!=null) %}
+            <div class="item"><div class="col-md2 ">
+                    <a href="{{ path('etapeF',{'id':p3.idActivite}) }}"> <img class="first-slide" src="{{ asset("ressources/" ~ p3.getImage()) }}" style="width: 1300px;height:400px" alt="Third slide"></a>
+                    <div class="big-sale2"><center><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><form action="{{ path('etapeF',{'id':p3.idActivite}) }}" method="post"><input type="submit" class="form-control btn btn-danger" style="width:300px ;" value="Participer" ></form></center></div></div>
+            </div>
+        {% endif %}
     </div>
 
 </div><!-- /.carousel -->

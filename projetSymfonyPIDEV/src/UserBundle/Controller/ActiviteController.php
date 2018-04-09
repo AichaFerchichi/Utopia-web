@@ -127,6 +127,30 @@ return $this->render('BackBundle:Default:email_inbox.html.twig',array('id'=>$id)
 
         return $this->render('BackBundle:Default:ListeActivite.html.twig',array('m'=>$produits,'idG'=>$idG));
     }
+    public function PubAction(Request $request){
+        $em=$this->getDoctrine()->getManager();
+
+        $query=$em->createQueryBuilder()
+            ->select('p')->from('UserBundle:Activite','p')
+            ->where('p.dateFin < CURRENT_DATE()')
+            ->orderBy('p.nom','DESC')
+            ->getQuery();
+
+        $produits=$query->getResult();
+        $i=1;
+        foreach ($produits as $p) {
+            if($i>3){
+                break;
+            }
+            else{
+                $pub=$p;
+            }
+        }
+
+
+
+        return $this->render('FrontBundle:Default:index.html.twig',array('m'=>$pub));
+    }
 
     public function affichageAction($id)
     {

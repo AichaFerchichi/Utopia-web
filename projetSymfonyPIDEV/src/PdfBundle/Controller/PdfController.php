@@ -14,13 +14,13 @@ use Symfony\Component\HttpFoundation\Response;
 
 class PdfController extends Controller
 {
-    public function pdfAction()
+    public function pdfAction($idG,$idE)
     {
         $user = $this->get('security.token_storage')->getToken()->getUser();
         $em = $this->getDoctrine()->getManager();
-      //  $equipes=$em->getRepository('UserBundle:Garderies')->findOneBy(array('idGarderie'=>$id));
-
-        $html = $this->renderView('PdfBundle:Pdf:Pdf.html.twig');
+        $equipes=$em->getRepository('UserBundle:Garderies')->findOneBy(array('idGarderie'=>$idG));
+        $enfant=$em->getRepository('UserBundle:Enfants')->findOneBy(array('idEnfant'=>$idE));
+        $html = $this->renderView('PdfBundle:Pdf:Pdf.html.twig',array('enfant'=>$enfant,'garderie'=>$equipes));
 
 
 

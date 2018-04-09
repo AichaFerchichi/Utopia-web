@@ -2,5 +2,5 @@ pdf_homepage:
     path:     /
     defaults: { _controller: PdfBundle:Default:index }
 pdf:
-    path:     /pdf
+    path:     /pdf/{idG}/{idE}
     defaults: { _controller: PdfBundle:Pdf:pdf }
