@@ -1,11 +1,23 @@
 {% extends 'BackBundle:Default:index.html.twig' %}
 {% block content %}
 
+    <div class="row page-titles">
+        <div class="col-md-5 align-self-center">
+            <h3 class="text-primary">Promotions</h3> </div>
+        <div class="col-md-7 align-self-center">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="javascript:void(0)">Gestion Produits</a></li>
+                <li class="breadcrumb-item active">Mes produits</li>
+                <li class="breadcrumb-item active">Promotions</li>
+            </ol>
+        </div>
+    </div>
+
 <div class="container-fluid">
 
+    <div class="row" style="background-color: lightpink">
 
-
-<div class="col-lg-16">
+<div class="col-lg-12">
     <div class="card">
         <div class="card-title">
             <h4>Liste des promotions</h4>
@@ -33,11 +45,11 @@
                         <tr>
 
                             <td><img  width="150px" height="auto" src={{ asset("ressources/" ~ i.getIdProduit().getImage() ) }} ></td>
-                            <td>{{ i.getPourcentage() }}</td>
-                            <td>{{ i.getDateDebut()|date }}</td>
-                            <td>{{ i.getDateFin()|date }}</td>
-                            <td style="text-decoration: line-through">{{ i.getIdProduit().getPrixProduit() }}</td>
-                            <td>{{ i.getPrixPromo() }}</td>
+                            <td style="font-size: 19px">{{ i.getPourcentage() }}%</td>
+                            <td>{{ i.getDateDebut()|date('d-m-Y') }}</td>
+                            <td>{{ i.getDateFin()|date('d-m-Y') }}</td>
+                            <td style="text-decoration: line-through ; color: red ; font-size: 16px">{{ i.getIdProduit().getPrixProduit() }}DT</td>
+                            <td style="color: limegreen; font-size: 16px">{{ i.getPrixPromo() }}DT</td>
                             <td><form action="{{ path('supprimerPromotion',{'id':i.getIdPromo()}) }}" method="POST">
                                     <button  class="btn btn-warning m-b-10 m-l-5" type="submit" ><img width="20px" height="auto" src="{{ asset("ressources/delete.png") }}"></button>
                                 </form></td>
@@ -59,6 +71,7 @@
 
             </div>
         </div>
+    </div>
     </div>
 </div>
 

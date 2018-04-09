@@ -1,0 +1,110 @@
+{% extends 'BackBundle:Default:index.html.twig' %}
+{% block content %}
+
+    <div class="container-fluid">
+
+    <div class="row" style="background-color: lightsteelblue">
+
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-title">
+                    <h4>Liste des commandes</h4>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+
+                        <table  class="table table-hover " cellspacing="0" width="100%">
+                            <thead>
+                            <tr>
+                                <td>Commande effectué par</td>
+                                <td>Total</td>
+                                <td>Date commande</td>
+                                <td>Produit</td>
+
+
+
+                            </tr>
+                            </thead>
+                            {% for i in m %}
+                                <tbody>
+                                <tr>
+
+                                    <td><center><img class="img-circle" width="60px" height="auto" src={{ asset("ressources/" ~ i.getIdParent().getImage() ) }} >
+                                    <br> {{ i.getIdParent().getUsername() }}</center></td>
+                                    <td style="color: red ; font-size: 15px">{{ i.getTotal() }}DT</td>
+                                    <td>{{ i.getDate()|date }}</td>
+                                    <td><center><img  width="100px" height="auto" src={{ asset("ressources/" ~ i.getIdLigne().getIdProduit().getImage() ) }} ></center></td>
+
+
+
+                                </tr>
+                                </tbody>
+                            {% endfor %}
+                        </table>
+
+
+
+
+
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-title">
+                    <h4>Liste des livraisons</h4>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+
+                        <table  class="table table-hover " cellspacing="0" width="100%">
+                            <thead>
+                            <tr>
+                                <td>Livraison effectuée par</td>
+                                <td>Livreur</td>
+                                <td>Durée de la livraison</td>
+                                <td>Destination</td>
+                                <td>Produit</td>
+
+
+
+                            </tr>
+                            </thead>
+                            {% for i in m2 %}
+                                <tbody>
+                                <tr>
+
+                                    <td><center><img class="img-circle" width="60px" height="auto" src={{ asset("ressources/" ~ i.getIdParent().getImage() ) }} >
+                                            <br> {{ i.getIdParent().getUsername() }}</center></td>
+                                    <td><center><img class="img-circle" width="60px" height="60px" src={{ asset("ressources/" ~ i.getIdLivreur().getImage() ) }} >
+                                            <br> {{ i.getIdLivreur().getUsername() }}</center></td>
+                                    <td style="color: green ; font-size: 15px">{{ i.getDuree() }} minutes</td>
+                                    <td>Ville : {{ i.getAdresse() }}</td>
+                                    <td><center><img  width="100px" height="auto" src={{ asset("ressources/" ~ i.getIdProduit().getImage() ) }} ></center></td>
+
+
+
+                                </tr>
+                                </tbody>
+                            {% endfor %}
+                        </table>
+
+
+
+
+
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
+    </div>
+{% endblock %}

@@ -15,6 +15,18 @@ use UserBundle\Entity\Enseignants;
 
 class ClubsController extends Controller
 {
+    public function afficherClubsFrontAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $clubs = $em->getRepository("UserBundle:Clubs")->findAll();
+        return $this->render('FrontBundle:Default:Clubs.html.twig', array('c'=>$clubs));
+    }
+    public function devenirPartenaireAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+        return $this->render('FrontBundle:Default:devenirPartenaire.html.twig');
+    }
     public function indexAction()
     {
         return $this->render('BackBundle:Default:table_bootstrap.html.twig');
@@ -35,7 +47,7 @@ class ClubsController extends Controller
             $file->move($this->getParameter('image_directory'),$fileName) ;
             $joueur->setImage($fileName) ;
             $em=$this->getDoctrine()->getManager();
-$joueur->setTotalaimer(0);
+           $joueur->setTotalaimer(0);
 $joueur->setTotalpasaimer(0);
 $joueur->setDateAjout((new \DateTime('now')));
             $em->persist($joueur);
@@ -51,6 +63,39 @@ $joueur->setDateAjout((new \DateTime('now')));
         return $this->render('BackBundle:Default:table_bootstrap.html.twig',array('f'=>$form->createView(),'m'=>$equipes));
 
     }
+
+    public function rechercherParNomClubAction(Request $request)
+    {
+        $em=$this->getDoctrine()->getManager();
+        $motcle=$request->get('motcle');
+        $repository=$em->getRepository('UserBundle:Clubs');
+        $query=$em->createQueryBuilder()
+            ->select('p')->from('UserBundle:Clubs','p')
+            ->where('p.nomClub like :nomClub')
+            ->setParameter('nomClub','%'.$motcle.'%')
+            ->orderBy('p.nomClub','ASC')
+            ->getQuery();
+
+        $clubs=$query->getResult();
+        return $this->render('FrontBundle:Default:Clubs.html.twig',array('c'=>$clubs));
+    }
+
+    public function rechercherComboAction(Request $request)
+    {
+        $em=$this->getDoctrine()->getManager();
+        $motcle=$request->get('combo');
+        $repository=$em->getRepository('UserBundle:Clubs');
+        $query=$em->createQueryBuilder()
+            ->select('p')->from('UserBundle:Clubs','p')
+            ->where('p.categorie like :categorie')
+            ->setParameter('categorie','%'.$motcle.'%')
+            ->orderBy('p.categorie','ASC')
+            ->getQuery();
+
+        $clubs=$query->getResult();
+        return $this->render('FrontBundle:Default:Clubs.html.twig',array('c'=>$clubs));
+    }
+
 
     public function rechercherAction(Request $request){
         $em=$this->getDoctrine()->getManager();

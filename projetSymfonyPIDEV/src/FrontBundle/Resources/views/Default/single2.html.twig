@@ -1,5 +1,8 @@
 {% extends 'FrontBundle:Default:index.html.twig' %}
 {% block content %}
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/starrating/css/rating.css') }}" />
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script src="{{ asset('bundles/starrating/js/rating.js') }}"></script>
 
     <div class="nav-top">
         <nav class="navbar navbar-default">
@@ -14,12 +17,12 @@
 
 
             </div>
-            <div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
-                <ul class="nav navbar-nav ">
+            <div class="collapse navbar-collapse" id="bs-megadropdown-tabs" >
+                <ul class="nav navbar-nav " style="color : lightpink">
                     <li ><a href="index.html" class="hyper "><span>Home</span></a></li>
 
                     <li  class="dropdown">
-                        <a href="#" class="dropdown-toggle  hyper" data-toggle="dropdown" ><span>Kitchen<b class="caret"></b></span></a>
+                        <a href="#" class="dropdown-toggle  hyper"  data-toggle="dropdown" ><span>Kitchen<b class="caret"></b></span></a>
                         <ul class="dropdown-menu multi">
                             <div class="row">
                                 <div class="col-sm-3">
@@ -153,9 +156,9 @@
                 </ul>
             </div>
         </nav>
-        <div class="cart" >
+        <div class="cart" data-toggle="modal" data-target="#myModal123" >
 
-            <span class="fa fa-shopping-cart my-cart-icon"><span class="badge badge-notify my-cart-badge"></span></span>
+            <span class="fa fa-shopping-cart "></span> Mon Panier
         </div>
         <div class="clearfix"></div>
     </div>
@@ -174,21 +177,30 @@
             <div class="single-top-main">
                 <div class="col-md-5 single-top">
                     <div class="single-w3agile">
-                        {% if e is not null %}
+                        {% if e is not null and e.getDateDebut()|date('Y-m-d') <= "now"|date('Y-m-d')  %}
                             <div id="picture-frame">
                                 <a href="#" data-toggle="modal" data-target="#myModal5" class="offer-img">
-                                    <img  src="{{ asset("ressources/" ~ i.getImage()) }}" data-src="{{ asset("ressources/" ~ i.getImage()) }}" alt="" class="img-responsive"/>
-                                    <div class="offer"><p><span>En Promotion</span></p></div></a>
+                                    <img style="background-size: cover; left: 0; top: 0; right: 0; z-index: 10; position:relative; background-size:cover; " src="{{ asset("ressources/" ~ i.getImage()) }}" data-src="{{ asset("ressources/" ~ i.getImage()) }}" alt="" class="img-responsive"/>
+                                    <img style=" position: absolute ; background-size: auto; width: 17%; height: auto; top: 0px; left: 270px; z-index: 999;"  src="{{ asset("ressources/promo.png") }}">
+                                    <!--<div class="offer"><p style="font-size: large"><span>En Promotion</span></p></div>--></a>
+
                             </div>
-                        {% elseif e is null %}
+                        {% else %}
                             <div id="picture-frame">
                                 <a href="#" data-toggle="modal" data-target="#myModal5" class="offer-img">
                                     <img  src="{{ asset("ressources/" ~ i.getImage()) }}" data-src="{{ asset("ressources/" ~ i.getImage()) }}" alt="" class="img-responsive"/>
                                 </a>
                             </div> {% endif %}
+                        <link rel="stylesheet" type="text/css" href="{{ asset('bundles/starrating/css/rating.css') }}" />
+                        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+                        <script src="{{ asset('bundles/starrating/js/rating.js') }}"></script>
 
+                        {{ form_start(f) }}
+                        <tr>
+                            <td>{{ form_widget(f.rating) }}</td> <td>{{ form_widget(f.Valider) }}</td>
 
-
+                        </tr>
+                        {{ form_end(f) }}
                         <script src="js/jquery.zoomtoo.js"></script>
                         <script>
                             $(function() {
@@ -202,55 +214,93 @@
 
                     </div>
                 </div>
-                <div class="col-md-7 single-top-left ">
-                    <div class="single-right">
-                        <h3>{{ i.getNom() }}</h3>
 
-                        {% if e is not null %}
-                            <div class="pr-single">
-                                <p class="reduced "><del>{{ i.getPrixProduit() }}DT</del>{{ e.getPrixPromo() }}DT</p>
+
+                <form action="{{ path('ajouter_ligne_commande') }}" method="post">
+                    <input type="text" name="identifiant" hidden value="{{ i.getIdProduit() }}"/>
+                    <div class="col-md-7 single-top-left ">
+                        <div class="single-right">
+
+                            <h3 style=" font-size: 20px ">{{ i.getNom() }}</h3> <br>
+
+                            {% if e is not null and e.getDateDebut()|date('Y-m-d') <= "now"|date('Y-m-d') %}
+
+                                <div class="pr-single">
+                                    <p class="reduced " style="color: red ; font-size: 17px"><del style="color: dodgerblue">{{ i.getPrixProduit() }}DT</del>{{ e.getPrixPromo() }}DT</p>
+                                    <p style="color: darkgrey ; font-size: 12px " >Du {{ e.getDateDebut()|date('m-d') }} jusqu'au {{ e.getDateFin()|date('m-d') }}</p>
+                                    <p style="color: red ; font-size: 25px " > -{{ e.getPourcentage() }}% </p>
+                                </div>
+                            {% else %}
+                                <div class="pr-single">
+                                    <p class="reduced " style="color: dodgerblue ; font-size: 17px">{{ i.getPrixProduit() }}DT</p>
+                                </div>
+                            {% endif %}
+
+
+                            <div class="block block-w3">
+
                             </div>
-                        {% elseif e is null %}
-                            <div class="pr-single">
-                                <p class="reduced ">{{ i.getPrixProduit() }}DT</p>
+                            <p style="color: black ; font-size: 14px">Livraison toujours gratuites! </p>
+
+                            <p class="in-pa"> {{ i.getDescription() }}
+                                <br>
+
+                            <p style="color: black">Quantité disponible : <select name="selection">{% for nb in 1..i.getQuantite() %}
+                                        <option>
+                                            {{ nb }}
+                                        </option>
+                                    {% endfor %}</select></p></p>
+                            <br>
+                            <br>
+
+
+                            <ul class="social-top">
+                                <li><a href="#" class="icon facebook"><i class="fa fa-facebook" aria-hidden="true"></i><span></span></a></li>
+                                <li><a href="#" class="icon twitter"><i class="fa fa-twitter" aria-hidden="true"></i><span></span></a></li>
+                                <li><a href="#" class="icon pinterest"><i class="fa fa-pinterest-p" aria-hidden="true"></i><span></span></a></li>
+                                <li><a href="#" class="icon dribbble"><i class="fa fa-dribbble" aria-hidden="true"></i><span></span></a></li>
+                            </ul>
+                            <div class="add add-3">
+                                <button class="btn btn-danger my-cart-btn my-cart-b" data-id="1" data-name="Wheat" data-summary="summary 1" data-price="6.00" data-quantity="1" data-image="images/si.jpg">Ajouter wishlist</button>
                             </div>
-                        {% endif %}
 
 
-                        <div class="block block-w3">
-                            <div class="starbox small ghosting"> </div>
-                        </div>
-                        <p class="in-pa"> {{ i.getDescription() }} </p>
 
-                        <ul class="social-top">
-                            <li><a href="#" class="icon facebook"><i class="fa fa-facebook" aria-hidden="true"></i><span></span></a></li>
-                            <li><a href="#" class="icon twitter"><i class="fa fa-twitter" aria-hidden="true"></i><span></span></a></li>
-                            <li><a href="#" class="icon pinterest"><i class="fa fa-pinterest-p" aria-hidden="true"></i><span></span></a></li>
-                            <li><a href="#" class="icon dribbble"><i class="fa fa-dribbble" aria-hidden="true"></i><span></span></a></li>
-                        </ul>
-                        <div class="add add-3">
-                            <button class="btn btn-danger my-cart-btn my-cart-b" data-id="1" data-name="Wheat" data-summary="summary 1" data-price="6.00" data-quantity="1" data-image="images/si.jpg">Add to Cart</button>
+
+
+                            <div class="clearfix"> </div>
                         </div>
 
 
-
-                        <div class="clearfix"> </div>
                     </div>
+                </form>
 
+                <!--<form action="" method="post">
+                <textarea id="comment" placeholder="Message" id="message" name="message" rows="1"></textarea>
+                <button type="submit" >Commenter</button>
+                </form>-->
 
-                </div>
                 <div class="clearfix"> </div>
             </div>
 
 
         </div>
     </div>
-
-
-
-
     <!------------------------------------------------------------------------------------------------------------------------>
+    <div class="single-right ">
 
+
+        <div class="container">
+
+            <div id="fos_comment_thread" data-thread="{{ thread.id }}">
+
+                {% include '@FOSComment/Thread/comments.html.twig' with {
+                'comments': comments,
+                'thread': thread
+                } %}
+
+            </div></div></div>
+    <!------------------------------------------------------------------------------------------------------------------------>
 
     <div class="modal fade" id="myModal5" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">
@@ -265,11 +315,13 @@
                         </div>
                     </div>
                     <div class="col-md-7 span-1 ">
-                        <h3>{{ i.getNom() }}</h3>
-                        <p class="in-para"> There are many variations of passages of Lorem Ipsum.</p>
+                        <h3 style=" font-size: 20px ">{{ i.getNom() }}</h3>
+                        <p class="in-para"> Catégorie : {{ i.getCategorie() }}</p>
                         {% if e is not null %}
                             <div class="price_single">
-                                <span class="reducedfrom "><del>{{ i.getPrixProduit() }}</del>{{ e.getPrixPromo()  }}</span>
+                                <!--<span class="reducedfrom "><del>{{ i.getPrixProduit() }}</del>{{ e.getPrixPromo()  }}</span>-->
+                                <p class="reduced " style="color: red ; font-size: 19px"><del style="color: dodgerblue">{{ i.getPrixProduit() }}DT</del>{{ e.getPrixPromo() }}DT</p>
+
 
                                 <div class="clearfix"></div>
                             </div>
@@ -285,9 +337,23 @@
 
                         <h4 class="quick">Description :</h4>
                         <p class="quick_desc">{{ i.getDescription() }}</p>
+
+                        <p style="color: black ; font-size: 14px ">Quantité disponible : <select name="selection">{% for nb in 1..i.getQuantite() %}
+                                    <option>
+                                        {{ nb }}
+                                    </option>
+                                {% endfor %}</select></p>
+                        <br> <br>
+
+
                         <div class="add-to">
-                            <button class="btn btn-danger my-cart-btn my-cart-btn1 " data-id="5" data-name="Lays" data-summary="summary 5" data-price="0.70" data-quantity="1" data-image="images/of4.png">Add to Cart</button>
+                            <button class="btn btn-danger my-cart-btn my-cart-btn1 " data-id="5" data-name="Lays" data-summary="summary 5" data-price="0.70" data-quantity="1" data-image="images/of4.png">Ajouter wishlist</button>
                         </div>
+
+
+
+
+
                     </div>
                     <div class="clearfix"> </div>
                 </div>
@@ -297,22 +363,11 @@
 
 
     <!-------------------------------------------------------------------------------------------------------------------->
-
-
-
-
-
-
-
-
-
-
-
     <!---->
     <div class="content-top offer-w3agile">
         <div class="container ">
             <div class="spec ">
-                <h4>Produits similaires</h4>
+                <h3 style=" font-size: 20px ">Produits similaires</h3>
 
             </div>
             <div class=" con-w3l wthree-of">
@@ -321,30 +376,42 @@
                     <div class="col-md-3 pro-1">
                         <div class="col-m">
                             <a href="#" data-toggle="modal" data-target="#myModal6" class="offer-img">
-                                <img width="300px" height="auto" src="{{ asset('ressources/' ~ j.getImage()) }}" class="img-responsive" alt="">
+                                <img width="300px" height="auto" style="background-size: cover; left: 0; top: 0; right: 0; z-index: 10; position:relative; background-size:cover; " src="{{ asset('ressources/' ~ j.getImage()) }}" class="img-responsive" alt="">
 
+                                {% if j.getPromotion()==1 %}
+                                    <img style=" position: absolute ; background-size: auto; width: 17%; height: auto; top: 0px; left: 150px; z-index: 999;"  src="{{ asset("ressources/promo.png") }}">
+
+                                {% endif %}
                             </a>
                             <div class="mid-1">
                                 <div class="women">
                                     <h6><a href="{{ path('single2',{'id':j.getIdProduit()}) }}">{{ j.getNom() }}</a></h6>
+
+
+                                    {% if j.getPromotion()==1 %}
+                                        <p class="reduced " style="color: red ; font-size: 17px"><del style="color: dodgerblue">{{ j.getPrixProduit() }}DT</del>{{ j.getNouvPrix() }}DT</p>
+                                    {% else %}
+                                        <br>
+
+                                        Prix : <span class="reduced" style="color: dodgerblue ; font-size: 17px">{{ j.getPrixProduit() }}DT</span>
+
+                                    {% endif %}
+
+
                                 </div>
+
                                 <div class="mid-2">
 
 
-
-                                    <p ><em class="item_price">{{ j.getPrixProduit() }}DT</em></p>
                                     <div class="block">
                                         <div class="starbox small ghosting"> </div>
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                <div class="add">
-                                    <button class="btn btn-danger my-cart-btn my-cart-b" data-id="5" data-name="Lays" data-summary="summary 5" data-price="0.70" data-quantity="1" data-image="images/of4.png">Add to Cart</button>
-                                </div>
+
                             </div>
                         </div>
                     </div>
-
 
                     <!----------------------------------------------------------------------------------------------------------------------------->
 
@@ -361,10 +428,22 @@
                                         </div>
                                     </div>
                                     <div class="col-md-7 span-1 ">
-                                        <h3>{{ j.getNom() }}</h3>
+                                        <h3 style=" font-size: 20px ">{{ j.getNom() }}</h3>
                                         <p class="in-para"> Catégorie : {{ j.getCategorie() }}</p>
                                         <div class="price_single">
-                                            <span class="reducedfrom ">{{ j.getPrixProduit() }}DT</span>
+
+
+
+                                            {% if j.getPromotion()==1 %}
+                                                <p class="reduced " style="color: red ; font-size: 17px"><del style="color: dodgerblue">{{ j.getPrixProduit() }}DT</del>{{ j.getNouvPrix() }}DT</p>
+                                            {% else %}
+
+                                                <span class="reducedfrom " style="color: dodgerblue; font-size: 17px">{{ j.getPrixProduit() }}DT</span>
+
+                                            {% endif %}
+
+
+
 
                                             <div class="clearfix"></div>
                                         </div>
@@ -379,6 +458,52 @@
                             </div>
                         </div>
                     </div>
+
+
+                    <!-------------------------------------------------CART---------------------------------------------------------->
+
+
+
+                    <div class="modal fade" id="myModal123" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content modal-info">
+
+
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">×</span></button>
+                                        <h4 class="modal-title" id="myModalLabel">
+                                            <span class="glyphicon glyphicon-shopping-cart"></span>
+                                            Mon panier</h4>
+                                    </div><div class="modal-body">
+                                        <table class="table table-hover table-responsive" id="my-cart-table"><tbody>
+                                            {% for i in com %}<tr title="summary 21" data-id="21" data-price="0.80"><td class="text-center" style="width: 30px;"><img width="50px" height="auto" src={{ asset("ressources/" ~ i.getIdLigne().getIdProduit().getImage() ) }}>
+                                                </td><td>Prix : {{ i.getIdLigne().getIdProduit().getPrixProduit() }}</td>
+                                                <td title="Unit Price">Quantité commandée : {{ i.getIdLigne().getQuantite() }} </td>
+                                                <!--<td title="Quantity"><input type="number" min="1" style="width: 70px;" class="my-product-quantity" value="1"></td>-->
+                                                <td title="Total" class="my-product-total">Total payé : {{ i.getTotal() }}</td>
+
+                                                <!--<td>
+										<button  class="btn btn-warning m-b-10 m-l-5" type="submit" ><img width="20px" height="auto" src="{{ asset("ressources/delete.png") }}"></button>
+									</td>-->
+
+                                                <td title="Remove from Cart" class="text-center" style="width: 30px;">
+                                                    <form action="{{ path('supprimerCommande',{'id':i.getIdCommande()}) }}" method="POST">
+                                                        <button class="btn btn-xs btn-danger my-product-remove">X</button>
+                                                    </form></td></tr>{% endfor %}
+
+                                            </tbody></table></div><div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+                                    </div></div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+                    <!-------------------------------------------------CART------------------------------------->
 
 
 

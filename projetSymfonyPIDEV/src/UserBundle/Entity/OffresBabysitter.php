@@ -1,6 +1,7 @@
 <?php
 
 namespace UserBundle\Entity;
+use MongoDB\BSON\Timestamp;
 use Symfony\Component\Validator\Constraints as Assert;
 
 use Doctrine\ORM\Mapping as ORM;
@@ -60,7 +61,14 @@ class OffresBabysitter
      *
      * @ORM\Column(name="lieu_baby", type="string", length=100, nullable=false)
      */
-    private $lieu_baby;   /**
+    private $lieu_baby;
+    /**
+     * @var integer
+     * @Assert\Range(max=100)
+     *
+     * @ORM\Column(name="note", type="integer", nullable=true)
+     */
+    private $note; /**
  * @var string
  *
  * @ORM\Column(name="fumeuse", type="string", length=100, nullable=true)
@@ -122,14 +130,26 @@ class OffresBabysitter
     /**
  * @var string
  *
- * @ORM\Column(name="image", type="string", length=100, nullable=false)
+ * @ORM\Column(name="image", type="string", length=100, nullable=true)
  */
     private $image;     /**
-
 /**
- * @var datetime
+ * @var integer
  *
- * @ORM\Column(name="dateProfil", type="datetime", nullable=true)
+ * @ORM\Column(name="etat", type="integer", nullable=true)
+ */
+    private $etat;
+    /**
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="nbApp", type="integer", nullable=true)
+     */
+    private $nbApp;/**
+/**
+ * @var \DateTime
+ *
+ * @ORM\Column(name="dateProfil", type="datetime", nullable=true,options={"default":"CURRENT_TIMESTAMP"})
  */
     private $dateProfil;
 
@@ -144,7 +164,7 @@ class OffresBabysitter
     private $idbb;
 
     /**
-     * @return datetime
+     * @return \DateTime
      */
     public function getDateProfil()
     {
@@ -152,12 +172,19 @@ class OffresBabysitter
     }
 
     /**
-     * @param datetime $dateProfil
+     * @param \DateTime $dateProfil
      */
     public function setDateProfil($dateProfil)
     {
         $this->dateProfil = $dateProfil;
     }
+
+
+
+
+
+
+
 
 
     /**
@@ -467,6 +494,54 @@ class OffresBabysitter
     public function setIdbb($idbb)
     {
         $this->idbb = $idbb;
+    }
+
+    /**
+     * @return int
+     */
+    public function getNote()
+    {
+        return $this->note;
+    }
+
+    /**
+     * @param int $note
+     */
+    public function setNote($note)
+    {
+        $this->note = $note;
+    }
+
+    /**
+     * @return int
+     */
+    public function getEtat()
+    {
+        return $this->etat;
+    }
+
+    /**
+     * @param int $etat
+     */
+    public function setEtat($etat)
+    {
+        $this->etat = $etat;
+    }
+
+    /**
+     * @return int
+     */
+    public function getNbApp()
+    {
+        return $this->nbApp;
+    }
+
+    /**
+     * @param int $nbApp
+     */
+    public function setNbApp($nbApp)
+    {
+        $this->nbApp = $nbApp;
     }
 
 

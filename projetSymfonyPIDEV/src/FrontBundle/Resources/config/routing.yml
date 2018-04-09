@@ -1,6 +1,37 @@
 front_homepage:
     path:     /
+<<<<<<< HEAD
     defaults: { _controller: FrontBundle:Default:index }
+=======
+    defaults: { _controller: FrontBundle:Default:accueil1 }
+<<<<<<< HEAD
+=======
+reserver:
+    path:     /reserver/{idbaby}
+    defaults: { _controller: UserBundle:DemandesParent:reserver }
+profilParentA:
+    path:     /profilParent
+    defaults: { _controller: UserBundle:DemandesParent:profilParentA }
+tri:
+    path:     /tri
+    defaults: { _controller: UserBundle:DemandesParent:recherchetri }
+profilReserv:
+    path:     /profilReserv
+    defaults: { _controller: UserBundle:OffresBabysitter:profilReserv }
+accepterReserv:
+    path:     /accepterReserv/{idReserv}
+    defaults: { _controller: UserBundle:DemandesParent:accepterReserv }
+refuserReserv:
+    path:     /refuserReserv/{idReserv}
+    defaults: { _controller: UserBundle:DemandesParent:refuserReserv }
+echec:
+    path:     /echec
+    defaults: { _controller: UserBundle:OffresBabysitter:echec }
+echecDate:
+    path:     /echecDate
+    defaults: { _controller: UserBundle:OffresBabysitter:echecDate }
+>>>>>>> 07c9094cc20f883bda0e8ee120102e2e8c83231d
+>>>>>>> a6ddf4fa569caa2afd0e7816dbd6b2dfe0d40507
 layout:
     path:     /layout
     defaults: { _controller: FrontBundle:Default:layout }
@@ -9,7 +40,7 @@ accueil1:
     defaults: { _controller: FrontBundle:Default:accueil1 }
 wishlist:
     path:     /wishlist
-    defaults: { _controller: FrontBundle:Default:wishlist }
+    defaults: { _controller: UserBundle:LigneCommandes:afficherLigneCommande }
 about:
     path:     /about
     defaults: { _controller: FrontBundle:Default:about }
@@ -44,6 +75,9 @@ participer:
 annuler:
     path:     /annuler/{idE}/{id}
     defaults: { _controller: UserBundle:Etape:annuler }
+preference:
+    path:     /preference
+    defaults: { _controller: UserBundle:DemandesParent:preference }
 care:
     path:     /care
     defaults: { _controller: UserBundle:Garderies:affichage }
@@ -62,6 +96,12 @@ hold:
 kitchen:
     path:     /kitchen
     defaults: { _controller: FrontBundle:Default:kitchen }
+rechercherProfil:
+    path:     /rechercherProfil
+    defaults: { _controller: UserBundle:OffresBabysitter:rechercherProfil }
+rechercherReserv:
+    path:     /rechercherReserv
+    defaults: { _controller: UserBundle:DemandesParent:rechercherReserv }
 login:
     path:     /login
     defaults: { _controller: FrontBundle:Default:login }
@@ -98,6 +138,10 @@ profilBB:
 delete:
     path:     /supprimer/{ref1}
     defaults: { _controller: UserBundle:OffresBabysitter:delete }
+supprimerReserv:
+    path:     /supprimerReserv/{refD}
+    defaults: { _controller: UserBundle:DemandesParent:supprimerReserv }
+
 modifier:
     path:     /modifier/{ref2}
     defaults: { _controller: UserBundle:OffresBabysitter:modifier }
@@ -113,7 +157,10 @@ ROLE_USER:
 ROLE_ADMIN:
     path:     /fos/admin/test
     defaults: { _controller: FrontBundle:Default:testRoleAdmin }
+<<<<<<< HEAD
+=======
 
+>>>>>>> 07c9094cc20f883bda0e8ee120102e2e8c83231d
 Boutique:
     path:     /Boutique
     defaults: { _controller: UserBundle:Produits:affichageProduits }
@@ -126,16 +173,70 @@ nosVetements:
 nosFournitures:
     path:     /nosFournitures
     defaults: { _controller: UserBundle:Produits:nosFournitures }
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
 
+=======
+>>>>>>> f3b76d99922d08b50542a2bafefe0c028ef85a15
+>>>>>>> 07c9094cc20f883bda0e8ee120102e2e8c83231d
 ListeCov:
     path:     /ListeCov
     defaults: { _controller: UserBundle:Covoiturage:afficher }
 AjouterCov:
     path:     /AjouterCov
     defaults: { _controller: UserBundle:Covoiturage:ajouter }
+<<<<<<< HEAD
+supprimerLigneCommande:
+    path:     /supprimerLigneCommande/{id}
+    defaults: { _controller: UserBundle:LigneCommandes:supprimerLigneCommande }
+ajouterCommande:
+    path:     /ajouterCommande/{id}
+    defaults: { _controller: UserBundle:Commandes:ajouterCommande }
+fos_comment_api:
+    type: rest
+    resource: "@FOSCommentBundle/Resources/config/routing.yml"
+    prefix: /api
+    defaults: { _format: html }
+supprimerCommande:
+    path:     /supprimerCommande/{id}
+    defaults: { _controller: UserBundle:Commandes:supprimerCommande }
+ajouter2Commande:
+    path:     /ajouter2Commande/{id}
+    defaults: { _controller: UserBundle:Commandes:ajouter2Commande }
+FormulaireLivraison:
+    path:     /FormulaireLivraison/{id}
+    defaults: { _controller: UserBundle:Livraisons:ajouterLivraison }
+FormulaireLivraisonAlerte:
+    path:     /FormulaireLivraisonAlerte
+    defaults: { _controller: FrontBundle:Default:FormulaireLivraisonAlerte }
+FormulaireLivraison2:
+    path:     /FormulaireLivraison2/{id}
+    defaults: { _controller: UserBundle:Livraisons:afficherMessage }
+wishlistAlerte:
+    path:     /wishlistAlerte
+    defaults: { _controller: FrontBundle:Default:wishlistAlerte }
+=======
+<<<<<<< HEAD
+
+=======
 my_app_mail_homepage:
     path: /Mail
     defaults: { _controller: UserBundle:Mail:index }
 my_app_mail_accuse:
     path: /success
     defaults: { _controller: UserBundle:Mail:success }
+clubs:
+    path: /clubs
+    defaults: { _controller: UserBundle:Clubs:afficherClubsFront}
+rechercherClubF:
+    path: /rechercherClubF
+    defaults: { _controller: UserBundle:Clubs:rechercherParNomClub}
+rechercherCombo:
+    path: /rechercherCombo
+    defaults: { _controller: UserBundle:Clubs:rechercherCombo}
+devenirPartenaire:
+    path: /partenaire
+    defaults: { _controller: UserBundle:Clubs:devenirPartenaire}
+>>>>>>> f3b76d99922d08b50542a2bafefe0c028ef85a15
+>>>>>>> 07c9094cc20f883bda0e8ee120102e2e8c83231d

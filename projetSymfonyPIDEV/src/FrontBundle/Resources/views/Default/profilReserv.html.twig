@@ -1,0 +1,394 @@
+{% extends 'FrontBundle:Default:index.html.twig' %}
+{% block content %}
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/starrating/css/rating.css') }}" />
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script src="{{ asset('bundles/starrating/js/rating.js') }}"></script>
+
+    <div class="nav-top">
+        <nav class="navbar navbar-default">
+
+            <div class="navbar-header nav_2">
+                <button type="button" class="navbar-toggle collapsed navbar-toggle1" data-toggle="collapse" data-target="#bs-megadropdown-tabs">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+
+            </div>
+            <div class="collapse navbar-collapse" id="bs-megadropdown-tabs" >
+                <ul class="nav navbar-nav " style="color : lightpink">
+                    <li ><a href="index.html" class="hyper "><span>Home</span></a></li>
+
+                    <li  class="dropdown">
+                        <a href="#" class="dropdown-toggle  hyper"  data-toggle="dropdown" ><span>Kitchen<b class="caret"></b></span></a>
+                        <ul class="dropdown-menu multi">
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <ul class="multi-column-dropdown">
+
+                                        <li><a href="kitchen.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Water & Beverages</a></li>
+                                        <li><a href="kitchen.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Fruits & Vegetables</a></li>
+                                        <li><a href="kitchen.html"> <i class="fa fa-angle-right" aria-hidden="true"></i>Staples</a></li>
+                                        <li><a href="kitchen.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Branded Food</a></li>
+
+                                    </ul>
+
+                                </div>
+                                <div class="col-sm-3">
+
+                                    <ul class="multi-column-dropdown">
+                                        <li><a href="kitchen.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Breakfast &amp; Cereal</a></li>
+                                        <li><a href="kitchen.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Snacks</a></li>
+                                        <li><a href="kitchen.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Spices</a></li>
+                                        <li><a href="kitchen.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Biscuit &amp; Cookie</a></li>
+                                        <li><a href="kitchen.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Sweets</a></li>
+
+                                    </ul>
+
+                                </div>
+                                <div class="col-sm-3">
+
+                                    <ul class="multi-column-dropdown">
+                                        <li><a href="kitchen.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Pickle & Condiment</a></li>
+                                        <li><a href="kitchen.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Instant Food</a></li>
+                                        <li><a href="kitchen.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Dry Fruit</a></li>
+                                        <li><a href="kitchen.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Tea &amp; Coffee</a></li>
+
+                                    </ul>
+                                </div>
+                                <div class="col-sm-3 w3l">
+                                    <a href="kitchen.html"><img src="images/me.png" class="img-responsive" alt=""></a>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+
+                        <a href="#" class="dropdown-toggle hyper" data-toggle="dropdown" ><span> Personal Care <b class="caret"></b></span></a>
+                        <ul class="dropdown-menu multi multi1">
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <ul class="multi-column-dropdown">
+                                        <li><a href="care.html"><i class="fa fa-angle-right" aria-hidden="true"></i> Ayurvedic </a></li>
+                                        <li><a href="care.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Baby Care</a></li>
+                                        <li><a href="care.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Cosmetics</a></li>
+                                        <li><a href="care.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Deo & Purfumes</a></li>
+
+                                    </ul>
+
+                                </div>
+                                <div class="col-sm-3">
+
+                                    <ul class="multi-column-dropdown">
+                                        <li><a href="care.html"> <i class="fa fa-angle-right" aria-hidden="true"></i>Hair Care </a></li>
+                                        <li><a href="care.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Oral Care</a></li>
+                                        <li><a href="care.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Personal Hygiene</a></li>
+                                        <li><a href="care.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Skin care</a></li>
+
+                                    </ul>
+
+                                </div>
+                                <div class="col-sm-3">
+
+                                    <ul class="multi-column-dropdown">
+                                        <li><a href="care.html"><i class="fa fa-angle-right" aria-hidden="true"></i> Fashion Accessories </a></li>
+                                        <li><a href="care.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Grooming Tools</a></li>
+                                        <li><a href="care.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Shaving Need</a></li>
+                                        <li><a href="care.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Sanitary Needs</a></li>
+
+                                    </ul>
+                                </div>
+                                <div class="col-sm-3 w3l">
+                                    <a href="care.html"><img src="images/me1.png" class="img-responsive" alt=""></a>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle hyper" data-toggle="dropdown" ><span>Household<b class="caret"></b></span></a>
+                        <ul class="dropdown-menu multi multi2">
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <ul class="multi-column-dropdown">
+                                        <li><a href="hold.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Cleaning Accessories</a></li>
+                                        <li><a href="hold.html"><i class="fa fa-angle-right" aria-hidden="true"></i>CookWear</a></li>
+                                        <li><a href="hold.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Detergents</a></li>
+                                        <li><a href="hold.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Gardening Needs</a></li>
+
+                                    </ul>
+
+                                </div>
+                                <div class="col-sm-3">
+
+                                    <ul class="multi-column-dropdown">
+                                        <li><a href="hold.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Kitchen & Dining</a></li>
+                                        <li><a href="hold.html"><i class="fa fa-angle-right" aria-hidden="true"></i>KitchenWear</a></li>
+                                        <li><a href="hold.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Pet Care</a></li>
+                                        <li><a href="hold.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Plastic Wear</a></li>
+
+                                    </ul>
+
+                                </div>
+                                <div class="col-sm-3">
+
+                                    <ul class="multi-column-dropdown">
+                                        <li><a href="hold.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Pooja Needs</a></li>
+                                        <li><a href="hold.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Serveware</a></li>
+                                        <li><a href="hold.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Safety Accessories</a></li>
+                                        <li><a href="hold.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Festive Decoratives </a></li>
+
+                                    </ul>
+                                </div>
+                                <div class="col-sm-3 w3l">
+                                    <a href="hold.html"><img src="images/me2.png" class="img-responsive" alt=""></a>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                        </ul>
+                    </li>
+
+                    <li><a href="codes.html" class="hyper"> <span>Codes</span></a></li>
+                    <li><a href="contact.html" class="hyper"><span>Contact Us</span></a></li>
+                </ul>
+            </div>
+        </nav>
+        <div class="cart" data-toggle="modal" data-target="#myModal123" >
+
+            <span class="fa fa-shopping-cart "></span> Mon panier
+        </div>
+        <div class="clearfix"></div>
+    </div>
+
+    </div>
+    </div>
+    <!---->
+    <!--banner-->
+
+
+    <img src="{{ asset('images/barreB.png') }}" class="img-responsive img1" alt="">
+
+
+    <!---->
+
+
+    <!--content-->
+
+
+    <!--content--><div class="single">
+    <form class="navbar-form navbar-right" action="{{ path('rechercherProfil') }}" method="post">
+                                                    <span class="input-group-btn"><input type="text" class="form-control" placeholder="Tapez votre adresse..."
+                                                                                             name="adresse" id="adresse"></span>
+    </form>
+    <div class="product">
+
+        <h3 class="t-button">
+            <a data-toggle="modal" data-target="#myModal21" class="offer-img" ><span class="label label-success">Mes preferences</span></a>
+            <a data-toggle="modal" data-target="#myModal19" class="offer-img" ><span class="label label-success">Mes reservations</span></a>
+
+            <h4 class="quick"></h4>
+            <p class="quick_desc">
+
+            <table> <tr> <td><label>Trier par:</label></td><td> <form  action="{{ path('tri') }}" method="post"><select name="lieu" class="form-control">
+                                <option value="a">Dérniére activité</option>
+                                <option value="b">Age (Haut>Bas)</option>
+                                <option value="c">Adresse (A>Z)</option>
+                                <option value="d">Nom (A>Z)</option></select></td>
+                    <td>
+                        <button style="background-color:transparent" type="submit" value="Valider" name="valider">
+                            <img width="15px" height="auto" src="{{ asset("images/combo.png")}}" >
+                        </button></td></tr></table></form>
+            </center>                        </p>
+        </h3>
+        </h2>
+        <div class="bs-docs-example">
+
+            {% for i in m %}
+
+            <table class="table table-hover" style="border-color: #ffffff">
+                <img src="{{ asset('images/profilBarre.png') }}" class="img-responsive img1", alt="">
+
+                <tbody>
+
+                <tr >
+                    <td>
+                        <img class="img-circle" src="{{ asset("ressources/" ~ i.image) }}" width="130px" height="auto" ><br><br>
+                        A la recherche d'un travail depuis le {{ i.dateProfil|date('d-m-Y') }}
+                    </td>
+
+                    <td style="text-align: left">
+                        <ul class="multi-column-dropdown">
+                            <li> <h3 style="color: #277ee1">{{ i.username }}</h3><br></li>
+
+                            <li><p style="color: #ffae91;font-size: 15px;"><img src="{{ asset("images/localisation.png") }}" width="15px"> Baby-sitter à {{ i.adresse }}</p></li>
+
+                            <li>{{ i.description }}....</li>
+
+                            <li><label>Age:</label>{{ i.age }} ans            </li>
+                            <li> <label>Experience:</label>{{ i.experience }}</li>
+
+
+                    <td>
+                        <h3 class="t-button">
+                            <a href="{{ path('monprofil',{'id':i.idOffre}) }}"><span class="label label-success">Voir profil</span></a></h3>
+                        </li>
+                    </td>
+                </tr>
+
+                </tbody>
+
+                <br><br>
+                {% endfor %}
+            </table>
+        </div>
+        <div class="clearfix"></div>
+
+    </div>
+    </div></div>
+
+    <div class="modal fade" id="myModal21" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content modal-info">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                </div>
+                <div class="modal-body modal-spa">
+
+                    <div class="col-md-7 span-1 ">
+
+
+                        <div class="price_single">
+                            <span class="reducedfrom "></span>
+
+                            <div class="clearfix"></div>
+                        </div>
+                        <h4 class="quick"></h4>
+                        <form action="{{ path('preference') }}" method="post">
+
+                            <p class="quick_desc">                    <center><label> Adresse:</label> <input  class="form-control" type="text" name="adresse" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '';}" required=""></center>
+                            </p>
+                            <h4 class="quick"></h4>
+                            <p class="quick_desc">                    <center><label> Age:</label> <input  class="form-control" type="number" name="age" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '';}" required=""></center>
+                            </p>
+                            <h4 class="quick"></h4>
+                            <p class="quick_desc">                    <center><label> Disponibilité:</label> <input   class="form-control" type="text" name="dispo" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '';}" required="">
+                            </center>                        </p>
+                            <h4 class="quick"></h4>
+                            <p class="quick_desc">                    <center><label> Experience:</label><br><br><select name="experience" class="form-control">
+                                    <option value="1">Sans experience</option>
+                                    <option value="2">Avec experience</option></select>
+                            </center>                        </p>
+                            <h4 class="quick"></h4>
+                            <p class="quick_desc">                    <center><label>Lieu de baby-sitter:</label><br><br><select name="lieu" class="form-control">
+                                    <option value="1">Pas de preferences</option>
+                                    <option value="2">A mon domicile</option></select>
+                            </center>                        </p>
+
+
+
+
+                            <h4 class="quick"></h4>
+
+
+
+                            </center>
+                            <br><br>
+                            <div class="add-to">
+                                <input type="submit" value="Valider" name="valider" class="btn btn-primary">
+                            </div>
+                      </form>
+                    </div>
+                    <div class="clearfix"> </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+
+    </div>
+    <div class="modal fade" id="myModal19" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content modal-info">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                </div>
+                <div class="modal-body modal-spa">
+<center>
+                    <h2 style="color: #ffae91">Mes reservations</h2><br>
+
+                    <div class="advn-two">
+                        {% if app.session.flashBag.has('danger') %}
+                            <div class="alert alert-danger">
+                                {% for msg in app.session.flashBag.get('danger') %}
+                                    {{ msg }}
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                        <h4><a href="single.html"></a></h4>
+                        <p></p>
+                        {% for j in m1 %}
+
+                        <table class="table table-hover" style="border-color: #ffffff">
+                            <img src="{{ asset('images/profilBarre.png') }}" class="img-responsive img1", alt="">
+
+                            <tbody>
+
+                            <tr >
+
+
+                                <td style="text-align: left">
+                                    <ul class="multi-column-dropdown">
+
+                                        <li> <h2 style="color: #277ee1">Vous avez reservez {{ j.username }} pour la garde de votre enfant
+                                            </h2> <br>{% if(j.etat==1)  %}
+                                        <img  class="img-responsive" width="20px" height="auto" src={{ asset("images/red.png") }}>
+
+                                            {% endif %}
+                                            {% if(j.etat==2)  %}
+                                                <img  class="img-responsive" width="20px" height="auto" src={{ asset("images/green.png") }}>
+
+                                            {% endif %}
+                                            {% if(j.etat==0)  %}
+                                        <img  class="img-responsive" width="20px" height="auto" src={{ asset("images/orange.png") }}>
+
+                                            {% endif %}<br></li>
+
+
+                                        <li><label>Description:</label><p>{{ j.description }}</p></li>
+
+
+                                        <li><label>Date debut:</label><p>{{ j.dateDebut|date('m.d.y') }}</p></li>
+                                        <li> <label>Date fin:</label><p>{{ j.dateFin|date('m.d.y') }}</p></li>
+                                        <li><label>Heure de pointe:</label><p>{{ j.heureDebut|date('g:i') }}</p></li>
+                                        <li><label>Heure de sortie:</label><p>{{ j.heureFin|date('g:i') }}</p></li>
+
+
+                                <td>
+                                    <h2 class="t-button">
+                                        </li>
+                                </td>
+                            </tr>
+
+                            </tbody>
+
+                            <br><br>
+
+
+                        </table>
+                        <h4 class="t-button"><a href="{{ path('supprimerReserv',{'refD':j.idDemande}) }}" class="active"> <span class="label label-info">Supprimer</span></a></h4>
+</center>   </div> {% endfor %}
+                    <div class="clearfix"> </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+{% endblock %}

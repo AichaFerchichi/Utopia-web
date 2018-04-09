@@ -7,40 +7,61 @@ ROLE_USER:
 ROLE_ADMIN:
     path:     /fos/admin/test
     defaults: { _controller: UserBundle:Default:testRoleAdmin }
-
 gestion_produits:
     path:     /gestionProduits
     defaults: { _controller: UserBundle:Produits:gestionProduits }
+<<<<<<< HEAD
+=======
 
 
+>>>>>>> 07c9094cc20f883bda0e8ee120102e2e8c83231d
 gestion_promotions:
     path:     /gestionPromotions
     defaults: { _controller: UserBundle:Promotions:gestionPromotions }
-
 supprimer_promotion:
     path:     /supprimerPromotion
     defaults: { _controller: UserBundle:Promotions:supprimerPromotion }
-
 modifier_promotion:
     path:     /modifierPromotion
     defaults: { _controller: UserBundle:Promotions:modifierPromotion }
+<<<<<<< HEAD
+=======
 
+>>>>>>> 07c9094cc20f883bda0e8ee120102e2e8c83231d
 gestion_profil:
     path:     /profil
     defaults: { _controller: UserBundle:OffresBabysitter:ajoutOffres }
 profil_BB:
     path:     /profilBB
     defaults: { _controller: UserBundle:OffresBabysitter:affichage}
+<<<<<<< HEAD
+=======
 
+>>>>>>> 07c9094cc20f883bda0e8ee120102e2e8c83231d
 ajouter:
     path:     /ajouter
     defaults: { _controller: UserBundle:Covoiturage:ajouter }
-
 afficher:
     path:     /afficher
     defaults: { _controller: UserBundle:Covoiturage:afficher }
-
 modifier:
     path:     /modifier
     defaults: { _controller: UserBundle:Covoiturage:modifier }
+<<<<<<< HEAD
+ajouter_ligne_commande:
+    path:     /ajouterLigneCommande
+    defaults: { _controller: UserBundle:LigneCommandes:ajouterLigneCommande }
+ajouter_commande:
+    path:     /ajouterCommande
+    defaults: { _controller: UserBundle:Commandes:ajouterCommande }
 
+ajouter_rating:
+    path:     /ajouterRating
+    defaults: { _controller: UserBundle:Notes:ajouterRating }
+
+affichage_commentaires:
+    path:     /affichageCommentaires
+    defaults: { _controller: UserBundle:Comment:affichageCommentaires }
+=======
+
+>>>>>>> 07c9094cc20f883bda0e8ee120102e2e8c83231d
