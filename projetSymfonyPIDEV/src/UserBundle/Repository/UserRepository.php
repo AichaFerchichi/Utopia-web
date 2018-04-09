@@ -11,6 +11,7 @@ namespace UserBundle\Repository;
 class UserRepository extends \Doctrine\ORM\EntityRepository
 {
 
+<<<<<<< HEAD
     function findDateDebut()
     {
         $query=$this->getEntityManager()->createQuery(
@@ -19,4 +20,6 @@ class UserRepository extends \Doctrine\ORM\EntityRepository
         return $query->getResult();
     }
 
+=======
+>>>>>>> 07c9094cc20f883bda0e8ee120102e2e8c83231d
 }

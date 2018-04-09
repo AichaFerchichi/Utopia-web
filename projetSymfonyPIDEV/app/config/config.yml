@@ -5,6 +5,7 @@ imports:
     - { resource: "@FrontBundle/Resources/config/services.yml" }
     - { resource: "@UserBundle/Resources/config/services.yml" }
     - { resource: "@BackBundle/Resources/config/services.yml" }
+    - { resource: "@MessageBundle/Resources/config/services.yml" }
 
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
@@ -65,11 +66,8 @@ doctrine:
         auto_mapping: true
 swiftmailer:
     transport: "%mailer_transport%"
-    host:      "%mailer_host%"
     username:  "%mailer_user%"
     password:  "%mailer_password%"
-    encryption: tls
-    port:    587
     spool:     { type: memory }
     logging: true
 fos_user:
@@ -130,6 +128,7 @@ nomaya_social:
         facebook:           "http://www.facebook.com/yann.chauvel"
         googleplus:         "https://plus.google.com/105931415830389032796"
     theme:                  'default' # optional
+<<<<<<< HEAD
 
 fos_comment:
     db_driver: orm
@@ -138,3 +137,31 @@ fos_comment:
             comment: UserBundle\Entity\Comment
             thread: UserBundle\Entity\Thread
 
+=======
+<<<<<<< HEAD
+fos_message:
+    db_driver: orm
+    thread_class: MessageBundle\Entity\Thread
+    message_class: MessageBundle\Entity\Message
+=======
+
+knp_snappy:
+    pdf:
+        enabled:    true
+        #binary:     "C:/wamp/www/Utopia-web2/projetSymfonyPIDEV/vendor/wkhtmltopdf/bin/wkhtmltopdf.exe"
+        binary:      /usr/local/bin/wkhtmltopdf
+        options:    []
+
+
+    image:
+        enabled:    true
+        #binary:     "C:/wamp/www/Utopia-web2/projetSymfonyPIDEV/vendor/wkhtmltopdf/bin/wkhtmltoimage.exe"
+        binary:      /usr/local/bin/wkhtmltoimage
+        options:
+            no-outline: true
+            page-size: LETTER
+            # Recommended to set UTF-8 as default encoding :)
+            encoding: UTF-8
+
+>>>>>>> f3b76d99922d08b50542a2bafefe0c028ef85a15
+>>>>>>> 07c9094cc20f883bda0e8ee120102e2e8c83231d

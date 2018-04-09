@@ -1,0 +1,182 @@
+{% extends 'BackBundle:Default:index.html.twig' %}
+{% block content %}
+    {% if app.session.flashBag.has('success') %}
+        <div class="alert alert-info">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+
+            {% for msg in app.session.flashBag.get('success') %}
+                {{ msg }}
+            {% endfor %}
+        </div>
+    {% endif %}  {% if app.session.flashBag.has('traite1') %}
+    <div class="alert alert-warning">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+
+        {% for msg in app.session.flashBag.get('traite1') %}
+            {{ msg }}
+        {% endfor %}
+    </div>
+{% endif %}
+    {% if app.session.flashBag.has('traite2') %}
+        <div class="alert alert-warning">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+
+            {% for msg in app.session.flashBag.get('traite2') %}
+                {{ msg }}
+            {% endfor %}
+        </div>
+    {% endif %}
+    {% if app.session.flashBag.has('danger') %}
+        <div class="alert alert-danger">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+
+            {% for msg in app.session.flashBag.get('danger') %}
+                {{ msg }}
+            {% endfor %}
+        </div>
+    {% endif %}
+    <div class="container-fluid">
+
+        <div class="row">
+            <div class="col-lg-16">
+                <div class="card">
+
+                    <div class="card-title">
+
+                        <h4>Les offres des baby-sitters</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+
+
+                            <table  class="table table-hover " cellspacing="0" width="100%">
+                                <thead>
+                                <tr>
+                                    <td></td>
+                                    <td>Babysitter</td>
+                                    <td>Motivation</td>
+                                    <td>Adresse</td>
+                                    <td>Sexe</td>
+                                    <td>Age</td>
+                                    <td>Telephone</td>
+                                    <td>Experience</td>
+                                    <td>Lieu</td>
+                                    <td>Les activités</td>
+                                    <td>Disponibilité</td>
+
+                                    <td></td>
+
+                                    <td></td>
+
+                                </tr>
+
+                                </thead>
+
+        <tbody>
+        {% for i in m %}
+                                    <tr>
+                                      <td>  {% if i.etat!=0 %}
+                                <img  class="img-responsive" width="20px" height="auto" src={{ asset("images/check.png") }}>
+                                            <p style="color: #15731c" ><b>Traité</b></p>
+                                        {% else %}
+                                            <img  class="img-responsive" width="20px" height="auto" src={{ asset("images/no.png") }}>
+
+                                            <p style="color: #ee1718"><b>Non traité</b></p>
+
+                                        {% endif %}<br><br></td>
+
+                                        <td>
+
+                                            <img  class="img-circle" width="50px" height="auto" src={{ asset("ressources/" ~ i.image) }} ><br>Le nom est :{{ i.username }}<br>Il a passé la demande depuis le {{ i.dateProfil|date('m.d.y-g:i') }}</td>
+                                        <td>{{ i.description }}</td>
+                                        <td>{{ i.adresse }}</td>
+                                        <td>{{ i.sexe }}</td>
+                                        <td>{{ i.age }} ans </td>
+                                        <td>{{ i.numtel }}</td>
+                                        <td>{{ i.experience }}</td>
+                                        <td>{{ i.lieu_baby }}</td>
+                                        <td>
+                                            <ul class="multi-column-dropdown">
+
+                                            {% if(i.fumeuse=='1')  %}
+
+                                            <li>Je fume</li>
+
+                                        {% endif %}
+                                        {% if(i.fumeuse!='1')  %}
+
+                                            <li>Je ne fume pas</li>
+
+                                        {% endif %}
+                                        {% if(i.enfant=='1')  %}
+
+                                            <li>Je suis maman</li>
+
+                                        {% endif %}
+                                        {% if(i.enfant!='1')  %}
+
+                                            <li>Je ne suis pas une maman </li>
+
+                                        {% endif %}
+                                        {% if(i.conduite=='1')  %}
+
+                                            <li>Je posséde un permis de conduire</li>
+
+                                        {% endif %}
+                                        {% if(i.conduite!='1')  %}
+
+                                            <li>Je ne posséde pas un permis de conduire</li>
+
+                                        {% endif %}  {% if(i.agregation=='1')  %}
+
+                                            <li>Je suis une assistante maternelle agréée</li>
+
+                                        {% endif %}
+                                        {% if(i.agregation!='1')  %}
+
+                                            <li>Je ne suis pas une assistante maternelle agréée</li>
+
+                                        {% endif %}</ul></td>
+                                        <td>{{ i.dispo }}</td>
+
+
+                                        <!--<td><span class="input-group-btn"><button class="btn btn-primary input-group-close-icon label label-rouded label-warning pull-right"  ><i class="ti-close"></i></button></span></td>-->
+
+
+
+
+                                        <td><form action="{{ path('approuverProfil',{'idOffre':i.idOffre}) }}" method="POST">
+                                                <button   style="background-color: transparent;border-color: transparent" type="submit" ><img width="20px" height="auto" src="{{ asset("images/confirmar.png") }}"></button>
+                                            </form></td>
+                                        <td><form action="{{ path('refuserProfil',{'idOffre':i.idOffre}) }}" method="POST">
+                                                <button  style="background-color: transparent;border-color: transparent" type="submit" ><img width="20px" height="auto" src="{{ asset("images/erro.png") }}"></button>
+                                            </form></td>
+
+                                    </tr> {% endfor %}
+                                    </tbody>
+
+                            </table>
+
+
+
+
+
+
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+    </div>
+
+{% endblock %}

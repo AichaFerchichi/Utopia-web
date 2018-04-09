@@ -16,10 +16,18 @@ class DefaultController extends Controller
     public function accueil1Action()
     {
         return $this->render('FrontBundle:Default:accueil1.html.twig');
+<<<<<<< HEAD
+=======
+
+>>>>>>> 07c9094cc20f883bda0e8ee120102e2e8c83231d
     }
     public function plusAction()
     {
         return $this->render('FrontBundle:Default:plus.html.twig');
+<<<<<<< HEAD
+=======
+
+>>>>>>> 07c9094cc20f883bda0e8ee120102e2e8c83231d
     }
     public function wishlistAction()
     {
@@ -83,6 +91,7 @@ class DefaultController extends Controller
         $this->denyAccessUnlessGranted('ROLE_ADMIN');
         return $this->render('Exemples_Roles/hello-world-admin.html.twig');
     }
+<<<<<<< HEAD
     public function profilAction()
     {
         return $this->render('FrontBundle:Default:createProfile.html.twig');
@@ -101,6 +110,9 @@ class DefaultController extends Controller
         $yo= $em->getRepository("UserBundle:Commandes")->findBy(array('idParent'=>$user));
         return $this->render('FrontBundle:Default:wishlistAlerte.html.twig',array('com'=>$yo));
     }
+=======
+
+>>>>>>> 07c9094cc20f883bda0e8ee120102e2e8c83231d
 
 
 }

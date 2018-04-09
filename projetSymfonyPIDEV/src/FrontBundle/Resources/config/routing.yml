@@ -1,6 +1,33 @@
 front_homepage:
     path:     /
     defaults: { _controller: FrontBundle:Default:accueil1 }
+<<<<<<< HEAD
+=======
+reserver:
+    path:     /reserver/{idbaby}
+    defaults: { _controller: UserBundle:DemandesParent:reserver }
+profilParentA:
+    path:     /profilParent
+    defaults: { _controller: UserBundle:DemandesParent:profilParentA }
+tri:
+    path:     /tri
+    defaults: { _controller: UserBundle:DemandesParent:recherchetri }
+profilReserv:
+    path:     /profilReserv
+    defaults: { _controller: UserBundle:OffresBabysitter:profilReserv }
+accepterReserv:
+    path:     /accepterReserv/{idReserv}
+    defaults: { _controller: UserBundle:DemandesParent:accepterReserv }
+refuserReserv:
+    path:     /refuserReserv/{idReserv}
+    defaults: { _controller: UserBundle:DemandesParent:refuserReserv }
+echec:
+    path:     /echec
+    defaults: { _controller: UserBundle:OffresBabysitter:echec }
+echecDate:
+    path:     /echecDate
+    defaults: { _controller: UserBundle:OffresBabysitter:echecDate }
+>>>>>>> 07c9094cc20f883bda0e8ee120102e2e8c83231d
 layout:
     path:     /layout
     defaults: { _controller: FrontBundle:Default:layout }
@@ -13,12 +40,39 @@ wishlist:
 about:
     path:     /about
     defaults: { _controller: FrontBundle:Default:about }
+quizF:
+    path:     /quizF/{id}
+    defaults: { _controller: UserBundle:Quiz:affichage }
+bravo:
+    path:     /bravo/{id}
+    defaults: { _controller: UserBundle:Quiz:bravo }
+echec:
+    path:     /echec/{id}
+    defaults: { _controller: UserBundle:Quiz:echec }
+DejaJoue:
+    path:     /DejaJoue/{id}
+    defaults: { _controller: UserBundle:Quiz:DejaJoue }
 plus:
     path:     /plus/{id}
     defaults: { _controller: UserBundle:Garderies:plus }
 enseignants:
     path:     /enseignants/{id}
     defaults: { _controller: UserBundle:Enseignants:enseignants }
+activiteFront:
+    path:     /activiteFront/{id}
+    defaults: { _controller: UserBundle:Activite:affichageF }
+etapeF:
+    path:     /etapeF/{id}
+    defaults: { _controller: UserBundle:Etape:affichageF }
+participer:
+    path:     /participer/{idE}/{id}
+    defaults: { _controller: UserBundle:Etape:participer }
+annuler:
+    path:     /annuler/{idE}/{id}
+    defaults: { _controller: UserBundle:Etape:annuler }
+preference:
+    path:     /preference
+    defaults: { _controller: UserBundle:DemandesParent:preference }
 care:
     path:     /care
     defaults: { _controller: UserBundle:Garderies:affichage }
@@ -37,6 +91,12 @@ hold:
 kitchen:
     path:     /kitchen
     defaults: { _controller: FrontBundle:Default:kitchen }
+rechercherProfil:
+    path:     /rechercherProfil
+    defaults: { _controller: UserBundle:OffresBabysitter:rechercherProfil }
+rechercherReserv:
+    path:     /rechercherReserv
+    defaults: { _controller: UserBundle:DemandesParent:rechercherReserv }
 login:
     path:     /login
     defaults: { _controller: FrontBundle:Default:login }
@@ -64,24 +124,38 @@ terms:
 profil:
     path:     /profil
     defaults: { _controller: UserBundle:OffresBabysitter:ajoutOffres }
+inscriEnfant:
+    path:     /inscriEnfant/{id}
+    defaults: { _controller: UserBundle:Enfants:inscrire }
 profilBB:
     path:     /profilBB
     defaults: { _controller: UserBundle:OffresBabysitter:affichage }
 delete:
     path:     /supprimer/{ref1}
     defaults: { _controller: UserBundle:OffresBabysitter:delete }
+supprimerReserv:
+    path:     /supprimerReserv/{refD}
+    defaults: { _controller: UserBundle:DemandesParent:supprimerReserv }
+
 modifier:
     path:     /modifier/{ref2}
     defaults: { _controller: UserBundle:OffresBabysitter:modifier }
 profilParent:
     path:     /profilParent
     defaults: { _controller: UserBundle:OffresBabysitter:profilParent }
+monprofil:
+   path:     /monprofil/{id}
+   defaults: { _controller: UserBundle:OffresBabysitter:monprofil }
 ROLE_USER:
     path:     /fos/user/test
     defaults: { _controller: FrontBundle:Default:testRoleUser }
 ROLE_ADMIN:
     path:     /fos/admin/test
     defaults: { _controller: FrontBundle:Default:testRoleAdmin }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 07c9094cc20f883bda0e8ee120102e2e8c83231d
 Boutique:
     path:     /Boutique
     defaults: { _controller: UserBundle:Produits:affichageProduits }
@@ -94,12 +168,20 @@ nosVetements:
 nosFournitures:
     path:     /nosFournitures
     defaults: { _controller: UserBundle:Produits:nosFournitures }
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+
+=======
+>>>>>>> f3b76d99922d08b50542a2bafefe0c028ef85a15
+>>>>>>> 07c9094cc20f883bda0e8ee120102e2e8c83231d
 ListeCov:
     path:     /ListeCov
     defaults: { _controller: UserBundle:Covoiturage:afficher }
 AjouterCov:
     path:     /AjouterCov
     defaults: { _controller: UserBundle:Covoiturage:ajouter }
+<<<<<<< HEAD
 supprimerLigneCommande:
     path:     /supprimerLigneCommande/{id}
     defaults: { _controller: UserBundle:LigneCommandes:supprimerLigneCommande }
@@ -129,3 +211,27 @@ FormulaireLivraison2:
 wishlistAlerte:
     path:     /wishlistAlerte
     defaults: { _controller: FrontBundle:Default:wishlistAlerte }
+=======
+<<<<<<< HEAD
+
+=======
+my_app_mail_homepage:
+    path: /Mail
+    defaults: { _controller: UserBundle:Mail:index }
+my_app_mail_accuse:
+    path: /success
+    defaults: { _controller: UserBundle:Mail:success }
+clubs:
+    path: /clubs
+    defaults: { _controller: UserBundle:Clubs:afficherClubsFront}
+rechercherClubF:
+    path: /rechercherClubF
+    defaults: { _controller: UserBundle:Clubs:rechercherParNomClub}
+rechercherCombo:
+    path: /rechercherCombo
+    defaults: { _controller: UserBundle:Clubs:rechercherCombo}
+devenirPartenaire:
+    path: /partenaire
+    defaults: { _controller: UserBundle:Clubs:devenirPartenaire}
+>>>>>>> f3b76d99922d08b50542a2bafefe0c028ef85a15
+>>>>>>> 07c9094cc20f883bda0e8ee120102e2e8c83231d

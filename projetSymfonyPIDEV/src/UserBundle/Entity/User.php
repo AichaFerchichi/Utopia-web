@@ -3,6 +3,8 @@
 namespace UserBundle\Entity;
 use FOS\UserBundle\Model\User as FosUser ;
 use Doctrine\ORM\Mapping as ORM;
+use FOS\MessageBundle\Model\ParticipantInterface;
+
 
 /**
  * User
@@ -10,7 +12,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="User")
  * @ORM\Entity(repositoryClass="UserBundle\Repository\UserRepository")
  */
-class User extends FosUser
+class User extends FosUser implements ParticipantInterface
 {
     /**
      * @var int

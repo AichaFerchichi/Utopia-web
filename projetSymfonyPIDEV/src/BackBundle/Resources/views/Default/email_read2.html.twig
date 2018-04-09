@@ -44,13 +44,19 @@
                                                         <li>Garderie:{{ i.idGarderie.getNom() }}</li>
 
                                                         <li>Age:{{ i.age }}</li>
+                                                        <li>Sexe:{{ i.sexe }}</li>
+                                                        <li>Nationalité:{{ i.nationalite }}</li>
 
 
                                                         </td><td>
+                                                        <form action="{{ path('email',{'id':i.getIdEnfant() }) }}" method="post">
+                                                            <button type="submit" class="btn btn-warning m-b-10 m-l-5" style="background-color: #0d71bb;border-color:#0d71bb " value="Modifier" >Contacter Parent</button></form>
+
+
                                                         <form action="{{ path('modifierEnfant',{'id':i.getIdEnfant() }) }}" method="post">
-                                                            <button type="submit" class="btn btn-warning m-b-10 m-l-5"value="Modifier" ><img width="20px" height="auto" src="{{ asset("ressources/modifier.png") }}"></button></form></li>
+                                                            <button type="submit" class="btn btn-warning m-b-10 m-l-5"value="Modifier" ><img width="20px" height="auto" src="{{ asset("ressources/modifier.png") }}"></button></form>
                                                         <form action="{{ path('supprimerEnfant',{'id':i.getIdEnfant() }) }}" method="post"><button type="submit" class="btn btn-danger m-b-10 m-l-5"><img width="20px" height="auto" src="{{ asset("ressources/delete.png") }}"></button></form>
-                                                         </td>
+                                                    </td>
                                                 </tr>
 
                                                 </tbody>

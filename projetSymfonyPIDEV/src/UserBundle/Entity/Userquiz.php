@@ -41,6 +41,54 @@ class Userquiz
      */
     private $idQuiz;
 
+    /**
+     * @return int
+     */
+    public function getIdUserquiz()
+    {
+        return $this->idUserquiz;
+    }
+
+    /**
+     * @param int $idUserquiz
+     */
+    public function setIdUserquiz($idUserquiz)
+    {
+        $this->idUserquiz = $idUserquiz;
+    }
+
+    /**
+     * @return \User
+     */
+    public function getIdUser()
+    {
+        return $this->idUser;
+    }
+
+    /**
+     * @param \User $idUser
+     */
+    public function setIdUser($idUser)
+    {
+        $this->idUser = $idUser;
+    }
+
+    /**
+     * @return \Quiz
+     */
+    public function getIdQuiz()
+    {
+        return $this->idQuiz;
+    }
+
+    /**
+     * @param \Quiz $idQuiz
+     */
+    public function setIdQuiz($idQuiz)
+    {
+        $this->idQuiz = $idQuiz;
+    }
+
 
 }
 

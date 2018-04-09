@@ -44,6 +44,11 @@
       <path value="$PROJECT_DIR$/vendor/friendsofsymfony/user-bundle" />
       <path value="$PROJECT_DIR$/vendor/stefangabos/zebra_curl" />
       <path value="$PROJECT_DIR$/vendor/nomaya/social-bundle" />
+      <path value="$PROJECT_DIR$/vendor/knplabs/knp-snappy-bundle" />
+      <path value="$PROJECT_DIR$/vendor/knplabs/knp-snappy" />
+      <path value="$PROJECT_DIR$/vendor/wkhtmltopdf/include" />
+      <path value="$PROJECT_DIR$/vendor/wkhtmltopdf/lib" />
+      <path value="$PROJECT_DIR$/vendor/wkhtmltopdf/bin" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="5.5.0" />

@@ -23,6 +23,7 @@ class ActiviteType extends AbstractType
 
             ->add('dateDebut',\Symfony\Component\Form\Extension\Core\Type\DateType::class,array('label'=> 'dateDebut','attr'=>array('class'=>' m-b-15 f-s-12  ')))
             ->add('dateFin', \Symfony\Component\Form\Extension\Core\Type\DateType::class,array('label'=> 'dateFin','attr'=>array('class'=>'m-b-15 f-s-12')))
+            ->add('image', FileType::class, array('data_class' => null,'label' => 'insérer une image','attr'=>array('style'=>'color:violet')))
             ->add('Ajouter',SubmitType::class,array('label'=> 'Valider','attr'=>array('class'=>'btn btn-primary')));
 
     }
